@@ -1,3 +1,5 @@
+use chrono::{Duration, Utc};
+use icalendar::{Calendar, Class, Component, Event, Property};
 use structs::{MunicipalityInfo, Province, RawMunicipalityInfo, SuburbInfo};
 
 use crate::structs::GetSuburbDataResult;
@@ -7,7 +9,8 @@ use std::process::Command;
 
 mod structs;
 fn main() {
-    dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
+    // dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
+    create_calendars("".to_string());
 }
 
 fn dl_pdfs(url: String) {
@@ -18,7 +21,16 @@ fn dl_pdfs(url: String) {
     for element in document.select(&link_selector) {
         if let Some(href) = element.value().attr("href") {
             if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
-                println!("Downloading {href}");
+                let fname = element.inner_html().replace(":", "").replace(" ", "");
+                println!(
+                    "Downloading: {:?} {:?}",
+                    element.value().attr("href"),
+                    fname
+                );
+                Command::new("python3")
+                    .args(["parse_pdf.py", href, &fname])
+                    .output()
+                    .expect("Failed to execute command");
             } else {
                 println!(
                     "Cannot parse: {:?} {:?}",
@@ -28,6 +40,18 @@ fn dl_pdfs(url: String) {
             }
         }
     }
+}
+
+fn create_calendars(csv_path: String) {
+    let mut calendar = Calendar::new();
+    let event = Event::new()
+        .summary("test event")
+        .description("here I have something really important to do")
+        .starts(Utc::now())
+        .ends(Utc::now() + Duration::days(1))
+        .done();
+    calendar.push(event);
+    calendar.print().unwrap();
 }
 
 fn _get_all_data() {

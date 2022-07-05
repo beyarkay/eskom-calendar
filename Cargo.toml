@@ -10,3 +10,5 @@ reqwest = { version = "0.11", features = ["blocking", "json"] }
 serde = { version = "1.0", features = ["derive"] }
 scraper = "0.13.0"
 chrono = "0.4.19"
+icalendar = "0.13.0"
+csv = "1.1"
