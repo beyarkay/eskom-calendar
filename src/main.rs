@@ -1,18 +1,68 @@
 use structs::{MunicipalityInfo, Province, RawMunicipalityInfo, SuburbInfo};
-use scraper::Selector;
 
 use crate::structs::GetSuburbDataResult;
 use scraper::Html;
+use scraper::Selector;
+use std::process::Command;
 
 mod structs;
 fn main() {
-    let province = Province::WesternCape;
-    let municipalities = get_municipalities(&province);
-    let municipality = municipalities.first().unwrap();
-    let suburbs = get_suburbs(&municipality);
-    let suburb = suburbs.first().unwrap();
-    let stage = 1;
-    get_schedule(province, &municipality, &suburb, stage);
+    dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
+}
+
+fn dl_pdfs(url: String) {
+    let val = reqwest::blocking::get(url).unwrap();
+    let html = val.text().unwrap();
+    let document = Html::parse_document(&html);
+    let link_selector = Selector::parse("div>div>p>span>a").unwrap();
+    for element in document.select(&link_selector) {
+        if let Some(href) = element.value().attr("href") {
+            if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
+                println!("Downloading {href}");
+            } else {
+                println!(
+                    "Cannot parse: {:?} {:?}",
+                    element.value().attr("href"),
+                    element.inner_html()
+                );
+            }
+        }
+    }
+}
+
+fn _get_all_data() {
+    let provinces = vec![
+        Province::EasternCape,
+        Province::FreeState,
+        Province::Gauteng,
+        Province::KwaZuluNatal,
+        Province::Limpopo,
+        Province::Mpumalanga,
+        Province::NorthWest,
+        Province::NorthernCape,
+        Province::WesternCape,
+    ];
+    for province in provinces {
+        match province {
+            Province::WesternCape => {}
+            _ => {
+                continue;
+            }
+        }
+        println!("{:?}", province);
+        let municipalities = get_municipalities(&province);
+        for municipality in municipalities {
+            println!("- {} {}", municipality.name, municipality.id);
+            let suburbs = get_suburbs(&municipality);
+            for suburb in suburbs {
+                let url = get_schedule(&province, &municipality, &suburb, 6);
+                println!(
+                    "  - {:<30} {:>10} data?: {:>10} url: {url}",
+                    suburb.name, suburb.id, suburb.has_schedule
+                );
+            }
+        }
+    }
 }
 
 fn encode_province(province: &Province) -> u8 {
@@ -58,7 +108,7 @@ fn get_suburbs(mun_info: &MunicipalityInfo) -> Vec<SuburbInfo> {
         mun_info.name
     );
     let val = reqwest::blocking::get(url).unwrap();
-    let suburb_info = val
+    let suburb_infos = val
         .json::<GetSuburbDataResult>()
         .unwrap()
         .Results
@@ -66,27 +116,35 @@ fn get_suburbs(mun_info: &MunicipalityInfo) -> Vec<SuburbInfo> {
         .map(|rsi| rsi.into())
         .collect::<Vec<SuburbInfo>>();
 
-    let suburb_infos = suburb_info
-        .into_iter()
-        .filter(|s| s.has_schedule)
-        .collect::<Vec<SuburbInfo>>();
+    // let suburb_infos = suburb_info
+    //     .into_iter()
+    //     .filter(|s| s.has_schedule)
+    //     .collect::<Vec<SuburbInfo>>();
     // println!("{:#?}", suburb_infos);
     return suburb_infos;
 }
 
-fn get_schedule(province: Province, mun_info: &MunicipalityInfo, sub_info: &SuburbInfo, stage: u8) {
+fn get_schedule(
+    province: &Province,
+    mun_info: &MunicipalityInfo,
+    sub_info: &SuburbInfo,
+    stage: u8,
+) -> String {
     let url = format!(
         "http://loadshedding.eskom.co.za/LoadShedding/GetScheduleM/{suburb_id}/{stage}/{province_id}/1",
         suburb_id=sub_info.id,
         province_id=encode_province(&province)
     );
-    println!(
-        "Getting schedule for province {:?}, mun_info {}, suburb {}, stage {}, `{url}`",
-        province, mun_info.name, sub_info.name, stage
-    );
-    let val = reqwest::blocking::get(url).unwrap();
-    let html = val.text().unwrap();
-    let document = Html::parse_document(&html);
-    let day_div = Selector::parse("div.scheduleDay").unwrap();
-    println!("{:#?}", document);
+    // println!(
+    //     "Province {:?}, mun_info {}, suburb {}, stage {}, `{url}`",
+    //     province, mun_info.name, sub_info.name, stage
+    // );
+    // println!("    {url}");
+    return url;
+    // let val = reqwest::blocking::get(url).unwrap();
+    // let html = val.text().unwrap();
+    // println!("{:?}", html);
+    // let document = Html::parse_document(&html);
+    // let day_div = Selector::parse("div.scheduleDay").unwrap();
+    // println!("{:#?}", document);
 }

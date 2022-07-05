@@ -1,5 +1,6 @@
 use std::fmt::Debug;
 
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug)]
@@ -107,4 +108,31 @@ impl From<RawSuburbInfo> for SuburbInfo {
             has_schedule: raw.Tot > 0,
         }
     }
+}
+
+struct Suburb {
+    /// The ID number
+    pub id: u32,
+    /// The name of the suburb
+    pub name: String,
+    /// If true, then this suburb will have a schedule associated with it
+    pub has_schedule: bool,
+    /// The info about this suburbs municipality
+    pub municipality: MunicipalityInfo,
+}
+
+/// A multitude of load shedding for a particular suburb
+struct Schedule {
+    suburb: Suburb,
+    sheddings: Vec<Shedding>,
+}
+
+/// A single duration of loadshedding that only has one stage.
+pub struct Shedding {
+    /// The time when LoadShedding *should* start
+    start: DateTime<Utc>,
+    /// The time when LoadShedding *should* end
+    finsh: DateTime<Utc>,
+    /// The stage of loadshedding
+    stage: u8,
 }
