@@ -34,8 +34,13 @@ def main():
     # Stack the dataframe to be one *long* Series, with an index 
     # like (start, finish, date)
     df = df.stack()
+    # Convert the index to columns
+    df = df.reset_index()
+    # Give the columns better names
+    df.columns = pd.Index(['start_time', 'finsh_time', 'date_of_month', 'stage'])
+
     # Save to csv
-    df.to_csv(path.replace(".pdf", ".csv"))
+    df.to_csv(path.replace(".pdf", ".csv"), index=False)
     print(df)
 
 if __name__ == "__main__":

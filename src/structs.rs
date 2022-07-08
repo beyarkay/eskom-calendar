@@ -1,6 +1,6 @@
 use std::fmt::Debug;
 
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, FixedOffset};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug)]
@@ -44,10 +44,10 @@ pub struct RawMunicipalityInfo {
 #[derive(Debug)]
 pub struct MunicipalityInfo {
     /// The usage of this is unknown
-    is_disabled: bool,
+    _is_disabled: bool,
     // group: Option<String>,
     /// The usage of this is unknown
-    is_selected: bool,
+    _is_selected: bool,
     /// The name of this municipality
     pub name: String,
     /// The ID of this municipality
@@ -57,9 +57,9 @@ pub struct MunicipalityInfo {
 impl From<RawMunicipalityInfo> for MunicipalityInfo {
     fn from(raw: RawMunicipalityInfo) -> Self {
         MunicipalityInfo {
-            is_disabled: raw.Disabled,
+            _is_disabled: raw.Disabled,
             // group: raw.Group,
-            is_selected: raw.Selected,
+            _is_selected: raw.Selected,
             name: raw.Text,
             id: raw.Value.parse().expect("Couldn't parse raw.Value"),
         }
@@ -91,7 +91,7 @@ pub struct SuburbInfo {
     /// The name of the suburb
     pub name: String,
     /// Not sure what this is
-    total: u32,
+    _total: u32,
     /// If true, then this suburb will have a schedule associated with it
     pub has_schedule: bool,
 }
@@ -104,13 +104,13 @@ impl From<RawSuburbInfo> for SuburbInfo {
         SuburbInfo {
             id: raw.id.parse().expect("Couldn't parse suburb id to u32"),
             name: raw.text,
-            total: raw.Tot,
+            _total: raw.Tot,
             has_schedule: raw.Tot > 0,
         }
     }
 }
 
-struct Suburb {
+struct _Suburb {
     /// The ID number
     pub id: u32,
     /// The name of the suburb
@@ -122,17 +122,72 @@ struct Suburb {
 }
 
 /// A multitude of load shedding for a particular suburb
-struct Schedule {
-    suburb: Suburb,
-    sheddings: Vec<Shedding>,
+struct _Schedule {
+    suburb: _Suburb,
+    sheddings: Vec<_Shedding>,
 }
 
 /// A single duration of loadshedding that only has one stage.
-pub struct Shedding {
+pub struct _Shedding {
     /// The time when LoadShedding *should* start
-    start: DateTime<Utc>,
+    start: DateTime<FixedOffset>,
     /// The time when LoadShedding *should* end
-    finsh: DateTime<Utc>,
+    finsh: DateTime<FixedOffset>,
     /// The stage of loadshedding
     stage: u8,
+}
+
+/// A loadshedding event that repeats on the same day every month
+#[derive(Deserialize, Debug)]
+pub struct RawMonthlyShedding {
+    /// The time when LoadShedding *should* start.
+    start_time: String,
+    /// The time when LoadShedding *should* finish (note the spelling).
+    finsh_time: String,
+    /// The stage of loadshedding.
+    stage: u8,
+    /// The date of the month which this event occurs on
+    date_of_month: u8,
+}
+/// A loadshedding event that repeats on the same day every month
+#[derive(Debug)]
+pub struct MonthlyShedding {
+    /// The time when LoadShedding *should* start. The date of this member will always be 1 Jan
+    /// 1970.
+    pub start_time: DateTime<FixedOffset>,
+    /// The time when LoadShedding *should* finish (note the spelling). The date of this member
+    /// will always be 1 Jan 1970, unless the loadshedding is from 22h00 to 00h30 in which case the
+    /// finish date will be 2 Jan 1970.
+    pub finsh_time: DateTime<FixedOffset>,
+    /// The stage of loadshedding.
+    pub stage: u8,
+    /// The date of the month which this event occurs on
+    pub date_of_month: u8,
+    /// true iff start time is 22:00 and finsh time is 00:30
+    pub goes_over_midnight: bool,
+}
+
+impl From<RawMonthlyShedding> for MonthlyShedding {
+    fn from(raw: RawMonthlyShedding) -> Self {
+        let date = if raw.start_time == "22:00" && raw.finsh_time == "00:30" {
+            "01"
+        } else {
+            "02"
+        };
+        MonthlyShedding {
+            start_time: DateTime::parse_from_rfc3339(&format!(
+                "1970-01-01T{}:00+02:00",
+                raw.start_time
+            ))
+            .unwrap(),
+            finsh_time: DateTime::parse_from_rfc3339(&format!(
+                "1970-01-{date}T{}:00+02:00",
+                raw.finsh_time
+            ))
+            .unwrap(),
+            stage: raw.stage,
+            date_of_month: raw.date_of_month,
+            goes_over_midnight: raw.start_time == "22:00" && raw.finsh_time == "00:30",
+        }
+    }
 }

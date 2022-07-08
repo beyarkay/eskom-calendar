@@ -1,5 +1,8 @@
-use chrono::{Duration, Utc};
-use icalendar::{Calendar, Class, Component, Event, Property};
+use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
+use icalendar::{Calendar, CalendarDateTime, Component, Event};
+use std::fs::File;
+use std::io::Write;
+use structs::{MonthlyShedding, RawMonthlyShedding};
 use structs::{MunicipalityInfo, Province, RawMunicipalityInfo, SuburbInfo};
 
 use crate::structs::GetSuburbDataResult;
@@ -9,11 +12,12 @@ use std::process::Command;
 
 mod structs;
 fn main() {
-    // dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
-    create_calendars("".to_string());
+    dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
+    create_calendar("pdfs/Beaufort-West.csv".to_string());
 }
 
 fn dl_pdfs(url: String) {
+    eprintln!("Getting urls");
     let val = reqwest::blocking::get(url).unwrap();
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
@@ -22,36 +26,113 @@ fn dl_pdfs(url: String) {
         if let Some(href) = element.value().attr("href") {
             if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
                 let fname = element.inner_html().replace(":", "").replace(" ", "");
-                println!(
-                    "Downloading: {:?} {:?}",
-                    element.value().attr("href"),
-                    fname
-                );
+                eprintln!("$ python3 parse_pdf.py {href} {fname}");
                 Command::new("python3")
-                    .args(["parse_pdf.py", href, &fname])
+                    .args(["parse_pdf.py", href, fname.as_str()])
                     .output()
                     .expect("Failed to execute command");
             } else {
-                println!(
+                eprintln!(
                     "Cannot parse: {:?} {:?}",
                     element.value().attr("href"),
                     element.inner_html()
                 );
             }
         }
+        break;
     }
 }
 
-fn create_calendars(csv_path: String) {
+/// Create a single loadshedding calendar given one area's csv data
+fn create_calendar(csv_path: String) {
+    let mut rdr = csv::Reader::from_path(csv_path.clone()).unwrap();
+    let mut events: Vec<MonthlyShedding> = vec![];
     let mut calendar = Calendar::new();
-    let event = Event::new()
-        .summary("test event")
-        .description("here I have something really important to do")
-        .starts(Utc::now())
-        .ends(Utc::now() + Duration::days(1))
-        .done();
-    calendar.push(event);
-    calendar.print().unwrap();
+    for result in rdr.deserialize::<RawMonthlyShedding>() {
+        let shedding: MonthlyShedding = result.unwrap().into();
+        // Each load shedding stage also implies load shedding for all stages less than it.
+        for stage in 1..=shedding.stage {
+            events.push(MonthlyShedding {
+                start_time: shedding.start_time.clone(),
+                finsh_time: shedding.finsh_time.clone(),
+                stage,
+                date_of_month: shedding.date_of_month,
+                goes_over_midnight: shedding.goes_over_midnight,
+            });
+        }
+    }
+    for event in events.into_iter().take(5) {
+        let curr_year = Utc::now().year();
+        let curr_month = Utc::now().date();
+        // Get the number of days in the month by comparing this month's first to the next month's first
+        let days_in_month = if curr_month.month() == 12 {
+            NaiveDate::from_ymd(curr_year + 1, 1, 1)
+        } else {
+            NaiveDate::from_ymd(curr_year, curr_month.month() + 1, 1)
+        }
+        .signed_duration_since(NaiveDate::from_ymd(curr_year, curr_month.month(), 1))
+        .num_days() as u8;
+        // Don't create events on the 31st of February
+        if event.date_of_month > days_in_month {
+            continue;
+        }
+        let start_dt = DateTime::parse_from_rfc3339(
+            format!(
+                "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
+                year = curr_year,
+                month = curr_month.month(),
+                date = event.date_of_month,
+                hour = event.start_time.hour(),
+                minute = event.start_time.minute(),
+            )
+            .as_str(),
+        )
+        .unwrap();
+        eprintln!("{}", start_dt);
+
+        let mut end_dt = DateTime::parse_from_rfc3339(
+            format!(
+                "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
+                year = curr_year,
+                month = curr_month.month(),
+                date = event.date_of_month,
+                hour = event.finsh_time.hour(),
+                minute = event.finsh_time.minute(),
+            )
+            .as_str(),
+        )
+        .unwrap();
+
+        // If the event is from 22:00 to 00:30, then add one day to the end date
+        if event.goes_over_midnight {
+            end_dt = end_dt + Duration::days(1);
+        }
+
+        eprintln!(
+            "naive: {}, tz: {}",
+            start_dt.naive_local(),
+            start_dt.timezone().to_string()
+        );
+        let summary = format!("Stage {} Loadshedding", event.stage);
+        let description = format!("From {csv_path}");
+        eprintln!(
+            "Adding event: {summary} ({description}) \n  from {start_dt:?}\n  to   {end_dt:?}"
+        );
+        let evt = Event::new()
+            .summary(summary.as_str())
+            .description(description.as_str())
+            .starts(start_dt.with_timezone(&Utc))
+            .ends(end_dt.with_timezone(&Utc))
+            .done();
+
+        calendar.push(evt);
+    }
+
+    let fname = csv_path.replace("csv", "ics");
+    let mut file = File::create(fname.as_str()).unwrap();
+
+    writeln!(&mut file, "{}", calendar).unwrap();
+    eprintln!("Saved calendar as {fname}")
 }
 
 fn _get_all_data() {
@@ -73,14 +154,14 @@ fn _get_all_data() {
                 continue;
             }
         }
-        println!("{:?}", province);
-        let municipalities = get_municipalities(&province);
+        eprintln!("{:?}", province);
+        let municipalities = _get_municipalities(&province);
         for municipality in municipalities {
-            println!("- {} {}", municipality.name, municipality.id);
-            let suburbs = get_suburbs(&municipality);
+            eprintln!("- {} {}", municipality.name, municipality.id);
+            let suburbs = _get_suburbs(&municipality);
             for suburb in suburbs {
-                let url = get_schedule(&province, &municipality, &suburb, 6);
-                println!(
+                let url = _get_schedule(&province, &municipality, &suburb, 6);
+                eprintln!(
                     "  - {:<30} {:>10} data?: {:>10} url: {url}",
                     suburb.name, suburb.id, suburb.has_schedule
                 );
@@ -89,7 +170,7 @@ fn _get_all_data() {
     }
 }
 
-fn encode_province(province: &Province) -> u8 {
+fn _encode_province(province: &Province) -> u8 {
     match province {
         Province::EasternCape => 1,
         Province::FreeState => 2,
@@ -103,12 +184,12 @@ fn encode_province(province: &Province) -> u8 {
     }
 }
 
-fn get_municipalities(province: &Province) -> Vec<MunicipalityInfo> {
-    let encoded_province = encode_province(&province);
+fn _get_municipalities(province: &Province) -> Vec<MunicipalityInfo> {
+    let encoded_province = _encode_province(&province);
     let url = format!(
         "https://loadshedding.eskom.co.za/LoadShedding/GetMunicipalities/?Id={encoded_province}"
     );
-    println!("Getting municipalities via `{}`", url);
+    eprintln!("Getting municipalities via `{}`", url);
     let val = reqwest::blocking::get(url).unwrap();
     let mun_info = val
         .json::<Vec<RawMunicipalityInfo>>()
@@ -120,14 +201,14 @@ fn get_municipalities(province: &Province) -> Vec<MunicipalityInfo> {
     return mun_info;
 }
 
-fn get_suburbs(mun_info: &MunicipalityInfo) -> Vec<SuburbInfo> {
+fn _get_suburbs(mun_info: &MunicipalityInfo) -> Vec<SuburbInfo> {
     let municipality_id = mun_info.id;
     // TODO: is there any issue with just giving a really big page size
     let page_size = 1000;
     let url = format!(
         "http://loadshedding.eskom.co.za/LoadShedding/GetSurburbData/?pageSize={page_size}&pageNum=1&id={municipality_id}"
     );
-    println!(
+    eprintln!(
         "Getting suburbs for municipality {} via `{url}`",
         mun_info.name
     );
@@ -148,16 +229,16 @@ fn get_suburbs(mun_info: &MunicipalityInfo) -> Vec<SuburbInfo> {
     return suburb_infos;
 }
 
-fn get_schedule(
+fn _get_schedule(
     province: &Province,
-    mun_info: &MunicipalityInfo,
+    _mun_info: &MunicipalityInfo,
     sub_info: &SuburbInfo,
     stage: u8,
 ) -> String {
     let url = format!(
         "http://loadshedding.eskom.co.za/LoadShedding/GetScheduleM/{suburb_id}/{stage}/{province_id}/1",
         suburb_id=sub_info.id,
-        province_id=encode_province(&province)
+        province_id=_encode_province(&province)
     );
     // println!(
     //     "Province {:?}, mun_info {}, suburb {}, stage {}, `{url}`",
