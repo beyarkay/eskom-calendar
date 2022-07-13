@@ -16,7 +16,7 @@ jobs:
       with:
         requirements: requirements.txt
     - name: Run
-      run: cargo run
+      run: cargo run 5
     - uses: meeDamian/github-release@v2.0.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
