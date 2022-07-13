@@ -34,7 +34,6 @@ fn main() {
         })
         .collect::<Vec<PathBuf>>();
 
-    // TODO Get the manually input loadshedding schedules
     let mis: ManuallyInputSchedule = serde_yaml::from_str::<RawManuallyInputSchedule>(
         read_to_string("manually_specified.yaml").unwrap().as_str(),
     )
@@ -44,10 +43,8 @@ fn main() {
     // Convert the csv files to ics files, taking the intersection of the load shedding events and
     // the manually input loadshedding schedules
     for path in csv_paths {
-        // if path.to_str().unwrap() == "generated/Stellenbosch.csv" {
         eprintln!("Creating calendar from {:?}", path);
         create_calendar(path.to_str().unwrap().to_string(), &mis);
-        // }
     }
 }
 
@@ -92,13 +89,11 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let mut calendar = Calendar::new();
     for result in rdr.deserialize::<RawMonthlyShedding>() {
         let shedding: MonthlyShedding = result.unwrap().into();
-        // Each load shedding stage also implies load shedding for all stages greater than it.
         if shedding.stage == 0 {
             continue;
         }
+        // Each load shedding stage also implies load shedding for all stages greater than it.
         for stage in shedding.stage..=8 {
-            // eprintln!("Adding loadshedding stage {} on {} from {} to {}",
-            //           stage, shedding.date_of_month,shedding.start_time, shedding.finsh_time);
             events.push(MonthlyShedding {
                 start_time: shedding.start_time.clone(),
                 finsh_time: shedding.finsh_time.clone(),
@@ -184,7 +179,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         }
     }
 
-    let fname = csv_path.replace("csv", "ics");
+    let fname = csv_path.replace("csv", "ics").replace("generated", "calendars");
     let mut file = File::create(fname.as_str()).unwrap();
 
     writeln!(&mut file, "{}", calendar).unwrap();
