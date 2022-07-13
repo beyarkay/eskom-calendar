@@ -7,7 +7,7 @@ To get your load shedding schedule in your calendar you should go to the
 [latest release](https://github.com/beyarkay/eskom-calendar/releases) and
 follow the instructions there.
 
-![screenshot of eskom calendar in action](imgs/screenshot.pngg)
+![screenshot of eskom calendar in action](imgs/screenshot.png)
 
 ## Similar apps
 In the author's opinion, eskom-calendar is better than apps like EskomSePush,
