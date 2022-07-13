@@ -2,6 +2,7 @@ use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
 use icalendar::{Calendar, Component, Event};
 use serde_yaml;
 use std::fs::{read_dir, read_to_string, File};
+use std::env;
 use std::io::Write;
 use std::path::PathBuf;
 use structs::{
@@ -17,7 +18,16 @@ use std::process::Command;
 mod structs;
 fn main() {
     // Download all the pdfs from the internet
-    dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
+    let args: Vec<String> = env::args().collect();
+    let limit = if args.get(1).is_some() {
+        Some(args[1].parse().expect("Failed to parse env::args()[0]"))
+    } else {
+        None
+    };
+    dl_pdfs(
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string(),
+        limit
+    );
 
     // Get the paths of the csv files generated
     let csv_paths = read_dir("generated/")
@@ -51,14 +61,15 @@ fn main() {
 
 /// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
 /// convert them via a python script to csv file containing load shedding schedules.
-fn dl_pdfs(url: String) {
+fn dl_pdfs(url: String, limit: Option<usize>) {
     eprintln!("Getting links");
     let val = reqwest::blocking::get(url).unwrap();
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
     let link_selector = Selector::parse("div>div>p>span>a").unwrap();
-    eprintln!("Parsing {} links", document.select(&link_selector).count());
-    for element in document.select(&link_selector) {
+    let limit = limit.unwrap_or(document.select(&link_selector).count());
+    eprintln!("Parsing {} links", limit);
+    for element in document.select(&link_selector).take(limit) {
         // If the href exists and starts with eskom.co.za/..../uploads then download and parse it
         // via python
         if let Some(href) = element.value().attr("href") {
@@ -174,7 +185,9 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         }
     }
 
-    let fname = csv_path.replace("csv", "ics").replace("generated", "calendars");
+    let fname = csv_path
+        .replace("csv", "ics")
+        .replace("generated", "calendars");
     let mut file = File::create(fname.as_str()).unwrap();
 
     writeln!(&mut file, "{}", calendar).unwrap();
