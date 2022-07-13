@@ -1,7 +1,8 @@
 use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
 use icalendar::{Calendar, Component, Event};
-use std::fs::File;
+use std::fs::{read_dir, File};
 use std::io::Write;
+use std::path::PathBuf;
 use structs::{MonthlyShedding, RawMonthlyShedding};
 use structs::{MunicipalityInfo, Province, RawMunicipalityInfo, SuburbInfo};
 
@@ -12,8 +13,32 @@ use std::process::Command;
 
 mod structs;
 fn main() {
-    dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
-    create_calendar("generated/Beaufort-West.csv".to_string());
+    // Download all the pdfs from the internet
+    // dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
+
+    // Get the paths of the csv files generated
+    let csv_paths = read_dir("generated/")
+        .unwrap()
+        .filter_map(|f| {
+            if let Ok(entry) = f {
+                if let Some(extension) = entry.path().extension() {
+                    if extension == "csv" {
+                        return Some(entry.path());
+                    }
+                }
+            }
+            None
+        })
+        .collect::<Vec<PathBuf>>();
+
+    // TODO Get the manually input loadshedding schedules
+
+    // Convert the csv files to ics files, taking the intersection of the load shedding events and
+    // the manually input loadshedding schedules
+    for path in csv_paths {
+        eprintln!("Creating calendar from {:?}", path);
+        create_calendar(path.to_str().unwrap().to_string(), None);
+    }
 }
 
 /// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
@@ -32,10 +57,13 @@ fn dl_pdfs(url: String) {
             if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
                 let fname = element.inner_html().replace(":", "").replace(" ", "");
                 eprintln!("$ python3 parse_pdf.py {href:<90} {fname:<20}");
-                Command::new("python3")
+                let res = Command::new("python3")
                     .args(["parse_pdf.py", href, fname.as_str()])
                     .output()
                     .expect("Failed to execute command");
+                if !res.status.success() {
+                    eprintln!("stdout: {:?}\nstderr:{:?}", res.stdout, res.stderr);
+                }
             } else {
                 eprintln!(
                     "Cannot parse: {:?} {:?}",
@@ -48,7 +76,7 @@ fn dl_pdfs(url: String) {
 }
 
 /// Create a single loadshedding calendar given one area's csv data
-fn create_calendar(csv_path: String) {
+fn create_calendar(csv_path: String, filter: Option<Calendar>) {
     let mut rdr = csv::Reader::from_path(csv_path.clone()).unwrap();
     let mut events: Vec<MonthlyShedding> = vec![];
     let mut calendar = Calendar::new();
@@ -65,7 +93,7 @@ fn create_calendar(csv_path: String) {
             });
         }
     }
-    for event in events.into_iter().take(5) {
+    for event in events.into_iter() {
         let curr_year = Utc::now().year();
         let curr_month = Utc::now().date();
         // Get the number of days in the month by comparing this month's first to the next month's first
@@ -92,7 +120,6 @@ fn create_calendar(csv_path: String) {
             .as_str(),
         )
         .unwrap();
-        eprintln!("{}", start_dt);
 
         let mut end_dt = DateTime::parse_from_rfc3339(
             format!(
@@ -112,16 +139,8 @@ fn create_calendar(csv_path: String) {
             end_dt = end_dt + Duration::days(1);
         }
 
-        eprintln!(
-            "naive: {}, tz: {}",
-            start_dt.naive_local(),
-            start_dt.timezone().to_string()
-        );
         let summary = format!("Stage {} Loadshedding", event.stage);
         let description = format!("From {csv_path}");
-        eprintln!(
-            "Adding event: {summary} ({description}) \n  from {start_dt:?}\n  to   {end_dt:?}"
-        );
         let evt = Event::new()
             .summary(summary.as_str())
             .description(description.as_str())
@@ -136,7 +155,6 @@ fn create_calendar(csv_path: String) {
     let mut file = File::create(fname.as_str()).unwrap();
 
     writeln!(&mut file, "{}", calendar).unwrap();
-    eprintln!("Saved calendar as {fname}")
 }
 
 fn _get_all_data() {
