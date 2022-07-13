@@ -1,11 +1,11 @@
 name: Build Calendars
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#     paths:
-#       - 'manually_specified.yaml'
-on: workflow_dispatch
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'manually_specified.yaml'
+# on: workflow_dispatch
 
 jobs:
   build-calendars:
@@ -16,7 +16,7 @@ jobs:
       with:
         requirements: requirements.txt
     - name: Run
-      run: cargo run 5
+      run: cargo run
     - uses: meeDamian/github-release@v2.0.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -32,8 +32,8 @@ jobs:
 
           4. Open your calendar app (Google Calendar, Outlook, Apple Calendar, etc)
 
-          5. Paste the calendar link in your app's `subscribe to calendar`
-          option.
+          5. Paste the calendar link in your app's `subscribe to calendar` option.
+
 
           That's it! Now you've got loadshedding warning in your calendar that
           tell you if the power will be off or not. This is better than apps
@@ -41,6 +41,7 @@ jobs:
           area's loadshedding schedule. 
 
           You'll only be notified if 
+
 
           1. there's national loadshedding announced by Eskom and 
 
