@@ -1,0 +1,61 @@
+changes:
+  - stage: 1
+    start: 2022-07-18T05:00:00
+    finsh: 2022-07-18T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+  - stage: 2
+    start: 2022-07-18T16:00:00
+    finsh: 2022-07-18T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+
+  - stage: 2
+    start: 2022-07-17T16:00:00
+    finsh: 2022-07-17T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+
+  - stage: 1
+    start: 2022-07-16T00:00:00
+    finsh: 2022-07-16T07:00:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+  - stage: 2
+    start: 2022-07-16T07:00:00
+    finsh: 2022-07-16T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+  - stage: 3
+    start: 2022-07-16T16:00:00
+    finsh: 2022-07-16T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+
+  - stage: 2
+    start: 2022-07-15T00:00:00
+    finsh: 2022-07-15T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+  - stage: 3
+    start: 2022-07-15T05:00:00
+    finsh: 2022-07-15T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+
+  - stage: 1
+    start: 2022-07-14T00:00:00
+    finsh: 2022-07-14T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+  - stage: 3
+    start: 2022-07-14T05:00:00
+    finsh: 2022-07-14T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+  - stage: 4
+    start: 2022-07-14T16:00:00
+    finsh: 2022-07-14T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+
+  - stage: 3
+    start: 2022-07-13T05:00:00
+    finsh: 2022-07-13T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
+
+
+historical_changes:
+  - stage: 4
+    start: 2022-07-07T16:00:00
+    finsh: 2022-07-07T23:59:00
+    source: https://twitter.com/Eskom_SA

@@ -97,10 +97,6 @@ pub struct SuburbInfo {
 }
 impl From<RawSuburbInfo> for SuburbInfo {
     fn from(raw: RawSuburbInfo) -> Self {
-        // let mut chars = raw.id.chars();
-        // chars.next();
-        // chars.next_back();
-        // let id = chars.as_str();
         SuburbInfo {
             id: raw.id.parse().expect("Couldn't parse suburb id to u32"),
             name: raw.text,
@@ -110,31 +106,69 @@ impl From<RawSuburbInfo> for SuburbInfo {
     }
 }
 
-struct _Suburb {
-    /// The ID number
-    pub id: u32,
-    /// The name of the suburb
-    pub name: String,
-    /// If true, then this suburb will have a schedule associated with it
-    pub has_schedule: bool,
-    /// The info about this suburbs municipality
-    pub municipality: MunicipalityInfo,
-}
-
 /// A multitude of load shedding for a particular suburb
-struct _Schedule {
-    suburb: _Suburb,
-    sheddings: Vec<_Shedding>,
+pub struct ManuallyInputSchedule {
+    /// LoadShedding changes, usually in the future (but not always)
+    pub changes: Vec<Shedding>,
+    /// LoadShedding changes, always in the past
+    pub historical_changes: Vec<Shedding>,
 }
 
 /// A single duration of loadshedding that only has one stage.
-pub struct _Shedding {
+pub struct Shedding {
     /// The time when LoadShedding *should* start
-    start: DateTime<FixedOffset>,
+    pub start: DateTime<FixedOffset>,
     /// The time when LoadShedding *should* end
-    finsh: DateTime<FixedOffset>,
+    pub finsh: DateTime<FixedOffset>,
+    /// The stage of loadshedding
+    pub stage: u8,
+    /// The source of information for this loadshedding event
+    pub source: String,
+}
+
+/// A multitude of load shedding for a particular suburb
+#[derive(Serialize, Deserialize)]
+pub struct RawManuallyInputSchedule {
+    /// LoadShedding changes, usually in the future (but not always)
+    changes: Vec<RawShedding>,
+    /// LoadShedding changes, always in the past
+    historical_changes: Vec<RawShedding>,
+}
+
+/// A single duration of loadshedding that only has one stage.
+#[derive(Serialize, Deserialize)]
+pub struct RawShedding {
+    /// The time when LoadShedding *should* start
+    start: String,
+    /// The time when LoadShedding *should* end
+    finsh: String,
     /// The stage of loadshedding
     stage: u8,
+    /// The source of information for this loadshedding event
+    source: String,
+}
+
+impl From<RawManuallyInputSchedule> for ManuallyInputSchedule {
+    fn from(raw: RawManuallyInputSchedule) -> Self {
+        ManuallyInputSchedule {
+            changes: raw.changes.into_iter().map(|r| r.into()).collect(),
+            historical_changes: raw
+                .historical_changes
+                .into_iter()
+                .map(|r| r.into())
+                .collect(),
+        }
+    }
+}
+impl From<RawShedding> for Shedding {
+    fn from(raw: RawShedding) -> Self {
+        Shedding {
+            start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).unwrap(),
+            finsh: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.finsh)).unwrap(),
+            stage: raw.stage,
+            source: raw.source,
+        }
+    }
 }
 
 /// A loadshedding event that repeats on the same day every month
