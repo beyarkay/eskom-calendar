@@ -81,7 +81,11 @@ fn dl_pdfs(url: String, limit: Option<usize>) {
                     .output()
                     .expect("Failed to execute command");
                 if !res.status.success() {
-                    eprintln!("stdout: {:?}\nstderr:{:?}", res.stdout, res.stderr);
+                    eprintln!(
+                        "stdout: {:?}\nstderr:{:?}",
+                        String::from_utf8_lossy(&res.stdout),
+                        String::from_utf8_lossy(&res.stderr)
+                    );
                 }
             } else {
                 eprintln!(
