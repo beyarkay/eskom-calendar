@@ -1,10 +1,11 @@
 name: Build Calendars
 
-on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - 'manually_specified.yaml'
+# on:
+#   push:
+#     branches: [ "main" ]
+#     paths:
+#       - 'manually_specified.yaml'
+on: workflow_dispatch
 
 jobs:
   build-calendars:
