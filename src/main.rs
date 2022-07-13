@@ -17,7 +17,7 @@ use std::process::Command;
 mod structs;
 fn main() {
     // Download all the pdfs from the internet
-    // dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
+    dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
 
     // Get the paths of the csv files generated
     let csv_paths = read_dir("generated/")
@@ -42,6 +42,7 @@ fn main() {
 
     // Convert the csv files to ics files, taking the intersection of the load shedding events and
     // the manually input loadshedding schedules
+    eprintln!("Creating {} calendars", csv_paths.len());
     for path in csv_paths {
         eprintln!("Creating calendar from {:?}", path);
         create_calendar(path.to_str().unwrap().to_string(), &mis);
