@@ -9,7 +9,7 @@ def main():
         print("Usage: `python3 parse_pdf.py <URL_TO_PDF> <PDF_NAME>")
         exit(1)
     # Get the path where the pdf file is
-    path = f'pdfs/{sys.argv[2]}.pdf'
+    path = f'generated/{sys.argv[2]}.pdf'
     url = sys.argv[1]
     r = requests.get(url, stream=True)
 

@@ -1,5 +1,5 @@
 use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
-use icalendar::{Calendar, CalendarDateTime, Component, Event};
+use icalendar::{Calendar, Component, Event};
 use std::fs::File;
 use std::io::Write;
 use structs::{MonthlyShedding, RawMonthlyShedding};
@@ -13,20 +13,25 @@ use std::process::Command;
 mod structs;
 fn main() {
     dl_pdfs("https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string());
-    create_calendar("pdfs/Beaufort-West.csv".to_string());
+    create_calendar("generated/Beaufort-West.csv".to_string());
 }
 
+/// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
+/// convert them via a python script to csv file containing load shedding schedules.
 fn dl_pdfs(url: String) {
-    eprintln!("Getting urls");
+    eprintln!("Getting links");
     let val = reqwest::blocking::get(url).unwrap();
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
     let link_selector = Selector::parse("div>div>p>span>a").unwrap();
+    eprintln!("Parsing {} links", document.select(&link_selector).count());
     for element in document.select(&link_selector) {
+        // If the href exists and starts with eskom.co.za/..../uploads then download and parse it
+        // via python
         if let Some(href) = element.value().attr("href") {
             if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
                 let fname = element.inner_html().replace(":", "").replace(" ", "");
-                eprintln!("$ python3 parse_pdf.py {href} {fname}");
+                eprintln!("$ python3 parse_pdf.py {href:<90} {fname:<20}");
                 Command::new("python3")
                     .args(["parse_pdf.py", href, fname.as_str()])
                     .output()
@@ -39,7 +44,6 @@ fn dl_pdfs(url: String) {
                 );
             }
         }
-        break;
     }
 }
 
