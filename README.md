@@ -1,4 +1,4 @@
-# Eskom Calendar 🔌 🦀
+# Eskom Calendar 🔌 ⚡️
 
 Sick and tired of complicated load shedding schedules? This project creates
 up-to-date calendars that show you when load shedding is in your area.
@@ -7,6 +7,7 @@ To get your load shedding schedule in your calendar you should go to the
 [latest release](https://github.com/beyarkay/eskom-calendar/releases) and
 follow the instructions there.
 
+![imgs/screenshot.png](screenshot of eskom calendar in action)
 
 ## Similar apps
 In the author's opinion, eskom-calendar is better than apps like EskomSePush,
