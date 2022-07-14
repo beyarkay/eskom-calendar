@@ -24,10 +24,20 @@ fn main() {
     } else {
         None
     };
-    dl_pdfs(
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/".to_string(),
-        limit
-    );
+    let source_urls = vec![
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/gauteng/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/free-state/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/limpopo/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/mpumalanga/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/north-west/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/northern-cape/",
+    ];
+
+    for url in source_urls {
+        dl_pdfs(url, limit);
+    }
 
     // Get the paths of the csv files generated
     let csv_paths = read_dir("generated/")
@@ -61,23 +71,30 @@ fn main() {
 
 /// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
 /// convert them via a python script to csv file containing load shedding schedules.
-fn dl_pdfs(url: String, limit: Option<usize>) {
-    eprintln!("Getting links");
+fn dl_pdfs(url: &str, limit: Option<usize>) {
+    eprintln!("Getting links from {url}");
     let val = reqwest::blocking::get(url).unwrap();
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
     let link_selector = Selector::parse("div>div>p>span>a").unwrap();
     let limit = limit.unwrap_or(document.select(&link_selector).count());
     eprintln!("Parsing {} links", limit);
-    for element in document.select(&link_selector).take(limit) {
+    let mut pdfs_scraped = 0;
+    for element in document.select(&link_selector) {
+        if pdfs_scraped >= limit {
+            eprintln!("Reached limit of {limit}, stopping scraping");
+            break;
+        }
         // If the href exists and starts with eskom.co.za/..../uploads then download and parse it
         // via python
         if let Some(href) = element.value().attr("href") {
             if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
                 let fname = element.inner_html().replace(":", "").replace(" ", "");
-                eprintln!("$ python3 parse_pdf.py {href:<90} {fname:<20}");
+                let province = url.split("/").collect::<Vec<_>>()[7];
+                let savename = format!("{province}-{fname}").to_lowercase();
+                eprintln!("$ python3 parse_pdf.py {href:<90} {savename:<20}");
                 let res = Command::new("python3")
-                    .args(["parse_pdf.py", href, fname.as_str()])
+                    .args(["parse_pdf.py", href, &savename])
                     .output()
                     .expect("Failed to execute command");
                 if !res.status.success() {
@@ -87,6 +104,7 @@ fn dl_pdfs(url: String, limit: Option<usize>) {
                         String::from_utf8_lossy(&res.stderr)
                     );
                 }
+                pdfs_scraped += 1;
             } else {
                 eprintln!(
                     "Cannot parse: {:?} {:?}",

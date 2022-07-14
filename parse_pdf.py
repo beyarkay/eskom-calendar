@@ -6,9 +6,9 @@ import requests
 def main():
     # Check that the usage is correct
     if len(sys.argv) != 3:
-        print("Usage: `python3 parse_pdf.py <URL_TO_PDF> <PDF_NAME>")
+        print("Usage: `python3 parse_pdf.py <URL_TO_PDF> <WRITE_FILE_TO_HERE>")
         exit(1)
-    # Get the path where the pdf file is
+    # Get the path which the pdf should be saved to
     path = f'generated/{sys.argv[2]}.pdf'
     url = sys.argv[1]
     r = requests.get(url, stream=True)
