@@ -41,7 +41,7 @@ def main():
 
     # Save to csv
     df.to_csv(path.replace(".pdf", ".csv"), index=False)
-    print(df)
+    print("Saved to " + path.replace(".pdf", ".csv"))
 
 if __name__ == "__main__":
     main()
