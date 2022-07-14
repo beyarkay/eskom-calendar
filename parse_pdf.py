@@ -20,6 +20,9 @@ def main():
     pdf = tabula.read_pdf(path, pages=1)[0]
     # Drop the last few rows, they don't have anything but NaNs
     pdf.drop(range(13, 41), inplace=True)
+    # Fix a bug that only occurs on the Kirkwood pdf
+    if url == "https://www.eskom.co.za/distribution/wp-content/uploads/2021/06/Kirkwood.pdf":
+        pdf.loc[6, "Unnamed: 1"] = "10:00"
     # Create an empty dataframe
     df = pd.DataFrame()
     # Extract the start and finish times from the pdf
