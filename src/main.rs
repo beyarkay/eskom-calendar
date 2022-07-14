@@ -1,8 +1,8 @@
 use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
 use icalendar::{Calendar, Component, Event};
 use serde_yaml;
-use std::fs::{read_dir, read_to_string, File};
 use std::env;
+use std::fs::{read_dir, read_to_string, File};
 use std::io::Write;
 use std::path::PathBuf;
 use structs::{
@@ -41,7 +41,7 @@ fn main() {
 
     // Get the paths of the csv files generated
     let csv_paths = read_dir("generated/")
-        .unwrap()
+        .expect("Failed to read_dir(\"generated/\")")
         .filter_map(|f| {
             if let Ok(entry) = f {
                 if let Some(extension) = entry.path().extension() {
@@ -55,9 +55,11 @@ fn main() {
         .collect::<Vec<PathBuf>>();
 
     let mis: ManuallyInputSchedule = serde_yaml::from_str::<RawManuallyInputSchedule>(
-        read_to_string("manually_specified.yaml").unwrap().as_str(),
+        read_to_string("manually_specified.yaml")
+            .expect("Failed to read_to_string(manually_specified.yaml)")
+            .as_str(),
     )
-    .unwrap()
+    .expect("Failed to convert string to yaml")
     .into();
 
     // Convert the csv files to ics files, taking the intersection of the load shedding events and
@@ -65,7 +67,12 @@ fn main() {
     eprintln!("Creating {} calendars", csv_paths.len());
     for path in csv_paths {
         eprintln!("Creating calendar from {:?}", path);
-        create_calendar(path.to_str().unwrap().to_string(), &mis);
+        create_calendar(
+            path.to_str()
+                .expect(format!("Failed to convert {:?} to str", path).as_str())
+                .to_string(),
+            &mis,
+        );
     }
 }
 
@@ -73,7 +80,7 @@ fn main() {
 /// convert them via a python script to csv file containing load shedding schedules.
 fn dl_pdfs(url: &str, limit: Option<usize>) {
     eprintln!("Getting links from {url}");
-    let val = reqwest::blocking::get(url).unwrap();
+    let val = reqwest::blocking::get(url).expect(format!("Failed to get url {url}").as_str());
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
     let link_selector = Selector::parse("div>div>p>span>a").unwrap();
@@ -118,7 +125,8 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
 
 /// Create a single loadshedding calendar given one area's csv data
 fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
-    let mut rdr = csv::Reader::from_path(csv_path.clone()).unwrap();
+    let mut rdr = csv::Reader::from_path(csv_path.clone())
+        .expect(format!("Failed to parse csv at {csv_path}").as_str());
     let mut events: Vec<MonthlyShedding> = vec![];
     let mut calendar = Calendar::new();
     for result in rdr.deserialize::<RawMonthlyShedding>() {
@@ -153,31 +161,27 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         if event.date_of_month > days_in_month {
             continue;
         }
-        let local_start = DateTime::parse_from_rfc3339(
-            format!(
-                "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
-                year = curr_year,
-                month = curr_month.month(),
-                date = event.date_of_month,
-                hour = event.start_time.hour(),
-                minute = event.start_time.minute(),
-            )
-            .as_str(),
-        )
-        .unwrap();
+        let l_start = format!(
+            "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
+            year = curr_year,
+            month = curr_month.month(),
+            date = event.date_of_month,
+            hour = event.start_time.hour(),
+            minute = event.start_time.minute(),
+        );
+        let local_start = DateTime::parse_from_rfc3339(l_start.as_str())
+            .expect(format!("Failed to parse time {l_start} as RFC3339").as_str());
 
-        let mut local_finsh = DateTime::parse_from_rfc3339(
-            format!(
-                "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
-                year = curr_year,
-                month = curr_month.month(),
-                date = event.date_of_month,
-                hour = event.finsh_time.hour(),
-                minute = event.finsh_time.minute(),
-            )
-            .as_str(),
-        )
-        .unwrap();
+        let l_finsh = format!(
+            "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
+            year = curr_year,
+            month = curr_month.month(),
+            date = event.date_of_month,
+            hour = event.finsh_time.hour(),
+            minute = event.finsh_time.minute(),
+        );
+        let mut local_finsh = DateTime::parse_from_rfc3339(l_finsh.as_str())
+            .expect(format!("Failed to parse time {l_finsh} as RFC3339").as_str());
 
         // If the event is from 22:00 to 00:30, then add one day to the end date
         if event.goes_over_midnight {
@@ -210,9 +214,9 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let fname = csv_path
         .replace("csv", "ics")
         .replace("generated", "calendars");
-    let mut file = File::create(fname.as_str()).unwrap();
+    let mut file = File::create(fname.as_str()).expect(format!("Failed to create file {}", fname).as_str());
 
-    writeln!(&mut file, "{}", calendar).unwrap();
+    writeln!(&mut file, "{}", calendar).expect(format!("Failed to write to file {:?}", file).as_str());
 }
 
 fn _get_all_data() {

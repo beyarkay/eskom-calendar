@@ -163,8 +163,20 @@ impl From<RawManuallyInputSchedule> for ManuallyInputSchedule {
 impl From<RawShedding> for Shedding {
     fn from(raw: RawShedding) -> Self {
         Shedding {
-            start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).unwrap(),
-            finsh: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.finsh)).unwrap(),
+            start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).expect(
+                format!(
+                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    raw.start
+                )
+                .as_str(),
+            ),
+            finsh: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.finsh)).expect(
+                format!(
+                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    raw.finsh
+                )
+                .as_str(),
+            ),
             stage: raw.stage,
             source: raw.source,
         }
@@ -213,12 +225,24 @@ impl From<RawMonthlyShedding> for MonthlyShedding {
                 "1970-01-01T{}:00+02:00",
                 raw.start_time
             ))
-            .unwrap(),
+            .expect(
+                format!(
+                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    raw.start_time
+                )
+                .as_str(),
+            ),
             finsh_time: DateTime::parse_from_rfc3339(&format!(
                 "1970-01-{date}T{}:00+02:00",
                 raw.finsh_time
             ))
-            .unwrap(),
+            .expect(
+                format!(
+                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    raw.finsh_time
+                )
+                .as_str(),
+            ),
             stage: raw.stage,
             date_of_month: raw.date_of_month,
             goes_over_midnight: raw.start_time == "22:00" && raw.finsh_time == "00:30",
