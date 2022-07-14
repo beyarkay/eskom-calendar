@@ -227,7 +227,7 @@ impl From<RawMonthlyShedding> for MonthlyShedding {
             ))
             .expect(
                 format!(
-                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    "Failed to parse start time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
                     raw.start_time
                 )
                 .as_str(),
@@ -238,7 +238,7 @@ impl From<RawMonthlyShedding> for MonthlyShedding {
             ))
             .expect(
                 format!(
-                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    "Failed to parse start time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
                     raw.finsh_time
                 )
                 .as_str(),

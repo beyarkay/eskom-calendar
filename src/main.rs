@@ -66,9 +66,6 @@ fn main() {
     // the manually input loadshedding schedules
     eprintln!("Creating {} calendars", csv_paths.len());
     for path in csv_paths {
-        if path.to_str().unwrap() != "generated/eastern-cape-kirkwood.csv" {
-            continue;
-        }
         eprintln!("Creating calendar from {:?}", path);
         create_calendar(
             path.to_str()
@@ -104,8 +101,8 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                 let fname = element.inner_html().replace(":", "").replace(" ", "");
                 let province = url.split("/").collect::<Vec<_>>()[7];
                 let savename = format!("{province}-{fname}").to_lowercase();
-                // Don't bother downloading the pdf if it already exists
-                if Path::new(format!("generated/{savename}.pdf").as_str()).exists() {
+                // Don't bother downloading the pdf if the resultant CSV already exists
+                if Path::new(format!("generated/{savename}.csv").as_str()).exists() {
                     continue;
                 }
                 eprintln!("$ python3 parse_pdf.py {href:<90} {savename:<20}");
