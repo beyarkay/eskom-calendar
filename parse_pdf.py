@@ -23,6 +23,12 @@ def main():
     # Fix a bug that only occurs on the Kirkwood pdf
     if url == "https://www.eskom.co.za/distribution/wp-content/uploads/2021/06/Kirkwood.pdf":
         pdf.loc[6, "Unnamed: 1"] = "10:00"
+    # Fix a bug that only occurs on the MookgophongNaboomspruit_Town pdf
+    if url == "https://www.eskom.co.za/distribution/wp-content/uploads/2021/06/MookgophongNaboomspruit_Town.pdf":
+        pdf.loc[8, "Unnamed: 1"] = "15:00"
+    # Fix a bug that only occurs on the Umtata pdf
+    if url == "https://www.eskom.co.za/distribution/wp-content/uploads/2021/06/Umtata.pdf":
+        pdf.loc[6, "Unnamed: 1"] = "11:00"
     # Create an empty dataframe
     df = pd.DataFrame()
     # Extract the start and finish times from the pdf
@@ -42,6 +48,7 @@ def main():
     # Give the columns better names
     df.columns = pd.Index(['start_time', 'finsh_time', 'date_of_month', 'stage'])
 
+    assert not df.isna().any().any(), "DF has some NaN values"
     # Save to csv
     df.to_csv(path.replace(".pdf", ".csv"), index=False)
     print("Saved to " + path.replace(".pdf", ".csv"))
