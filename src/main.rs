@@ -4,7 +4,7 @@ use serde_yaml;
 use std::env;
 use std::fs::{read_dir, read_to_string, File};
 use std::io::Write;
-use std::path::PathBuf;
+use std::path::{PathBuf, Path};
 use structs::{
     ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding,
 };
@@ -13,7 +13,7 @@ use structs::{MunicipalityInfo, Province, RawMunicipalityInfo, SuburbInfo};
 use crate::structs::GetSuburbDataResult;
 use scraper::Html;
 use scraper::Selector;
-use std::process::Command;
+use std::process::{Command, Stdio};
 
 mod structs;
 fn main() {
@@ -66,6 +66,9 @@ fn main() {
     // the manually input loadshedding schedules
     eprintln!("Creating {} calendars", csv_paths.len());
     for path in csv_paths {
+        if path.to_str().unwrap() != "generated/eastern-cape-kirkwood.csv" {
+            continue;
+        }
         eprintln!("Creating calendar from {:?}", path);
         create_calendar(
             path.to_str()
@@ -87,6 +90,7 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
     let limit = limit.unwrap_or(document.select(&link_selector).count());
     eprintln!("Parsing {} links", limit);
     let mut pdfs_scraped = 0;
+    let mut handles = vec![];
     for element in document.select(&link_selector) {
         if pdfs_scraped >= limit {
             eprintln!("Reached limit of {limit}, stopping scraping");
@@ -94,22 +98,39 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
         }
         // If the href exists and starts with eskom.co.za/..../uploads then download and parse it
         // via python
+
         if let Some(href) = element.value().attr("href") {
             if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
                 let fname = element.inner_html().replace(":", "").replace(" ", "");
                 let province = url.split("/").collect::<Vec<_>>()[7];
                 let savename = format!("{province}-{fname}").to_lowercase();
+                // Don't bother downloading the pdf if it already exists
+                if Path::new(format!("generated/{savename}.pdf").as_str()).exists() {
+                    continue;
+                }
                 eprintln!("$ python3 parse_pdf.py {href:<90} {savename:<20}");
-                let res = Command::new("python3")
+                let handle = Command::new("python3")
                     .args(["parse_pdf.py", href, &savename])
-                    .output()
+                    .stdout(Stdio::piped())
+                    .stderr(Stdio::piped())
+                    .spawn()
                     .expect("Failed to execute command");
-                if !res.status.success() {
-                    eprintln!(
-                        "stdout: {:?}\nstderr:{:?}",
-                        String::from_utf8_lossy(&res.stdout),
-                        String::from_utf8_lossy(&res.stderr)
-                    );
+                handles.push(handle);
+                if handles.len() > 50 {
+                    match handles.pop().unwrap().wait_with_output() {
+                        Ok(res) => {
+                            if !res.status.success() {
+                                eprintln!(
+                                    "Error with python process: \nstdout: {:?}\nstderr:{:?}",
+                                    String::from_utf8_lossy(&res.stdout),
+                                    String::from_utf8_lossy(&res.stderr)
+                                    );
+                            }
+                        },
+                        Err(e) => {
+                            eprintln!("Error with python process: {e}");
+                        }
+                    }
                 }
                 pdfs_scraped += 1;
             } else {
@@ -118,6 +139,22 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                     element.value().attr("href"),
                     element.inner_html()
                 );
+            }
+        }
+    }
+    for handle in handles {
+        match handle.wait_with_output() {
+            Ok(res) => {
+                if !res.status.success() {
+                    eprintln!(
+                        "Error with python process: \nstdout: {:?}\nstderr:{:?}",
+                        String::from_utf8_lossy(&res.stdout),
+                        String::from_utf8_lossy(&res.stderr)
+                        );
+                }
+            },
+            Err(e) => {
+                eprintln!("Error with python process: {e}");
             }
         }
     }

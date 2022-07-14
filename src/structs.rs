@@ -136,7 +136,7 @@ pub struct RawManuallyInputSchedule {
 }
 
 /// A single duration of loadshedding that only has one stage.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct RawShedding {
     /// The time when LoadShedding *should* start
     start: String,
@@ -165,14 +165,14 @@ impl From<RawShedding> for Shedding {
         Shedding {
             start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).expect(
                 format!(
-                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    "Failed to parse start time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
                     raw.start
                 )
                 .as_str(),
             ),
             finsh: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.finsh)).expect(
                 format!(
-                    "Failed to parse time 1970-01-01T{}:00+02:00 as RFC3339",
+                    "Failed to parse finsh time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
                     raw.finsh
                 )
                 .as_str(),
