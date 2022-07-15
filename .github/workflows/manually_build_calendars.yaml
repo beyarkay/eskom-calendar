@@ -36,7 +36,7 @@ jobs:
         release: Latest Eskom Loadshedding Calendars
           # replace: true
         updateTag: true
-        tag: v1.0.0
+        tag: latest
         body: "To get your loadshedding schedule in your calendar you should
 
           1. scroll down to the blue links under `Assets`
