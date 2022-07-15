@@ -24,44 +24,50 @@ jobs:
       with:
         command: run
         args: --release
-    - name: List all calendars
-      run: echo "ls => `$(ls calendars/* | xargs echo | sed 's/ /,/g')`"
-    - name: Write all calendars/* to output
-      run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
-      id: LS-CALENDARS
-    - uses: IsaacShelton/update-existing-release@v1.2.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
-        release: Latest Eskom Loadshedding Calendars
-          # replace: true
-        updateTag: true
-        tag: latest
-        body: "To get your loadshedding schedule in your calendar you should
+    # - name: List all calendars
+    #   run: echo "ls => `$(ls calendars/* | xargs echo | sed 's/ /,/g')`"
+    # - name: Write all calendars/* to output
+    #   run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
+    #   id: LS-CALENDARS
+    - name: Update Release
+      uses: fnkr/github-action-ghr@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      env:
+        GHR_PATH: calendars/
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - uses: IsaacShelton/update-existing-release@v1.2.0
+    #   with:
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
+    #     release: Latest Eskom Loadshedding Calendars
+    #       # replace: true
+    #     updateTag: true
+    #     tag: latest
+    #     body: "To get your loadshedding schedule in your calendar you should
 
-          1. scroll down to the blue links under `Assets`
+    #       1. scroll down to the blue links under `Assets`
 
-          2. Find the `ics` calendar file corresponding to your area
+    #       2. Find the `ics` calendar file corresponding to your area
 
-          3. Right-click on the file and copy the link
+    #       3. Right-click on the file and copy the link
 
-          4. Open your calendar app (Google Calendar, Outlook, Apple Calendar, etc)
+    #       4. Open your calendar app (Google Calendar, Outlook, Apple Calendar, etc)
 
-          5. Paste the calendar link in your app's `subscribe to calendar` option.
-
-
-          That's it! Now you've got loadshedding warning in your calendar that
-          tell you if the power will be off or not. This is better than apps
-          like EskomSePush because it combines what area you're in with your
-          area's loadshedding schedule. 
-
-          You'll only be notified if 
+    #       5. Paste the calendar link in your app's `subscribe to calendar` option.
 
 
-          1. there's national loadshedding announced by Eskom and 
+    #       That's it! Now you've got loadshedding warning in your calendar that
+    #       tell you if the power will be off or not. This is better than apps
+    #       like EskomSePush because it combines what area you're in with your
+    #       area's loadshedding schedule. 
 
-          2. your area has loadshedding scheduled for that time.
+    #       You'll only be notified if 
 
-          It's also open source! We depend on pull requests to update
-          `manually_specified.yaml` with the latest schedule. Please submit a
-          PR if Eskom announces a change!"
+
+    #       1. there's national loadshedding announced by Eskom and 
+
+    #       2. your area has loadshedding scheduled for that time.
+
+    #       It's also open source! We depend on pull requests to update
+    #       `manually_specified.yaml` with the latest schedule. Please submit a
+    #       PR if Eskom announces a change!"
