@@ -10,8 +10,14 @@ jobs:
     - uses: BSFishy/pip-action@v1
       with:
         requirements: requirements.txt
-    - name: Run
-      run: cargo run
+    - uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --release
+    - uses: actions-rs/cargo@v1
+      with:
+        command: run
+        args: --release
     - uses: meeDamian/github-release@v2.0.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
