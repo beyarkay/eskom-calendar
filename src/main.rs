@@ -98,7 +98,7 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
 
         if let Some(href) = element.value().attr("href") {
             if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
-                let fname = element.inner_html().replace(":", "").replace(" ", "");
+                let fname = element.inner_html().replace(":", "").replace(" ", "").replace(|c: char| !c.is_ascii(), "");
                 let province = url.split("/").collect::<Vec<_>>()[7];
                 let savename = format!("{province}-{fname}").to_lowercase();
                 // Don't bother downloading the pdf if the resultant CSV already exists
