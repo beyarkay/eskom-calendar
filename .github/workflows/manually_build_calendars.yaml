@@ -18,11 +18,13 @@ jobs:
       with:
         command: run
         args: --release
-    - uses: meeDamian/github-release@v2.0.3
+    - uses: irongut/EditRelease@v1.2.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: v1.0.0
+        id: ${{ github.event.release.id }}
         name: Latest Eskom Loadshedding Calendars
+        prerelease: false
+        files: calendars/*.ics
         body: "To get your loadshedding schedule in your calendar you should
 
           1. scroll down to the blue links under `Assets`
@@ -51,7 +53,3 @@ jobs:
           It's also open source! We depend on pull requests to update
           `manually_specified.yaml` with the latest schedule. Please submit a
           PR if Eskom announces a change!"
-
-        gzip: false
-        allow_override: true
-        files: calendars/*.ics
