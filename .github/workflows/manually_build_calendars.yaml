@@ -6,6 +6,8 @@ jobs:
   build-calendars:
     runs-on: ubuntu-latest
     steps:
+    - name: Support longpaths
+      run: git config --global core.longpaths true
     - uses: actions/checkout@v3
       name: Checkout repository
     - uses: BSFishy/pip-action@v1
