@@ -23,9 +23,9 @@ jobs:
         command: run
         args: --release
     - name: List all calendars
-      run: echo "ls => $(ls calendars/* -1p | grep -v / | xargs echo | sed 's/ /,/g')"
+      run: echo "ls => `$(ls calendars/* | xargs echo | sed 's/ /,/g')`"
     - name: Write all calendars/* to output
-      run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* -1p | grep -v / | xargs echo | sed 's/ /,/g')"
+      run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
       id: LS-CALENDARS
     - uses: IsaacShelton/update-existing-release@v1.2.0
       with:
