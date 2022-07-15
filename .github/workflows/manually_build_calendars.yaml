@@ -34,7 +34,8 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
         release: Latest Eskom Loadshedding Calendars
-        replace: true
+          # replace: true
+        updateTag: true
         tag: v1.0.0
         body: "To get your loadshedding schedule in your calendar you should
 
