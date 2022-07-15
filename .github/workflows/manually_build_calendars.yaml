@@ -7,24 +7,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      name: Checkout repository
     - uses: BSFishy/pip-action@v1
+      name: Pip install
       with:
         requirements: requirements.txt
     - uses: actions-rs/cargo@v1
+      name: Cargo build
       with:
         command: build
         args: --release
     - uses: actions-rs/cargo@v1
+      name: Cargo run
       with:
         command: run
         args: --release
-    - uses: irongut/EditRelease@v1.2.0
+    - uses: IsaacShelton/update-existing-release@v1.2.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        id: ${{ github.event.release.id }}
-        name: Latest Eskom Loadshedding Calendars
-        prerelease: false
         files: calendars/*.ics
+        release: Latest Eskom Loadshedding Calendars
+        replace: true
+        tag: v1.0.0
         body: "To get your loadshedding schedule in your calendar you should
 
           1. scroll down to the blue links under `Assets`
