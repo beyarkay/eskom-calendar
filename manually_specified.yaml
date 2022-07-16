@@ -37,12 +37,12 @@ changes:
 
   - stage: 2
     start: 2022-07-17T16:00:00
-    finsh: 2022-07-17T22:00:00
+    finsh: 2022-07-17T23:59:00
     source: https://twitter.com/Eskom_SA/status/1547923518234382338?s=20&t=0U1prvvPo4QHQx1onIEg6Q
 
   - stage: 2
     start: 2022-07-16T16:00:00
-    finsh: 2022-07-16T22:00:00
+    finsh: 2022-07-16T23:59:00
     source: https://twitter.com/Eskom_SA/status/1547923518234382338?s=20&t=0U1prvvPo4QHQx1onIEg6Q
 
   - stage: 3
