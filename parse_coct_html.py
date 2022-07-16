@@ -3,6 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 import html5lib
 import os
+import warnings
+warnings.filterwarnings("ignore")
 
 def main():
 

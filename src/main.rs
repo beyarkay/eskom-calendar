@@ -175,18 +175,15 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         if shedding.stage == 0 {
             continue;
         }
-        // Each load shedding stage also implies load shedding for all stages greater than it.
-        for stage in shedding.stage..=8 {
-            events.push(MonthlyShedding {
-                start_time: shedding.start_time.clone(),
-                finsh_time: shedding.finsh_time.clone(),
-                stage,
-                date_of_month: shedding.date_of_month,
-                goes_over_midnight: shedding.goes_over_midnight,
-            });
-        }
+        events.push(MonthlyShedding {
+            start_time: shedding.start_time.clone(),
+            finsh_time: shedding.finsh_time.clone(),
+            stage: shedding.stage,
+            date_of_month: shedding.date_of_month,
+            goes_over_midnight: shedding.goes_over_midnight,
+        });
     }
-    // eprintln!("{} events", events.len());
+
     for event in events.into_iter() {
         let curr_year = Utc::now().year();
         let curr_month = Utc::now().date();

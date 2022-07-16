@@ -2,6 +2,8 @@ import tabula
 import sys
 import pandas as pd
 import requests
+import warnings
+warnings.filterwarnings("ignore")
 
 def main():
     # Check that the usage is correct
@@ -48,9 +50,23 @@ def main():
     # Give the columns better names
     df.columns = pd.Index(['start_time', 'finsh_time', 'date_of_month', 'stage'])
 
+    to_add = []
+    for i, row in df.iterrows():
+        for stage in range(1, row['stage']):
+            to_add.append({
+                'start_time': row['start_time'], 
+                'finsh_time': row['finsh_time'],
+                'date_of_month': row['date_of_month'],
+                'stage': stage
+            })
+    for d in to_add:
+        print(f"adding to df: {d=}")
+        df = df.append(d, ignore_index=True)
+    df = df.sort_values(['date_of_month', 'start_time', 'stage'])
+
     assert not df.isna().any().any(), "DF has some NaN values"
     # Save to csv
-    df.to_csv(path.replace(".pdf", ".csv"), index=False)
+    df[['date_of_month', 'start_time', 'finsh_time', 'stage']].to_csv(path.replace(".pdf", ".csv"), index=False)
     print("Saved to " + path.replace(".pdf", ".csv"))
 
 if __name__ == "__main__":
