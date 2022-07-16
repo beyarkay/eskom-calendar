@@ -28,7 +28,7 @@ jobs:
         args: --release
 
     - name: Update latest release with new calendars
-      uses: pyTooling/Actions/releaser@main
+      uses: eine/tip@master
       with:
         tag: latest
         rm: true
