@@ -33,7 +33,7 @@ jobs:
 
     - name: Write current time stamp to GH variable
       id: date
-      run: echo "::set-output name=datetime::$(date +'%Y-%m-%dT%H:%M')"
+      run: echo "::set-output name=datetime::$(date +'%Y-%m-%dT%H:%M:%S')"
 
     - name: List all calendars to GH variable
       run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
@@ -78,4 +78,4 @@ jobs:
           PR if Eskom announces a change!
 
 
-          Last updated: ${{ steps.date.outputs.datetime }}"
+          Last updated: ${{ steps.date.outputs.datetime }} (UTC)"
