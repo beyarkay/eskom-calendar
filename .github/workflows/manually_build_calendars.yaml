@@ -32,7 +32,7 @@ jobs:
       run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
       id: LS-CALENDARS
     - name: Update latest release with new calendars
-      uses: IsaacShelton/update-existing-release@HEAD
+      uses: beyarkay/update-existing-release@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         release: Latest Eskom Loadshedding Calendars
