@@ -26,16 +26,20 @@ jobs:
       with:
         command: run
         args: --release
-
+    - name: List all calendars
+      run: echo "ls => `$(ls calendars/* | xargs echo | sed 's/ /,/g')`"
+    - name: Write all calendars/* to output
+      run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
+      id: LS-CALENDARS
     - name: Update latest release with new calendars
       uses: IsaacShelton/update-existing-release@HEAD
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        release: Latest Eskom Loadshedding Calendars
+        updateTag: true
         tag: latest
-        name: Latest Eskom Loadshedding Calendars
-        gzip: false
-        allow_override: true
-        files: calendars/*.ics
+        replace: true
+        files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
         body: "To get your loadshedding schedule in your calendar you should
    
           1. scroll down to the blue links under `Assets`
