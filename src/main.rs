@@ -69,6 +69,9 @@ fn main() {
     // the manually input loadshedding schedules
     eprintln!("Creating {} calendars", csv_paths.len());
     for path in csv_paths {
+        // if path.to_str().unwrap() != "generated/western-cape-stellenbosch.csv" {
+        //     continue;
+        // }
         eprintln!("Creating calendar from {:?}", path);
         create_calendar(
             path.to_str()
@@ -82,13 +85,13 @@ fn main() {
 /// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
 /// convert them via a python script to csv file containing load shedding schedules.
 fn dl_pdfs(url: &str, limit: Option<usize>) {
-    eprintln!("Getting links from {url}");
+    eprintln!(" Getting links from {url}");
     let val = reqwest::blocking::get(url).expect(format!("Failed to get url {url}").as_str());
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
     let link_selector = Selector::parse("div>div>p>span>a").unwrap();
     let limit = limit.unwrap_or(document.select(&link_selector).count());
-    eprintln!("Parsing {} links", limit);
+    eprintln!("  Parsing {} links", limit);
     let mut pdfs_scraped = 0;
     let mut handles = vec![];
     for element in document.select(&link_selector) {
@@ -112,7 +115,7 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                 if Path::new(format!("generated/{savename}.csv").as_str()).exists() {
                     continue;
                 }
-                eprintln!("$ python3 parse_pdf.py {href:<90} {savename:<20}");
+                eprintln!("   $ python3 parse_pdf.py {href:<90} {savename:<20}");
                 let handle = Command::new("python3")
                     .args(["parse_pdf.py", href, &savename])
                     .stdout(Stdio::piped())
@@ -125,21 +128,21 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                         Ok(res) => {
                             if !res.status.success() {
                                 eprintln!(
-                                    "Error with python process: \nstdout: {:?}\nstderr:{:?}",
+                                    "!  Error with python process: \nstdout: {:?}\nstderr:{:?}",
                                     String::from_utf8_lossy(&res.stdout),
                                     String::from_utf8_lossy(&res.stderr)
                                 );
                             }
                         }
                         Err(e) => {
-                            eprintln!("Error with python process: {e}");
+                            eprintln!("!  Error with python process: {e}");
                         }
                     }
                 }
                 pdfs_scraped += 1;
             } else {
                 eprintln!(
-                    "Cannot parse: {:?} {:?}",
+                    "!  Cannot parse: {:?} {:?}",
                     element.value().attr("href"),
                     element.inner_html()
                 );
@@ -151,14 +154,14 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
             Ok(res) => {
                 if !res.status.success() {
                     eprintln!(
-                        "Error with python process: \nstdout: {:?}\nstderr:{:?}",
+                        "!  Error with python process: \nstdout: {:?}\nstderr:{:?}",
                         String::from_utf8_lossy(&res.stdout),
                         String::from_utf8_lossy(&res.stderr)
                     );
                 }
             }
             Err(e) => {
-                eprintln!("Error with python process: {e}");
+                eprintln!("!  Error with python process: {e}");
             }
         }
     }
@@ -168,14 +171,14 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
 fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let mut rdr = csv::Reader::from_path(csv_path.clone())
         .expect(format!("Failed to parse csv at {csv_path}").as_str());
-    let mut events: Vec<MonthlyShedding> = vec![];
+    let mut local_sheddings: Vec<MonthlyShedding> = vec![];
     let mut calendar = Calendar::new();
     for result in rdr.deserialize::<RawMonthlyShedding>() {
         let shedding: MonthlyShedding = result.unwrap().into();
         if shedding.stage == 0 {
             continue;
         }
-        events.push(MonthlyShedding {
+        local_sheddings.push(MonthlyShedding {
             start_time: shedding.start_time.clone(),
             finsh_time: shedding.finsh_time.clone(),
             stage: shedding.stage,
@@ -190,7 +193,11 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .unwrap();
     let git_hash = String::from_utf8(output.stdout).unwrap();
 
-    for event in events.into_iter() {
+    // for national in &mis.changes {
+    //     eprintln!("{:?}", national);
+    // }
+
+    for local in local_sheddings.into_iter() {
         let curr_year = Utc::now().year();
         let curr_month = Utc::now().date();
         // Get the number of days in the month by comparing this month's first to the next month's first
@@ -202,16 +209,16 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .signed_duration_since(NaiveDate::from_ymd(curr_year, curr_month.month(), 1))
         .num_days() as u8;
         // Don't create events on the 31st of February
-        if event.date_of_month > days_in_month {
+        if local.date_of_month > days_in_month {
             continue;
         }
         let l_start = format!(
             "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
             year = curr_year,
             month = curr_month.month(),
-            date = event.date_of_month,
-            hour = event.start_time.hour(),
-            minute = event.start_time.minute(),
+            date = local.date_of_month,
+            hour = local.start_time.hour(),
+            minute = local.start_time.minute(),
         );
         let local_start = DateTime::parse_from_rfc3339(l_start.as_str())
             .expect(format!("Failed to parse time {l_start} as RFC3339").as_str());
@@ -220,44 +227,47 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
             "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
             year = curr_year,
             month = curr_month.month(),
-            date = event.date_of_month,
-            hour = event.finsh_time.hour(),
-            minute = event.finsh_time.minute(),
+            date = local.date_of_month,
+            hour = local.finsh_time.hour(),
+            minute = local.finsh_time.minute(),
         );
         let mut local_finsh = DateTime::parse_from_rfc3339(l_finsh.as_str())
             .expect(format!("Failed to parse time {l_finsh} as RFC3339").as_str());
 
         // If the event is from 22:00 to 00:30, then add one day to the end date
-        if event.goes_over_midnight {
+        if local.goes_over_midnight {
             local_finsh = local_finsh + Duration::days(1);
         }
 
-        let summary = format!("Stage {} Loadshedding", event.stage);
+        let summary = format!("Stage {} Loadshedding", local.stage);
         for national in &mis.changes {
-            if national.stage == event.stage {
+            if national.stage == local.stage {
                 if national.start < local_finsh && national.finsh > local_start {
+                    eprintln!("Overlap (National {} and Local {}):\n  national: {} to {},\n  local:    {} to {}",
+                        national.stage, local.stage, national.start, national.finsh, local_start, local_finsh,
+                    );
                     let area_name = csv_path
                         .replace("generated/", "")
                         .replace(".csv", "")
                         .replace(|c: char| !c.is_ascii(), "");
                     let description = format!(
-                        "{area_name} loadshedding: \
-                        - from {local_start} \
-                        - to {local_finsh} \
-                        \
-                        National loadshedding: \
-                        - from {nat_start} \
-                        - to {nat_finsh} \
-                        \
-                        Incorrect? Make a suggestion here: https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml \
-                        \
-                        --- \
-                        Generated by Boyd Kane's Eskom-Calendar: https://github.com/beyarkay/eskom-calendar/tree/{git_hash} \
-                        \
-                        National loadshedding information scraped from {nat_source}\
-                        \
-                        {area_name} loadshedding information scraped from https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/ \
-                        \
+                        "{area_name} loadshedding: \n\
+                        - from {local_start} \n\
+                        - to {local_finsh} \n\
+                        \n\
+                        National loadshedding: \n\
+                        - from {nat_start} \n\
+                        - to {nat_finsh} \n\
+                        \n\
+                        Incorrect? Make a suggestion here: https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml \n\
+                        \n\
+                        --- \n\
+                        Generated by Boyd Kane's Eskom-Calendar: https://github.com/beyarkay/eskom-calendar/tree/{git_hash} \n\
+                        \n\
+                        National loadshedding information scraped from {nat_source}\n\
+                        \n\
+                        {area_name} loadshedding information scraped from https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/ \n\
+                        \n\
                         Calendar compiled at {compiletime:?}",
                         local_start=local_start,
                         local_finsh=local_finsh,
@@ -274,9 +284,9 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                         .description(description.as_str())
                         .starts(event_start.with_timezone(&Utc))
                         .ends(event_finsh.with_timezone(&Utc))
-                        .url(&national.source)
                         .done();
                     calendar.push(evt);
+                    eprintln!("    Adding: {} to {}", event_start, event_finsh);
                 }
             }
         }

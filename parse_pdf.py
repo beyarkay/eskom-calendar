@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 import requests
 import warnings
+import os
 warnings.filterwarnings("ignore")
 
 def main():
@@ -13,10 +14,10 @@ def main():
     # Get the path which the pdf should be saved to
     path = f'generated/{sys.argv[2]}.pdf'
     url = sys.argv[1]
-    r = requests.get(url, stream=True)
-
-    with open(path, 'wb') as f:
-        f.write(r.content)
+    if not os.path.exists(path):
+        r = requests.get(url, stream=True)
+        with open(path, 'wb') as f:
+            f.write(r.content)
 
     # Read in the pdf via tabula
     pdf = tabula.read_pdf(path, pages=1)[0]
@@ -52,7 +53,9 @@ def main():
 
     to_add = []
     for i, row in df.iterrows():
-        for stage in range(1, row['stage']):
+        if row['stage'] == 0:
+            continue
+        for stage in range(row['stage']+1, 8+1):
             to_add.append({
                 'start_time': row['start_time'], 
                 'finsh_time': row['finsh_time'],

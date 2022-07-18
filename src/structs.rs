@@ -12,6 +12,7 @@ pub struct ManuallyInputSchedule {
 }
 
 /// A single duration of loadshedding that only has one stage.
+#[derive(Debug)]
 pub struct Shedding {
     /// The time when LoadShedding *should* start
     pub start: DateTime<FixedOffset>,
