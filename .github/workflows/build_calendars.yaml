@@ -43,7 +43,7 @@ jobs:
       uses: beyarkay/update-existing-release@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        release: Eskom Loadshedding Calendars (last updated ${{ steps.date.outputs.datetime }})
+        release: Latest Eskom Loadshedding Calendars
         updateTag: true
         tag: latest
         replace: true
