@@ -4,7 +4,7 @@ Sick and tired of complicated load shedding schedules? This project creates
 up-to-date calendars that show you when load shedding is in your area.
 
 To get your load shedding schedule in your calendar you should go to the
-[latest release](https://github.com/beyarkay/eskom-calendar/releases) and
+[latest release](https://github.com/beyarkay/eskom-calendar/releases/tag/latest) and
 follow the instructions there.
 
 ![screenshot of eskom calendar in action](imgs/screenshot.png)
