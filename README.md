@@ -12,9 +12,9 @@ follow the instructions there.
 ## Similar apps
 In the author's opinion, eskom-calendar is better than apps like EskomSePush,
 because an event will only appear in your calendar if:
-1. [Eskom](https://twitter.com/Eskom_SA) declares national loadshedding, and
+1. [Eskom's twitter feed](https://twitter.com/Eskom_SA) declares national loadshedding, and
 2. Your area actually has loadshedding at that time, as defined by 
-   [your areas loadshedding schedule](https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/).
+   [your eskom-defined area's loadshedding schedule](https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/).
 
 What's more, eskom-calendar is open source! See below for how we keep it up to
 date.
@@ -22,9 +22,9 @@ date.
 ## Contributing
 The project is also open source! We depend on pull requests to update
 [`manually_specified.yaml`](https://github.com/beyarkay/eskom-calendar/blob/main/manually_specified.yaml)
-with the latest schedule. Please [submit a PR to
+with the latest schedule. Please [edit and submit a PR to
 `manually_specified.yaml`](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml)
-if [Eskom](https://twitter.com/Eskom_SA) announces a change.
+if [Eskom's twitter feed](https://twitter.com/Eskom_SA) announces a change.
 
 To add a new load shedding event, do the following:
 1. Click [here](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml) to edit `manually_specified.yaml`.
@@ -35,9 +35,7 @@ To add a new load shedding event, do the following:
    and should be a link to a tweet from the [official Eskom twitter
    account](https://twitter.com/Eskom_SA). It must be included or the calendars
    will not compile.
-2. Add your changes to the TOP of the list. So the most recent loadshedding
-   events are at the top, and the historical changes are at the bottom. For
-   example:
+2. Add your changes to the list. For example:
 
 ```yaml
 changes:
