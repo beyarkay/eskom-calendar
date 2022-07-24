@@ -10,6 +10,8 @@
 # See the README.md for more details
 
 changes:
+
+historical_changes:
   - stage: 2
     start: 2022-07-21T16:00:00
     finsh: 2022-07-21T23:59:00
@@ -29,8 +31,6 @@ changes:
     start: 2022-07-24T16:00:00
     finsh: 2022-07-24T23:59:00
     source: https://twitter.com/Eskom_SA/status/1550075190914195457
-
-historical_changes:
   - stage: 2
     start: 2022-07-18T16:00:00
     finsh: 2022-07-18T23:59:00
