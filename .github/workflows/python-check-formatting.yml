@@ -1,0 +1,29 @@
+name: Check Python Formatting
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'parse_city_power.py'
+      - 'parse_coct_html.py'
+      - 'parse_pdf.py'
+  pull_request:
+    branches: [ "main" ]   
+    paths:
+      - 'parse_city_power.py'
+      - 'parse_coct_html.py'
+      - 'parse_pdf.py'
+
+  workflow_dispatch:
+
+jobs:
+  fmt-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Black Code Formatter
+        uses: lgeiger/black-action@v1.0.1
+        with:
+          args: "*.py --check"
