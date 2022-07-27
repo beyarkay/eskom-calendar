@@ -17,13 +17,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  fmt-check:
+  python-format-check:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
 
-      - name: Black Code Formatter
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: "Check *.py for formatting errors with black"
         uses: lgeiger/black-action@v1.0.1
         with:
           args: "*.py --check"

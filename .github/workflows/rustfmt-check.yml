@@ -1,27 +1,35 @@
-name: Rust
+name: Check Rust Formatting
 
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'src/main.rs'
+      - 'src/structs.rs'
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" ]   
+    paths:
+      - 'src/main.rs'
+      - 'src/structs.rs'
+
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-
+  rust-format-check:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
     
-    - name: Build and setup rustfmt
+    - name: Setup rustfmt
       uses: actions-rust-lang/setup-rust-toolchain@v1
       with:
         components: rustfmt
 
-    - name: Rustfmt Check
+    - name: Check rust files for formatting errors
       uses: actions-rust-lang/rustfmt@v1
 
