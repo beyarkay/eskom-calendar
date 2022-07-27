@@ -69,7 +69,7 @@ fn main() {
     // the manually input loadshedding schedules
     eprintln!("Creating {} calendars", csv_paths.len());
     for path in csv_paths {
-        // if path.to_str().unwrap() != "generated/western-cape-stellenbosch.csv" {
+        // if !path.to_str().unwrap().starts_with("generated/city-power-") {
         //     continue;
         // }
         eprintln!("Creating calendar from {:?}", path);
@@ -192,10 +192,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .output()
         .unwrap();
     let git_hash = String::from_utf8(output.stdout).unwrap();
-    let emojis = vec![
-        "😕", "☹️", "😖", "😤",
-        "😡", "🤬", "🔪", "☠️"
-    ];
+    let emojis = vec!["😕", "☹️", "😖", "😤", "😡", "🤬", "🔪", "☠️"];
 
     // for national in &mis.changes {
     //     eprintln!("{:?}", national);
@@ -243,7 +240,11 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
             local_finsh = local_finsh + Duration::days(1);
         }
 
-        let summary = format!("Stage {} Loadshedding {}", local.stage, emojis.get(local.stage as usize).unwrap_or(&"🫠"));
+        let summary = format!(
+            "Stage {} Loadshedding {}",
+            local.stage,
+            emojis.get(local.stage as usize).unwrap_or(&"🫠")
+        );
         for national in &mis.changes {
             if national.stage == local.stage {
                 if national.start < local_finsh && national.finsh > local_start {
