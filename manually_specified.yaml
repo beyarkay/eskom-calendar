@@ -1,6 +1,6 @@
 # How to edit this file:
-# You should add items to `changes`. For example, here's a template that you can copy and paste
-# just below the line `changes:`:
+# You should add items to `changes`. For example, here's a template that you
+# can copy and paste just below the line `changes:`:
 # ```
 #  - stage: <STAGE NUMBER HERE>
 #    start: <START TIME HERE>
@@ -8,7 +8,7 @@
 #    source: <URL TO INFORMATION SOURCE HERE>
 # ```
 # See the README.md for more details
-
+---
 changes: []
 
 historical_changes:

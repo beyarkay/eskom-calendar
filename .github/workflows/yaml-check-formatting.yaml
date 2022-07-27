@@ -1,0 +1,35 @@
+name: Check YAML Formatting
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'manually_specified.yaml'
+  pull_request:
+    branches: [ "main" ]   
+    paths:
+      - 'manually_specified.yaml'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Check manually_specified.yaml for syntax errors"
+        uses: ibiqlik/action-yamllint@v3.1.0
+        with:
+          # File(s) or Directory, separate by space if multiple files or folder are specified
+          file_or_dir: manually_specified.yaml
+          # Format for parsing output [parsable,standard,colored,github,auto]
+          format: parsable # optional, default is parsable
+          # Path to custom configuration
+          config_file: .yamllint
+          # Return non-zero exit code on warnings as well as errors
+          strict: false
+          # Output only error level problems
+          no_warnings: false

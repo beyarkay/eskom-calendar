@@ -1,0 +1,12 @@
+---
+yaml-files:
+  - 'manually_specified.yaml'
+  - '.yamllint'
+
+extends: default
+
+rules:
+  # It's quite common for URLs to cause line lengths longer than 80
+  line-length:
+    max: 80
+    level: warning
