@@ -1,10 +1,6 @@
 name: Build Calendars
 
 on:
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - 'manually_specified.yaml'
   push:
     branches: [ "main" ]
     paths:
