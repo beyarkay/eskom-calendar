@@ -10,9 +10,9 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 2
-  start: 2022-08-10T16:00:00
-  finsh: 2022-08-10T23:59:00
-  source: https://twitter.com/Eskom_SA/status/1557337643763093504
+  - stage: 2
+    start: 2022-08-10T16:00:00
+    finsh: 2022-08-10T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1557337643763093504
 
 historical_changes: []
