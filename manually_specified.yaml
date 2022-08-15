@@ -9,7 +9,7 @@
 # ```
 # See the README.md for more details
 ---
-changes: 
+changes:
   - stage: 2
     start: 2022-08-15T18:00:00
     finsh: 2022-08-15T23:59:00
