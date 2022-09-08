@@ -11,16 +11,16 @@
 ---
 changes:
   - stage: 2
-    start: 2022-09-08T16:00:00
-    finsh: 2022-09-08T22:00:00
-    source: https://twitter.com/Eskom_SA/status/1567113378304237569
+    start: 2022-09-08T05:00:00
+    finsh: 2022-09-08T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1567843314522591234
   - stage: 2
-    start: 2022-09-09T05:00:00
+    start: 2022-09-09T00:00:00
     finsh: 2022-09-09T22:00:00
-    source: https://twitter.com/Eskom_SA/status/1567113378304237569
+    source: https://twitter.com/Eskom_SA/status/1567843314522591234
   - stage: 2
     start: 2022-09-10T05:00:00
     finsh: 2022-09-10T22:00:00
-    source: https://twitter.com/Eskom_SA/status/1567113378304237569
+    source: https://twitter.com/Eskom_SA/status/1567843314522591234
 
 historical_changes: []
