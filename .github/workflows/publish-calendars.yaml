@@ -1,17 +1,21 @@
-name: Publish Calendars
+name: Build and Publish Calendars
 
 on:
-  workflow_run:
-    workflows: ["Build Calendars"]
-    branches: [main]
-    types:
-      - completed
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'manually_specified.yaml'
+      - 'src/main.rs'
+      - 'src/structs.rs'
+      - 'parse_city_power.py'
+      - 'parse_coct_html.py'
+      - 'parse_pdf.py'
+
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  publish-calendars:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  build-and-publish-calendars:
     runs-on: ubuntu-latest
     steps:
 

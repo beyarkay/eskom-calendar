@@ -1,11 +1,10 @@
 name: Build Calendars
 
 on:
-  push:
-    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]   
     paths:
       - 'manually_specified.yaml'
-
   workflow_dispatch:
 
 env:
