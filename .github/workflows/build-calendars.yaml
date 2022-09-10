@@ -1,0 +1,48 @@
+name: Build Calendars
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'manually_specified.yaml'
+
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build-calendars:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          target/
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+    - name: Pip install requirements
+      uses: BSFishy/pip-action@v1
+      with:
+        requirements: requirements.txt
+
+    - name: Cargo build
+      uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --release
+
+    - name: Cargo run
+      uses: actions-rs/cargo@v1
+      with:
+        command: run
+        args: --release
