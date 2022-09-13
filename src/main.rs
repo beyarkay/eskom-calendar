@@ -300,7 +300,8 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let fname = csv_path
         .replace("csv", "ics")
         .replace("generated", "calendars")
-        .replace(|c: char| !c.is_ascii(), "");
+        .replace(|c: char| !c.is_ascii(), "")
+        .replace("&nbsp;", "");
     let mut file =
         File::create(fname.as_str()).expect(format!("Failed to create file {}", fname).as_str());
 
