@@ -68,7 +68,7 @@ fn main() {
 
     // Write the header line of the csv file
     let mut file = File::create("calendars/machine_friendly.csv").expect("Failed to create file ");
-    writeln!(&mut file, "{}", "area_name,stage,start,finsh,source")
+    writeln!(&mut file, "{}", "area_name,start,finsh,stage,source")
         .expect(format!("Failed to write to file {:?}", file).as_str());
 
     // Convert the csv files to ics files, taking the intersection of the load shedding events and
@@ -328,6 +328,8 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .append(true)
         .open("calendars/machine_friendly.csv")
         .expect("Couldn't open `calendars/machine_friendly.csv` for appending");
+    // Sort so we have some kind of consistency
+    csv_lines.sort();
     for line in csv_lines {
         writeln!(&mut file, "{}", line)
             .expect(format!("Failed to write to file {:?}", file).as_str());
@@ -341,5 +343,5 @@ fn to_csv_line(
     finsh: DateTime<FixedOffset>,
     source: &str,
 ) -> String {
-    format!("{area_name},{stage},{start:?},{finsh:?},{source:?}")
+    format!("{area_name},{start:?},{finsh:?},{stage},{source:?}")
 }
