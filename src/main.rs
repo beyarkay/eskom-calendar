@@ -1,10 +1,11 @@
+use chrono::FixedOffset;
 use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
 use icalendar::{Calendar, Component, Event};
 use scraper::Html;
 use scraper::Selector;
 use serde_yaml;
 use std::env;
-use std::fs::{read_dir, read_to_string, File};
+use std::fs::{read_dir, read_to_string, File, OpenOptions};
 use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
@@ -64,6 +65,11 @@ fn main() {
     )
     .expect("Failed to convert string to yaml")
     .into();
+
+    // Write the header line of the csv file
+    let mut file = File::create("calendars/machine_friendly.csv").expect("Failed to create file ");
+    writeln!(&mut file, "{}", "area_name,stage,start,finsh,source")
+        .expect(format!("Failed to write to file {:?}", file).as_str());
 
     // Convert the csv files to ics files, taking the intersection of the load shedding events and
     // the manually input loadshedding schedules
@@ -172,6 +178,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let mut rdr = csv::Reader::from_path(csv_path.clone())
         .expect(format!("Failed to parse csv at {csv_path}").as_str());
     let mut local_sheddings: Vec<MonthlyShedding> = vec![];
+    let mut csv_lines = vec![];
     let mut calendar = Calendar::new();
     for result in rdr.deserialize::<RawMonthlyShedding>() {
         let shedding: MonthlyShedding = result.unwrap().into();
@@ -290,6 +297,13 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                         .starts(event_start.with_timezone(&Utc))
                         .ends(event_finsh.with_timezone(&Utc))
                         .done();
+                    csv_lines.push(to_csv_line(
+                        &area_name,
+                        local.stage,
+                        event_start,
+                        event_finsh,
+                        &national.source,
+                    ));
                     calendar.push(evt);
                     eprintln!("    Adding: {} to {}", event_start, event_finsh);
                 }
@@ -297,6 +311,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         }
     }
 
+    // Write out the calendar files
     let fname = csv_path
         .replace("csv", "ics")
         .replace("generated", "calendars")
@@ -304,7 +319,27 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .replace("&nbsp;", "");
     let mut file =
         File::create(fname.as_str()).expect(format!("Failed to create file {}", fname).as_str());
-
     writeln!(&mut file, "{}", calendar)
         .expect(format!("Failed to write to file {:?}", file).as_str());
+
+    // Write out the CSV file
+    let mut file = OpenOptions::new()
+        .write(true)
+        .append(true)
+        .open("calendars/machine_friendly.csv")
+        .expect("Couldn't open `calendars/machine_friendly.csv` for appending");
+    for line in csv_lines {
+        writeln!(&mut file, "{}", line)
+            .expect(format!("Failed to write to file {:?}", file).as_str());
+    }
+}
+
+fn to_csv_line(
+    area_name: &str,
+    stage: u8,
+    start: DateTime<FixedOffset>,
+    finsh: DateTime<FixedOffset>,
+    source: &str,
+) -> String {
+    format!("{area_name},{stage},{start:?},{finsh:?},{source:?}")
 }
