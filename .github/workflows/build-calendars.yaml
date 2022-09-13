@@ -52,6 +52,7 @@ jobs:
 
     - name: Comment summary to PR
       uses: mb2dev/github-action-comment-pull-request@1.0.0
+      continue-on-error: true
       with:
         message: ${{ steps.create_summary.outputs.pr-comment }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
