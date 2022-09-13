@@ -242,7 +242,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         let mut local_finsh = DateTime::parse_from_rfc3339(l_finsh.as_str())
             .expect(format!("Failed to parse time {l_finsh} as RFC3339").as_str());
 
-        // If the event is from 22:00 to 00:30, then add one day to the end date
+        // If the event goes over midnight, then add one day to the end date
         if local.goes_over_midnight {
             local_finsh = local_finsh + Duration::days(1);
         }

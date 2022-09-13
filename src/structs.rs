@@ -1,6 +1,6 @@
 use std::fmt::Debug;
 
-use chrono::{DateTime, FixedOffset};
+use chrono::{DateTime, FixedOffset, NaiveTime};
 use serde::{Deserialize, Serialize};
 
 /// A multitude of load shedding for a particular suburb
@@ -113,17 +113,18 @@ pub struct MonthlyShedding {
     pub stage: u8,
     /// The date of the month which this event occurs on
     pub date_of_month: u8,
-    /// true iff start time is 22:00 and finsh time is 00:30
+    /// true iff finish time < start time
     pub goes_over_midnight: bool,
 }
 
 impl From<RawMonthlyShedding> for MonthlyShedding {
     fn from(raw: RawMonthlyShedding) -> Self {
-        let date = if raw.start_time == "22:00" && raw.finsh_time == "00:30" {
-            "01"
-        } else {
-            "02"
-        };
+        let start = NaiveTime::parse_from_str(&raw.start_time, "%H:%M").unwrap();
+        let finsh = NaiveTime::parse_from_str(&raw.finsh_time, "%H:%M").unwrap();
+        let goes_over_midnight = finsh < start;
+
+        let date = if goes_over_midnight { "01" } else { "02" };
+
         MonthlyShedding {
             start_time: DateTime::parse_from_rfc3339(&format!(
                 "1970-01-01T{}:00+02:00",
@@ -149,7 +150,7 @@ impl From<RawMonthlyShedding> for MonthlyShedding {
             ),
             stage: raw.stage,
             date_of_month: raw.date_of_month,
-            goes_over_midnight: raw.start_time == "22:00" && raw.finsh_time == "00:30",
+            goes_over_midnight,
         }
     }
 }
