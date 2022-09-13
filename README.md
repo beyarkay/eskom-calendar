@@ -21,17 +21,19 @@ date.
 
 ## Hey developers!
 
-You can `curl` against the released file `machine_friendly.csv` to get the
-calendar data processed for whatever mad projects you can think of. Here's a
-little cookbook of possibilities:
-
+You can `curl` against the file
+[`machine_friendly.csv`](https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv)
+(found in the [latest
+release](https://github.com/beyarkay/eskom-calendar/releases/tag/latest)) to
+get the calendar data processed for whatever mad projects you can think of.
+Here's a little cookbook of possibilities:
 
 ### Remind yourself what the header line of the CSV is
 
 Note that the header is `finsh`, *not* `finish` (so that it lines up nicely
 with `start`):
 ```sh
-$ curl -L https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
+$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
     | head -3
 area_name,stage,start,finsh,source
 free-state-seretse,4,2022-09-10T10:00:00+02:00,2022-09-10T12:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
@@ -40,7 +42,7 @@ free-state-seretse,4,2022-09-10T18:00:00+02:00,2022-09-10T20:30:00+02:00,"https:
 
 ### Get all data for a specific area
 ```sh
-$ curl -L https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
+$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
     | grep stellenbosch
 western-cape-stellenbosch,4,2022-09-10T14:00:00+02:00,2022-09-10T16:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
 western-cape-stellenbosch,4,2022-09-10T22:00:00+02:00,2022-09-11T00:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
@@ -60,7 +62,7 @@ western-cape-stellenbosch,2,2022-09-16T20:00:00+02:00,2022-09-16T22:30:00+02:00,
 
 ### Get all data for a certain day in a certain area
 ```sh
-$ curl -L https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
+$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
     | grep cape-town-area-15 \
     | grep "2022-09-11"
 city-of-cape-town-area-15,4,2022-09-11T00:00:00+02:00,2022-09-11T02:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
@@ -70,7 +72,7 @@ city-of-cape-town-area-15,4,2022-09-11T16:00:00+02:00,2022-09-11T18:30:00+02:00,
 
 ### Get just the start time, finish time, and stage for a certain area
 ```sh
-$ curl -L https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
+$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
     | grep city-power-13 \
     | cut -d, -f2,3,4
 4,2022-09-11T12:00:00+02:00,2022-09-11T14:30:00+02:00
@@ -83,7 +85,7 @@ $ curl -L https://github.com/beyarkay/eskom-calendar/releases/download/latest/ma
 ### See which areas are getting the least load shedding
 
 ```
-$ curl -L https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
+$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
     | tail -n +2 \
     | cut -d, -f1 \
     | sort \
