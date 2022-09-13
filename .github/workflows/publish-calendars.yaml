@@ -72,12 +72,12 @@ jobs:
 
           1. Scroll down to the blue links under `Assets`:
 
-          ![Assets image](https://github.com/beyarkay/eskom-calendar-dev/blob/main/imgs/assets.png)
+          ![Assets image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/assets.png)
 
           2. Find the `ics` calendar file corresponding to your area (use ctrl-f to search quickly).
           3. Right-click on the file and copy the link:
 
-          ![Right click and copy image](https://github.com/beyarkay/eskom-calendar-dev/blob/main/imgs/copy-link.png)
+          ![Right click and copy image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/copy-link.png)
 
           5. Open your calendar app (Google Calendar, Outlook, Apple Calendar, etc) and paste the calendar link in your app's `subscribe to calendar` option:
 
@@ -86,7 +86,7 @@ jobs:
 
           | ----------------- | --------------- | --------------- |
 
-          | ![google calendar subscription image](https://github.com/beyarkay/eskom-calendar-dev/blob/main/imgs/gcal.png) | ![outlook subscripition image](https://github.com/beyarkay/eskom-calendar-dev/blob/main/imgs/outlook.png) | ![apple calendar subscription image](https://github.com/beyarkay/eskom-calendar-dev/blob/main/imgs/ical.png) |
+          | ![google calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/gcal.png) | ![outlook subscripition image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/outlook.png) | ![apple calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/ical.png) |
 
 
           That's it! 
