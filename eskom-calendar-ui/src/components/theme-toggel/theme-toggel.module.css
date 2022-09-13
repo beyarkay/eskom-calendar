@@ -1,0 +1,35 @@
+.ThemeToggel {
+  margin-left: auto;
+  right: 0;
+  position: relative;
+  background-color: var(--accent);
+  border-radius: 30px;
+  font-size: 1rem;
+  width: 60px;
+  height: 30px;
+  box-sizing: content-box;
+}
+
+.darkTheme {
+  right: 0;
+  margin-left: auto;
+}
+
+.lightTheme {
+  left: 0;
+  margin-right: auto;
+}
+
+.button {
+  box-sizing: border-box;
+  background-color: var(--background);
+  color: var(--background);
+  height: 100%;
+  width: 50%;
+  border: 5px var(--accent) solid;
+  border-radius: 30px;
+  position: relative;
+}
+.button:hover {
+  cursor: pointer;
+}

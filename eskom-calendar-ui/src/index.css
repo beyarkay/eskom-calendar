@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  background-color: #282c34;   
+  height: 100%;    
+  padding: 0;
+  font-family: 'Libre Baskerville', serif;
+}
+
+:root {
+  --background: #282c34;
+  --text-primary: #f7f7f7;
+  --text-secondary: #dddddd;
+  --accent: #666666;
+}
+
+[data-theme='light'] {
+  --background: black;
+  --text-primary: white;
+  --text-secondary: grey;
+  --accent: darkred;
+}

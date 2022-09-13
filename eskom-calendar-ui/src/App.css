@@ -1,0 +1,59 @@
+.App {
+  box-sizing: border-box;
+  background-color: var(--background);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 100vh;
+  font-size: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  font-weight: 700;
+  font-size: xxx-large;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.content {
+  display: flex;
+  flex: 1;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}
+
+.main {
+  padding: 10px;
+  width: 100%;
+}
+
+.footer {
+  background-color: var(--text-secondary);
+}
+
+.card {
+  border-top: 2px solid var(--text-secondary);
+  border-left: 2px solid var(--text-secondary);
+  padding: 5px;
+  border-radius: 3px;
+  margin: 4px;
+  background-color: var(--accent);
+  text-transform: capitalize;
+}
+
+a {
+  color: var(--text-primary);
+}
+.filters {
+  padding-bottom: 10px;
+}
+.filters select {
+  text-transform: capitalize;
+  min-width: 200px;
+}
