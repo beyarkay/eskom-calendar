@@ -1,34 +1,37 @@
 import useLocalStorage from "use-local-storage";
-import { IAsset, IGitHubRelease, IProvince } from "./interfaces/github";
-import { useEffect, useRef, useState } from "react";
+import { IAsset, IProvince } from "./interfaces/github";
+import { useEffect, useState } from "react";
 import "./App.css";
 import CalendarDataService from "./services/assets";
 import ThemeToggel from "./components/theme-toggel/theme-toggel";
-// import NotificationService from "./services/notificationService";
+import { Themes } from "./enums/enums";
+
 function App() {
   let calServ: CalendarDataService;
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
-    defaultDark ? "dark" : "light"
+    defaultDark ? Themes.Dark : Themes.Light
   );
 
   const toggleTheme = () => {
-    if (theme == "light") {
-      setTheme("dark");
+    if (theme == Themes.Light) {
+      setTheme(Themes.Dark);
     } else {
-      setTheme("light");
+      setTheme(Themes.Light);
     }
   };
 
-  const [gitHubData, setGitHubData] = useState<IAsset[]>({} as IAsset[]);
+  const [gitHubAssets, setGitHubAssets] = useState<IAsset[]>({} as IAsset[]);
+  
   const [provinceList, setProvinceList] = useState<IProvince[]>(
     {} as IProvince[]
   );
+  
   const [downloadData, setDownloadData] = useState<IAsset>();
   const [assetData, setAssetData] = useState<IAsset[]>({} as IAsset[]);
   const fetchAssets = async (e: any) => {
-    var d = gitHubData.filter((x) => {
+    var d = gitHubAssets.filter((x) => {
       return x.name.indexOf(e) >= 0;
     });
 
@@ -44,7 +47,7 @@ function App() {
 
     const fetchLatestData = async () => {
       var cc = await calServ.fetchLatest();
-      setGitHubData(await cc);
+      setGitHubAssets(await cc);
     };
 
     fetchProvinceListData();
@@ -54,8 +57,8 @@ function App() {
     <>
       <div className="App" data-theme={theme}>
         <div className="header">
-          Eskom Calendar Portal{" "}
-          <ThemeToggel changestuff={toggleTheme}></ThemeToggel>
+          Eskom Calendar Portal 
+          <ThemeToggel currentValue={theme} onToggle={toggleTheme}></ThemeToggel>
         </div>
         <div className="content">
           <div className="menu">
@@ -95,7 +98,7 @@ function App() {
             <div>
               {downloadData && (
                 <div>
-                  Calendar file : 
+                  Calendar file :
                   <a href={downloadData.browser_download_url}>
                     {`${downloadData.name}`}
                   </a>
