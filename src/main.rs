@@ -121,9 +121,9 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                 if Path::new(format!("generated/{savename}.csv").as_str()).exists() {
                     continue;
                 }
-                eprintln!("   $ python3 parse_pdf.py {href:<90} {savename:<20}");
+                eprintln!("   $ python3 src/parse_eskom.py {href:<90} {savename:<20}");
                 let handle = Command::new("python3")
-                    .args(["parse_pdf.py", href, &savename])
+                    .args(["src/parse_eskom.py", href, &savename])
                     .stdout(Stdio::piped())
                     .stderr(Stdio::piped())
                     .spawn()

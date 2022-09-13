@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
 def main():
     # Check that the usage is correct
     if len(sys.argv) != 3:
-        print("Usage: `python3 parse_pdf.py <URL_TO_PDF> <WRITE_FILE_TO_HERE>")
+        print("Usage: `python3 parse_eskom.py <URL_TO_PDF> <WRITE_FILE_TO_HERE>")
         exit(1)
     # Get the path which the pdf should be saved to
     path = f"generated/{sys.argv[2]}.pdf"
