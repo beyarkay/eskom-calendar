@@ -10,6 +10,10 @@
   box-sizing: content-box;
 }
 
+.ThemeToggel:hover {
+  cursor: pointer;
+}
+
 .darkTheme {
   right: 0;
   margin-left: auto;
@@ -29,7 +33,4 @@
   border: 5px var(--accent) solid;
   border-radius: 30px;
   position: relative;
-}
-.button:hover {
-  cursor: pointer;
 }

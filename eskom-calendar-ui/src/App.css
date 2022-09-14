@@ -33,27 +33,61 @@
   width: 100%;
 }
 
-.footer {
-  background-color: var(--text-secondary);
+.downloadHolder {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.card {
-  border-top: 2px solid var(--text-secondary);
-  border-left: 2px solid var(--text-secondary);
-  padding: 5px;
-  border-radius: 3px;
-  margin: 4px;
-  background-color: var(--accent);
-  text-transform: capitalize;
-}
-
-a {
-  color: var(--text-primary);
-}
 .filters {
   padding-bottom: 10px;
 }
 .filters select {
   text-transform: capitalize;
   min-width: 200px;
+}
+
+.card {
+  border: 2px solid var(--primary-border);
+  border-radius: 5px;
+  width: 200px;
+  min-height: 300px;
+  display: flex;
+  background: rgb(2, 0, 14);
+  background: linear-gradient(0deg, var(--background) 0%, #101a9d 100%);
+  background-size: 100% 100%;
+}
+.card .cardHeading {
+  height: 80px;
+  background-image: url(https://static9.depositphotos.com/1000423/1082/i/600/depositphotos_10827891-stock-photo-electric-cord-with-electricity-sparkls.jpg);
+  background-size: 100% 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.card .imgageHolder {
+  height: 50px;
+  width: 50px;
+  background-color: darkcyan;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+}
+.imgageHolder img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.card .footer {
+  padding-top:10px;
+  position: absolute;
+  
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
 }

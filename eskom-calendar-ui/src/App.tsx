@@ -23,11 +23,11 @@ function App() {
   };
 
   const [gitHubAssets, setGitHubAssets] = useState<IAsset[]>({} as IAsset[]);
-  
+
   const [provinceList, setProvinceList] = useState<IProvince[]>(
     {} as IProvince[]
   );
-  
+
   const [downloadData, setDownloadData] = useState<IAsset>();
   const [assetData, setAssetData] = useState<IAsset[]>({} as IAsset[]);
   const fetchAssets = async (e: any) => {
@@ -56,16 +56,19 @@ function App() {
   return (
     <>
       <div className="App" data-theme={theme}>
-        <div className="header">
-          Eskom Calendar Portal 
-          <ThemeToggel currentValue={theme} onToggle={toggleTheme}></ThemeToggel>
+        <div className="section-secondary-title">
+          Eskom Calendar Portal
+          <ThemeToggel
+            currentValue={theme}
+            onToggle={toggleTheme}
+          ></ThemeToggel>
         </div>
         <div className="content">
           <div className="menu">
             {provinceList.length > 0 &&
               provinceList.map((x) => {
                 return (
-                  <div className="card" onClick={() => fetchAssets(x.key)}>
+                  <div className="btns" onClick={() => fetchAssets(x.key)}>
                     {x.value}
                   </div>
                 );
@@ -78,30 +81,52 @@ function App() {
           >
             <div className="filters">
               <label>Filter </label>
-              <select
-                onChange={(e) => {
-                  setDownloadData(
-                    JSON.parse(e.target.selectedOptions[0].value)
-                  );
-                }}
-              >
-                {assetData.length > 0 &&
-                  assetData.map((x: IAsset, i) => {
-                    return (
-                      <option key={i} value={JSON.stringify(x)}>
-                        {x.town ? x.town : x.block}
-                      </option>
+              <div>
+                <select
+                  onChange={(e) => {
+                    setDownloadData(
+                      JSON.parse(e.target.selectedOptions[0].value)
                     );
-                  })}
-              </select>
+                  }}
+                >
+                  {assetData.length > 0 &&
+                    assetData.map((x: IAsset, i) => {
+                      return (
+                        <option key={i} value={JSON.stringify(x)}>
+                          {x.town ? x.town : x.block}
+                        </option>
+                      );
+                    })}
+                </select>
+              </div>
             </div>
             <div>
               {downloadData && (
-                <div>
+                <div className="downloadHolder">
                   Calendar file :
-                  <a href={downloadData.browser_download_url}>
-                    {`${downloadData.name}`}
-                  </a>
+                  <div className="card">
+                    <div className="cardHeading">
+                      <div className="imgageHolder">
+                        <img src={downloadData.uploader.avatar_url} />
+                      </div>
+                    </div>
+                    <div>
+                      <label>Updated by : </label>{" "}
+                      <div>{`${downloadData.uploader.login}`}</div>
+                    </div>
+                    <div>
+                      <label>File name : </label>{" "}
+                      <div>{`${downloadData.name}`}</div>
+                    </div>
+                    <div className="footer">
+                      <div className="btn btn-primary rounded">
+                        <a href={downloadData.browser_download_url}>
+                          {`Download `}
+                          <i className="ti-download pr-1"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>

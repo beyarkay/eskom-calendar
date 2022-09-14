@@ -14,8 +14,12 @@ body {
 }
 
 [data-theme='light'] {
-  --background: black;
+  --background: #aaaaaa;
   --text-primary: white;
   --text-secondary: grey;
-  --accent: darkred;
+  --accent: #666666;
+
+  --primary-background: #FdFe3e;
+  --primary-border: #eE32C2;
+  --primary-background-disabled: #106161;
 }
