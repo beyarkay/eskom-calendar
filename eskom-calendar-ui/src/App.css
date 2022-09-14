@@ -56,6 +56,7 @@
   background: rgb(2, 0, 14);
   background: linear-gradient(0deg, var(--background) 0%, #101a9d 100%);
   background-size: 100% 100%;
+  padding-bottom: 60px;
 }
 .card .cardHeading {
   height: 80px;

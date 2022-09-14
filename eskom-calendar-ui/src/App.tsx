@@ -89,10 +89,11 @@ function App() {
                     );
                   }}
                 >
+                  <option key={0}>Select</option>
                   {assetData.length > 0 &&
                     assetData.map((x: IAsset, i) => {
                       return (
-                        <option key={i} value={JSON.stringify(x)}>
+                        <option key={i + x.name} value={JSON.stringify(x)}>
                           {x.town ? x.town : x.block}
                         </option>
                       );
@@ -112,11 +113,15 @@ function App() {
                     </div>
                     <div>
                       <label>Updated by : </label>{" "}
-                      <div>{`${downloadData.uploader.login}`}</div>
+                      <label>{`${downloadData.uploader.login}`}</label>
                     </div>
                     <div>
                       <label>File name : </label>{" "}
-                      <div>{`${downloadData.name}`}</div>
+                      <label>{`${downloadData.name}`}</label>
+                    </div>
+                    <div>
+                      <label>Downloads : </label>{" "}
+                      <label>{`${downloadData.download_count}`}</label>
                     </div>
                     <div className="footer">
                       <div className="btn btn-primary rounded">
