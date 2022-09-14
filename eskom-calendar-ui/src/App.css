@@ -41,6 +41,15 @@
 
 .filters {
   padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
+.filters label {
+  padding: 0;
+  margin: 0;
+  padding-right: 3px;
 }
 .filters select {
   text-transform: capitalize;
@@ -82,9 +91,9 @@
 }
 
 .card .footer {
-  padding-top:10px;
+  padding-top: 10px;
   position: absolute;
-  
+
   bottom: 0;
   width: 100%;
   display: flex;

@@ -187,7 +187,7 @@ sup {
 }
 
 a {
-  color: var(--primary-background-disabled);
+  color: var(--text-primary);
   text-decoration: none;
   background-color: transparent;
 }

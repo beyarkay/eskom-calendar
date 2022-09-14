@@ -27,7 +27,6 @@ function App() {
   const [provinceList, setProvinceList] = useState<IProvince[]>(
     {} as IProvince[]
   );
-
   const [downloadData, setDownloadData] = useState<IAsset>();
   const [assetData, setAssetData] = useState<IAsset[]>({} as IAsset[]);
   const fetchAssets = async (e: any) => {
@@ -37,6 +36,32 @@ function App() {
 
     setDownloadData(undefined);
     setAssetData(await d);
+  };
+  const getTopDownloads = () => {
+    if (gitHubAssets.length > 0) {
+      var c = gitHubAssets!.filter((x) => x.download_count > 0);
+      c = c
+        .sort((a, b) => (a.download_count > b.download_count ? -1 : 1))
+        .slice(0, 5);
+
+      var dd = (
+        <div>
+          <header>Top 5 downloaded files</header>
+          <ul>
+            {c.map((x) => {
+              return (
+                <li>
+                  <a href={x.browser_download_url}>
+                    {x.name} - {x.download_count}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+      return dd;
+    }
   };
   useEffect(() => {
     calServ = CalendarDataService.getInstance();
@@ -53,6 +78,7 @@ function App() {
     fetchProvinceListData();
     fetchLatestData();
   }, []);
+
   return (
     <>
       <div className="App" data-theme={theme}>
@@ -66,9 +92,13 @@ function App() {
         <div className="content">
           <div className="menu">
             {provinceList.length > 0 &&
-              provinceList.map((x) => {
+              provinceList.map((x, i) => {
                 return (
-                  <div className="btns" onClick={() => fetchAssets(x.key)}>
+                  <div
+                    key={i}
+                    className="btns"
+                    onClick={() => fetchAssets(x.key)}
+                  >
                     {x.value}
                   </div>
                 );
@@ -81,25 +111,24 @@ function App() {
           >
             <div className="filters">
               <label>Filter </label>
-              <div>
-                <select
-                  onChange={(e) => {
-                    setDownloadData(
-                      JSON.parse(e.target.selectedOptions[0].value)
+
+              <select
+                onChange={(e) => {
+                  setDownloadData(
+                    JSON.parse(e.target.selectedOptions[0].value)
+                  );
+                }}
+              >
+                <option key={0}>Select</option>
+                {assetData.length > 0 &&
+                  assetData.map((x: IAsset, i) => {
+                    return (
+                      <option key={i + x.name} value={JSON.stringify(x)}>
+                        {x.town ? x.town : x.block}
+                      </option>
                     );
-                  }}
-                >
-                  <option key={0}>Select</option>
-                  {assetData.length > 0 &&
-                    assetData.map((x: IAsset, i) => {
-                      return (
-                        <option key={i + x.name} value={JSON.stringify(x)}>
-                          {x.town ? x.town : x.block}
-                        </option>
-                      );
-                    })}
-                </select>
-              </div>
+                  })}
+              </select>
             </div>
             <div>
               {downloadData && (
@@ -135,6 +164,7 @@ function App() {
                 </div>
               )}
             </div>
+            {getTopDownloads()}
           </div>
         </div>
         <div className="footer"></div>
