@@ -98,66 +98,93 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
     let val = reqwest::blocking::get(url).expect(format!("Failed to get url {url}").as_str());
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
-    let link_selector = Selector::parse("div>div>p>span>a").unwrap();
-    let limit = limit.unwrap_or(document.select(&link_selector).count());
-    eprintln!("  Parsing {} links", limit);
+
+    let mut areas_hrefs = vec![];
+    let selector1 = Selector::parse("div>div>p>span>a").unwrap();
+    let selector2 = Selector::parse("div>div>p>a").unwrap();
+    let limit = limit.unwrap_or(0)
+        + document.select(&selector1).count()
+        + document.select(&selector2).count();
+
+    eprintln!(
+        "  Parsing {} links ({} + {})",
+        document.select(&selector2).count() + document.select(&selector1).count(),
+        document.select(&selector2).count(), document.select(&selector1).count()
+    );
+    // First go through the HTML elements which match selector1
+    for element in document.select(&selector1) {
+        let area = element.first_child().unwrap().value().as_text();
+        let href = element.value().attr("href");
+        areas_hrefs.push((&area.unwrap().text, href));
+    }
+    // Second go through the HTML elements which match selector2
+    for element in document.select(&Selector::parse("div>div>p>a").unwrap()) {
+        let mut area = element
+            .first_child()
+            .unwrap()
+            .first_child()
+            .and_then(|c| c.value().as_text());
+        if area.is_none() {
+            area = element.first_child().unwrap().value().as_text();
+        }
+        let href = element.value().attr("href");
+        areas_hrefs.push((&area.unwrap().text, href));
+    }
+    let areas_hrefs = areas_hrefs
+        .into_iter()
+        .filter(|(_a, h)| {
+            h.is_some_and(|h| {
+                h.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads")
+            })
+        })
+        .map(|(a, h)| (a, h.unwrap()))
+        .collect::<Vec<_>>();
+
     let mut pdfs_scraped = 0;
     let mut handles = vec![];
-    for element in document.select(&link_selector) {
+    for (area, href) in areas_hrefs {
         if pdfs_scraped >= limit {
-            eprintln!("Reached limit of {limit}, stopping scraping");
+            eprintln!("Reached limit of {limit} URLs, stopping scraping");
             break;
         }
-        // If the href exists and starts with eskom.co.za/..../uploads then download and parse it
-        // via python
-
-        if let Some(href) = element.value().attr("href") {
-            if href.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads") {
-                let fname = element
-                    .inner_html()
-                    .replace(":", "")
-                    .replace(" ", "")
-                    .replace(|c: char| !c.is_ascii(), "");
-                let province = url.split("/").collect::<Vec<_>>()[7];
-                let savename = format!("{province}-{fname}").to_lowercase();
-                // Don't bother downloading the pdf if the resultant CSV already exists
-                if Path::new(format!("generated/{savename}.csv").as_str()).exists() {
-                    continue;
-                }
-                eprintln!("   $ python3 src/parse_eskom.py {href:<90} {savename:<20}");
-                let handle = Command::new("python3")
-                    .args(["src/parse_eskom.py", href, &savename])
-                    .stdout(Stdio::piped())
-                    .stderr(Stdio::piped())
-                    .spawn()
-                    .expect("Failed to execute command");
-                handles.push(handle);
-                if handles.len() > 50 {
-                    match handles.pop().unwrap().wait_with_output() {
-                        Ok(res) => {
-                            if !res.status.success() {
-                                red_ln!(
-                                    "   Error with python process: \nstdout: {:?}\nstderr:{:?}",
-                                    String::from_utf8_lossy(&res.stdout),
-                                    String::from_utf8_lossy(&res.stderr)
-                                );
-                            }
-                        }
-                        Err(e) => {
-                            red_ln!("   Error with python process: {}", e);
-                        }
+        let fname = area
+            .replace(":", "")
+            .replace(" ", "")
+            .replace(|c: char| !c.is_ascii(), "");
+        let province = url.split("/").collect::<Vec<_>>()[7];
+        let savename = format!("{province}-{fname}").to_lowercase();
+        // Don't bother downloading the pdf if the resultant CSV already exists
+        if Path::new(format!("generated/{savename}.csv").as_str()).exists() {
+            continue;
+        }
+        eprintln!("   $ python3 src/parse_eskom.py {href:<90} {savename:<20}");
+        let handle = Command::new("python3")
+            .args(["src/parse_eskom.py", href, &savename])
+            .stdout(Stdio::piped())
+            .stderr(Stdio::piped())
+            .spawn()
+            .expect("Failed to execute command");
+        handles.push(handle);
+        if handles.len() > 50 {
+            match handles.pop().unwrap().wait_with_output() {
+                Ok(res) => {
+                    if !res.status.success() {
+                        red_ln!(
+                            "   Error with async python process: \n   stdout: {}\n   stderr: {}",
+                            String::from_utf8_lossy(&res.stdout),
+                            String::from_utf8_lossy(&res.stderr).replace("\n", "\n    ")
+                        );
+                        grey_ln!("{:?}", res.stderr);
                     }
                 }
-                pdfs_scraped += 1;
-            } else {
-                red_ln!(
-                    "   Cannot parse {:?}: {:?}",
-                    element.inner_html(),
-                    element.value().attr("href"),
-                );
+                Err(e) => {
+                    red_ln!("   Error with python process: {}", e);
+                }
             }
         }
+        pdfs_scraped += 1;
     }
+    // Go through all the python processes and wait for them to finish
     for handle in handles {
         match handle.wait_with_output() {
             Ok(res) => {
@@ -170,7 +197,7 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                 }
             }
             Err(e) => {
-                red_ln!("   Error with python process: {}", e);
+                red_ln!("   Error waiting for python process: {}", e);
             }
         }
     }
