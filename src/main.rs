@@ -190,9 +190,9 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
             Ok(res) => {
                 if !res.status.success() {
                     red_ln!(
-                        "   Error with python process: \nstdout: {:?}\nstderr:{:?}",
+                        "   Error with async python process: \n   stdout: {}\n   stderr: {}",
                         String::from_utf8_lossy(&res.stdout),
-                        String::from_utf8_lossy(&res.stderr)
+                        String::from_utf8_lossy(&res.stderr).replace("\n", "\n    ")
                     );
                 }
             }
@@ -243,9 +243,6 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         );
         for national in &mis.changes {
             if national.stage == local.stage {
-                let finsh_year = national.start.year();
-                let finsh_month = national.start.month();
-
                 let start_year = national.start.year();
                 let start_month = national.start.month();
 
