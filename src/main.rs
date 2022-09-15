@@ -209,47 +209,6 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     // }
 
     for local in local_sheddings.into_iter() {
-        let curr_year = Utc::now().year();
-        let curr_month = Utc::now().date();
-        // Get the number of days in the month by comparing this month's first to the next month's first
-        let days_in_month = if curr_month.month() == 12 {
-            NaiveDate::from_ymd(curr_year + 1, 1, 1)
-        } else {
-            NaiveDate::from_ymd(curr_year, curr_month.month() + 1, 1)
-        }
-        .signed_duration_since(NaiveDate::from_ymd(curr_year, curr_month.month(), 1))
-        .num_days() as u8;
-        // Don't create events on the 31st of February
-        if local.date_of_month > days_in_month {
-            continue;
-        }
-        let l_start = format!(
-            "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
-            year = curr_year,
-            month = curr_month.month(),
-            date = local.date_of_month,
-            hour = local.start_time.hour(),
-            minute = local.start_time.minute(),
-        );
-        let local_start = DateTime::parse_from_rfc3339(l_start.as_str())
-            .expect(format!("Failed to parse time {l_start} as RFC3339").as_str());
-
-        let l_finsh = format!(
-            "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
-            year = curr_year,
-            month = curr_month.month(),
-            date = local.date_of_month,
-            hour = local.finsh_time.hour(),
-            minute = local.finsh_time.minute(),
-        );
-        let mut local_finsh = DateTime::parse_from_rfc3339(l_finsh.as_str())
-            .expect(format!("Failed to parse time {l_finsh} as RFC3339").as_str());
-
-        // If the event goes over midnight, then add one day to the end date
-        if local.goes_over_midnight {
-            local_finsh = local_finsh + Duration::days(1);
-        }
-
         let summary = format!(
             "Stage {} Loadshedding {}",
             local.stage,
@@ -257,6 +216,50 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         );
         for national in &mis.changes {
             if national.stage == local.stage {
+                let finsh_year = national.start.year();
+                let finsh_month = national.start.month();
+
+                let start_year = national.start.year();
+                let start_month = national.start.month();
+
+                // Get the number of days in the month by comparing this month's first to the next month's first
+                let days_in_month = if start_month == 12 {
+                    NaiveDate::from_ymd(start_year + 1, 1, 1)
+                } else {
+                    NaiveDate::from_ymd(start_year, start_month + 1, 1)
+                }
+                .signed_duration_since(NaiveDate::from_ymd(start_year, start_month, 1))
+                .num_days() as u8;
+                // Don't create events on the 31st of February
+                if local.date_of_month > days_in_month {
+                    continue;
+                }
+                let l_start = format!(
+                    "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
+                    year = start_year,
+                    month = start_month,
+                    date = local.date_of_month,
+                    hour = local.start_time.hour(),
+                    minute = local.start_time.minute(),
+                );
+                let local_start = DateTime::parse_from_rfc3339(l_start.as_str())
+                    .expect(format!("Failed to parse time {l_start} as RFC3339").as_str());
+
+                let l_finsh = format!(
+                    "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
+                    year = start_year,
+                    month = start_month,
+                    date = local.date_of_month,
+                    hour = local.finsh_time.hour(),
+                    minute = local.finsh_time.minute(),
+                );
+                let mut local_finsh = DateTime::parse_from_rfc3339(l_finsh.as_str())
+                    .expect(format!("Failed to parse time {l_finsh} as RFC3339").as_str());
+
+                // If the event goes over midnight, then add one day to the end date
+                if local.goes_over_midnight {
+                    local_finsh = local_finsh + Duration::days(1);
+                }
                 if national.start < local_finsh && national.finsh > local_start {
                     eprintln!("Overlap (National {} and Local {}):\n  national: {} to {},\n  local:    {} to {}",
                         national.stage, local.stage, national.start, national.finsh, local_start, local_finsh,
