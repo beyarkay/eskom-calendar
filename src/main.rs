@@ -27,14 +27,15 @@ fn main() {
     };
     // Define the URLs which list the PDFs per-province.
     let source_urls = vec![
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/gauteng/",
         "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/",
         "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/free-state/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/gauteng/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/kwazulu-natal/",
         "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/limpopo/",
         "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/mpumalanga/",
         "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/north-west/",
         "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/northern-cape/",
+        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/",
     ];
 
     // Download the PDFs for each province.
