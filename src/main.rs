@@ -1,3 +1,4 @@
+#![feature(is_some_with)]
 use chrono::FixedOffset;
 use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
 use icalendar::{Calendar, Component, Event};
@@ -94,7 +95,7 @@ fn main() {
 /// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
 /// convert them via a python script to csv file containing load shedding schedules.
 fn dl_pdfs(url: &str, limit: Option<usize>) {
-    eprintln!(" Getting links from {url}");
+    blue_ln!(" Getting links from {}", url);
     let val = reqwest::blocking::get(url).expect(format!("Failed to get url {url}").as_str());
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
@@ -109,7 +110,8 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
     eprintln!(
         "  Parsing {} links ({} + {})",
         document.select(&selector2).count() + document.select(&selector1).count(),
-        document.select(&selector2).count(), document.select(&selector1).count()
+        document.select(&selector1).count(),
+        document.select(&selector2).count(),
     );
     // First go through the HTML elements which match selector1
     for element in document.select(&selector1) {
