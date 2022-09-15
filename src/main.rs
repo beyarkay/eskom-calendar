@@ -12,6 +12,8 @@ use std::process::{Command, Stdio};
 use structs::{
     ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding,
 };
+#[macro_use]
+extern crate colour;
 
 mod structs;
 
@@ -134,24 +136,24 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                     match handles.pop().unwrap().wait_with_output() {
                         Ok(res) => {
                             if !res.status.success() {
-                                eprintln!(
-                                    "!  Error with python process: \nstdout: {:?}\nstderr:{:?}",
+                                red_ln!(
+                                    "   Error with python process: \nstdout: {:?}\nstderr:{:?}",
                                     String::from_utf8_lossy(&res.stdout),
                                     String::from_utf8_lossy(&res.stderr)
                                 );
                             }
                         }
                         Err(e) => {
-                            eprintln!("!  Error with python process: {e}");
+                            red_ln!("   Error with python process: {}", e);
                         }
                     }
                 }
                 pdfs_scraped += 1;
             } else {
-                eprintln!(
-                    "!  Cannot parse: {:?} {:?}",
+                red_ln!(
+                    "   Cannot parse {:?}: {:?}",
+                    element.inner_html(),
                     element.value().attr("href"),
-                    element.inner_html()
                 );
             }
         }
@@ -160,15 +162,15 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
         match handle.wait_with_output() {
             Ok(res) => {
                 if !res.status.success() {
-                    eprintln!(
-                        "!  Error with python process: \nstdout: {:?}\nstderr:{:?}",
+                    red_ln!(
+                        "   Error with python process: \nstdout: {:?}\nstderr:{:?}",
                         String::from_utf8_lossy(&res.stdout),
                         String::from_utf8_lossy(&res.stderr)
                     );
                 }
             }
             Err(e) => {
-                eprintln!("!  Error with python process: {e}");
+                red_ln!("   Error with python process: {}", e);
             }
         }
     }
