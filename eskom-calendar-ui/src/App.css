@@ -127,7 +127,7 @@ body {
 
 @media (max-width: 576px) {
   body {
-    background-color: #115410;
+    /* background-color: #115410; */
   }
   .content {
     flex-direction: column;
