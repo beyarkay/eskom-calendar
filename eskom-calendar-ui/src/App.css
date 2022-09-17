@@ -3,7 +3,7 @@ body {
   background-size: cover;
 }
 .App {
-  opacity: 0.85;
+  /* opacity: 0.85; */
   box-sizing: border-box;
   background-color: var(--background);
   color: var(--text-primary);
