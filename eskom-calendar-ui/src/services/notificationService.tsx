@@ -4,6 +4,7 @@ export default class NotificationService {
   private constructor() {}
 
   public static getInstance(): NotificationService {
+    debugger;
     if (!NotificationService.classInstance) {
       NotificationService.classInstance = new NotificationService();
     }
@@ -13,5 +14,6 @@ export default class NotificationService {
 
   sendMsg(msg: string): void {
     new Notification(msg);
+    debugger;
   }
 }

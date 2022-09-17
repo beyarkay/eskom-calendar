@@ -5,6 +5,7 @@ import "./App.css";
 import CalendarDataService from "./services/assets";
 import ThemeToggel from "./components/theme-toggel/theme-toggel";
 import { Themes } from "./enums/enums";
+import NotificationService from "./services/notificationService";
 
 function App() {
   let calServ: CalendarDataService;
@@ -64,7 +65,10 @@ function App() {
       return dd;
     }
   };
+  var notificationServ = NotificationService.getInstance();
   useEffect(() => {
+
+    notificationServ.sendMsg("TEST")
     calServ = CalendarDataService.getInstance();
     const fetchProvinceListData = async () => {
       var d = await calServ.fetchProvinceList();
