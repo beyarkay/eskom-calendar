@@ -1,6 +1,6 @@
 import useLocalStorage from "use-local-storage";
 import { IAsset, IProvince } from "./interfaces/github";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import CalendarDataService from "./services/assets";
 import ThemeToggel from "./components/theme-toggel/theme-toggel";
@@ -9,6 +9,7 @@ import { Themes } from "./enums/enums";
 function App() {
   let calServ: CalendarDataService;
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const ddlRef = useRef(null);
   const [theme, setTheme] = useLocalStorage(
     "theme",
     defaultDark ? Themes.Dark : Themes.Light
@@ -51,7 +52,7 @@ function App() {
             {c.map((x) => {
               return (
                 <li>
-                  <a href={x.browser_download_url}>
+                  <a className=" " href={x.browser_download_url}>
                     {x.name} - {x.download_count}
                   </a>
                 </li>
@@ -78,7 +79,11 @@ function App() {
     fetchProvinceListData();
     fetchLatestData();
   }, []);
-
+  useEffect(() => {
+    if (assetData.length > 0) {
+      (ddlRef.current as any).scrollIntoView(true);
+    }
+  }, [assetData]);
   return (
     <>
       <div className="App" data-theme={theme}>
@@ -109,63 +114,68 @@ function App() {
               assetData.length > 0 ? "icsContainer" : ""
             }`}
           >
-            <div className="filters">
-              <label>Filter </label>
+            {assetData.length > 0 && (
+              <div className="filters">
+                <label>Filter </label>
 
-              <select
-                onChange={(e) => {
-                  setDownloadData(
-                    JSON.parse(e.target.selectedOptions[0].value)
-                  );
-                }}
-              >
-                <option key={0}>Select</option>
-                {assetData.length > 0 &&
-                  assetData.map((x: IAsset, i) => {
-                    return (
-                      <option key={i + x.name} value={JSON.stringify(x)}>
-                        {x.town ? x.town : x.block}
-                      </option>
+                <select
+                  ref={ddlRef}
+                  onChange={(e) => {
+                    setDownloadData(
+                      JSON.parse(e.target.selectedOptions[0].value)
                     );
-                  })}
-              </select>
-            </div>
-            <div>
-              {downloadData && (
-                <div className="downloadHolder">
-                  Calendar file :
-                  <div className="card">
-                    <div className="cardHeading">
-                      <div className="imgageHolder">
-                        <img src={downloadData.uploader.avatar_url} />
+                  }}
+                >
+                  <option key={0}>Select</option>
+                  {assetData.length > 0 &&
+                    assetData.map((x: IAsset, i) => {
+                      return (
+                        <option key={i + x.name} value={JSON.stringify(x)}>
+                          {x.town ? x.town : x.block}
+                        </option>
+                      );
+                    })}
+                </select>
+              </div>
+            )}
+            {downloadData && (
+              <>
+                <div>
+                  <div className="downloadHolder">
+                    Calendar file :
+                    <div className="card">
+                      <div className="cardHeading">
+                        <div className="imgageHolder">
+                          <img src={downloadData.uploader.avatar_url} />
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <label>Updated by : </label>{" "}
-                      <label>{`${downloadData.uploader.login}`}</label>
-                    </div>
-                    <div>
-                      <label>File name : </label>{" "}
-                      <label>{`${downloadData.name}`}</label>
-                    </div>
-                    <div>
-                      <label>Downloads : </label>{" "}
-                      <label>{`${downloadData.download_count}`}</label>
-                    </div>
-                    <div className="footer">
-                      <div className="btn btn-primary rounded">
-                        <a href={downloadData.browser_download_url}>
-                          {`Download `}
-                          <i className="ti-download pr-1"></i>
-                        </a>
+                      <div>
+                        <label>Updated by : </label>{" "}
+                        <label>{`${downloadData.uploader.login}`}</label>
+                      </div>
+                      <div>
+                        <label>File name : </label>{" "}
+                        <label>{`${downloadData.name}`}</label>
+                      </div>
+                      <div>
+                        <label>Downloads : </label>{" "}
+                        <label>{`${downloadData.download_count}`}</label>
+                      </div>
+                      <div className="footer">
+                        <div className="btn btn-primary rounded">
+                          <a href={downloadData.browser_download_url}>
+                            {`Download `}
+                            <i className="ti-download pr-1"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
-            </div>
-            {getTopDownloads()}
+              </>
+            )}
           </div>
+          <div>{getTopDownloads()}</div>
         </div>
         <div className="footer"></div>
       </div>
