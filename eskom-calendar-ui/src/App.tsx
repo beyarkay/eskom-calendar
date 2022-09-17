@@ -65,10 +65,8 @@ function App() {
       return dd;
     }
   };
-  var notificationServ = NotificationService.getInstance();
   useEffect(() => {
 
-    notificationServ.sendMsg("TEST")
     calServ = CalendarDataService.getInstance();
     const fetchProvinceListData = async () => {
       var d = await calServ.fetchProvinceList();
