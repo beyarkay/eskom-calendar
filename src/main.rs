@@ -1,4 +1,3 @@
-#![feature(is_some_with)]
 use chrono::FixedOffset;
 use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
 use icalendar::{Calendar, Component, Event};
@@ -135,9 +134,9 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
     let areas_hrefs = areas_hrefs
         .into_iter()
         .filter(|(_a, h)| {
-            h.is_some_and(|h| {
-                h.starts_with("https://www.eskom.co.za/distribution/wp-content/uploads")
-            })
+            h.is_some()
+                && h.unwrap()
+                    .starts_with("https://www.eskom.co.za/distribution/wp-content/uploads")
         })
         .map(|(a, h)| (a, h.unwrap()))
         .collect::<Vec<_>>();
