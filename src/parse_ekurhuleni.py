@@ -10,6 +10,9 @@ warnings.filterwarnings("ignore")
 
 
 def main():
+    print(
+        "WARNING: The downloaded schedule is incorrect for gauteng-ekurhuleni-block-14. See https://github.com/beyarkay/eskom-calendar/issues/55"
+    )
     # Get the path which the pdf should be saved to
     path = f"generated/gauteng-ekurhuleni.pdf"
     url = "https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf"
