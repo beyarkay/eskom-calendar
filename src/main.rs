@@ -82,7 +82,7 @@ fn main() {
         // if !path.to_str().unwrap().starts_with("generated/city-power-") {
         //     continue;
         // }
-        eprintln!("Creating calendar from {:?}", path);
+        blue_ln!("Creating calendar from {:?}", path);
         create_calendar(
             path.to_str()
                 .expect(format!("Failed to convert {:?} to str", path).as_str())
@@ -95,7 +95,7 @@ fn main() {
 /// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
 /// convert them via a python script to csv file containing load shedding schedules.
 fn dl_pdfs(url: &str, limit: Option<usize>) {
-    blue_ln!(" Getting links from {}", url);
+    blue_ln!(" Getting province PDFs from {}", url);
     let val = reqwest::blocking::get(url).expect(format!("Failed to get url {url}").as_str());
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
@@ -287,7 +287,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                     local_finsh = local_finsh + Duration::days(1);
                 }
                 if national.start < local_finsh && national.finsh > local_start {
-                    eprintln!("Overlap (National {} and Local {}):\n  national: {} to {},\n  local:    {} to {}",
+                    eprintln!(" Overlap (National {} and Local {}):\n  national: {} to {},\n  local:    {} to {}",
                         national.stage, local.stage, national.start, national.finsh, local_start, local_finsh,
                     );
                     let area_name = csv_path
@@ -337,7 +337,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                         &national.source,
                     ));
                     calendar.push(evt);
-                    eprintln!("    Adding: {} to {}", event_start, event_finsh);
+                    eprintln!("   Adding:  {} to {}", event_start, event_finsh);
                 }
             }
         }
