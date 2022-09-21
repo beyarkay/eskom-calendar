@@ -64,62 +64,6 @@ body {
   min-width: 200px;
 }
 
-.card {
-  border: 2px solid var(--primary-border);
-  border-radius: 5px;
-  width: 200px;
-  min-height: 300px;
-  display: flex;
-  background: rgb(2, 0, 14);
-  background: linear-gradient(0deg, var(--background) 0%, #101a9d 100%);
-  background-size: 100% 100%;
-  padding-bottom: 60px;
-}
-.card .cardHeading {
-  height: 80px;
-  background-image: url(https://static9.depositphotos.com/1000423/1082/i/600/depositphotos_10827891-stock-photo-electric-cord-with-electricity-sparkls.jpg);
-  background-size: 100% 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.card .imgageHolder {
-  height: 50px;
-  width: 50px;
-  background-color: darkcyan;
-  border-radius: 50%;
-  position: absolute;
-  top: 20%;
-}
-.imgageHolder img {
-  width: 100%;
-  border-radius: 50%;
-}
-
-.card .footer {
-  padding-top: 10px;
-  position: absolute;
-
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-}
-
-.btns {
-  border: 1px solid var(--text-primary);
-  border-radius: 5px;
-  margin: 3px;
-  padding: 3px;
-  text-transform: capitalize;
-}
-.btns:hover {
-  cursor: pointer;
-}
 .App .section-secondary-title {
   display: flex;
   padding-bottom: 25px;

@@ -7,6 +7,7 @@ import ThemeToggel from "./components/theme-toggel/theme-toggel";
 import { Themes } from "./enums/enums";
 import NotificationService from "./services/notificationService";
 import LoadsheddingCalendar from "./components/loadshedding-calendar/loadshedding-calendar";
+import EskomCard from "./components/eskom-card/eskom-card";
 
 function App() {
   let calServ: CalendarDataService;
@@ -152,33 +153,7 @@ function App() {
                 <div>
                   <div className="downloadHolder">
                     Calendar file :
-                    <div className="card">
-                      <div className="cardHeading">
-                        <div className="imgageHolder">
-                          <img src={downloadData.uploader.avatar_url} />
-                        </div>
-                      </div>
-                      <div>
-                        <label>Updated by : </label>{" "}
-                        <label>{`${downloadData.uploader.login}`}</label>
-                      </div>
-                      <div>
-                        <label>File name : </label>{" "}
-                        <label>{`${downloadData.name}`}</label>
-                      </div>
-                      <div>
-                        <label>Downloads : </label>{" "}
-                        <label>{`${downloadData.download_count}`}</label>
-                      </div>
-                      <div className="footer">
-                        <div className="btn btn-primary rounded">
-                          <a href={downloadData.browser_download_url}>
-                            {`Download `}
-                            <i className="ti-download pr-1"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <EskomCard downloadData={downloadData} />
                   </div>
                 </div>
               </>

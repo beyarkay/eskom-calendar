@@ -23,3 +23,17 @@ body {
   --primary-border: #eE32C2;
   --primary-background-disabled: #106161;
 }
+
+
+
+.btns {
+  border: 1px solid var(--text-primary);
+  border-radius: 5px;
+  margin: 3px;
+  padding: 3px;
+  text-transform: capitalize;
+}
+
+.btns:hover {
+  cursor: pointer;
+}
