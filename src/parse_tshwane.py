@@ -43,8 +43,6 @@ for stage in range(1, 8):
     this_stage.stage = stage + 1
     df = pd.concat((this_stage, df))
 
-df = df.sort_values(["stage", "date_of_month", "start_time"])
-
 for area_idx in sorted(df["area"].unique()):
     area_df = df[df["area"] == area_idx].sort_values(
         ["date_of_month", "start_time", "stage"]
