@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://ruandv.github.io/eskom-calendar",
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/icalendar": "^5.11.3",
+    "@fullcalendar/react": "^5.11.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",

@@ -6,6 +6,7 @@ import CalendarDataService from "./services/assets";
 import ThemeToggel from "./components/theme-toggel/theme-toggel";
 import { Themes } from "./enums/enums";
 import NotificationService from "./services/notificationService";
+import LoadsheddingCalendar from "./components/loadshedding-calendar/loadshedding-calendar";
 
 function App() {
   let calServ: CalendarDataService;
@@ -46,7 +47,7 @@ function App() {
         .sort((a, b) => (a.download_count > b.download_count ? -1 : 1))
         .slice(0, 5);
 
-      var dd = (
+      var topDownloads = (
         <div>
           <header>Top 5 downloaded files</header>
           <ul>
@@ -62,11 +63,10 @@ function App() {
           </ul>
         </div>
       );
-      return dd;
+      return topDownloads;
     }
   };
   useEffect(() => {
-
     calServ = CalendarDataService.getInstance();
     const fetchProvinceListData = async () => {
       var d = await calServ.fetchProvinceList();
@@ -176,6 +176,11 @@ function App() {
                 </div>
               </>
             )}
+            <div>
+              <LoadsheddingCalendar
+                eventData={[{ title: "event 1", date: new Date() }]}
+              ></LoadsheddingCalendar>
+            </div>
           </div>
           <div>{getTopDownloads()}</div>
         </div>
