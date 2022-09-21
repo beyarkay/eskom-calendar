@@ -48,6 +48,40 @@ for area_idx in sorted(df["area"].unique()):
         ["date_of_month", "start_time", "stage"]
     )
     path = f"generated/gauteng-tshwane-group-{int(area_idx)}.csv"
+
+    # Now the big task is to de-duplicate the stages. For example:
+    # date_of_month start_time finsh_time  stage
+    #             1      02:00      04:30      8
+    #             1      04:00      06:30      8
+    # The first two rows should really be one row like:
+    # date_of_month start_time finsh_time  stage
+    #             1      02:00      06:30      8
+    # So this code combines them:
+    area_df = area_df.sort_values(["stage", "date_of_month", "start_time"])
+    df2 = pd.DataFrame(columns=area_df.columns)
+    for i, curr in area_df.iterrows():
+        # the first row always gets added
+        if len(df2) == 0:
+            df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
+            continue
+        prev = df2.iloc[-1]
+        # Don't attempt to combine rows of different stages
+        if prev["stage"] != curr["stage"]:
+            df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
+            continue
+        # If this row and the previous row overlap in their times => combine them
+        starts_before_finish = pd.to_datetime(prev["start_time"]) < pd.to_datetime(
+            curr["finsh_time"]
+        )
+        finishes_after_start = pd.to_datetime(prev["finsh_time"]) > pd.to_datetime(
+            curr["start_time"]
+        )
+        if starts_before_finish and finishes_after_start:
+            prev["finsh_time"] = curr["finsh_time"]
+        else:
+            df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
+    area_df = df2.sort_values(["date_of_month", "start_time", "stage"])
+
     area_df[["date_of_month", "start_time", "finsh_time", "stage"]].to_csv(
         path, index=False
     )
