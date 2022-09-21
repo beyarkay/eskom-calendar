@@ -5,11 +5,8 @@ on:
     branches: [ "main" ]
     paths:
       - 'manually_specified.yaml'
-      - 'src/main.rs'
-      - 'src/structs.rs'
-      - 'src/parse_city_power.py'
-      - 'src/parse_coct_html.py'
-      - 'src/parse_pdf.py'
+      - 'src/*.rs'
+      - 'src/*.py'
   workflow_dispatch:
 
 env:
