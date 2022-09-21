@@ -117,28 +117,35 @@ function App() {
             }`}
           >
             {assetData.length > 0 && (
-              <div className="filters">
-                <label>Filter </label>
+              <>
+                <div className="filters">
+                  <label>Filter </label>
 
-                <select
-                  ref={ddlRef}
-                  onChange={(e) => {
-                    setDownloadData(
-                      JSON.parse(e.target.selectedOptions[0].value)
-                    );
-                  }}
-                >
-                  <option key={0}>Select</option>
-                  {assetData.length > 0 &&
-                    assetData.map((x: IAsset, i) => {
-                      return (
-                        <option key={i + x.name} value={JSON.stringify(x)}>
-                          {x.town ? x.town : x.block}
-                        </option>
+                  <select
+                    ref={ddlRef}
+                    onChange={(e) => {
+                      setDownloadData(
+                        JSON.parse(e.target.selectedOptions[0].value)
                       );
-                    })}
-                </select>
-              </div>
+                    }}
+                  >
+                    <option key={0}>Select</option>
+                    {assetData.length > 0 &&
+                      assetData.map((x: IAsset, i) => {
+                        return (
+                          <option key={i + x.name} value={JSON.stringify(x)}>
+                            {x.town ? x.town : x.block}
+                          </option>
+                        );
+                      })}
+                  </select>
+                </div>
+                <div>
+                  <LoadsheddingCalendar
+                    eventCalendarName={downloadData?.name}
+                  ></LoadsheddingCalendar>
+                </div>
+              </>
             )}
             {downloadData && (
               <>
@@ -176,11 +183,6 @@ function App() {
                 </div>
               </>
             )}
-            <div>
-              <LoadsheddingCalendar
-                eventData={[{ title: "event 1", date: new Date() }]}
-              ></LoadsheddingCalendar>
-            </div>
           </div>
           <div>{getTopDownloads()}</div>
         </div>
