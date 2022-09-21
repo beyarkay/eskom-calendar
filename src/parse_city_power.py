@@ -109,10 +109,10 @@ def main():
                 df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
                 continue
             # If this row and the previous row overlap in their times => combine them
-            starts_before_finish = pd.to_datetime(prev["start_time"]) < pd.to_datetime(
+            starts_before_finish = pd.to_datetime(prev["start_time"]) <= pd.to_datetime(
                 curr["finsh_time"]
             )
-            finishes_after_start = pd.to_datetime(prev["finsh_time"]) > pd.to_datetime(
+            finishes_after_start = pd.to_datetime(prev["finsh_time"]) >= pd.to_datetime(
                 curr["start_time"]
             )
             if starts_before_finish and finishes_after_start:
