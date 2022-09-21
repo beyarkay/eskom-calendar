@@ -60,10 +60,24 @@ def main():
         "00:30",
     ]
     durations = [([f"{start}-{finish}"] * 8) for start, finish in zip(starts, finshs)]
+    # Assign durations for each row
     pdf["duration"] = [durations[i // 8][i % 8] for i in range(pdf.shape[0])]
-    pdf = pdf.set_index(["duration", "stage"]).stack()
-    pdf = pdf.reset_index()
+    # Reshape and rename the pdf to be like:
+    #    duration stage  date_of_month  area
+    # 00:00-02:30     1              1   1.0
+    # 00:00-02:30     1              2  13.0
+    # 00:00-02:30     1              3   9.0
+    pdf = pdf.set_index(["duration", "stage"]).stack().reset_index()
     pdf.columns = ["duration", "stage", "date_of_month", "area"]
+
+    pdf["stage"] = pd.to_numeric(pdf.stage)
+    # Stages are subsets of each other, so add in the extra rows so that stage
+    # 2 is a superset of stage 1, stage 3 a superset of stage 2, etc
+    for stage in range(1, 8):
+        this_stage = pdf[pdf.stage == stage].copy()
+        this_stage.stage = stage + 1
+        pdf = pd.concat((this_stage, pdf))
+
     max_area_code = int(pdf["area"].max())
     pdf["start_time"] = pdf["duration"].apply(lambda x: x.split("-")[0][:5])
     pdf["finsh_time"] = pdf["duration"].apply(lambda x: x.split("-")[1][:5])
