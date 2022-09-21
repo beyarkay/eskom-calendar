@@ -82,9 +82,48 @@ def main():
     for d in to_add:
         print(f"adding to df: {d=}")
         df = df.append(d, ignore_index=True)
-    df = df.sort_values(["date_of_month", "start_time", "stage"])
 
     assert not df.isna().any().any(), "DF has some NaN values"
+
+    # We don't bother including stage == 0
+    df = df[df["stage"] > 0]
+
+    # Now the big task is to de-duplicate the stages. For example:
+    # date_of_month start_time finsh_time  stage
+    #             1      02:00      04:30      8
+    #             1      04:00      06:30      8
+    #             1      10:00      12:30      8
+    #             1      12:00      14:30      8
+    # The first two rows should really be one row like:
+    # date_of_month start_time finsh_time  stage
+    #             1      02:00      06:30      8
+    # So this code combines them:
+    df = df.sort_values(["stage", "date_of_month", "start_time"])
+    df2 = pd.DataFrame(columns=df.columns)
+    for i, curr in df.iterrows():
+        # the first row always gets added
+        if len(df2) == 0:
+            df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
+            continue
+        prev = df2.iloc[-1]
+        # Don't attempt to combine rows of different stages
+        if prev["stage"] != curr["stage"]:
+            df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
+            continue
+        # If this row and the previous row overlap in their times => combine them
+        starts_before_finish = pd.to_datetime(prev["start_time"]) < pd.to_datetime(
+            curr["finsh_time"]
+        )
+        finishes_after_start = pd.to_datetime(prev["finsh_time"]) > pd.to_datetime(
+            curr["start_time"]
+        )
+        if starts_before_finish and finishes_after_start:
+            prev["finsh_time"] = curr["finsh_time"]
+        else:
+            df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
+
+    # Sort the values in the expected order
+    df = df2.sort_values(["date_of_month", "start_time", "stage"])
     # Save to csv
     df[["date_of_month", "start_time", "finsh_time", "stage"]].to_csv(
         path.replace(".pdf", ".csv"), index=False
