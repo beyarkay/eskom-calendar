@@ -1,3 +1,4 @@
+use regex::Regex;
 use std::fmt::Debug;
 
 use chrono::{DateTime, FixedOffset, NaiveTime};
@@ -44,6 +45,18 @@ pub struct Shedding {
     pub stage: u8,
     /// The source of information for this loadshedding event
     pub source: String,
+    /// Optionally specify a rust-regex pattern which the area name must match in order for this
+    /// shedding to be applied to it. For example, `include_regex: city-of-cape-town-area-\d{1,2}`
+    /// will include all city of cape town areas. If `include_regex` and `exclude_regex` conflict
+    /// with each other, the area *will* be included. If no include/exclude are specified,
+    /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
+    pub include_regex: Regex,
+    /// Optionally specify a rust-regex pattern which the area name must *not* match in order for this
+    /// shedding to be applied to it. For example, `exclude_regex: city-of-cape-town-area-\d{1,2}`
+    /// will exclude all city of cape town areas. If `include_regex` and `exclude_regex` conflict
+    /// with each other, the area *will* be included. If no include/exclude are specified,
+    /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
+    pub exclude_regex: Regex,
 }
 
 /// A single duration of loadshedding that only has one stage.
@@ -58,10 +71,57 @@ pub struct RawShedding {
     stage: u8,
     /// The source of information for this loadshedding event
     source: String,
+    /// Optionally specify a rust-regex pattern which the area name must match in order for this
+    /// shedding to be applied to it. For example, `include_regex: city-of-cape-town-area-\d{1,2}`
+    /// will include all city of cape town areas. If `include_regex` and `exclude_regex` conflict
+    /// with each other, the area *will* be included. If no include/exclude are specified,
+    /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
+    include_regex: Option<String>,
+    /// Optionally specify a rust-regex pattern which the area name must *not* match in order for this
+    /// shedding to be applied to it. For example, `exclude_regex: city-of-cape-town-area-\d{1,2}`
+    /// will exclude all city of cape town areas. If `include_regex` and `exclude_regex` conflict
+    /// with each other, the area *will* be included. If no include/exclude are specified,
+    /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
+    exclude_regex: Option<String>,
+    /// A shorthand so you don't have to specify the full regex. `include: coct` is equivalent to
+    /// `include_regex: city-of-cape-town-area-\d{1,2}`. If no include/exclude are specified,
+    /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
+    include: Option<String>,
+    /// A shorthand so you don't have to specify the full regex. `exclude: coct` is equivalent to
+    /// `exclude_regex: city-of-cape-town-area-\d{1,2}`. If no include/exclude are specified,
+    /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
+    exclude: Option<String>,
 }
 
 impl From<RawShedding> for Shedding {
     fn from(raw: RawShedding) -> Self {
+        let shorthand_to_regex = |shorthand: String, default: String| {
+            match shorthand.to_lowercase().as_str() {
+            "citypower" | "cp" => r"city-power-\d{1,2}".to_string(),
+            "capetown" | "cpt" | "coct" => r"city-of-cape-town-area-\d{1,2}".to_string(),
+            "ekurhuleni" => r"gauteng-ekurhuleni-block-\d{1,2}".to_string(),
+            "eskom" => r"^(eastern-cape-)|(free-state-)|(kwazulu-natal-)|(limpopo-)|(mpumalanga-)|(north-west-)|(northern-cape-)|(western-cape-)".to_string(),
+            "tshwane" => r"gauteng-tshwane-group-\d{1,2}".to_string(),
+            _ => default,
+        }
+        };
+        // This will first try to use the explicit regex. If there is no explicit regex, then try
+        // to parse the shorthand. If there is no shorthand or if the shorthand is unknown, then
+        // use the explicit ".*" match everything regex
+        let include_str = raw.include_regex.clone().unwrap_or(
+            raw.include
+                .clone()
+                .map_or(r".*".to_string(), |shorthand| shorthand_to_regex(shorthand, r".*".to_string())),
+        );
+        let include_regex = Regex::new(&include_str).unwrap_or(Regex::new(r".*").unwrap());
+
+        let exclude_str = raw.exclude_regex.clone().unwrap_or(
+            raw.exclude
+                .clone()
+                .map_or(r"matchnothing^".to_string(), |shorthand| shorthand_to_regex(shorthand, r"matchnothing^".to_string())),
+        );
+        let exclude_regex = Regex::new(&exclude_str).unwrap_or(Regex::new(r".*").unwrap());
+
         Shedding {
             start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).expect(
                 format!(
@@ -79,7 +139,20 @@ impl From<RawShedding> for Shedding {
             ),
             stage: raw.stage,
             source: raw.source,
+            exclude_regex,
+            include_regex,
         }
+    }
+}
+
+impl PartialEq for Shedding {
+    fn eq(&self, other: &Self) -> bool {
+        self.start == other.start
+            && self.finsh == other.finsh
+            && self.stage == other.stage
+            && self.source == other.source
+            && self.include_regex.clone().as_str() == other.include_regex.clone().as_str()
+            && self.exclude_regex.clone().as_str() == other.exclude_regex.clone().as_str()
     }
 }
 
@@ -153,6 +226,46 @@ impl From<RawMonthlyShedding> for MonthlyShedding {
             stage: raw.stage,
             date_of_month: raw.date_of_month,
             goes_over_midnight,
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    mod raw_shedding_to_shedding {
+        use crate::structs::{RawShedding, Shedding};
+        use chrono::DateTime;
+        use regex::Regex;
+
+        fn get_shedding() -> Shedding {
+            Shedding {
+                start: DateTime::parse_from_rfc3339("2022-01-01T08:00:00+02:00").unwrap(),
+                finsh: DateTime::parse_from_rfc3339("2022-01-02T08:00:00+02:00").unwrap(),
+                stage: 1,
+                source: "Test source".to_string(),
+                include_regex: Regex::new(".*").unwrap(),
+                exclude_regex: Regex::new(".*").unwrap(),
+            }
+        }
+        fn get_raw_shedding() -> RawShedding {
+            RawShedding {
+                start: "2022-01-01T08:00:00".to_string(),
+                finsh: "2022-01-02T08:00:00".to_string(),
+                stage: 1,
+                source: "Test source".to_string(),
+                include_regex: None,
+                exclude_regex: None,
+                include: None,
+                exclude: None,
+            }
+        }
+
+        #[test]
+        fn regex_none() {
+            let raw_shedding = get_raw_shedding();
+            let shedding = get_shedding();
+            let converted: Shedding = raw_shedding.into();
+            assert_eq!(converted, shedding);
         }
     }
 }

@@ -81,7 +81,6 @@ fn main() {
         // if !path.to_str().unwrap().starts_with("generated/city-power-") {
         //     continue;
         // }
-        blue_ln!("Creating calendar from {:?}", path);
         create_calendar(
             path.to_str()
                 .expect(format!("Failed to convert {:?} to str", path).as_str())
@@ -233,16 +232,44 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let emojis = vec!["😕", "☹️", "😖", "😤", "😡", "🤬", "🔪", "☠️"];
 
     // for national in &mis.changes {
-    //     eprintln!("{:?}", national);
+    //     eprintln!("National {:?}", national);
     // }
 
-    for local in local_sheddings.into_iter() {
-        let summary = format!(
-            "Stage {} Loadshedding {}",
-            local.stage,
-            emojis.get(local.stage as usize).unwrap_or(&"🫠")
-        );
-        for national in &mis.changes {
+    for national in &mis.changes {
+        let area_name = csv_path
+            .replace("generated/", "")
+            .replace(".csv", "")
+            .replace(|c: char| !c.is_ascii(), "");
+        // If the local loadshedding matches the include_regex and exclude_regex and the stage
+        // is correct, then add the loadshedding
+
+        if national.exclude_regex.is_match(&area_name)
+            || !national.include_regex.is_match(&area_name)
+        {
+            yellow_ln!(
+                "Skipping {:?} from {:?} to {:?} because it doesn't match regex: include {:?} and exclude {:?}",
+                csv_path,
+                national.start, 
+                national.finsh,
+                national.include_regex.as_str(),
+                national.exclude_regex.as_str()
+            );
+            continue;
+        } else {
+            blue_ln!(
+                "Creating calendar for {:?} from {:?} to {:?}", 
+                csv_path,
+                national.start,
+                national.finsh,
+            );
+        }
+        for local in &local_sheddings {
+            let summary = format!(
+                "Stage {} Loadshedding {}",
+                local.stage,
+                emojis.get(local.stage as usize).unwrap_or(&"🫠")
+            );
+
             if national.stage == local.stage {
                 let start_year = national.start.year();
                 let start_month = national.start.month();
@@ -286,13 +313,6 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                     local_finsh = local_finsh + Duration::days(1);
                 }
                 if national.start < local_finsh && national.finsh > local_start {
-                    eprintln!(" Overlap (National {} and Local {}):\n  national: {} to {},\n  local:    {} to {}",
-                        national.stage, local.stage, national.start, national.finsh, local_start, local_finsh,
-                    );
-                    let area_name = csv_path
-                        .replace("generated/", "")
-                        .replace(".csv", "")
-                        .replace(|c: char| !c.is_ascii(), "");
                     let description = format!(
                         "{area_name} loadshedding: \n\
                         - from {local_start} \n\
@@ -336,7 +356,10 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                         &national.source,
                     ));
                     calendar.push(evt);
-                    eprintln!("   Adding:  {} to {}", event_start, event_finsh);
+                    // eprintln!(" Overlap (National {} and Local {}):\n  national: {} to {},\n  local:    {} to {}",
+                    //     national.stage, local.stage, national.start, national.finsh, local_start, local_finsh,
+                    // );
+                    // eprintln!("   Adding:  {} to {}", event_start, event_finsh);
                 }
             }
         }
