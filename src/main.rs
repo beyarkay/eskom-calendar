@@ -249,7 +249,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
             yellow_ln!(
                 "Skipping {:?} from {:?} to {:?} because it doesn't match regex: include {:?} and exclude {:?}",
                 csv_path,
-                national.start, 
+                national.start,
                 national.finsh,
                 national.include_regex.as_str(),
                 national.exclude_regex.as_str()
@@ -257,7 +257,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
             continue;
         } else {
             blue_ln!(
-                "Creating calendar for {:?} from {:?} to {:?}", 
+                "Creating calendar for {:?} from {:?} to {:?}",
                 csv_path,
                 national.start,
                 national.finsh,

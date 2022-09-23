@@ -109,16 +109,18 @@ impl From<RawShedding> for Shedding {
         // to parse the shorthand. If there is no shorthand or if the shorthand is unknown, then
         // use the explicit ".*" match everything regex
         let include_str = raw.include_regex.clone().unwrap_or(
-            raw.include
-                .clone()
-                .map_or(r".*".to_string(), |shorthand| shorthand_to_regex(shorthand, r".*".to_string())),
+            raw.include.clone().map_or(r".*".to_string(), |shorthand| {
+                shorthand_to_regex(shorthand, r".*".to_string())
+            }),
         );
         let include_regex = Regex::new(&include_str).unwrap_or(Regex::new(r".*").unwrap());
 
         let exclude_str = raw.exclude_regex.clone().unwrap_or(
             raw.exclude
                 .clone()
-                .map_or(r"matchnothing^".to_string(), |shorthand| shorthand_to_regex(shorthand, r"matchnothing^".to_string())),
+                .map_or(r"matchnothing^".to_string(), |shorthand| {
+                    shorthand_to_regex(shorthand, r"matchnothing^".to_string())
+                }),
         );
         let exclude_regex = Regex::new(&exclude_str).unwrap_or(Regex::new(r".*").unwrap());
 
