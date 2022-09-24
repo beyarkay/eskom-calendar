@@ -235,19 +235,19 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .replace("generated/", "")
         .replace(".csv", "")
         .replace(|c: char| !c.is_ascii(), "");
-    eprintln!("{}", area_name);
-    for national in &mis.changes {
-        eprintln!("National {:?}", national);
-    }
+    // eprintln!("{}", area_name);
+    // for national in &mis.changes {
+    //     eprintln!("National {:?}", national);
+    // }
     let national_changes: Vec<&Shedding> = mis
         .changes
         .iter()
         .filter(|c| !c.exclude_regex.is_match(&area_name) && c.include_regex.is_match(&area_name))
         .collect();
     panic_if_changes_overlap(&national_changes);
-    for national in &national_changes {
-        eprintln!("Without Overlap {:?}", national);
-    }
+    // for national in &national_changes {
+    //     eprintln!("Without Overlap {:?}", national);
+    // }
 
     for national in national_changes {
         // If the local loadshedding matches the include_regex and exclude_regex and the stage
@@ -261,9 +261,10 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         );
         for local in &local_sheddings {
             let summary = format!(
-                "Stage {} Loadshedding {}",
-                local.stage,
-                emojis.get(local.stage as usize).unwrap_or(&"🫠")
+                "🔌{area_name} Stage {stage} {emoji}",
+                area_name=prettify_area_name(&area_name),
+                stage=local.stage,
+                emoji=emojis.get(local.stage as usize).unwrap_or(&"🫠"),
             );
 
             if national.stage == local.stage {
@@ -410,6 +411,55 @@ fn to_csv_line(
     source: &str,
 ) -> String {
     format!("{area_name},{start:?},{finsh:?},{stage},{source:?}")
+}
+
+fn to_title_case(s: String) -> String {
+    s.split(" ")
+        .into_iter()
+        .map(|si| {
+            // Capitalise the first character
+            si.chars().nth(0).unwrap().to_uppercase().to_string()
+                // And just join the remaining characters together
+                + si.chars().skip(1).map(|c| c.to_string()).reduce(|acc, curr| acc + &curr).unwrap_or("".to_string()).to_string().as_str()
+        })
+        .collect()
+}
+
+fn prettify_area_name(area_name: &str) -> String {
+    let prefixes = vec![
+        ("eastern-cape-", "EC"),
+        ("free-state-", "FS"),
+        ("kwazulu-natal-", "KZN"),
+        ("limpopo-", "LP"),
+        ("mpumalanga-", "MP"),
+        ("north-west-", "NC"),
+        ("northern-cape-", "NW"),
+        ("western-cape-", "WC"),
+    ];
+
+    if area_name.starts_with("city-of-cape-town-area-") {
+        area_name.replace("city-of-cape-town-area-", "Cape Town ")
+    } else if area_name.starts_with("city-power") {
+        area_name.replace("city-power", "City Power ")
+    } else if area_name.starts_with("gauteng-ekurhuleni-block-") {
+        area_name.replace("gauteng-ekurhuleni-block-", "Ekurhuleni ")
+    } else if area_name.starts_with("gauteng-tshwane-group-") {
+        area_name.replace("gauteng-tshwane-group-", "Tshwane ")
+    } else {
+        // Convert areas of the form `{province}-{area}` into `{area} ({province acronym})`
+        let mut prettified = to_title_case(area_name.replace("-", " "));
+        for (prefix, replacement) in prefixes {
+            if area_name.starts_with(prefix) {
+                prettified = format!(
+                    "{} ({})",
+                    to_title_case(area_name.replace(prefix, "").replace("-", " ")),
+                    replacement
+                );
+                break;
+            }
+        }
+        prettified
+    }
 }
 
 #[cfg(test)]
