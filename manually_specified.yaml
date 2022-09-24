@@ -40,14 +40,17 @@ changes:
     start: 2022-09-23T22:00:00
     finsh: 2022-09-24T04:59:00
     source: https://twitter.com/CityofCT/status/1573310766345748482
+    include: coct
   - stage: 2
     start: 2022-09-24T05:00:00
     finsh: 2022-09-24T21:59:00
     source: https://twitter.com/CityofCT/status/1573310766345748482
+    include: coct
   - stage: 4
     start: 2022-09-24T22:00:00
     finsh: 2022-09-25T04:59:00
     source: https://twitter.com/CityofCT/status/1573310766345748482
+    include: coct
   - stage: 3
     start: 2022-09-25T05:00:00
     finsh: 2022-09-26T05:00:00
