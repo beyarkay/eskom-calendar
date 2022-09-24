@@ -1,5 +1,6 @@
 /target
 */*.pdf
-*/*.ics
 */*.csv
+!generated/*.csv
+*/*.ics
 */*.html

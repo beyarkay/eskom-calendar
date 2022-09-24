@@ -4,13 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'src/main.rs'
-      - 'src/structs.rs'
+      - 'src/*.rs'
   pull_request:
     branches: [ "main" ]   
     paths:
-      - 'src/main.rs'
-      - 'src/structs.rs'
+      - 'src/*.rs'
 
   workflow_dispatch:
 
