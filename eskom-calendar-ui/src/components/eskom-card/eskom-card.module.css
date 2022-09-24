@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  padding:5px;
+  padding: 5px;
   flex-direction: column;
   border: 2px solid var(--primary-border);
   border-radius: 5px;
@@ -43,4 +43,18 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
+}
+
+.suburbList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly ;
+}
+.suburb {
+  border-radius: 3px;
+  background-color: aliceblue;
+  opacity: 0.8;
+  padding:2px;
+  margin:2px;
+  color: black;
 }

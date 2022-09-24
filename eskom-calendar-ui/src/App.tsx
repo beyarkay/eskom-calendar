@@ -2,7 +2,7 @@ import useLocalStorage from "use-local-storage";
 import { IAsset, IProvince } from "./interfaces/github";
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
-import CalendarDataService from "./services/assets";
+import CalendarDataService from "./services/CalendarDataService";
 import ThemeToggel from "./components/theme-toggel/theme-toggel";
 import { Themes } from "./enums/enums";
 import NotificationService from "./services/notificationService";
@@ -121,7 +121,6 @@ function App() {
               <>
                 <div className="filters">
                   <label>Filter </label>
-
                   <select
                     ref={ddlRef}
                     onChange={(e) => {

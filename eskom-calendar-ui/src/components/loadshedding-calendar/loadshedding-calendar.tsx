@@ -24,7 +24,7 @@ function LoadsheddingCalendar({
       themeSystem="bootstrap5"
       plugins={[dayGridPlugin, iCalendarPlugin]}
       initialView="dayGridMonth"
-      weekends={false}
+      weekends={true}
       events={eventDataItem}
     />
   );
