@@ -10,7 +10,7 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 use structs::{
-    ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding,
+    ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding, Shedding,
 };
 #[macro_use]
 extern crate colour;
@@ -231,38 +231,34 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let git_hash = String::from_utf8(output.stdout).unwrap();
     let emojis = vec!["😕", "☹️", "😖", "😤", "😡", "🤬", "🔪", "☠️"];
 
-    // for national in &mis.changes {
-    //     eprintln!("National {:?}", national);
-    // }
-
+    let area_name = csv_path
+        .replace("generated/", "")
+        .replace(".csv", "")
+        .replace(|c: char| !c.is_ascii(), "");
+    eprintln!("{}", area_name);
     for national in &mis.changes {
-        let area_name = csv_path
-            .replace("generated/", "")
-            .replace(".csv", "")
-            .replace(|c: char| !c.is_ascii(), "");
+        eprintln!("National {:?}", national);
+    }
+    let national_changes: Vec<&Shedding> = mis
+        .changes
+        .iter()
+        .filter(|c| !c.exclude_regex.is_match(&area_name) && c.include_regex.is_match(&area_name))
+        .collect();
+    panic_if_changes_overlap(&national_changes);
+    for national in &national_changes {
+        eprintln!("Without Overlap {:?}", national);
+    }
+
+    for national in national_changes {
         // If the local loadshedding matches the include_regex and exclude_regex and the stage
         // is correct, then add the loadshedding
 
-        if national.exclude_regex.is_match(&area_name)
-            || !national.include_regex.is_match(&area_name)
-        {
-            yellow_ln!(
-                "Skipping {:?} from {:?} to {:?} because it doesn't match regex: include {:?} and exclude {:?}",
-                csv_path,
-                national.start,
-                national.finsh,
-                national.include_regex.as_str(),
-                national.exclude_regex.as_str()
-            );
-            continue;
-        } else {
-            blue_ln!(
-                "Creating calendar for {:?} from {:?} to {:?}",
-                csv_path,
-                national.start,
-                national.finsh,
-            );
-        }
+        blue_ln!(
+            "Creating calendar for {:?} from {:?} to {:?}",
+            csv_path,
+            national.start,
+            national.finsh,
+        );
         for local in &local_sheddings {
             let summary = format!(
                 "Stage {} Loadshedding {}",
@@ -390,6 +386,22 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     }
 }
 
+/// Go over the changes, and return true if any of them overlap. Note that the provided `changes`
+/// should be from the same calendar.
+fn panic_if_changes_overlap(changes: &Vec<&Shedding>) {
+    for change1 in changes {
+        for change2 in changes {
+            // If they're not the same item, but they do overlap, then panic
+            if (change1 != change2)
+                && ((change1.finsh >= change2.start && change1.start <= change2.finsh)
+                    || (change2.finsh >= change1.start && change2.start <= change1.finsh))
+            {
+                panic!("Changes overlap:\nChange1: {change1:#?}\nChange2: {change2:#?}\nYou probably entered invalid information into `manually_specified.yaml`");
+            }
+        }
+    }
+}
+
 fn to_csv_line(
     area_name: &str,
     stage: u8,
@@ -398,4 +410,85 @@ fn to_csv_line(
     source: &str,
 ) -> String {
     format!("{area_name},{start:?},{finsh:?},{stage},{source:?}")
+}
+
+#[cfg(test)]
+mod tests {
+    mod panic_if_changes_overlap {
+        use chrono::DateTime;
+        use regex::Regex;
+
+        use crate::{panic_if_changes_overlap, structs::Shedding};
+
+        fn make_shedding(start: &str, finsh: &str) -> Shedding {
+            Shedding {
+                start: DateTime::parse_from_rfc3339(start).unwrap(),
+                finsh: DateTime::parse_from_rfc3339(finsh).unwrap(),
+                stage: 8,
+                source: "No source".to_string(),
+                include_regex: Regex::new(".*").unwrap(),
+                exclude_regex: Regex::new("matchnothing^").unwrap(),
+            }
+        }
+
+        #[test]
+        #[should_panic]
+        fn start_lt_finsh_is_overlap() {
+            let change1 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T10:00:00+02:00");
+            let change2 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:30:00+02:00");
+            let changes = vec![&change1, &change2];
+            panic_if_changes_overlap(&changes);
+        }
+
+        #[test]
+        #[should_panic]
+        fn finsh_gt_start_is_overlap() {
+            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:00:00+02:00");
+            let change2 = make_shedding("2022-01-01T08:30:00+02:00", "2022-01-01T10:00:00+02:00");
+            let changes = vec![&change1, &change2];
+            panic_if_changes_overlap(&changes);
+        }
+
+        #[test]
+        #[should_panic]
+        fn finsh_eq_start_is_overlap() {
+            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:00:00+02:00");
+            let change2 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T10:00:00+02:00");
+            let changes = vec![&change1, &change2];
+            panic_if_changes_overlap(&changes);
+        }
+
+        #[test]
+        #[should_panic]
+        fn start_lt_start_and_finsh_gt_finsh_is_overlap() {
+            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:00:00+02:00");
+            let change2 = make_shedding("2022-01-01T08:15:00+02:00", "2022-01-01T08:45:00+02:00");
+            let changes = vec![&change1, &change2];
+            panic_if_changes_overlap(&changes);
+        }
+
+        #[test]
+        fn eq_sheddings_dont_overlap() {
+            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
+            let change2 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
+            let changes = vec![&change1, &change2];
+            panic_if_changes_overlap(&changes);
+        }
+
+        #[test]
+        fn start_gt_finsh_no_overlap() {
+            let change1 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T09:30:00+02:00");
+            let change2 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
+            let changes = vec![&change1, &change2];
+            panic_if_changes_overlap(&changes);
+        }
+
+        #[test]
+        fn finsh_lt_start_no_overlap() {
+            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
+            let change2 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T09:30:00+02:00");
+            let changes = vec![&change1, &change2];
+            panic_if_changes_overlap(&changes);
+        }
+    }
 }

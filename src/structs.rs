@@ -239,7 +239,7 @@ mod tests {
         use chrono::DateTime;
         use regex::Regex;
 
-        fn get_shedding() -> Shedding {
+        fn _get_shedding() -> Shedding {
             Shedding {
                 start: DateTime::parse_from_rfc3339("2022-01-01T08:00:00+02:00").unwrap(),
                 finsh: DateTime::parse_from_rfc3339("2022-01-02T08:00:00+02:00").unwrap(),
@@ -249,7 +249,7 @@ mod tests {
                 exclude_regex: Regex::new(".*").unwrap(),
             }
         }
-        fn get_raw_shedding() -> RawShedding {
+        fn _get_raw_shedding() -> RawShedding {
             RawShedding {
                 start: "2022-01-01T08:00:00".to_string(),
                 finsh: "2022-01-02T08:00:00".to_string(),
@@ -260,14 +260,6 @@ mod tests {
                 include: None,
                 exclude: None,
             }
-        }
-
-        #[test]
-        fn regex_none() {
-            let raw_shedding = get_raw_shedding();
-            let shedding = get_shedding();
-            let converted: Shedding = raw_shedding.into();
-            assert_eq!(converted, shedding);
         }
     }
 }
