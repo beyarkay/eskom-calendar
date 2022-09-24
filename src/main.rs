@@ -262,9 +262,9 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         for local in &local_sheddings {
             let summary = format!(
                 "🔌{area_name} Stage {stage} {emoji}",
-                area_name=prettify_area_name(&area_name),
-                stage=local.stage,
-                emoji=emojis.get(local.stage as usize).unwrap_or(&"🫠"),
+                area_name = prettify_area_name(&area_name),
+                stage = local.stage,
+                emoji = emojis.get(local.stage as usize).unwrap_or(&"🫠"),
             );
 
             if national.stage == local.stage {
