@@ -48,7 +48,7 @@ jobs:
 
     - name: Create summary of calendar changes
       id: create_summary
-      run: python calendars_to_pr_comment.py
+      run: python src/calendars_to_pr_comment.py
 
     - name: Comment summary to PR
       uses: mb2dev/github-action-comment-pull-request@1.0.0

@@ -4,15 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'parse_city_power.py'
-      - 'parse_coct_html.py'
-      - 'parse_pdf.py'
+      - 'src/*.py'
   pull_request:
     branches: [ "main" ]   
     paths:
-      - 'parse_city_power.py'
-      - 'parse_coct_html.py'
-      - 'parse_pdf.py'
+      - 'src/*.py'
 
   workflow_dispatch:
 
@@ -27,4 +23,4 @@ jobs:
       - name: "Check *.py for formatting errors with black"
         uses: lgeiger/black-action@v1.0.1
         with:
-          args: "*.py --check"
+          args: "src/parse_city_power.py src/parse_coct_html.py src/parse_eskom.py src/parse_ekurhuleni.py --check"
