@@ -1,16 +1,22 @@
 import useLocalStorage from "use-local-storage";
-import { IAsset, IProvince } from "./interfaces/github";
+import {
+  IAsset,
+  IMachineDataResponse,
+  IMyMachineData,
+  IMyMachineDataGrouped,
+  IProvince,
+} from "./interfaces/github";
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import CalendarDataService from "./services/CalendarDataService";
 import ThemeToggel from "./components/theme-toggel/theme-toggel";
 import { Themes } from "./enums/enums";
-import NotificationService from "./services/notificationService";
 import LoadsheddingCalendar from "./components/loadshedding-calendar/loadshedding-calendar";
 import EskomCard from "./components/eskom-card/eskom-card";
 
 function App() {
-  let calServ: CalendarDataService;
+  let calServ = useRef<CalendarDataService>(CalendarDataService.getInstance());
+
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const ddlRef = useRef(null);
   const [theme, setTheme] = useLocalStorage(
@@ -27,20 +33,24 @@ function App() {
   };
 
   const [gitHubAssets, setGitHubAssets] = useState<IAsset[]>({} as IAsset[]);
+  const [machineData, setMachineData] = useState<IMyMachineData[]>();
 
   const [provinceList, setProvinceList] = useState<IProvince[]>(
     {} as IProvince[]
   );
   const [downloadData, setDownloadData] = useState<IAsset>();
-  const [assetData, setAssetData] = useState<IAsset[]>({} as IAsset[]);
+  const [assetData, setAssetData] = useState<IMyMachineDataGrouped[]>(
+    {} as IMyMachineDataGrouped[]
+  );
   const fetchAssets = async (e: any) => {
-    var d = gitHubAssets.filter((x) => {
-      return x.name.indexOf(e) >= 0;
-    });
-
+    // var d = machineData!.filter((x) => {
+    //   return x.province === e;
+    // });
+    var d = await calServ.current.fetchGroupedAreaData(e);
     setDownloadData(undefined);
-    setAssetData(await d);
+    setAssetData(d.data);
   };
+
   const getTopDownloads = () => {
     if (gitHubAssets.length > 0) {
       var c = gitHubAssets!.filter((x) => x.download_count > 0);
@@ -67,16 +77,25 @@ function App() {
       return topDownloads;
     }
   };
+
   useEffect(() => {
-    calServ = CalendarDataService.getInstance();
     const fetchProvinceListData = async () => {
-      var d = await calServ.fetchProvinceList();
+      var d = await calServ.current.fetchProvinceList();
       setProvinceList(d);
     };
 
     const fetchLatestData = async () => {
-      var cc = await calServ.fetchLatest();
-      setGitHubAssets(await cc);
+      //var cc = await calServ.fetchLatest();
+      var md: IMachineDataResponse =
+        await calServ.current.fetchLatestMachineData(0, 1000);
+      var mdres: IMyMachineData[] = [] as IMyMachineData[];
+
+      while (md.lastRecord !== md.totalRecords) {
+        mdres.push(...md.data);
+        md = await calServ.current.fetchLatestMachineData(md.lastRecord, 500);
+      }
+      mdres.push(...md.data);
+      setMachineData(mdres);
     };
 
     fetchProvinceListData();
@@ -87,6 +106,11 @@ function App() {
       (ddlRef.current as any).scrollIntoView(true);
     }
   }, [assetData]);
+
+  const fetchAssetByAreaName = async (areaName: string) => {
+    var data = await calServ.current.getAssetDataByCalendarName(areaName);
+    setDownloadData(data);
+  };
   return (
     <>
       <div className="App" data-theme={theme}>
@@ -124,17 +148,15 @@ function App() {
                   <select
                     ref={ddlRef}
                     onChange={(e) => {
-                      setDownloadData(
-                        JSON.parse(e.target.selectedOptions[0].value)
-                      );
+                      fetchAssetByAreaName(e.target.value);
                     }}
                   >
                     <option key={0}>Select</option>
                     {assetData.length > 0 &&
-                      assetData.map((x: IAsset, i) => {
+                      assetData.map((x: IMyMachineDataGrouped, i) => {
                         return (
-                          <option key={i + x.name} value={JSON.stringify(x)}>
-                            {x.town ? x.town : x.block}
+                          <option key={i + x.area_name} value={x.area_name}>
+                            {x.area_name}
                           </option>
                         );
                       })}

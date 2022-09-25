@@ -1,8 +1,15 @@
-import { IAsset, IGitHubRelease, IProvince } from "../interfaces/github";
+import {
+  IAsset,
+  IGitHubRelease,
+  IMachineDataResponse,
+  IMyMachineDataGroupedResponse,
+  IProvince,
+  ISuburbData,
+} from "../interfaces/github";
 
 export default class CalendarDataService {
   private static classInstance: CalendarDataService;
-
+  static calendarBaseUrl =(process.env.REACT_APP_CALENDAR_BASE_URL as string) // "https://localhost:44373/api/Calendar/";
   private constructor() {}
 
   public static getInstance(): CalendarDataService {
@@ -27,6 +34,62 @@ export default class CalendarDataService {
         { key: "northern-cape", value: "northern cape" },
         { key: "western-cape", value: "western cape" },
       ]);
+    });
+  }
+  async fetchGroupedAreaData(
+    area_name: string
+  ): Promise<IMyMachineDataGroupedResponse> {
+    return fetch(CalendarDataService.calendarBaseUrl + "GetDistinctAreas?areaName=" + area_name, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((x) => {
+      if (x.ok) {
+        return x.json();
+      }
+    });
+  }
+
+  async getAssetDataByCalendarName(calendarName: string) {
+    debugger
+    return fetch(
+      CalendarDataService.calendarBaseUrl + "GetAssetByCalendarName?calendarname=" + calendarName,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((x) => {
+      if (x.ok) {
+        return x.json();
+      }
+    });
+  }
+
+  async fetchLatestMachineData(
+    lastRecord: number,
+    recordsToRetrieve: number
+  ): Promise<IMachineDataResponse> {
+    return fetch(
+      CalendarDataService.calendarBaseUrl + "GetMachineFriendlyInfo?lastRecord=" +
+        lastRecord +
+        "&recordsToRetrieve=" +
+        recordsToRetrieve,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((x) => {
+      if (x.ok) {
+        return x.json();
+      }
     });
   }
 
@@ -67,10 +130,11 @@ export default class CalendarDataService {
         return dta;
       });
   }
-  async fetchNewMachineFileData(areaName:string):Promise<any>{
+
+  async fetchNewMachineFileData(areaName: string): Promise<any> {
     return fetch(
-      "https://eskom-calendar-api.azurewebsites.net/api/Calendar/GetDataByArea?areaName=" +
-      areaName,
+      CalendarDataService.calendarBaseUrl + "GetDataByArea?areaName=" +
+        areaName,
       {
         method: "GET",
         mode: "cors",
@@ -84,9 +148,10 @@ export default class CalendarDataService {
       }
     });
   }
-  async fetchSuburbs(calendarName: string): Promise<any[]> {
+
+  async fetchSuburbs(calendarName: string): Promise<ISuburbData[]> {
     return fetch(
-      "https://eskom-calendar-api.azurewebsites.net/api/Calendar/GetCalendarSuburbs?calendarName=" +
+      CalendarDataService.calendarBaseUrl + "GetCalendarSuburbs?calendarName=" +
         calendarName,
       {
         method: "GET",

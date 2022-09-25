@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CalendarDataService from "../../services/CalendarDataService";
-import { IAsset } from "../../interfaces/github";
+import { IAsset, ISuburbData } from "../../interfaces/github";
 import styles from "./eskom-card.module.css";
 
 interface EskomCardProps {
   downloadData: IAsset;
 }
 function EskomCard({ downloadData }: EskomCardProps) {
-  let calServ: CalendarDataService;
-  const [suburbData, setSuburbData] = useState<any>();
+  let calServ = useRef<CalendarDataService>(CalendarDataService.getInstance());
+  const [suburbData, setSuburbData] = useState<ISuburbData[]>();
   useEffect(() => {
-    calServ = CalendarDataService.getInstance();
     const getSubs = async () => {
-      var d = await calServ.fetchSuburbs(downloadData.name);
+      var d = await calServ.current.fetchSuburbs(downloadData.name);
       setSuburbData(d);
     };
     getSubs();
@@ -47,7 +46,7 @@ function EskomCard({ downloadData }: EskomCardProps) {
       </div>
       <div className={styles.suburbList}>
         {suburbData &&
-          suburbData.map((x: any, i: number) => {
+          suburbData.map((x: ISuburbData, i: number) => {
             return (
               <div className={styles.suburb} key={i}>
                 {x.subName}

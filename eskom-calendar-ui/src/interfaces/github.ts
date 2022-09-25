@@ -1,3 +1,5 @@
+import internal from "stream";
+
 export interface IProvince {
     key: string;
     value: string;
@@ -43,6 +45,10 @@ export interface Uploader {
     type: string;
     site_admin: boolean;
 }
+export interface ISuburbData {
+    subName: string;
+    blockId: string;
+}
 
 export interface IAsset {
     url: string;
@@ -82,4 +88,29 @@ export interface IGitHubRelease {
     tarball_url: string;
     zipball_url: string;
     body: string;
+}
+
+export interface IMachineDataResponse {
+    data: IMyMachineData[];
+    lastRecord: number;
+    totalRecords: number;
+}
+
+export interface IMyMachineData {
+    area_name: string;
+    stage: string;
+    start: string;
+    finsh: string;
+    source: string;
+    province: string;
+    block: string;
+}
+
+export interface IMyMachineDataGroupedResponse{
+    data: IMyMachineDataGrouped[];
+}
+export interface IMyMachineDataGrouped {
+    area_name: string;
+    province: string;
+    block: string;
 }
