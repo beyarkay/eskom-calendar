@@ -26,14 +26,14 @@ body {
 }
 .content {
   display: flex;
+  flex-direction: column  ;
   flex: 1;
 }
 .menu {
   display: flex;
-  flex-direction: column;
-  min-width: 200px;
-  height: 450px;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
 }
 
 .main {
@@ -82,6 +82,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 200px;
+  padding-top:0px;
   justify-content: space-around;
 }
 
