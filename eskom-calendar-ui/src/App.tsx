@@ -13,6 +13,7 @@ import ThemeToggel from "./components/theme-toggel/theme-toggel";
 import { Themes } from "./enums/enums";
 import LoadsheddingCalendar from "./components/loadshedding-calendar/loadshedding-calendar";
 import EskomCard from "./components/eskom-card/eskom-card";
+import TopDownloads from "./components/top-downloads/top-downloads";
 
 function App() {
   let calServ = useRef<CalendarDataService>(CalendarDataService.getInstance());
@@ -43,12 +44,9 @@ function App() {
     {} as IMyMachineDataGrouped[]
   );
   const fetchAssets = async (e: any) => {
-    // var d = machineData!.filter((x) => {
-    //   return x.province === e;
-    // });
-    var d = await calServ.current.fetchGroupedAreaData(e);
+    var groupedAreas = await calServ.current.fetchGroupedAreaData(e);
     setDownloadData(undefined);
-    setAssetData(d.data);
+    setAssetData(groupedAreas.data);
   };
 
   const getTopDownloads = () => {
@@ -85,7 +83,6 @@ function App() {
     };
 
     const fetchLatestData = async () => {
-      //var cc = await calServ.fetchLatest();
       var md: IMachineDataResponse =
         await calServ.current.fetchLatestMachineData(0, 1000);
       var mdres: IMyMachineData[] = [] as IMyMachineData[];
@@ -101,6 +98,7 @@ function App() {
     fetchProvinceListData();
     fetchLatestData();
   }, []);
+
   useEffect(() => {
     if (assetData.length > 0) {
       (ddlRef.current as any).scrollIntoView(true);
@@ -111,6 +109,7 @@ function App() {
     var data = await calServ.current.getAssetDataByCalendarName(areaName);
     setDownloadData(data);
   };
+
   return (
     <>
       <div className="App" data-theme={theme}>
@@ -162,11 +161,13 @@ function App() {
                       })}
                   </select>
                 </div>
-                <div>
-                  <LoadsheddingCalendar
-                    eventCalendarName={downloadData?.name}
-                  ></LoadsheddingCalendar>
-                </div>
+                {downloadData && (
+                  <div>
+                    <LoadsheddingCalendar
+                      eventCalendarName={downloadData?.name}
+                    ></LoadsheddingCalendar>
+                  </div>
+                )}
               </>
             )}
             {downloadData && (
@@ -180,7 +181,9 @@ function App() {
               </>
             )}
           </div>
-          <div>{getTopDownloads()}</div>
+          <div>
+            <TopDownloads></TopDownloads>
+          </div>
         </div>
         <div className="footer"></div>
       </div>

@@ -1,3 +1,4 @@
+import { rejects } from "assert";
 import {
   IAsset,
   IGitHubRelease,
@@ -9,7 +10,7 @@ import {
 
 export default class CalendarDataService {
   private static classInstance: CalendarDataService;
-  static calendarBaseUrl =(process.env.REACT_APP_CALENDAR_BASE_URL as string) // "https://localhost:44373/api/Calendar/";
+  static calendarBaseUrl = process.env.REACT_APP_CALENDAR_BASE_URL as string; // "https://localhost:44373/api/Calendar/";
   private constructor() {}
 
   public static getInstance(): CalendarDataService {
@@ -39,13 +40,18 @@ export default class CalendarDataService {
   async fetchGroupedAreaData(
     area_name: string
   ): Promise<IMyMachineDataGroupedResponse> {
-    return fetch(CalendarDataService.calendarBaseUrl + "GetDistinctAreas?areaName=" + area_name, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((x) => {
+    return fetch(
+      CalendarDataService.calendarBaseUrl +
+        "GetDistinctAreas?areaName=" +
+        area_name,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((x) => {
       if (x.ok) {
         return x.json();
       }
@@ -53,9 +59,11 @@ export default class CalendarDataService {
   }
 
   async getAssetDataByCalendarName(calendarName: string) {
-    debugger
+    debugger;
     return fetch(
-      CalendarDataService.calendarBaseUrl + "GetAssetByCalendarName?calendarname=" + calendarName,
+      CalendarDataService.calendarBaseUrl +
+        "GetAssetByCalendarName?calendarname=" +
+        calendarName,
       {
         method: "GET",
         mode: "cors",
@@ -75,7 +83,8 @@ export default class CalendarDataService {
     recordsToRetrieve: number
   ): Promise<IMachineDataResponse> {
     return fetch(
-      CalendarDataService.calendarBaseUrl + "GetMachineFriendlyInfo?lastRecord=" +
+      CalendarDataService.calendarBaseUrl +
+        "GetMachineFriendlyInfo?lastRecord=" +
         lastRecord +
         "&recordsToRetrieve=" +
         recordsToRetrieve,
@@ -104,36 +113,51 @@ export default class CalendarDataService {
         },
       }
     )
-      .then((x) => {
-        if (x.ok) {
-          return x.json();
-        }
-      })
-      .then((d: IGitHubRelease) => {
-        var dta = d.assets.map((a: IAsset) => {
-          // We need to find a better way to sanitize the data
-          // so that we can split between province and suburb/blocks
-          a.province = a.name
-            .substring(0, a.name.lastIndexOf("-"))
-            .replaceAll("-", " ");
-          var tb = a.name.substring(
-            a.name.lastIndexOf("-") + 1,
-            a.name.lastIndexOf(".")
-          );
-          if (!isNaN(parseInt(tb, 10))) {
-            a.block = parseInt(tb, 10);
-          } else {
-            a.town = tb;
+      .then(
+        (x) => {
+          if (x.ok) {
+            return x.json();
           }
-          return a;
-        });
-        return dta;
-      });
+        },
+        (e) => {
+          debugger;
+          console.log(e);
+          return [];
+        }
+      )
+      .then(
+        (d: IGitHubRelease) => {
+          var dta = d.assets.map((a: IAsset) => {
+            // We need to find a better way to sanitize the data
+            // so that we can split between province and suburb/blocks
+            a.province = a.name
+              .substring(0, a.name.lastIndexOf("-"))
+              .replaceAll("-", " ");
+            var tb = a.name.substring(
+              a.name.lastIndexOf("-") + 1,
+              a.name.lastIndexOf(".")
+            );
+            if (!isNaN(parseInt(tb, 10))) {
+              a.block = parseInt(tb, 10);
+            } else {
+              a.town = tb;
+            }
+            return a;
+          });
+          return dta;
+        },
+        (er) => {
+          debugger;
+          console.log(er);
+          return [];
+        }
+      );
   }
 
   async fetchNewMachineFileData(areaName: string): Promise<any> {
     return fetch(
-      CalendarDataService.calendarBaseUrl + "GetDataByArea?areaName=" +
+      CalendarDataService.calendarBaseUrl +
+        "GetDataByArea?areaName=" +
         areaName,
       {
         method: "GET",
@@ -151,7 +175,8 @@ export default class CalendarDataService {
 
   async fetchSuburbs(calendarName: string): Promise<ISuburbData[]> {
     return fetch(
-      CalendarDataService.calendarBaseUrl + "GetCalendarSuburbs?calendarName=" +
+      CalendarDataService.calendarBaseUrl +
+        "GetCalendarSuburbs?calendarName=" +
         calendarName,
       {
         method: "GET",

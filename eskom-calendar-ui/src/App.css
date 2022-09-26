@@ -26,7 +26,7 @@ body {
 }
 .content {
   display: flex;
-  flex-direction: column  ;
+  flex-direction: column;
   flex: 1;
 }
 .menu {
@@ -44,7 +44,7 @@ body {
 .downloadHolder {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .filters {
@@ -71,19 +71,22 @@ body {
 
 @media (max-width: 576px) {
   body {
-    background-color: #115410; 
+    background-color: #115410;
   }
   .content {
     flex-direction: column;
   }
 
+  .downloadHolder
+  {
+    flex-direction: column;
+  }
   
-.menu {
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
-  padding-top:0px;
-  justify-content: space-around;
-}
-
+  .menu {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    padding-top: 0px;
+    justify-content: space-around;
+  }
 }
