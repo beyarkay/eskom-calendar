@@ -1,125 +1,180 @@
-# Eskom Calendar 🔌 ⚡️
+<p align="center">
+  <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">
+    <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
+  </a><br>
+  <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license"><br>
+  Loadshedding schedules in your digital calendar. No ads, up-to-date,
+  and developer friendly.
+</p>
 
-Sick and tired of complicated load shedding schedules? This project creates
-up-to-date calendars that show you when load shedding is in your area.
+<p align="center">
+  <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">Get it</a> •
+  <a href="#easy-to-understand-and-plan-around">Key Features</a> •
+  <a href="#using-the-data-in-your-own-projects">How to use the data</a> •
+  <a href="#project-goals-and-alternatives">Project goals & alternatives</a><br>
+</p>
 
-To get your load shedding schedule in your calendar you should go to the
-[latest release](https://github.com/beyarkay/eskom-calendar/releases/tag/latest) and
-follow the instructions there.
+## How to Get It
 
-![screenshot of eskom calendar in action](imgs/screenshot.png)
+[Click here](https://github.com/beyarkay/eskom-calendar/releases/tag/latest) and
+follow the instructions to get it in your calendar. Keep reading to learn why eskom-calendar is
+[very cool](https://twitter.com/hermux/status/1549851414771503110),
+[the OG](https://twitter.com/AngusRedBlue/status/1574337420048351233), and
+[amazing](https://www.linkedin.com/feed/update/urn:li:activity:6978329466259271680?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A6978329466259271680%2C6978364430430388224%29).
 
-## Similar apps
-In the author's opinion, eskom-calendar is better than apps like EskomSePush,
-because an event will only appear in your calendar if:
-1. [Eskom's twitter feed](https://twitter.com/Eskom_SA) declares national loadshedding, and
-2. Your area actually has loadshedding at that time, as defined by 
-   [your eskom-defined area's loadshedding schedule](https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/).
+## Key Features
 
-What's more, eskom-calendar is open source! See below for how we keep it up to
-date.
+### Easy to understand and plan around
 
-## Hey developers!
+eskom-calendar makes planning around loadshedding as easy as it gets. Subscribe
+to the digital calendar for your area, and you'll see loadshedding in your
+schedule on your phone, laptop, smartwatch, smartfridge, alles. We'll show you
+loadshedding as far into the furture as Eskom allows us. 
 
-You can `curl` against the file
+### An event in your calendar means your lights are off
+
+Many loadshedding apps don't actually tell you when your lights are off, or if
+they do, it's difficult to find or only shows you the very next power outage.
+eskom-calendar shows you all the times your lights will be off, right in your
+digital calendar.
+
+### Perfect for teams and businesses
+
+If you're a team manager, add the calendars for your team members and know
+exactly when everyone will go dark so you don't have someone dropping off in
+the middle of a meeting.
+
+Businesses can see loadshedding schedules for all their branches in one view,
+and prepare accordingly. 
+
+IT departments can automate turning on generators or shutting down servers (see
+[Using the Data in Your Own Projects](#using-the-data-in-your-own-projects)).
+
+### No adverts
+
+eskom-calendar does one thing, and does it well. You get an event in your
+calendar if your power is going to go off, and that's it. There's no adverts,
+there's no bloat. Just loadshedding information. Doesn't get simpler than that,
+does it?
+
+### The *only* open source, automation friendly option
+
+eskom-calendar was created by [Boyd Kane](https://github.com/beyarkay) because
+there was no way for a casual coder to just get loadshedding information
+programmatically without messing with API keys and whatnot.
+
+To the best of our knowledge, this is the easiest way to automate away the
+pain of loadshedding, and it's the only open-source option to provide the times
+when power will be off, as opposed to just the loadshedding schedule for any
+given area (please get in contact if I'm wrong!, would be great to collab).
+
+## Using the Data in Your Own Projects
+
+We are really interested to see what the developers of South Africa do with
+this data source.
+
+The main file of interest will be
 [`machine_friendly.csv`](https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv)
-(found in the [latest
-release](https://github.com/beyarkay/eskom-calendar/releases/tag/latest)) to
-get the calendar data processed for whatever mad projects you can think of.
-Here's a little cookbook of possibilities:
+built from the same source of information as the calendar files. It looks
+something like:
 
-### Remind yourself what the header line of the CSV is
+```
+       │ File: machine_friendly.csv
+───────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ area_name,start,finsh,stage,source
+   2   │ kwazulu-natal-mpofana,2022-09-25T23:00:00+02:00,2022-09-26T01:30:00+02:00,3,"https://twitter.com/Eskom_SA/status/1574014612097454080"
+   3   │ kwazulu-natal-mpofana,2022-09-26T07:00:00+02:00,2022-09-26T09:30:00+02:00,3,"https://twitter.com/Eskom_SA/status/1574014612097454080"
+   4   │ kwazulu-natal-mpofana,2022-09-26T16:00:00+02:00,2022-09-26T17:30:00+02:00,4,"https://twitter.com/Eskom_SA/status/1574014612097454080"
+```
 
-Note that the header is `finsh`, *not* `finish` (so that it lines up nicely
-with `start`):
+and you can just `curl` the file to get ahold of it. So go wild! DDoS Github if
+you want to 😉. There are plenty of ideas floating around and I'd love to see
+more. Note that the header is `finsh`, *not* `finish` (so that it lines up
+nicely with `start`)
+
+#### Simply download the CSV via `curl` (`-s` to be silent, `-L` to follow redirects)
 ```sh
-$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
-    | head -3
+curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv
 area_name,stage,start,finsh,source
 free-state-seretse,4,2022-09-10T10:00:00+02:00,2022-09-10T12:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
 free-state-seretse,4,2022-09-10T18:00:00+02:00,2022-09-10T20:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
+...
 ```
 
-### Get all data for a specific area
+#### Get all data for a specific area
 ```sh
-$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
-    | grep stellenbosch
+curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
+  | grep stellenbosch
 western-cape-stellenbosch,4,2022-09-10T14:00:00+02:00,2022-09-10T16:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
 western-cape-stellenbosch,4,2022-09-10T22:00:00+02:00,2022-09-11T00:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
-western-cape-stellenbosch,4,2022-09-11T06:00:00+02:00,2022-09-11T08:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
-western-cape-stellenbosch,4,2022-09-11T14:00:00+02:00,2022-09-11T16:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
-western-cape-stellenbosch,4,2022-09-11T22:00:00+02:00,2022-09-12T00:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
-western-cape-stellenbosch,3,2022-09-12T06:00:00+02:00,2022-09-12T08:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,3,2022-09-12T14:00:00+02:00,2022-09-12T16:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,3,2022-09-12T22:00:00+02:00,2022-09-13T00:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,2,2022-09-13T20:00:00+02:00,2022-09-13T22:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,2,2022-09-14T04:00:00+02:00,2022-09-14T06:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,2,2022-09-15T04:00:00+02:00,2022-09-15T06:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,2,2022-09-15T12:00:00+02:00,2022-09-15T14:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,2,2022-09-16T12:00:00+02:00,2022-09-16T14:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
-western-cape-stellenbosch,2,2022-09-16T20:00:00+02:00,2022-09-16T22:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568892284397051906"
+...
 ```
 
-### Get all data for a certain day in a certain area
+#### Get all data for a certain day in a certain area
 ```sh
-$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
-    | grep cape-town-area-15 \
-    | grep "2022-09-11"
+curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
+  | grep cape-town-area-15 \
+  | grep 2022-09-11
 city-of-cape-town-area-15,4,2022-09-11T00:00:00+02:00,2022-09-11T02:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
 city-of-cape-town-area-15,4,2022-09-11T08:00:00+02:00,2022-09-11T10:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
-city-of-cape-town-area-15,4,2022-09-11T16:00:00+02:00,2022-09-11T18:30:00+02:00,"https://twitter.com/Eskom_SA/status/1568494585113976835"
+...
 ```
 
-### Get just the start time, finish time, and stage for a certain area
-```sh
-$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
-    | grep city-power-13 \
-    | cut -d, -f2,3,4
-4,2022-09-11T12:00:00+02:00,2022-09-11T14:30:00+02:00
-3,2022-09-13T02:00:00+02:00,2022-09-13T04:30:00+02:00
-2,2022-09-13T10:00:00+02:00,2022-09-13T12:30:00+02:00
-2,2022-09-14T18:00:00+02:00,2022-09-14T20:30:00+02:00
-2,2022-09-16T02:00:00+02:00,2022-09-16T04:30:00+02:00
+#### Get the file in Python 
+
+(mac users you might need [this](https://stackoverflow.com/a/60671292/14555505)
+if you get an SSL error)
+
+```python
+import pandas as pd
+url = "https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv"
+df = pd.read_csv(url, parse_dates=['start', 'finsh'])
 ```
 
-### See which areas are getting the least load shedding
+Feel free to open a PR with any other snippets or languages you think of!
 
-```
-$ curl -sL https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv \
-    | tail -n +2 \
-    | cut -d, -f1 \
-    | sort \
-    | uniq -c \
-    | sort \
-    | head
-   4 city-power-11
-   4 city-power-8
-   4 city-power-9
-   5 city-power-10
-   5 city-power-12
-   5 city-power-13
-   5 city-power-14
-   5 city-power-15
-   5 city-power-16
-   5 city-power-6
-```
+## Project Goals and Alternatives
 
-### Other ideas
+eskom-calendar tries to achieve the following goals:
 
-Of course you can use your favourite language's requests library to download
-the file yourself (it's almost always less than a megabyte) and parse the data
-whichever which way you want. If you do something cool let us know via pull
-request to this section!
+- Be open-source, easy to integrate with, and encouraging of new ideas
+- Provide an accesible information source for loadshedding in South Africa
+- Be dead simple to use
+
+eskom-calendar does not try to:
+
+- Solve every solution itself. It embraces the Unix philosophy of `do one
+  thing, and do it well`. Calendars are provided as an example of what's
+  possible, but the heart of it is the open-source data with which websites,
+  apps, bots, automations, etc, can be built.
+- Compete. eskom-calendar tries to be the best product for users, but chasing
+  "competitors" is distracting at best, pointless at worst.
+
+The best known alternative would be [EskomSePush](https://sepush.co.za/), but
+the author didn't want another app, and wanted to see the whole loadshedding
+schedule at a glance. Hence eskom-calendar was born (making it open source was
+just the default).
+
+## Maintainers
+
+- [Boyd Kane](https://github.com/beyarkay). Reach out on
+  [twitter](https://twitter.com/beyarkay) if you want to chat in private,
+  otherwise [open an
+  issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
+- You? it's always good to have help
 
 ## Contributing
-The project is also open source! We depend on pull requests to update
+
+We depend on pull requests to update
 [`manually_specified.yaml`](https://github.com/beyarkay/eskom-calendar/blob/main/manually_specified.yaml)
-with the latest schedule. Please [edit and submit a PR to
+with the latest loadshedding schedule. Please [edit and submit a PR to
 `manually_specified.yaml`](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml)
 if [Eskom's twitter feed](https://twitter.com/Eskom_SA) announces a change.
 
 To add a new load shedding event, do the following:
-1. Click [here](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml) to edit `manually_specified.yaml`.
+1. Click
+   [here](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml)
+   to edit `manually_specified.yaml`.
     
    You'll see a bunch of `changes`. Each change lists one national load
    shedding event. It includes the stage, the start time, the end time, and the
@@ -146,11 +201,12 @@ changes:
   ...
 ```
 
-3. Once you've added your changes, scroll to the bottom where you see 
-   `Propose changes` and add a commit message. The commit body must include the
-   source where you got your information from.
+3. Once you've added your changes, scroll to the bottom where you see `Propose
+   changes` and add a commit message. The commit body must include the source
+   where you got your information from.
 4. Click the green button `Propose changes`
-5. Check that your changes look good, and then click the button `Create pull request`
+5. Check that your changes look good, and then click the button `Create pull
+   request`
 
 That's it! I'll review the PR and when I merge it, the calendars will
 automatically be updated by GitHub actions.
