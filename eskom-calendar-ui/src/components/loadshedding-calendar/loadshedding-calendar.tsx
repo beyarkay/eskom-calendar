@@ -1,5 +1,6 @@
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid';
 import iCalendarPlugin from "@fullcalendar/icalendar";
 export interface ILoadsheddingCalendar {
   eventData?: any[];
@@ -14,7 +15,7 @@ function LoadsheddingCalendar({
   if (eventCalendarName) {
     eventDataItem = {
       //Proxy URL to overcome CORS.
-      url: `https://quotemanagerapi20220701201338.azurewebsites.net/api/Calendar/Get/${eventCalendarName}`,
+      url: `${process.env.REACT_APP_CALENDAR_BASE_URL}Get?calendarName=${eventCalendarName}`,
       format: "ics",
     };
   }
@@ -22,8 +23,8 @@ function LoadsheddingCalendar({
   return (
     <FullCalendar
       themeSystem="bootstrap5"
-      plugins={[dayGridPlugin, iCalendarPlugin]}
-      initialView="dayGridMonth"
+      plugins={[timeGridPlugin , iCalendarPlugin]}
+      initialView="timeGridWeek"
       weekends={true}
       events={eventDataItem}
     />

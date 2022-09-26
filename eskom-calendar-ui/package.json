@@ -7,6 +7,7 @@
     "@fullcalendar/daygrid": "^5.11.3",
     "@fullcalendar/icalendar": "^5.11.3",
     "@fullcalendar/react": "^5.11.2",
+    "@fullcalendar/timegrid": "^5.11.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
