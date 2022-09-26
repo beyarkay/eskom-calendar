@@ -38,7 +38,7 @@ function EskomCard({ downloadData }: EskomCardProps) {
         <div className={styles.footer}>
           <div className="btn btn-primary rounded">
             <a rel="noopener" target="_blank" href={`${downloadData.browser_download_url.replace("https:","webcal:")}`}>
-              {`Download `}
+              {`Subscribe `}
               <i className="ti-download pr-1"></i>
             </a>
           </div>
