@@ -51,11 +51,6 @@ changes:
     source: https://twitter.com/Eskom_SA/status/1574014612097454080
     exclude: coct
 
-
-
-
-
-
   - stage: 1
     start: 2022-09-27T06:00:00
     finsh: 2022-09-27T15:59:00
@@ -66,6 +61,7 @@ changes:
     finsh: 2022-09-27T23:59:00
     source: https://twitter.com/CityofCT/status/1574662172461899780
     include: coct
+
 
   - stage: 3
     start: 2022-09-28T00:00:00
