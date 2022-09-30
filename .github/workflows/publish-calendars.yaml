@@ -56,49 +56,56 @@ jobs:
       run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
       id: LS-CALENDARS
 
-    - name: Update latest release with new calendars
-      uses: beyarkay/update-existing-release@master
+    - name: Update latest release with new calendars, retrying if needed
+      uses: Wandalen/wretry.action@v1.0.11
       with:
-        token: ${{ secrets.GH_ACTIONS_PAT }}
-        release: Latest Eskom Loadshedding Calendars
-        updateTag: true
-        tag: latest
-        replace: true
-        files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
-        body: "# To get your load shedding schedule in your calendar:
+        attempt_limit: 5    # Retry up to 5 times
+        attempt_delay: 5000 # Wait 5 seconds between attempts
+        action: beyarkay/update-existing-release@master
+        with: |
+          token: ${{ secrets.GH_ACTIONS_PAT }}
+          release: Latest Eskom Loadshedding Calendars
+          updateTag: true
+          tag: latest
+          replace: true
+          files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
+          body: "# To get your load shedding schedule in your calendar:
 
-          1. Scroll down to the blue links under `Assets`:
+            1. Scroll down to the blue links under `Assets`:
 
-          ![Assets image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/assets.png)
+            ![Assets image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/assets.png)
 
-          2. Find the `ics` calendar file corresponding to your area (use ctrl-f to search quickly).
-          3. Right-click on the file and copy the link:
+            2. Find the `ics` calendar file corresponding to your area (use ctrl-f to search quickly).
 
-          ![Right click and copy image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/copy-link.png)
+            3. Right-click on the file and copy the link:
 
-          5. Open your calendar app (Google Calendar, Outlook, Apple Calendar, etc) and paste the calendar link in your app's `subscribe to calendar` option:
+            ![Right click and copy image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/copy-link.png)
 
+            4. Open your calendar app (Google Calendar, Outlook, Apple Calendar, etc)
 
-          | [Google Calendar](https://calendar.google.com/calendar/u/0/r/settings/addbyurl)  | [Outlook](https://outlook.office.com/calendar/addcalendar) | [Apple Calendar](https://support.apple.com/en-za/guide/calendar/icl1022/mac) |
-
-          | ----------------- | --------------- | --------------- |
-
-          | ![google calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/gcal.png) | ![outlook subscripition image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/outlook.png) | ![apple calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/ical.png) |
-
-
-          That's it! 
+            5. Paste the calendar link in your app's `subscribe to calendar` option.
 
 
-          ### Details
+            | [Google Calendar](https://calendar.google.com/calendar/u/0/r/settings/addbyurl)  | [Outlook](https://outlook.office.com/calendar/addcalendar) | [Apple Calendar](https://support.apple.com/en-za/guide/calendar/icl1022/mac) |
 
-          Now you've got loadshedding warnings in your calendar that tell you if the power will be off or not. This is better than apps like EskomSePush because it combines what area you're in with your area's loadshedding schedule. You'll only be notified if
+            | ----------------- | --------------- | --------------- |
 
-          1. there's national loadshedding announced by Eskom *and*
+            | ![google calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/gcal.png) | ![outlook subscripition image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/outlook.png) | ![apple calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/ical.png) |
 
-          2. your area has loadshedding scheduled for that time.
 
-          ### Developers
+            That's it! 
 
-          There's also a machine-friendly csv file that contains loadshedding information. Have a look at the [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest) for ideas!
 
-          Last updated: ${{ steps.date.outputs.datetime }} UTC"
+            ### Details
+
+            Now you've got loadshedding warnings in your calendar that tell you if the power will be off or not. This is better than apps like EskomSePush because it combines what area you're in with your area's loadshedding schedule. You'll only be notified if
+
+            1. there's national loadshedding announced by Eskom *and*
+
+            2. your area has loadshedding scheduled for that time.
+
+            ### Developers
+
+            There's also a machine-friendly csv file that contains loadshedding information. Have a look at the [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest) for ideas!
+
+            Last updated: ${{ steps.date.outputs.datetime }} UTC"
