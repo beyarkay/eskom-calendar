@@ -106,8 +106,11 @@ def main():
             df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
             continue
         prev = df2.iloc[-1]
-        # Don't attempt to combine rows of different stages
-        if prev["stage"] != curr["stage"]:
+        # Don't attempt to combine rows of different stages or different dates
+        if (
+            prev["stage"] != curr["stage"]
+            or prev["date_of_month"] != curr["date_of_month"]
+        ):
             df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
             continue
         # If this row and the previous row overlap in their times => combine them
@@ -118,6 +121,7 @@ def main():
             curr["start_time"]
         )
         if starts_before_finish and finishes_after_start:
+            print(f"Combining `{prev.values}` and `{curr.values}`")
             prev["finsh_time"] = curr["finsh_time"]
         else:
             df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
