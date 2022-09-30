@@ -62,14 +62,15 @@ jobs:
         attempt_limit: 5    # Retry up to 5 times
         attempt_delay: 5000 # Wait 5 seconds between attempts
         action: beyarkay/update-existing-release@master
-        with: |
+        with: "
           token: ${{ secrets.GH_ACTIONS_PAT }}
           release: Latest Eskom Loadshedding Calendars
           updateTag: true
           tag: latest
           replace: true
           files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
-          body: "# To get your load shedding schedule in your calendar:
+          body: |
+            # To get your load shedding schedule in your calendar:
 
             1. Scroll down to the blue links under `Assets`:
 
@@ -108,4 +109,5 @@ jobs:
 
             There's also a machine-friendly csv file that contains loadshedding information. Have a look at the [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest) for ideas!
 
-            Last updated: ${{ steps.date.outputs.datetime }} UTC"
+            Last updated: ${{ steps.date.outputs.datetime }} UTC
+            "
