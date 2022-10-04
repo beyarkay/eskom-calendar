@@ -10,17 +10,17 @@
 # See the README.md for more details
 ---
 changes:
-  - stage: 3
-    start: 2022-10-02T15:00:00
+  - stage: 4
+    start: 2022-10-02T16:00:00
     finsh: 2022-10-06T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1575457504137543680
+    source: https://twitter.com/Eskom_SA/status/1577325348055912452
     exclude: coct
 
 
   # 4 October
   - stage: 1
     start: 2022-10-04T06:00:00
-    finsh: 2022-10-04T13:59:00
+    finsh: 2022-10-07T23:59:00
     source: https://twitter.com/CityofCT/status/1576951889731940357
     include: coct
   - stage: 2
