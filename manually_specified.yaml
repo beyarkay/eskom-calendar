@@ -22,28 +22,50 @@ changes:
     exclude: coct
 
 
-  # 4 October
-  - stage: 3
-    start: 2022-10-04T18:00:00
-    finsh: 2022-10-04T21:59:00
-    source: https://twitter.com/CityofCT/status/1577329243729661953
-    include: coct
-  - stage: 4
-    start: 2022-10-04T22:00:00
-    finsh: 2022-10-05T05:59:00
-    source: https://twitter.com/CityofCT/status/1577329243729661953
-    include: coct
-
   # 5 October
-  - stage: 2
-    start: 2022-10-05T06:00:00
-    finsh: 2022-10-05T13:59:00
-    source: https://twitter.com/CityofCT/status/1577329243729661953
-    include: coct
   - stage: 3
     start: 2022-10-05T14:00:00
     finsh: 2022-10-05T21:59:00
-    source: https://twitter.com/CityofCT/status/1577329243729661953
+    source: https://twitter.com/CityofCT/status/1577684658707390466
+    include: coct
+  - stage: 4
+    start: 2022-10-05T22:00:00
+    finsh: 2022-10-06T05:59:00
+    source: https://twitter.com/CityofCT/status/1577684658707390466
+    include: coct
+
+  # 6 October
+  - stage: 1
+    start: 2022-10-06T06:00:00
+    finsh: 2022-10-06T13:59:00
+    source: https://twitter.com/CityofCT/status/1577684658707390466
+    include: coct
+  - stage: 2
+    start: 2022-10-06T14:00:00
+    finsh: 2022-10-06T21:59:00
+    source: https://twitter.com/CityofCT/status/1577684658707390466
+    include: coct
+  - stage: 3
+    start: 2022-10-06T22:00:00
+    finsh: 2022-10-07T04:59:00
+    source: https://twitter.com/CityofCT/status/1577684658707390466
+    include: coct
+
+  # 7 October
+  - stage: 1
+    start: 2022-10-07T06:00:00
+    finsh: 2022-10-07T13:59:00
+    source: https://twitter.com/CityofCT/status/1577684658707390466
+    include: coct
+  - stage: 2
+    start: 2022-10-07T14:00:00
+    finsh: 2022-10-07T21:59:00
+    source: https://twitter.com/CityofCT/status/1577684658707390466
+    include: coct
+  - stage: 3
+    start: 2022-10-07T22:00:00
+    finsh: 2022-10-08T05:59:00
+    source: https://twitter.com/CityofCT/status/1577684658707390466
     include: coct
 
 historical_changes: []
