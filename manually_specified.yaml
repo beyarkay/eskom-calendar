@@ -11,10 +11,16 @@
 ---
 changes:
   - stage: 4
-    start: 2022-10-02T16:00:00
+    start: 2022-10-05T16:00:00
     finsh: 2022-10-06T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1577325348055912452
+    source: https://twitter.com/Eskom_SA/status/1577655123043565569
     exclude: coct
+  - stage: 3
+    start: 2022-10-06T05:00:00
+    finsh: 2022-10-08T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1577655123043565569
+    exclude: coct
+
 
   # 4 October
   - stage: 3
