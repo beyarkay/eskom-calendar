@@ -6,31 +6,26 @@
 #    start: <START TIME HERE>
 #    finsh: <FINISH TIME HERE>
 #    source: <URL TO INFORMATION SOURCE HERE>
+#    exclude: <coct if this schedule doesn't apply to cape town>
+#    include: <coct if this schedule only applies to cape town>
 # ```
 # See the README.md for more details
 ---
 changes:
-  - stage: 3
-    start: 2022-10-07T12:00:00
-    finsh: 2022-10-08T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1578352089746792449
-    exclude: coct
-
-  # 7 October
-  - stage: 1
-    start: 2022-10-07T06:00:00
-    finsh: 2022-10-07T13:59:00
-    source: https://twitter.com/CityofCT/status/1577684658707390466
-    include: coct
   - stage: 2
-    start: 2022-10-07T14:00:00
-    finsh: 2022-10-07T21:59:00
-    source: https://twitter.com/CityofCT/status/1577684658707390466
-    include: coct
-  - stage: 3
-    start: 2022-10-07T22:00:00
-    finsh: 2022-10-08T05:59:00
-    source: https://twitter.com/CityofCT/status/1577684658707390466
-    include: coct
+    start: 2022-10-10T16:00:00
+    finsh: 2022-10-10T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1579066130177527808
+    exclude: coct
+  - stage: 2
+    start: 2022-10-11T16:00:00
+    finsh: 2022-10-11T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1579066130177527808
+    exclude: coct
+  - stage: 2
+    start: 2022-10-12T16:00:00
+    finsh: 2022-10-12T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1579066130177527808
+    exclude: coct
 
 historical_changes: []
