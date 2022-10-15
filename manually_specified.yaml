@@ -16,6 +16,18 @@ changes:
     start: 2022-10-15T14:00:00
     finsh: 2022-10-18T23:59:00
     source: https://twitter.com/Eskom_SA/status/1581240608043446272
-    # exclude: coct
+    exclude: coct
+
+  - stage: 2
+    start: 2022-10-15T22:00:00
+    finsh: 2022-10-16T05:59:00
+    source: https://twitter.com/CityofCT/status/1581250745856184320
+    include: coct
+
+  - stage: 2
+    start: 2022-10-16T14:00:00
+    finsh: 2022-10-17T05:59:00
+    source: https://twitter.com/CityofCT/status/1581250745856184320
+    include: coct
 
 historical_changes: []
