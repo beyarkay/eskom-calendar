@@ -24,6 +24,11 @@ changes:
     source: https://twitter.com/Eskom_SA/status/1582344269024878593
     exclude: coct
   - stage: 3
+    start: 2022-10-19T16:00:00
+    finsh: 2022-10-19T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1582344269024878593
+    exclude: coct
+  - stage: 3
     start: 2022-10-20T16:00:00
     finsh: 2022-10-20T23:59:00
     source: https://twitter.com/Eskom_SA/status/1582344269024878593
