@@ -14,14 +14,55 @@
 changes:
   - stage: 4
     start: 2022-10-18T05:30:00
-    finsh: 2022-10-23T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1582215822109724672
+    finsh: 2022-10-18T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1582344269024878593
+    exclude: coct
+  - stage: 2
+    start: 2022-10-19T00:00:00
+    finsh: 2022-10-19T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1582344269024878593
+    exclude: coct
+  - stage: 3
+    start: 2022-10-20T16:00:00
+    finsh: 2022-10-20T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1582344269024878593
+    exclude: coct
+  - stage: 3
+    start: 2022-10-21T16:00:00
+    finsh: 2022-10-21T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1582344269024878593
     exclude: coct
 
   - stage: 2
     start: 2022-10-18T06:00:00
-    finsh: 2022-10-23T23:59:00
-    source: https://twitter.com/CityofCT/status/1582226460127133696
+    finsh: 2022-10-18T15:59:00
+    source: https://twitter.com/CityofCT/status/1582273479759794178
+    include: coct
+  - stage: 3
+    start: 2022-10-18T16:00:00
+    finsh: 2022-10-18T21:59:00
+    source: https://twitter.com/CityofCT/status/1582273479759794178
+    include: coct
+  - stage: 4
+    start: 2022-10-18T22:00:00
+    finsh: 2022-10-19T05:59:00
+    source: https://twitter.com/CityofCT/status/1582273479759794178
+    include: coct
+
+  - stage: 2
+    start: 2022-10-19T06:00:00
+    finsh: 2022-10-19T15:59:00
+    source: https://twitter.com/CityofCT/status/1582273479759794178
+    include: coct
+  - stage: 3
+    start: 2022-10-19T16:00:00
+    finsh: 2022-10-19T21:59:00
+    source: https://twitter.com/CityofCT/status/1582273479759794178
+    include: coct
+  - stage: 4
+    start: 2022-10-19T22:00:00
+    finsh: 2022-10-20T05:59:00
+    source: https://twitter.com/CityofCT/status/1582273479759794178
     include: coct
 
 historical_changes: []
