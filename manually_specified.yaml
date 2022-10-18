@@ -12,28 +12,16 @@
 # See the README.md for more details
 ---
 changes:
-  - stage: 2
-    start: 2022-10-15T14:00:00
-    finsh: 2022-10-16T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1581602226660773888
+  - stage: 4
+    start: 2022-10-18T05:30:00
+    finsh: 2022-10-23T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1582215822109724672
     exclude: coct
 
   - stage: 2
-    start: 2022-10-17T16:00:00
-    finsh: 2022-10-17T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1581602226660773888
-    exclude: coct
-
-  - stage: 2
-    start: 2022-10-18T16:00:00
-    finsh: 2022-10-18T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1581602226660773888
-    exclude: coct
-
-  - stage: 2
-    start: 2022-10-19T16:00:00
-    finsh: 2022-10-19T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1581602226660773888
-    exclude: coct
+    start: 2022-10-18T06:00:00
+    finsh: 2022-10-23T23:59:00
+    source: https://twitter.com/CityofCT/status/1582226460127133696
+    include: coct
 
 historical_changes: []
