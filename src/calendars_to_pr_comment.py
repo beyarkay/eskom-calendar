@@ -4,7 +4,7 @@ import datetime
 with open("calendars/western-cape-stellenbosch.ics", "r") as f:
     c = Calendar(f.read())
     output = [
-        "![Preview of loadshedding](https://github.com/beyarkay/eskom-calendar-dev/releases/download/builds/calendar_preview.png)",
+        "![Preview of loadshedding](https://github.com/beyarkay/eskom-calendar/releases/download/builds/calendar_preview.png)",
         "@beyarkay here's a load shedding summary based on this PR:",
     ]
     output.append("### Load shedding for Stellenbosch")
