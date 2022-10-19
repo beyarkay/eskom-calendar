@@ -34,6 +34,14 @@ jobs:
       with:
         requirements: requirements.txt
 
+    - name: Install InkScape
+      run: sudo apt-get install inkscape
+      shell: sh
+
+    - name: Create Calendar Preview
+      run: python src/create_preview.py
+      shell: sh
+
     - name: Cargo build
       uses: actions-rs/cargo@v1
       with:
@@ -45,6 +53,20 @@ jobs:
       with:
         command: run
         args: --release
+
+    - name: Update draft release with build artefacts
+      uses: beyarkay/update-existing-release@master
+      with:
+        token: ${{ secrets.GH_ACTIONS_PAT }}
+        release: Draft release with build artefacts
+        updateTag: true
+        tag: builds
+        replace: true
+        files: calendars/calendar_preview.png
+        body: |
+          This release contains build artefacts. If you want to add load
+          shedding to your calendar, click
+          [here](https://github.com/beyarkay/eskom-calendar/releases/tag/latest).
 
     - name: Create summary of calendar changes
       id: create_summary
