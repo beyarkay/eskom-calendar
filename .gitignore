@@ -4,3 +4,5 @@
 !generated/*.csv
 */*.ics
 */*.html
+*.svg
+calendars/calendar_preview.png
