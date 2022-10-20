@@ -155,13 +155,14 @@ the author didn't want another app, and wanted to see the whole loadshedding
 schedule at a glance. Hence eskom-calendar was born (making it open source was
 just the default).
 
-## Maintainers
+## Maintainers and Contributors
 
-- [Boyd Kane](https://github.com/beyarkay). Reach out on
-  [twitter](https://twitter.com/beyarkay) if you want to chat in private,
-  otherwise [open an
-  issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
-- You? it's always good to have help
+[Boyd Kane](https://github.com/beyarkay) is the creator and maintainer. Reach out
+on [twitter](https://twitter.com/beyarkay) if you want to chat in private, otherwise
+[open an issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
+
+Thanks to [shaunkleyn](https://github.com/shaunkleyn) for helping to update the
+loadshedding schedule!
 
 ## Contributing
 
@@ -174,7 +175,8 @@ if [Eskom's twitter feed](https://twitter.com/Eskom_SA) announces a change.
 To add a new load shedding event, do the following:
 1. Click
    [here](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml)
-   to edit `manually_specified.yaml`.
+   to edit `manually_specified.yaml`. GitHub might ask you to fork this repository before
+   you can make changes.
     
    You'll see a bunch of `changes`. Each change lists one national load
    shedding event. It includes the stage, the start time, the end time, and the
