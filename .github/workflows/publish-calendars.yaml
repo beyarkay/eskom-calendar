@@ -36,14 +36,6 @@ jobs:
       with:
         requirements: requirements.txt
 
-    - name: Install InkScape
-      run: sudo apt-get install inkscape
-      shell: sh
-
-    - name: Create Calendar Preview
-      run: python src/create_preview.py
-      shell: sh
-
     - name: Cargo build
       uses: actions-rs/cargo@v1
       with:
