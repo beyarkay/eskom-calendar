@@ -21,21 +21,41 @@ def main():
             new_c = {k: v for k, v in c.items()}
             is_start = new_c["start"].date() == day.date()
             is_finsh = new_c["finsh"].date() == day.date()
+            if is_start and is_finsh:
+                start_hr = new_c["start"].hour
+                start_mn = new_c["start"].minute
+                start_sc = new_c["start"].second
+                finsh_hr = new_c["finsh"].hour
+                finsh_mn = new_c["finsh"].minute
+                finsh_sc = new_c["finsh"].second
+            elif is_start and not is_finsh:
+                start_hr = new_c["start"].hour
+                start_mn = new_c["start"].minute
+                start_sc = new_c["start"].second
+                finsh_hr = 23
+                finsh_mn = 59
+                finsh_sc = 0
+            elif not is_start and is_finsh:
+                start_hr = 0
+                start_mn = 0
+                start_sc = 0
+                finsh_hr = new_c["finsh"].hour
+                finsh_mn = new_c["finsh"].minute
+                finsh_sc = new_c["finsh"].second
+            else:
+                # Not start and not finish
+                start_hr = 0
+                start_mn = 0
+                start_sc = 0
+                finsh_hr = 23
+                finsh_mn = 59
+                finsh_sc = 0
+
             new_c["start"] = datetime.datetime(
-                day.year,
-                day.month,
-                day.day,
-                0 if is_finsh and not is_start else new_c["start"].hour,
-                0 if is_finsh and not is_start else new_c["start"].minute,
-                0 if is_finsh and not is_start else new_c["start"].second,
+                day.year, day.month, day.day, start_hr, start_mn, start_sc
             )
             new_c["finsh"] = datetime.datetime(
-                day.year,
-                day.month,
-                day.day,
-                23 if is_start and not is_finsh else new_c["finsh"].hour,
-                59 if is_start and not is_finsh else new_c["finsh"].minute,
-                0 if is_start and not is_finsh else new_c["finsh"].second,
+                day.year, day.month, day.day, finsh_hr, finsh_mn, finsh_sc
             )
             changes.append(new_c)
 
@@ -65,7 +85,7 @@ def main():
 
     HEIGHT = margin["top"] + margin["bot"]
     if len(changes) != 0:
-        num_days = max((c["finsh"].date() - today.date()).days for c in changes)
+        num_days = max((c["finsh"].date() - today.date()).days for c in changes) + 1
         HEIGHT += num_days * (event["height"] + 2 * event["pad"])
 
     doc = et.Element(
