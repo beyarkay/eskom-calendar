@@ -36,9 +36,9 @@ changes:
 
     # CoCT
   - stage: 1
-    start: 2022-10-20T05:00:00
+    start: 2022-10-20T06:00:00
     finsh: 2022-10-20T15:59:00
-    source: https://twitter.com/CityofCT/status/1583047950539714560
+    source: https://twitter.com/CityofCT/status/1583070920864067584
     include: coct
   - stage: 2
     start: 2022-10-20T16:00:00
@@ -47,19 +47,19 @@ changes:
     include: coct
   - stage: 3
     start: 2022-10-20T22:00:00
-    finsh: 2022-10-21T05:59:00
-    source: https://twitter.com/CityofCT/status/1583047950539714560
+    finsh: 2022-10-21T04:59:00
+    source: https://twitter.com/CityofCT/status/1583070920864067584
     include: coct
 
   - stage: 1
-    start: 2022-10-21T06:00:00
+    start: 2022-10-21T16:00:00
     finsh: 2022-10-21T21:59:00
-    source: https://twitter.com/CityofCT/status/1583047950539714560
+    source: https://twitter.com/CityofCT/status/1583070920864067584
     include: coct
   - stage: 3
     start: 2022-10-21T22:00:00
-    finsh: 2022-10-22T05:59:00
-    source: https://twitter.com/CityofCT/status/1583047950539714560
+    finsh: 2022-10-22T04:59:00
+    source: https://twitter.com/CityofCT/status/1583070920864067584
     include: coct
 
 historical_changes: []
