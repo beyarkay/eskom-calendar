@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">
-    <img src="https://github.com/beyarkay/eskom-calendar/releases/download/latest/calendar_preview.png" alt="eskom-calendar: loadshedding in your calendar">
+    <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
   </a><br>
   <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license"><br>
   Loadshedding schedules in your digital calendar. No ads, up-to-date,
