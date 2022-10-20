@@ -57,7 +57,7 @@ jobs:
     - name: Update draft release with build artefacts
       uses: beyarkay/update-existing-release@master
       with:
-        token: ${{ secrets.GH_ACTIONS_PAT }}
+        token: ${{ secrets.GH_ACTIONS_PAT || github.token }}
         release: Draft release with build artefacts
         updateTag: true
         tag: builds
