@@ -30,7 +30,6 @@ changes:
     finsh: 2022-10-22T05:59:00
     source: https://twitter.com/CityofCT/status/1583441432718716929
     include: coct
-    
   - stage: 1
     start: 2022-10-22T06:00:00
     finsh: 2022-10-22T13:59:00
@@ -41,12 +40,10 @@ changes:
     finsh: 2022-10-23T05:59:00
     source: https://twitter.com/CityofCT/status/1583441432718716929
     include: coct
-
   - stage: 3
     start: 2022-10-23T06:00:00
     finsh: 2022-10-24T05:59:00
     source: https://twitter.com/CityofCT/status/1583441432718716929
     include: coct
-
 
 historical_changes: []
