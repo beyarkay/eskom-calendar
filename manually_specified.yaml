@@ -45,24 +45,24 @@ changes:
     start: 2022-10-26T05:00:00
     finsh: 2022-10-26T15:59:00
     source: https://twitter.com/eskom_sa/status/1584116620686860288
-#     exclude: coct
+    exclude: coct
   - stage: 4
     start: 2022-10-26T16:00:00
     finsh: 2022-10-27T04:59:00
     source: https://twitter.com/eskom_sa/status/1584116620686860288
-#     exclude: coct
+    exclude: coct
 
   - stage: 3
     start: 2022-10-27T05:00:00
     finsh: 2022-10-28T04:59:00
     source: https://twitter.com/eskom_sa/status/1584116620686860288
-#     exclude: coct
-    
+    exclude: coct
+
   - stage: 2
     start: 2022-10-28T05:00:00
     finsh: 2022-10-28T23:59:00
     source: https://twitter.com/eskom_sa/status/1584116620686860288
-#     exclude: coct
+    exclude: coct
 
     # CoCT
   - stage: 3
