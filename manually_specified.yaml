@@ -81,8 +81,20 @@ changes:
     include: coct
   - stage: 3
     start: 2022-10-28T22:00:00
-    finsh: 2022-10-29T05:59:00
+    finsh: 2022-10-29T04:59:00
     source: https://twitter.com/CityofCT/status/1585540835252264961
     include: coct
+
+  - stage: 3
+    start: 2022-10-29T12:00:00
+    finsh: 2022-10-29T15:59:00
+    source: https://twitter.com/CityofCT/status/1585540838721028101
+    include: coct
+  - stage: 3
+    start: 2022-10-29T16:00:00
+    finsh: 2022-10-30T04:59:00
+    source: https://twitter.com/CityofCT/status/1585540838721028101
+    include: coct
+
 
 historical_changes: []
