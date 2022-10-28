@@ -20,7 +20,7 @@ changes:
     exclude: coct
   - stage: 3
     start: 2022-10-28T16:00:00
-    finsh: 2022-10-29T23:59:00
+    finsh: 2022-10-28T23:59:00
     source: https://twitter.com/Eskom_SA/status/1585932159478812672
     exclude: coct
   - stage: 2
