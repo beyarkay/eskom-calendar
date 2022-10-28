@@ -53,13 +53,12 @@ changes:
     exclude: coct
 
     # CoCT
-    
   - stage: 2
     start: 2022-10-28T10:00:00
     finsh: 2022-10-30T23:59:00
     source: https://twitter.com/CityofCT/status/1585907114610143233
     include: coct
-    
+
 #   - stage: 1
 #     start: 2022-10-28T12:00:00
 #     finsh: 2022-10-28T15:59:00
