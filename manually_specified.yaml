@@ -14,19 +14,42 @@
 changes:
     # Eskom
   - stage: 2
-    start: 2022-10-31T05:00:00
-    finsh: 2022-11-01T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1586742081887911937
-    exclude: coct
-  - stage: 2
     start: 2022-11-01T16:00:00
-    finsh: 2022-11-01T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1586742081887911937
+    finsh: 2022-11-02T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1587477699693535232
     exclude: coct
+  - stage: 1
+    start: 2022-11-02T05:00:00
+    finsh: 2022-11-02T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1587477699693535232
+    exclude: coct
+
   - stage: 2
     start: 2022-11-02T16:00:00
-    finsh: 2022-11-02T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1586742081887911937
+    finsh: 2022-11-03T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1587477699693535232
+    exclude: coct
+  - stage: 1
+    start: 2022-11-03T05:00:00
+    finsh: 2022-11-03T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1587477699693535232
+    exclude: coct
+
+  - stage: 2
+    start: 2022-11-03T16:00:00
+    finsh: 2022-11-04T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1587477699693535232
+    exclude: coct
+  - stage: 1
+    start: 2022-11-04T05:00:00
+    finsh: 2022-11-04T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1587477699693535232
+    exclude: coct
+
+  - stage: 2
+    start: 2022-11-04T16:00:00
+    finsh: 2022-11-05T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1587477699693535232
     exclude: coct
 
     # CoCT
