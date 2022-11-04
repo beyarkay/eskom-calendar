@@ -23,7 +23,7 @@ changes:
     finsh: 2022-11-05T04:59:00
     source: https://twitter.com/Eskom_SA/status/1588528568325537793
     exclude: coct
-    
+
   - stage: 1
     start: 2022-11-05T05:00:00
     finsh: 2022-11-05T15:59:00
@@ -34,7 +34,7 @@ changes:
     finsh: 2022-11-06T04:59:00
     source: https://twitter.com/Eskom_SA/status/1588528568325537793
     exclude: coct
-    
+
   - stage: 1
     start: 2022-11-06T05:00:00
     finsh: 2022-11-06T15:59:00
