@@ -51,4 +51,22 @@ changes:
     source: https://twitter.com/CityofCT/status/1588554418265346053
     include: coct
 
+  - stage: 2
+    start: 2022-11-07T22:00:00
+    finsh: 2022-11-08T04:59:00
+    source: https://twitter.com/CityofCT/status/1589284113361797121
+    include: coct
+
+  - stage: 2
+    start: 2022-11-08T22:00:00
+    finsh: 2022-11-09T04:59:00
+    source: https://twitter.com/CityofCT/status/1589284113361797121
+    include: coct
+
+  - stage: 2
+    start: 2022-11-09T22:00:00
+    finsh: 2022-11-10T04:59:00
+    source: https://twitter.com/CityofCT/status/1589284113361797121
+    include: coct
+
 historical_changes: []
