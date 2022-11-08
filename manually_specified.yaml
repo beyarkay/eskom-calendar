@@ -14,14 +14,9 @@
 changes:
     # Eskom
   - stage: 2
-    start: 2022-11-07T16:00:00
-    finsh: 2022-11-08T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1589263017719787521
-    exclude: coct
-  - stage: 2
-    start: 2022-11-08T16:00:00
+    start: 2022-11-08T09:00:00
     finsh: 2022-11-09T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1589263017719787521
+    source: https://twitter.com/Eskom_SA/status/1589839022008184832
     exclude: coct
   - stage: 2
     start: 2022-11-09T16:00:00
