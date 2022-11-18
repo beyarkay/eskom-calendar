@@ -13,75 +13,10 @@
 ---
 changes:
     # Eskom
-  - stage: 2
-    start: 2022-11-15T16:00:00
-    finsh: 2022-11-16T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-  - stage: 3
-    start: 2022-11-16T16:00:00
-    finsh: 2022-11-17T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-  - stage: 2
-    start: 2022-11-17T05:00:00
-    finsh: 2022-11-17T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-
-  - stage: 3
-    start: 2022-11-17T16:00:00
-    finsh: 2022-11-18T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-  - stage: 2
-    start: 2022-11-18T05:00:00
-    finsh: 2022-11-18T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-
-  - stage: 3
-    start: 2022-11-18T16:00:00
-    finsh: 2022-11-19T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-  - stage: 2
-    start: 2022-11-19T05:00:00
-    finsh: 2022-11-19T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-
-  - stage: 3
-    start: 2022-11-19T16:00:00
-    finsh: 2022-11-20T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-  - stage: 2
-    start: 2022-11-20T05:00:00
-    finsh: 2022-11-20T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-
-  - stage: 3
-    start: 2022-11-20T16:00:00
-    finsh: 2022-11-21T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-  - stage: 2
-    start: 2022-11-21T05:00:00
-    finsh: 2022-11-21T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-
-  - stage: 3
-    start: 2022-11-21T16:00:00
-    finsh: 2022-11-22T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
-    exclude: coct
-  - stage: 2
-    start: 2022-11-22T05:00:00
-    finsh: 2022-11-22T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1592530637470470144
+  - stage: 4
+    start: 2022-11-15T05:26:00
+    finsh: 2022-11-20T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1593452591865896963
     exclude: coct
 
     # CoCT
