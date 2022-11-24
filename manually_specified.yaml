@@ -18,7 +18,7 @@ changes:
     finsh: 2022-11-24T15:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
     exclude: coct
-  - stage: 4
+  - stage: 3
     start: 2022-11-24T16:00:00
     finsh: 2022-11-25T04:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
@@ -29,7 +29,7 @@ changes:
     finsh: 2022-11-25T15:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
     exclude: coct
-  - stage: 4
+  - stage: 3
     start: 2022-11-25T16:00:00
     finsh: 2022-11-26T04:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
@@ -40,7 +40,7 @@ changes:
     finsh: 2022-11-26T15:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
     exclude: coct
-  - stage: 4
+  - stage: 3
     start: 2022-11-26T16:00:00
     finsh: 2022-11-27T04:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
@@ -51,7 +51,7 @@ changes:
     finsh: 2022-11-27T15:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
     exclude: coct
-  - stage: 4
+  - stage: 3
     start: 2022-11-27T16:00:00
     finsh: 2022-11-28T04:59:00
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
