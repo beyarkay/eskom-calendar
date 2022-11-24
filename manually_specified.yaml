@@ -13,12 +13,6 @@
 ---
 changes:
     # Eskom
-  - stage: 4
-    start: 2022-11-20T17:00:00
-    finsh: 2022-11-24T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1594637452362547204
-    exclude: coct
-
   - stage: 2
     start: 2022-11-24T05:00:00
     finsh: 2022-11-24T15:59:00
@@ -63,48 +57,59 @@ changes:
     source: https://twitter.com/Eskom_SA/status/1594637452362547204
     exclude: coct
 
+  - stage: 2
+    start: 2022-11-28T05:00:00
+    finsh: 2022-11-28T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1594637452362547204
+    exclude: coct
+  - stage: 4
+    start: 2022-11-28T16:00:00
+    finsh: 2022-11-29T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1594637452362547204
+    exclude: coct
+
+  - stage: 2
+    start: 2022-11-29T05:00:00
+    finsh: 2022-11-29T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1594637452362547204
+    exclude: coct
+  - stage: 4
+    start: 2022-11-29T16:00:00
+    finsh: 2022-11-30T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1594637452362547204
+    exclude: coct
+
+  - stage: 2
+    start: 2022-11-30T05:00:00
+    finsh: 2022-11-30T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1594637452362547204
+    exclude: coct
+  - stage: 4
+    start: 2022-11-30T16:00:00
+    finsh: 2022-12-01T04:59:00
+    source: https://twitter.com/Eskom_SA/status/1594637452362547204
+    exclude: coct
+
     # CoCT
   - stage: 2
-    start: 2022-11-21T06:00:00
-    finsh: 2022-11-21T15:59:00
-    source: https://twitter.com/CityofCT/status/1594677724051869699
-    include: coct
-  - stage: 3
-    start: 2022-11-21T16:00:00
-    finsh: 2022-11-21T21:59:00
-    source: https://twitter.com/CityofCT/status/1594677724051869699
-    include: coct
-  - stage: 4
-    start: 2022-11-21T22:00:00
-    finsh: 2022-11-22T04:59:00
-    source: https://twitter.com/CityofCT/status/1594677724051869699
-    include: coct
-
-  - stage: 3
-    start: 2022-11-22T16:00:00
-    finsh: 2022-11-22T21:59:00
-    source: https://twitter.com/CityofCT/status/1594677727176839168
-    include: coct
-  - stage: 4
-    start: 2022-11-22T22:00:00
-    finsh: 2022-11-23T04:59:00
-    source: https://twitter.com/CityofCT/status/1594677727176839168
-    include: coct
-
-  - stage: 3
-    start: 2022-11-23T16:00:00
-    finsh: 2022-11-23T21:59:00
-    source: https://twitter.com/CityofCT/status/1594677727176839168
-    include: coct
-  - stage: 4
-    start: 2022-11-23T22:00:00
-    finsh: 2022-11-24T04:59:00
-    source: https://twitter.com/CityofCT/status/1594677727176839168
-    include: coct
-
-  - stage: 4
     start: 2022-11-24T16:00:00
+    finsh: 2022-11-24T21:59:00
+    source: https://twitter.com/CityofCT/status/1595756353976471552
+    include: coct
+  - stage: 3
+    start: 2022-11-24T22:00:00
     finsh: 2022-11-25T04:59:00
+    source: https://twitter.com/CityofCT/status/1595756353976471552
+    include: coct
+
+  - stage: 3
+    start: 2022-11-25T16:00:00
+    finsh: 2022-11-25T21:59:00
+    source: https://twitter.com/CityofCT/status/1594677727176839168
+    include: coct
+  - stage: 4
+    start: 2022-11-25T22:00:00
+    finsh: 2022-11-26T04:59:00
     source: https://twitter.com/CityofCT/status/1594677727176839168
     include: coct
 
