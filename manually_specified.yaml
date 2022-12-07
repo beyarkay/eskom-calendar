@@ -13,22 +13,17 @@
 ---
 changes:
     # Eskom
-  - stage: 4
-    start: 2022-12-07T09:00:00
+  - stage: 6
+    start: 2022-12-07T12:00:00
     finsh: 2022-12-17T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1600340502628356096
+    source: https://twitter.com/Eskom_SA/status/1600422155421786112
     exclude: coct
 
     # CoCT
-  - stage: 3
+  - stage: 5
     start: 2022-12-07T09:00:00
-    finsh: 2022-12-07T21:59:00
-    source: https://twitter.com/CityofCT/status/1600364614302150656
-    include: coct
-  - stage: 4
-    start: 2022-12-07T22:00:00
-    finsh: 2022-12-08T05:59:00
-    source: https://twitter.com/CityofCT/status/1600364614302150656
+    finsh: 2022-12-17T23:59:00
+    source: https://twitter.com/CityofCT/status/1600426002508750848
     include: coct
 
 historical_changes: []
