@@ -15,48 +15,59 @@ changes:
     # Eskom
   - stage: 5
     start: 2022-12-10T13:19:00
-    finsh: 2022-12-20T23:59:00
+    finsh: 2022-12-24T23:59:00
     source: https://twitter.com/Eskom_SA/status/1601537019511181313
     exclude: coct
 
     # CoCT
-  - stage: 5
-    start: 2022-12-10T13:19:00
-    finsh: 2022-12-12T05:59:00
-    source: https://twitter.com/CityofCT/status/1601967837089767424
-    include: coct
-
-  - stage: 4
-    start: 2022-12-12T06:00:00
-    finsh: 2022-12-12T21:59:00
-    source: https://twitter.com/CityofCT/status/1601967837089767424
-    include: coct
-  - stage: 5
-    start: 2022-12-12T22:00:00
-    finsh: 2022-12-13T05:59:00
-    source: https://twitter.com/CityofCT/status/1601967837089767424
-    include: coct
-
-  - stage: 4
-    start: 2022-12-13T06:00:00
-    finsh: 2022-12-13T21:59:00
-    source: https://twitter.com/CityofCT/status/1601967837089767424
-    include: coct
-  - stage: 5
-    start: 2022-12-13T22:00:00
-    finsh: 2022-12-14T05:59:00
-    source: https://twitter.com/CityofCT/status/1601967837089767424
-    include: coct
-
   - stage: 4
     start: 2022-12-14T06:00:00
     finsh: 2022-12-14T21:59:00
-    source: https://twitter.com/CityofCT/status/1601967837089767424
+    source: https://twitter.com/CityofCT/status/1603039834876293121
     include: coct
   - stage: 5
     start: 2022-12-14T22:00:00
     finsh: 2022-12-15T05:59:00
-    source: https://twitter.com/CityofCT/status/1601967837089767424
+    source: https://twitter.com/CityofCT/status/1603039834876293121
+    include: coct
+
+  - stage: 3
+    start: 2022-12-15T06:00:00
+    finsh: 2022-12-15T21:59:00
+    source: https://twitter.com/CityofCT/status/1603039834876293121
+    include: coct
+  - stage: 4
+    start: 2022-12-15T22:00:00
+    finsh: 2022-12-16T05:59:00
+    source: https://twitter.com/CityofCT/status/1603039834876293121
+    include: coct
+
+  - stage: 2
+    start: 2022-12-16T06:00:00
+    finsh: 2022-12-16T21:59:00
+    source: https://twitter.com/CityofCT/status/1603039834876293121
+    include: coct
+  - stage: 3
+    start: 2022-12-16T22:00:00
+    finsh: 2022-12-17T05:59:00
+    source: https://twitter.com/CityofCT/status/1603039834876293121
+    include: coct
+
+  - stage: 1
+    start: 2022-12-17T06:00:00
+    finsh: 2022-12-17T21:59:00
+    source: https://twitter.com/CityofCT/status/1603039834876293121
+    include: coct
+  - stage: 2
+    start: 2022-12-17T22:00:00
+    finsh: 2022-12-18T05:59:00
+    source: https://twitter.com/CityofCT/status/1603039834876293121
+    include: coct
+
+  - stage: 3
+    start: 2022-12-18T06:00:00
+    finsh: 2022-12-19T05:59:00
+    source: https://twitter.com/CityofCT/status/1603039838957092864
     include: coct
 
 historical_changes: []
