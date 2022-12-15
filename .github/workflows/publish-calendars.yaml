@@ -49,12 +49,19 @@ jobs:
         args: --release
 
     - name: Write current time stamp to GH variable
-      id: date
       run: echo "::set-output name=datetime::$(date +'%Y-%m-%dT%H:%M:%S')"
+      id: date
 
     - name: List all calendars to GH variable
       run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
       id: LS-CALENDARS
+
+    - name: POST machine_friendly.csv to pastebin
+      run: curl -X POST -F "expires=31536000" -F "format=url" -F "content=$(cat calendars/machine_friendly.csv)" https://dpaste.org/api/ > pastebin.txt
+
+    - name: Write pastebin link to GH variable
+      run: echo "::set-output name=pastebin::$(cat pastebin.txt)/raw"
+      id: PASTEBIN
 
     - name: Update latest release with new calendars
       uses: beyarkay/update-existing-release@master
@@ -103,5 +110,7 @@ jobs:
           ### Developers
 
           There's also a machine-friendly csv file that contains loadshedding information. Have a look at the [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest) for ideas!
+
+          (pastebin link)[${{ steps.PASTEBIN.outputs.pastebin }}]
 
           Last updated: ${{ steps.date.outputs.datetime }} UTC"
