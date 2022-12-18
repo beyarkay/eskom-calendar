@@ -229,7 +229,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .output()
         .unwrap();
     let git_hash = String::from_utf8(output.stdout).unwrap();
-    let emojis = vec!["😕", "☹️", "😖", "😤", "😡", "🤬", "🔪", "☠️"];
+    let emojis = vec!["💡", "☹️", "😖", "😤", "😡", "🤬", "🔪", "☠️", "⚰️"];
 
     let area_name = csv_path
         .replace("generated/", "")
