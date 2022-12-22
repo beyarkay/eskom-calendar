@@ -1,0 +1,1747 @@
+---
+details:
+
+  - calendar_name: western-cape-stellenbosch
+    aliases: [stellies, stellenbosch, su]
+    city: stellenbosch
+    lat_lngs: [-33.932106, 18.860151]
+    municipality: stellenbosch
+    provider: eskom
+    province: western-cape
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-1
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-2
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-3
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-3
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-4
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-5
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-6
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-7
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-8
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-9
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-10
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-11
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-12
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-13
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-14
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-15
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: city-power-16
+    aliases: [jhb, joburg, johannesburg]
+    city: johannesburg
+    lat_lngs: [None, None]
+    municipality: city-of-johannesburg
+    provider: city-power
+    province: gauteng
+    source: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group- 1
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-2
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-3
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-4
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-5
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-6
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-7
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-8
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-9
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-10
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-11
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-12
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-13
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-14
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-15
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+  - calendar_name: gauteng-tshwane-group-16
+    aliases: [jhb, joburg, johannesburg]
+    city: pretoria
+    lat_lngs: [None, None]
+    municipality: city-of-tshwane
+    provider: tshwane
+    province: gauteng
+    source: https://www.tshwane.gov.za/sites/Departments/Public-works-and-infrastructure/Pages/Load-Shedding.aspx#suburblist
+    suburbs: []
+
+
+locations:
+  - {area: "11 shaft", area_name: city-power-15}
+  - {area: "abbotsford", area_name: city-power-9}
+  - {area: "academic hospital", area_name: city-power-1}
+  - {area: "aeroton", area_name: city-power-13}
+  - {area: "albertskroon", area_name: city-power-6}
+  - {area: "albertville", area_name: city-power-14}
+  - {area: "albertville ext", area_name: city-power-14}
+  - {area: "albertville ext 1", area_name: city-power-14}
+  - {area: "alexandra", area_name: city-power-3}
+  - {area: "alexandra ext", area_name: city-power-9}
+  - {area: "alexandra south", area_name: city-power-9}
+  - {area: "allen lakes", area_name: city-power-5}
+  - {area: "allen manor", area_name: city-power-5}
+  - {area: "allendale", area_name: city-power-3}
+  - {area: "allen'snek", area_name: city-power-11}
+  - {area: "alvida", area_name: city-power-14}
+  - {area: "amalgam", area_name: city-power-5}
+  - {area: "amalgam ext", area_name: city-power-5}
+  - {area: "amarosa", area_name: city-power-11}
+  - {area: "andara park", area_name: city-power-16}
+  - {area: "armadale", area_name: city-power-7}
+  - {area: "armadale ext", area_name: city-power-7}
+  - {area: "aspen hills", area_name: city-power-5}
+  - {area: "atholl", area_name: city-power-4}
+  - {area: "atholl gardens", area_name: city-power-4}
+  - {area: "athollhurst ext", area_name: city-power-9}
+  - {area: "auckland park", area_name: city-power-7}
+  - {area: "auckland park", area_name: city-power-5}
+  - {area: "auckland park", area_name: city-power-14}
+  - {area: "austin view", area_name: city-power-3}
+  - {area: "bagleyston", area_name: city-power-4}
+  - {area: "ballindean ah", area_name: city-power-16}
+  - {area: "bank fdr", area_name: city-power-14}
+  - {area: "bantjies", area_name: city-power-15}
+  - {area: "baragwaneth", area_name: city-power-15}
+  - {area: "barrowdale", area_name: city-power-4}
+  - {area: "bassonia", area_name: city-power-5}
+  - {area: "bassonia rock", area_name: city-power-5}
+  - {area: "belgravia", area_name: city-power-12}
+  - {area: "bellairspark", area_name: city-power-10}
+  - {area: "bellairspark, ext2, 4, 6, 8, 9", area_name: city-power-10}
+  - {area: "bellavista estate", area_name: city-power-12}
+  - {area: "bellevue", area_name: city-power-4}
+  - {area: "bellevue east", area_name: city-power-4}
+  - {area: "bellevue ext", area_name: city-power-4}
+  - {area: "benrose", area_name: city-power-12}
+  - {area: "benrose ext", area_name: city-power-12}
+  - {area: "berario", area_name: city-power-2}
+  - {area: "berea", area_name: city-power-13}
+  - {area: "berea", area_name: city-power-1}
+  - {area: "bergbron", area_name: city-power-15}
+  - {area: "bertrams", area_name: city-power-4}
+  - {area: "beverley gardens", area_name: city-power-14}
+  - {area: "bezuidenhout valley", area_name: city-power-4}
+  - {area: "birdhaven", area_name: city-power-9}
+  - {area: "birnam", area_name: city-power-4}
+  - {area: "blackheath", area_name: city-power-2}
+  - {area: "blairgowrie", area_name: city-power-14}
+  - {area: "blairgowrie north", area_name: city-power-14}
+  - {area: "blairgowrie south", area_name: city-power-2}
+  - {area: "bloubosrand", area_name: city-power-10}
+  - {area: "booysens", area_name: city-power-13}
+  - {area: "booysens reserve", area_name: city-power-13}
+  - {area: "bordeaux", area_name: city-power-14}
+  - {area: "boschkop", area_name: city-power-11}
+  - {area: "boskruin", area_name: city-power-14}
+  - {area: "boskruin ext", area_name: city-power-14}
+  - {area: "bosmont", area_name: city-power-14}
+  - {area: "boundary park", area_name: city-power-11}
+  - {area: "boundary park ext", area_name: city-power-11}
+  - {area: "boundry park", area_name: city-power-10}
+  - {area: "braam park", area_name: city-power-1}
+  - {area: "braamfontein", area_name: city-power-6}
+  - {area: "braamfontein werf", area_name: city-power-5}
+  - {area: "bramely", area_name: city-power-9}
+  - {area: "bramley gardens", area_name: city-power-9}
+  - {area: "bramley north", area_name: city-power-9}
+  - {area: "bramley park", area_name: city-power-4}
+  - {area: "bramley view", area_name: city-power-4}
+  - {area: "breaunanda", area_name: city-power-11}
+  - {area: "brenthurst clinic", area_name: city-power-1}
+  - {area: "brixton east (mayfair)", area_name: city-power-5}
+  - {area: "brixton west (hursthill)", area_name: city-power-14}
+  - {area: "bromhof", area_name: city-power-14}
+  - {area: "bromhof ext.66, 67, 68", area_name: city-power-10}
+  - {area: "bromhof, ext 10, 11, 12, 15, 22, 23, 27, 30, 35, 38, 46, 50, 63, 64", area_name: city-power-10}
+  - {area: "bruma", area_name: city-power-4}
+  - {area: "brushwood haugh a.h", area_name: city-power-10}
+  - {area: "bryanbrink", area_name: city-power-16}
+  - {area: "bryanston", area_name: city-power-14}
+  - {area: "bryanston", area_name: city-power-4}
+  - {area: "bryanston  east", area_name: city-power-10}
+  - {area: "bryanston ext.25, 27, 3, 39, 45", area_name: city-power-10}
+  - {area: "bryanston north", area_name: city-power-10}
+  - {area: "bryanston north east", area_name: city-power-10}
+  - {area: "burgersdorp", area_name: city-power-6}
+  - {area: "bush hill", area_name: city-power-11}
+  - {area: "bush hill estate", area_name: city-power-14}
+  - {area: "bushkoppies", area_name: city-power-7}
+  - {area: "campus square", area_name: city-power-7}
+  - {area: "carenvale", area_name: city-power-15}
+  - {area: "carlton centre", area_name: city-power-13}
+  - {area: "casey park", area_name: city-power-9}
+  - {area: "cheltondale", area_name: city-power-9}
+  - {area: "chislehurston", area_name: city-power-9}
+  - {area: "chrisville", area_name: city-power-13}
+  - {area: "city and suburban", area_name: city-power-13}
+  - {area: "city deep", area_name: city-power-12}
+  - {area: "city deep ext", area_name: city-power-12}
+  - {area: "city west", area_name: city-power-6}
+  - {area: "civic centre", area_name: city-power-1}
+  - {area: "claremont", area_name: city-power-14}
+  - {area: "cleveland", area_name: city-power-12}
+  - {area: "commercia", area_name: city-power-3}
+  - {area: "comptonville", area_name: city-power-14}
+  - {area: "constantia kloof", area_name: city-power-11}
+  - {area: "constitutional court", area_name: city-power-1}
+  - {area: "container depot", area_name: city-power-12}
+  - {area: "corlett gardens", area_name: city-power-4}
+  - {area: "coronationville", area_name: city-power-14}
+  - {area: "cottesloe", area_name: city-power-5}
+  - {area: "country view", area_name: city-power-16}
+  - {area: "country-life park", area_name: city-power-10}
+  - {area: "craighall", area_name: city-power-2}
+  - {area: "craighall park", area_name: city-power-2}
+  - {area: "craighall park east of waterval", area_name: city-power-16}
+  - {area: "cramerview", area_name: city-power-10}
+  - {area: "cresta", area_name: city-power-16}
+  - {area: "croesus", area_name: city-power-14}
+  - {area: "crosby", area_name: city-power-7}
+  - {area: "crosby", area_name: city-power-5}
+  - {area: "crown", area_name: city-power-12}
+  - {area: "crown", area_name: city-power-5}
+  - {area: "crown city", area_name: city-power-6}
+  - {area: "crown city ext", area_name: city-power-6}
+  - {area: "crown gardens", area_name: city-power-5}
+  - {area: "crown gardens", area_name: city-power-13}
+  - {area: "crown mines", area_name: city-power-5}
+  - {area: "crown north ext 1", area_name: city-power-6}
+  - {area: "crown north ext 3", area_name: city-power-6}
+  - {area: "crystal gardens", area_name: city-power-4}
+  - {area: "cyrildene", area_name: city-power-4}
+  - {area: "dainfern", area_name: city-power-10}
+  - {area: "dainfern college", area_name: city-power-10}
+  - {area: "dainfern ridge", area_name: city-power-10}
+  - {area: "daniel brink park", area_name: city-power-14}
+  - {area: "darrenwood", area_name: city-power-16}
+  - {area: "davidsonville", area_name: city-power-11}
+  - {area: "de wetshof", area_name: city-power-4}
+  - {area: "delarey", area_name: city-power-15}
+  - {area: "denver", area_name: city-power-12}
+  - {area: "denver ext", area_name: city-power-12}
+  - {area: "devland", area_name: city-power-7}
+  - {area: "devon valley", area_name: city-power-11}
+  - {area: "dimension data", area_name: city-power-11}
+  - {area: "discovery", area_name: city-power-15}
+  - {area: "doornfontein", area_name: city-power-13}
+  - {area: "doornkop", area_name: city-power-15}
+  - {area: "douglasdale", area_name: city-power-11}
+  - {area: "driefontein", area_name: city-power-16}
+  - {area: "droste park", area_name: city-power-13}
+  - {area: "dunkeld", area_name: city-power-1}
+  - {area: "dunkeld", area_name: city-power-9}
+  - {area: "dunkeld west", area_name: city-power-1}
+  - {area: "dunkeld west ext 2", area_name: city-power-2}
+  - {area: "dunsevern", area_name: city-power-4}
+  - {area: "eagles nest", area_name: city-power-14}
+  - {area: "east bank", area_name: city-power-9}
+  - {area: "east town", area_name: city-power-16}
+  - {area: "eastcliff", area_name: city-power-12}
+  - {area: "edgardale", area_name: city-power-6}
+  - {area: "elands park", area_name: city-power-12}
+  - {area: "elcedes", area_name: city-power-12}
+  - {area: "eldorado estate", area_name: city-power-7}
+  - {area: "eldorado park", area_name: city-power-7}
+  - {area: "eldorado park ext", area_name: city-power-7}
+  - {area: "eldorado park ext 1&3", area_name: city-power-7}
+  - {area: "eldorado park south", area_name: city-power-7}
+  - {area: "electron", area_name: city-power-12}
+  - {area: "elladoone", area_name: city-power-12}
+  - {area: "ellias motswaledi", area_name: city-power-15}
+  - {area: "ellis park", area_name: city-power-13}
+  - {area: "elton hill", area_name: city-power-9}
+  - {area: "emmarentia", area_name: city-power-2}
+  - {area: "emmarentia & ext", area_name: city-power-2}
+  - {area: "emmerentia north", area_name: city-power-2}
+  - {area: "emmerentia south", area_name: city-power-2}
+  - {area: "ennerdale", area_name: city-power-9}
+  - {area: "ennerdale ext", area_name: city-power-9}
+  - {area: "ennerdale ext 1", area_name: city-power-9}
+  - {area: "ennerdale ext 2", area_name: city-power-9}
+  - {area: "ennerdale ext 3", area_name: city-power-9}
+  - {area: "ennerdale ext 4", area_name: city-power-9}
+  - {area: "ennerdale ext 5 & 6", area_name: city-power-9}
+  - {area: "ennerdale south", area_name: city-power-9}
+  - {area: "erand gardens", area_name: city-power-16}
+  - {area: "evans park", area_name: city-power-13}
+  - {area: "fairlands", area_name: city-power-2}
+  - {area: "fairlands west", area_name: city-power-2}
+  - {area: "fairmount", area_name: city-power-4}
+  - {area: "fairvale", area_name: city-power-4}
+  - {area: "fairview", area_name: city-power-13}
+  - {area: "fairways", area_name: city-power-9}
+  - {area: "fairwood", area_name: city-power-4}
+  - {area: "far east bank", area_name: city-power-9}
+  - {area: "farm olifantsvlei", area_name: city-power-14}
+  - {area: "fellside", area_name: city-power-4}
+  - {area: "ferndale", area_name: city-power-14}
+  - {area: "ferndale ext.15", area_name: city-power-10}
+  - {area: "ferreirasdorp", area_name: city-power-6}
+  - {area: "ferreirasdorp ext", area_name: city-power-6}
+  - {area: "finetown", area_name: city-power-9}
+  - {area: "fleurhof", area_name: city-power-15}
+  - {area: "fleurhof", area_name: city-power-5}
+  - {area: "florida", area_name: city-power-15}
+  - {area: "florida cbd", area_name: city-power-15}
+  - {area: "florida cliffe", area_name: city-power-15}
+  - {area: "florida glen", area_name: city-power-15}
+  - {area: "florida hills", area_name: city-power-15}
+  - {area: "florida lake", area_name: city-power-15}
+  - {area: "florida north", area_name: city-power-15}
+  - {area: "florida park", area_name: city-power-15}
+  - {area: "fontainbleau", area_name: city-power-14}
+  - {area: "forbesdale", area_name: city-power-4}
+  - {area: "fordsburg", area_name: city-power-6}
+  - {area: "forest hill", area_name: city-power-12}
+  - {area: "forest town", area_name: city-power-2}
+  - {area: "founders hill", area_name: city-power-4}
+  - {area: "frampton", area_name: city-power-13}
+  - {area: "frampton east", area_name: city-power-12}
+  - {area: "franklin roosevelt park", area_name: city-power-2}
+  - {area: "franklin roosevelt park ext 1", area_name: city-power-2}
+  - {area: "freedom park", area_name: city-power-7}
+  - {area: "fresh produce market", area_name: city-power-12}
+  - {area: "garden city", area_name: city-power-5}
+  - {area: "geluksdal", area_name: city-power-9}
+  - {area: "georginia", area_name: city-power-15}
+  - {area: "gillview", area_name: city-power-13}
+  - {area: "glen acres ext 15", area_name: city-power-16}
+  - {area: "glen atholl", area_name: city-power-4}
+  - {area: "glen austin a h", area_name: city-power-3}
+  - {area: "glen austin a.h ext", area_name: city-power-3}
+  - {area: "glen lea", area_name: city-power-15}
+  - {area: "glenadrienne", area_name: city-power-8}
+  - {area: "glenanda east of glen rd", area_name: city-power-5}
+  - {area: "glenanda west of glen rd", area_name: city-power-13}
+  - {area: "gleneagles", area_name: city-power-12}
+  - {area: "gleneagles ext", area_name: city-power-12}
+  - {area: "glenesk", area_name: city-power-12}
+  - {area: "glenhazel", area_name: city-power-4}
+  - {area: "gleniffer", area_name: city-power-10}
+  - {area: "glenkay", area_name: city-power-4}
+  - {area: "glensan", area_name: city-power-9}
+  - {area: "glenvista", area_name: city-power-5}
+  - {area: "glenvista ext", area_name: city-power-5}
+  - {area: "golden harvest a.h", area_name: city-power-10}
+  - {area: "goldev", area_name: city-power-7}
+  - {area: "goldreef city", area_name: city-power-13}
+  - {area: "goudkoppies", area_name: city-power-7}
+  - {area: "grassmere", area_name: city-power-9}
+  - {area: "greenside", area_name: city-power-2}
+  - {area: "greenside east", area_name: city-power-2}
+  - {area: "greenside south", area_name: city-power-2}
+  - {area: "greenside west", area_name: city-power-2}
+  - {area: "greenstone hill", area_name: city-power-4}
+  - {area: "gresswold", area_name: city-power-4}
+  - {area: "greymont", area_name: city-power-2}
+  - {area: "grobler park", area_name: city-power-11}
+  - {area: "groblerpark ext", area_name: city-power-11}
+  - {area: "grosvenor", area_name: city-power-14}
+  - {area: "haddon", area_name: city-power-12}
+  - {area: "halfway gardens", area_name: city-power-3}
+  - {area: "halfway gardens  ext", area_name: city-power-3}
+  - {area: "halfwayhouse", area_name: city-power-3}
+  - {area: "hamberg", area_name: city-power-15}
+  - {area: "harveston", area_name: city-power-11}
+  - {area: "hawkins estate", area_name: city-power-4}
+  - {area: "headway hill", area_name: city-power-3}
+  - {area: "headway hill ext", area_name: city-power-3}
+  - {area: "helderkruin", area_name: city-power-11}
+  - {area: "helen joseph hospital", area_name: city-power-14}
+  - {area: "heriotdale", area_name: city-power-12}
+  - {area: "heriotdale ext", area_name: city-power-12}
+  - {area: "high gate", area_name: city-power-15}
+  - {area: "highlands north", area_name: city-power-4}
+  - {area: "highpoint", area_name: city-power-1}
+  - {area: "hillbrow", area_name: city-power-1}
+  - {area: "holiday inn", area_name: city-power-1}
+  - {area: "homestead park", area_name: city-power-5}
+  - {area: "honey hills", area_name: city-power-15}
+  - {area: "honeydew", area_name: city-power-11}
+  - {area: "honeydew ext", area_name: city-power-11}
+  - {area: "hoogland", area_name: city-power-10}
+  - {area: "hopefield", area_name: city-power-9}
+  - {area: "horison", area_name: city-power-11}
+  - {area: "horison park", area_name: city-power-11}
+  - {area: "horison view", area_name: city-power-11}
+  - {area: "hospital hill 1", area_name: city-power-1}
+  - {area: "hospital hill 2", area_name: city-power-1}
+  - {area: "houghton", area_name: city-power-4}
+  - {area: "houghton estate", area_name: city-power-9}
+  - {area: "houghton south", area_name: city-power-9}
+  - {area: "hunters hill a.h", area_name: city-power-10}
+  - {area: "hurlingham", area_name: city-power-2}
+  - {area: "hurlingham manor", area_name: city-power-2}
+  - {area: "hurst hill", area_name: city-power-7}
+  - {area: "hyde park", area_name: city-power-1}
+  - {area: "hyde park", area_name: city-power-2}
+  - {area: "hyde park a settlement", area_name: city-power-16}
+  - {area: "hyde park east", area_name: city-power-9}
+  - {area: "hyde park ext 1", area_name: city-power-2}
+  - {area: "hyde park ext 11", area_name: city-power-2}
+  - {area: "hyde park west", area_name: city-power-16}
+  - {area: "hyperion", area_name: city-power-10}
+  - {area: "illovo", area_name: city-power-9}
+  - {area: "inanda", area_name: city-power-9}
+  - {area: "industria", area_name: city-power-14}
+  - {area: "industria north", area_name: city-power-15}
+  - {area: "industria west", area_name: city-power-14}
+  - {area: "isle of houghton", area_name: city-power-1}
+  - {area: "jacanlee", area_name: city-power-16}
+  - {area: "jan hofmeyer", area_name: city-power-5}
+  - {area: "jeppe east", area_name: city-power-12}
+  - {area: "jeppe west", area_name: city-power-13}
+  - {area: "jhb central", area_name: city-power-1}
+  - {area: "johannesburg cbd", area_name: city-power-13}
+  - {area: "johannesburg city", area_name: city-power-13}
+  - {area: "johannesburg-north", area_name: city-power-10}
+  - {area: "joubert park", area_name: city-power-1}
+  - {area: "joubert park south", area_name: city-power-10}
+  - {area: "judith paarl west", area_name: city-power-4}
+  - {area: "jukskei park", area_name: city-power-10}
+  - {area: "jukskei park,  ext 1, 2, 3, 6, 9", area_name: city-power-10}
+  - {area: "jukskei view ext.17", area_name: city-power-3}
+  - {area: "jukskei view ext.18", area_name: city-power-3}
+  - {area: "kaalfontein", area_name: city-power-3}
+  - {area: "kaalfontein  ext", area_name: city-power-3}
+  - {area: "kazerne", area_name: city-power-13}
+  - {area: "kelland", area_name: city-power-14}
+  - {area: "kelly ridge", area_name: city-power-11}
+  - {area: "kenilworth", area_name: city-power-12}
+  - {area: "kenilworth ext", area_name: city-power-12}
+  - {area: "kensington", area_name: city-power-12}
+  - {area: "kensington b", area_name: city-power-16}
+  - {area: "kensington ext", area_name: city-power-12}
+  - {area: "kensington south", area_name: city-power-12}
+  - {area: "kent park", area_name: city-power-9}
+  - {area: "kent view", area_name: city-power-9}
+  - {area: "kevin ridge", area_name: city-power-11}
+  - {area: "kevin ridge ext 10", area_name: city-power-11}
+  - {area: "kew", area_name: city-power-4}
+  - {area: "kiasha park", area_name: city-power-9}
+  - {area: "kiasha park ext", area_name: city-power-9}
+  - {area: "kibler heights", area_name: city-power-5}
+  - {area: "kibler park", area_name: city-power-14}
+  - {area: "killarney", area_name: city-power-1}
+  - {area: "killarney mall", area_name: city-power-1}
+  - {area: "killarney mall", area_name: city-power-9}
+  - {area: "klevehill park", area_name: city-power-11}
+  - {area: "klipfontein", area_name: city-power-3}
+  - {area: "klipriviersberg", area_name: city-power-12}
+  - {area: "klipriviersoog", area_name: city-power-7}
+  - {area: "klipriviersoog estate", area_name: city-power-7}
+  - {area: "klipspruit west", area_name: city-power-7}
+  - {area: "kliptown", area_name: city-power-7}
+  - {area: "kloofendal", area_name: city-power-11}
+  - {area: "kya sand ext", area_name: city-power-10}
+  - {area: "kya sand ext.101", area_name: city-power-8}
+  - {area: "kya sand ext.102", area_name: city-power-8}
+  - {area: "kya sands", area_name: city-power-10}
+  - {area: "kyalami estates", area_name: city-power-3}
+  - {area: "kyalami estates ext", area_name: city-power-3}
+  - {area: "kyalami hills", area_name: city-power-3}
+  - {area: "kyalami park", area_name: city-power-3}
+  - {area: "la rochelle", area_name: city-power-12}
+  - {area: "lakeview", area_name: city-power-13}
+  - {area: "langlaagte", area_name: city-power-5}
+  - {area: "laser park", area_name: city-power-11}
+  - {area: "lawley", area_name: city-power-9}
+  - {area: "lehae", area_name: city-power-1}
+  - {area: "lehae ext", area_name: city-power-1}
+  - {area: "lenaron ah", area_name: city-power-14}
+  - {area: "lenasia ext 1", area_name: city-power-10}
+  - {area: "lenasia ext 10", area_name: city-power-7}
+  - {area: "lenasia ext 11", area_name: city-power-7}
+  - {area: "lenasia ext 13", area_name: city-power-7}
+  - {area: "lenasia ext 2", area_name: city-power-10}
+  - {area: "lenasia ext 24", area_name: city-power-1}
+  - {area: "lenasia ext 3", area_name: city-power-7}
+  - {area: "lenasia ext 4", area_name: city-power-10}
+  - {area: "lenasia ext 5", area_name: city-power-7}
+  - {area: "lenasia ext 6", area_name: city-power-10}
+  - {area: "lenasia ext 7", area_name: city-power-7}
+  - {area: "lenasia ext 8", area_name: city-power-7}
+  - {area: "lenasia ext 9", area_name: city-power-7}
+  - {area: "lenasia south", area_name: city-power-9}
+  - {area: "lenasia south ext 1", area_name: city-power-9}
+  - {area: "lenasia south ext 2", area_name: city-power-9}
+  - {area: "lenasia south ext 4", area_name: city-power-9}
+  - {area: "lenasia south ext 7", area_name: city-power-9}
+  - {area: "lenasia/corobric", area_name: city-power-1}
+  - {area: "lewisham", area_name: city-power-11}
+  - {area: "liefde n vrede", area_name: city-power-5}
+  - {area: "lindberg park", area_name: city-power-12}
+  - {area: "linden", area_name: city-power-2}
+  - {area: "linden east", area_name: city-power-2}
+  - {area: "linden ext", area_name: city-power-16}
+  - {area: "linden north", area_name: city-power-2}
+  - {area: "linden south", area_name: city-power-2}
+  - {area: "lindhaven", area_name: city-power-11}
+  - {area: "linksfield", area_name: city-power-4}
+  - {area: "linksfield ext", area_name: city-power-4}
+  - {area: "linksfield north", area_name: city-power-4}
+  - {area: "linksfield ridge", area_name: city-power-4}
+  - {area: "linmeyer", area_name: city-power-12}
+  - {area: "littlefalls", area_name: city-power-11}
+  - {area: "lombardy east ( east side )", area_name: city-power-9}
+  - {area: "lombardy east ( west side )", area_name: city-power-4}
+  - {area: "lombardy west", area_name: city-power-4}
+  - {area: "longdale", area_name: city-power-14}
+  - {area: "longmeadow", area_name: city-power-4}
+  - {area: "longmeadow business estate", area_name: city-power-4}
+  - {area: "longmeadow business estate ext", area_name: city-power-4}
+  - {area: "lorentzville", area_name: city-power-4}
+  - {area: "lougherin", area_name: city-power-14}
+  - {area: "lufhering", area_name: city-power-15}
+  - {area: "lyme park", area_name: city-power-10}
+  - {area: "lyndhurst", area_name: city-power-4}
+  - {area: "malanshof", area_name: city-power-14}
+  - {area: "malvern", area_name: city-power-12}
+  - {area: "malvern ext", area_name: city-power-12}
+  - {area: "manufacta", area_name: city-power-11}
+  - {area: "maraisburg", area_name: city-power-15}
+  - {area: "marlboro", area_name: city-power-3}
+  - {area: "marlboro gardens", area_name: city-power-3}
+  - {area: "maroeladal", area_name: city-power-10}
+  - {area: "marshalls town", area_name: city-power-13}
+  - {area: "marshalltown", area_name: city-power-13}
+  - {area: "martindale", area_name: city-power-14}
+  - {area: "maryvale", area_name: city-power-4}
+  - {area: "matholesville", area_name: city-power-11}
+  - {area: "mayfair", area_name: city-power-5}
+  - {area: "mayfair north", area_name: city-power-5}
+  - {area: "mayfair west", area_name: city-power-5}
+  - {area: "mayfield park", area_name: city-power-5}
+  - {area: "meadowhurst", area_name: city-power-10}
+  - {area: "meadowhurst a.h", area_name: city-power-10}
+  - {area: "melrose", area_name: city-power-9}
+  - {area: "melrose arch", area_name: city-power-9}
+  - {area: "melrose estate", area_name: city-power-9}
+  - {area: "melrose ext 1", area_name: city-power-9}
+  - {area: "melrose ext 2", area_name: city-power-9}
+  - {area: "melrose north", area_name: city-power-9}
+  - {area: "melville", area_name: city-power-7}
+  - {area: "melville", area_name: city-power-5}
+  - {area: "meredale", area_name: city-power-5}
+  - {area: "meredale ext", area_name: city-power-5}
+  - {area: "micor", area_name: city-power-14}
+  - {area: "micor industrial", area_name: city-power-5}
+  - {area: "mid ennerdale", area_name: city-power-9}
+  - {area: "migson manor", area_name: city-power-9}
+  - {area: "migson triangle", area_name: city-power-9}
+  - {area: "mill hill", area_name: city-power-4}
+  - {area: "mill hill ext 2", area_name: city-power-10}
+  - {area: "milpark", area_name: city-power-5}
+  - {area: "misgund", area_name: city-power-14}
+  - {area: "modderfontein", area_name: city-power-4}
+  - {area: "modderfontein ext", area_name: city-power-4}
+  - {area: "moffatview", area_name: city-power-12}
+  - {area: "mondeor", area_name: city-power-5}
+  - {area: "mondeor ext", area_name: city-power-5}
+  - {area: "mondeor north", area_name: city-power-13}
+  - {area: "mongomery park", area_name: city-power-2}
+  - {area: "montclare", area_name: city-power-14}
+  - {area: "montroux", area_name: city-power-16}
+  - {area: "moodey hill", area_name: city-power-4}
+  - {area: "moodey hill", area_name: city-power-9}
+  - {area: "moret", area_name: city-power-14}
+  - {area: "morningside", area_name: city-power-4}
+  - {area: "morningside", area_name: city-power-9}
+  - {area: "mountainview", area_name: city-power-9}
+  - {area: "mtn campus", area_name: city-power-11}
+  - {area: "mulbarton", area_name: city-power-5}
+  - {area: "nancefield", area_name: city-power-7}
+  - {area: "nancefield ext", area_name: city-power-7}
+  - {area: "nancefield industria", area_name: city-power-7}
+  - {area: "nasrec", area_name: city-power-13}
+  - {area: "nasrec ext", area_name: city-power-13}
+  - {area: "naturena", area_name: city-power-14}
+  - {area: "new brighton", area_name: city-power-4}
+  - {area: "new canada", area_name: city-power-14}
+  - {area: "new centre", area_name: city-power-6}
+  - {area: "new doornfontein", area_name: city-power-13}
+  - {area: "newclare", area_name: city-power-14}
+  - {area: "newlands", area_name: city-power-7}
+  - {area: "newtown", area_name: city-power-6}
+  - {area: "noordgesig", area_name: city-power-5}
+  - {area: "noordhang ext 20, 23, 25, 26, 29, 3, 33, 36, 4, 42, 44, 45, 46", area_name: city-power-10}
+  - {area: "noordhang ext.49, 50, 51, 54, 58, 67, 7, 8", area_name: city-power-10}
+  - {area: "noordwyk", area_name: city-power-16}
+  - {area: "north riding a.h", area_name: city-power-10}
+  - {area: "north riding estates", area_name: city-power-8}
+  - {area: "north riding estates ext", area_name: city-power-8}
+  - {area: "north riding ext.1, 13, 16, 17, 2, 20, 21, 23, 26, 27, 29, 30", area_name: city-power-10}
+  - {area: "north riding ext.38, 4, 42, 43, 46, 5, 51, 53, 54, 55, 59, 6, 60, 61", area_name: city-power-10}
+  - {area: "north riding ext.62, 63, 64, 67, 69, 71, 72, 73, 75, 76, 79, 80, 82", area_name: city-power-10}
+  - {area: "north riding ext.84, 86, 91, 92, 93, 94,", area_name: city-power-10}
+  - {area: "northcliff", area_name: city-power-7}
+  - {area: "northcliff", area_name: city-power-2}
+  - {area: "northcliff", area_name: city-power-14}
+  - {area: "northcliff & exts", area_name: city-power-2}
+  - {area: "northcliff ext", area_name: city-power-7}
+  - {area: "northcliff ext 12", area_name: city-power-2}
+  - {area: "northcliff ext 19", area_name: city-power-7}
+  - {area: "northcliff ext 22", area_name: city-power-2}
+  - {area: "northcliff ext 4", area_name: city-power-2}
+  - {area: "northcliff ext 6", area_name: city-power-2}
+  - {area: "northcliff ext 7", area_name: city-power-16}
+  - {area: "northcliff ext 8", area_name: city-power-16}
+  - {area: "northcliff ext 9", area_name: city-power-16}
+  - {area: "northcliff south", area_name: city-power-2}
+  - {area: "northgate", area_name: city-power-8}
+  - {area: "northgate ext", area_name: city-power-8}
+  - {area: "northgate ext 4", area_name: city-power-8}
+  - {area: "northriding", area_name: city-power-8}
+  - {area: "northriding ah", area_name: city-power-8}
+  - {area: "northriding ext", area_name: city-power-8}
+  - {area: "northumberland", area_name: city-power-8}
+  - {area: "northwold", area_name: city-power-8}
+  - {area: "northwold gardens", area_name: city-power-8}
+  - {area: "northworld ext", area_name: city-power-8}
+  - {area: "norwood", area_name: city-power-9}
+  - {area: "oakdene", area_name: city-power-12}
+  - {area: "oaklands", area_name: city-power-9}
+  - {area: "observatory", area_name: city-power-4}
+  - {area: "oerder park", area_name: city-power-14}
+  - {area: "oliefantsvlei", area_name: city-power-7}
+  - {area: "olivedale", area_name: city-power-10}
+  - {area: "ontdekkers park", area_name: city-power-11}
+  - {area: "oospoort ext 1", area_name: city-power-12}
+  - {area: "ophirton", area_name: city-power-13}
+  - {area: "ophirton ext", area_name: city-power-13}
+  - {area: "orange grove", area_name: city-power-9}
+  - {area: "orchards", area_name: city-power-9}
+  - {area: "orlando ekhaya", area_name: city-power-15}
+  - {area: "ormonde", area_name: city-power-13}
+  - {area: "ormonde ext", area_name: city-power-13}
+  - {area: "paarlshoop", area_name: city-power-5}
+  - {area: "pageview", area_name: city-power-5}
+  - {area: "panorama", area_name: city-power-11}
+  - {area: "park central", area_name: city-power-6}
+  - {area: "parkhurst", area_name: city-power-2}
+  - {area: "parklane clinic", area_name: city-power-1}
+  - {area: "parkmore", area_name: city-power-10}
+  - {area: "parkmore", area_name: city-power-4}
+  - {area: "parkmore ext.1", area_name: city-power-10}
+  - {area: "parktown east", area_name: city-power-1}
+  - {area: "parktown north", area_name: city-power-1}
+  - {area: "parktown north (east)", area_name: city-power-1}
+  - {area: "parktown north (west)", area_name: city-power-2}
+  - {area: "parktown west", area_name: city-power-6}
+  - {area: "parkview", area_name: city-power-2}
+  - {area: "parkwood", area_name: city-power-1}
+  - {area: "parkwood east", area_name: city-power-1}
+  - {area: "parkwood west", area_name: city-power-2}
+  - {area: "patlynn", area_name: city-power-14}
+  - {area: "patlynn ah", area_name: city-power-5}
+  - {area: "pennyville", area_name: city-power-5}
+  - {area: "percelia estate", area_name: city-power-4}
+  - {area: "percilia", area_name: city-power-4}
+  - {area: "percilia ext", area_name: city-power-4}
+  - {area: "petervale", area_name: city-power-10}
+  - {area: "phomolong", area_name: city-power-3}
+  - {area: "pierneef park", area_name: city-power-2}
+  - {area: "pine park", area_name: city-power-2}
+  - {area: "pioneer", area_name: city-power-12}
+  - {area: "poortview", area_name: city-power-11}
+  - {area: "president park", area_name: city-power-3}
+  - {area: "president park ext", area_name: city-power-3}
+  - {area: "president ridge", area_name: city-power-14}
+  - {area: "princess", area_name: city-power-11}
+  - {area: "princess ah", area_name: city-power-11}
+  - {area: "production park", area_name: city-power-13}
+  - {area: "prolecon", area_name: city-power-13}
+  - {area: "quellerina", area_name: city-power-15}
+  - {area: "rabie ridge", area_name: city-power-3}
+  - {area: "race course", area_name: city-power-7}
+  - {area: "radiokop", area_name: city-power-11}
+  - {area: "raedene", area_name: city-power-4}
+  - {area: "rand clinic", area_name: city-power-1}
+  - {area: "rand leases", area_name: city-power-15}
+  - {area: "rand park ridge", area_name: city-power-14}
+  - {area: "randjiespark", area_name: city-power-16}
+  - {area: "randpark", area_name: city-power-14}
+  - {area: "randpark", area_name: city-power-16}
+  - {area: "randpark ridge", area_name: city-power-14}
+  - {area: "randpark ridge", area_name: city-power-16}
+  - {area: "randview", area_name: city-power-4}
+  - {area: "raumarais park", area_name: city-power-9}
+  - {area: "reefhaven", area_name: city-power-11}
+  - {area: "regency", area_name: city-power-12}
+  - {area: "regents park", area_name: city-power-12}
+  - {area: "rembrandt park", area_name: city-power-4}
+  - {area: "rembrandt ridge", area_name: city-power-4}
+  - {area: "residale", area_name: city-power-2}
+  - {area: "residale ext 6", area_name: city-power-2}
+  - {area: "reuven", area_name: city-power-12}
+  - {area: "rewlatch", area_name: city-power-12}
+  - {area: "rewlatch ext", area_name: city-power-12}
+  - {area: "reynolds view", area_name: city-power-4}
+  - {area: "richmond", area_name: city-power-5}
+  - {area: "ridgeway", area_name: city-power-12}
+  - {area: "ridgeway north", area_name: city-power-13}
+  - {area: "ridgeway south", area_name: city-power-12}
+  - {area: "rietfontein ah", area_name: city-power-7}
+  - {area: "ris park", area_name: city-power-14}
+  - {area: "ris park ah", area_name: city-power-5}
+  - {area: "risana", area_name: city-power-12}
+  - {area: "rivasdale", area_name: city-power-7}
+  - {area: "river club", area_name: city-power-4}
+  - {area: "river club ext", area_name: city-power-4}
+  - {area: "river park", area_name: city-power-9}
+  - {area: "riverbend", area_name: city-power-10}
+  - {area: "riverlea", area_name: city-power-14}
+  - {area: "riviera", area_name: city-power-9}
+  - {area: "robertsham", area_name: city-power-13}
+  - {area: "robertsham ext", area_name: city-power-13}
+  - {area: "robertville", area_name: city-power-15}
+  - {area: "robin acres", area_name: city-power-16}
+  - {area: "robindale", area_name: city-power-16}
+  - {area: "roodekrans", area_name: city-power-11}
+  - {area: "roodekrans ext", area_name: city-power-11}
+  - {area: "roodepoort", area_name: city-power-11}
+  - {area: "roodepoort cbd", area_name: city-power-11}
+  - {area: "roodepoort north", area_name: city-power-15}
+  - {area: "roodepoort west", area_name: city-power-11}
+  - {area: "roseacre", area_name: city-power-12}
+  - {area: "rosebank", area_name: city-power-1}
+  - {area: "rosebank east", area_name: city-power-9}
+  - {area: "rosebank mall", area_name: city-power-1}
+  - {area: "rosettenville", area_name: city-power-12}
+  - {area: "rosettenville & ext", area_name: city-power-12}
+  - {area: "rosherville", area_name: city-power-12}
+  - {area: "rossmore", area_name: city-power-14}
+  - {area: "rossmore", area_name: city-power-5}
+  - {area: "rothesay ave", area_name: city-power-2}
+  - {area: "rouxville", area_name: city-power-4}
+  - {area: "rouxville ext", area_name: city-power-4}
+  - {area: "ruimsig", area_name: city-power-11}
+  - {area: "ruiterhof", area_name: city-power-14}
+  - {area: "rwb eikenhof", area_name: city-power-14}
+  - {area: "sabc", area_name: city-power-5}
+  - {area: "sagewood ext.14", area_name: city-power-16}
+  - {area: "salisbury claims", area_name: city-power-13}
+  - {area: "salisbury claims ext", area_name: city-power-13}
+  - {area: "salisbury claims ext 1", area_name: city-power-13}
+  - {area: "sandhurst", area_name: city-power-9}
+  - {area: "sandhurst", area_name: city-power-4}
+  - {area: "sandringham", area_name: city-power-4}
+  - {area: "santa", area_name: city-power-15}
+  - {area: "sap 13", area_name: city-power-15}
+  - {area: "savoy", area_name: city-power-4}
+  - {area: "savoy estate", area_name: city-power-4}
+  - {area: "saxonwold east", area_name: city-power-1}
+  - {area: "saxonwold west", area_name: city-power-2}
+  - {area: "selby", area_name: city-power-13}
+  - {area: "selby ext", area_name: city-power-13}
+  - {area: "selby south", area_name: city-power-13}
+  - {area: "selwyn", area_name: city-power-11}
+  - {area: "sharonlea", area_name: city-power-8}
+  - {area: "sharonlea ext 17", area_name: city-power-16}
+  - {area: "siemert", area_name: city-power-13}
+  - {area: "silvamont", area_name: city-power-4}
+  - {area: "silverfields", area_name: city-power-11}
+  - {area: "slovo park", area_name: city-power-7}
+  - {area: "soccer city", area_name: city-power-12}
+  - {area: "sol ridge", area_name: city-power-10}
+  - {area: "sonneglans", area_name: city-power-14}
+  - {area: "sonneglans", area_name: city-power-10}
+  - {area: "sonneglans ext", area_name: city-power-14}
+  - {area: "sonneglans ext 17", area_name: city-power-14}
+  - {area: "sophiatown", area_name: city-power-14}
+  - {area: "south gate", area_name: city-power-5}
+  - {area: "south hills", area_name: city-power-12}
+  - {area: "south kensington", area_name: city-power-12}
+  - {area: "southcrest", area_name: city-power-12}
+  - {area: "southdale", area_name: city-power-13}
+  - {area: "southfork", area_name: city-power-14}
+  - {area: "spes bona", area_name: city-power-12}
+  - {area: "spionekop", area_name: city-power-11}
+  - {area: "springfield", area_name: city-power-12}
+  - {area: "stafford", area_name: city-power-12}
+  - {area: "steeldale", area_name: city-power-12}
+  - {area: "stormill", area_name: city-power-15}
+  - {area: "strubens valley", area_name: city-power-11}
+  - {area: "strydom park", area_name: city-power-14}
+  - {area: "strydom park ext", area_name: city-power-14}
+  - {area: "suideroord", area_name: city-power-5}
+  - {area: "sundowner", area_name: city-power-8}
+  - {area: "sundowner ext", area_name: city-power-8}
+  - {area: "sundowner ext 10", area_name: city-power-8}
+  - {area: "sundowner ext 6", area_name: city-power-8}
+  - {area: "sunningdale", area_name: city-power-9}
+  - {area: "sunningdale ridge", area_name: city-power-9}
+  - {area: "sunnyside", area_name: city-power-5}
+  - {area: "sydenham", area_name: city-power-4}
+  - {area: "talboton", area_name: city-power-4}
+  - {area: "the gables", area_name: city-power-12}
+  - {area: "the gables ext", area_name: city-power-12}
+  - {area: "the gardens", area_name: city-power-4}
+  - {area: "the hill", area_name: city-power-12}
+  - {area: "the hill ext", area_name: city-power-12}
+  - {area: "theta", area_name: city-power-13}
+  - {area: "thorn hill", area_name: city-power-4}
+  - {area: "tokyo", area_name: city-power-14}
+  - {area: "towerby", area_name: city-power-12}
+  - {area: "townsview", area_name: city-power-12}
+  - {area: "triomf", area_name: city-power-14}
+  - {area: "trojan", area_name: city-power-12}
+  - {area: "troyville", area_name: city-power-13}
+  - {area: "tshepisong", area_name: city-power-5}
+  - {area: "tshepisong ext", area_name: city-power-5}
+  - {area: "tulisa park", area_name: city-power-12}
+  - {area: "turf club", area_name: city-power-12}
+  - {area: "turffontein", area_name: city-power-12}
+  - {area: "uitsaaisentrum", area_name: city-power-5}
+  - {area: "uj soweto", area_name: city-power-15}
+  - {area: "unaville", area_name: city-power-9}
+  - {area: "unigrey", area_name: city-power-12}
+  - {area: "university of johannesburg (rau)", area_name: city-power-7}
+  - {area: "upper houghton", area_name: city-power-1}
+  - {area: "valeriedene", area_name: city-power-16}
+  - {area: "vandia grove", area_name: city-power-10}
+  - {area: "victoria", area_name: city-power-4}
+  - {area: "victory park", area_name: city-power-2}
+  - {area: "victory park & ext", area_name: city-power-2}
+  - {area: "victory park 8 & 11", area_name: city-power-2}
+  - {area: "victory park ext 1", area_name: city-power-2}
+  - {area: "victory park ext 2", area_name: city-power-2}
+  - {area: "victory park ext 4", area_name: city-power-16}
+  - {area: "victory park north", area_name: city-power-2}
+  - {area: "victory park south", area_name: city-power-2}
+  - {area: "view crest", area_name: city-power-4}
+  - {area: "village deep", area_name: city-power-13}
+  - {area: "village main", area_name: city-power-13}
+  - {area: "vlakfontein", area_name: city-power-1}
+  - {area: "vlakfontein ext.1, 2, 3", area_name: city-power-1}
+  - {area: "vorna valley", area_name: city-power-3}
+  - {area: "vrededorp", area_name: city-power-5}
+  - {area: "vredepark", area_name: city-power-5}
+  - {area: "waterval estate", area_name: city-power-2}
+  - {area: "waterval estate ext 5", area_name: city-power-16}
+  - {area: "waverley", area_name: city-power-4}
+  - {area: "weadhurst", area_name: city-power-10}
+  - {area: "weltevreden park", area_name: city-power-11}
+  - {area: "wemmer", area_name: city-power-12}
+  - {area: "west gate", area_name: city-power-11}
+  - {area: "west lake", area_name: city-power-15}
+  - {area: "west park", area_name: city-power-16}
+  - {area: "west turffontein", area_name: city-power-12}
+  - {area: "west turffontein", area_name: city-power-13}
+  - {area: "west turffontein ext", area_name: city-power-12}
+  - {area: "westbury", area_name: city-power-14}
+  - {area: "westbury north", area_name: city-power-14}
+  - {area: "westbury south", area_name: city-power-14}
+  - {area: "westcliff ext", area_name: city-power-2}
+  - {area: "westdene", area_name: city-power-7}
+  - {area: "westfield", area_name: city-power-4}
+  - {area: "westgate", area_name: city-power-6}
+  - {area: "westgate ext", area_name: city-power-6}
+  - {area: "westlake view", area_name: city-power-4}
+  - {area: "westlake view ext", area_name: city-power-4}
+  - {area: "white ridge", area_name: city-power-15}
+  - {area: "whitney gardens", area_name: city-power-4}
+  - {area: "wierda valley", area_name: city-power-9}
+  - {area: "wilgeheuwel", area_name: city-power-11}
+  - {area: "willaway", area_name: city-power-3}
+  - {area: "willowdene", area_name: city-power-14}
+  - {area: "willowild", area_name: city-power-2}
+  - {area: "wilropark", area_name: city-power-11}
+  - {area: "winchester hills", area_name: city-power-12}
+  - {area: "winchester hills", area_name: city-power-13}
+  - {area: "winchester hills ext", area_name: city-power-12}
+  - {area: "windsor", area_name: city-power-16}
+  - {area: "windsor", area_name: city-power-16}
+  - {area: "windsor east", area_name: city-power-16}
+  - {area: "windsor glen", area_name: city-power-16}
+  - {area: "windsor hill", area_name: city-power-16}
+  - {area: "windsor ridge", area_name: city-power-16}
+  - {area: "windsor west", area_name: city-power-16}
+  - {area: "windsorway", area_name: city-power-10}
+  - {area: "winston ridge", area_name: city-power-9}
+  - {area: "witpoortjie", area_name: city-power-11}
+  - {area: "wits", area_name: city-power-6}
+  - {area: "wolhuter", area_name: city-power-13}
+  - {area: "wychwood", area_name: city-power-12}
+  - {area: "wychwood ext", area_name: city-power-12}
+  - {area: "wynberg", area_name: city-power-9}
+  - {area: "yeoville", area_name: city-power-4}
+  - {area: "zakariya park", area_name: city-power-1}
+  - {area: "zakariya park ext", area_name: city-power-1}
+  - {area: "zakariya park ext 4, 5, 6, 7, 8", area_name: city-power-1}
+  - {area: "zonkizizwe", area_name: city-power-3}
+  - {area: "african renaissance", area_name: gauteng-tshwane-group-13}
+  - {area: "alphenpark", area_name: gauteng-tshwane-group-3}
+  - {area: "alphenpark", area_name: gauteng-tshwane-group-6}
+  - {area: "amandasig", area_name: gauteng-tshwane-group-3}
+  - {area: "amandasig extension 10, 12, 16, 19, 2, 20, 21, 23, 24, 25, 31, 33, 36, 37, 38, 40, 41, 42, 43, 44, 45, 5, 50, 51, 52, 57, 58, 69, 7", area_name: gauteng-tshwane-group-3}
+  - {area: "andeon", area_name: gauteng-tshwane-group-10}
+  - {area: "andeon extension 1, 14, 15, 20, 22, 24, 28, 5", area_name: gauteng-tshwane-group-10}
+  - {area: "annlin", area_name: gauteng-tshwane-group-16}
+  - {area: "annlin extension 1, 105, 106, 107, 108, 109, 110, 111, 112, 114, 115, 117, 13, 132, 138, 15, 19, 2, 23, 24, 27, 3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 4, 5, 50, 52, 53, 54, 56, 57, 58, 59, 6, 61, 63, 67, 7, 71, 8, 81, 87, 91, 93", area_name: gauteng-tshwane-group-16}
+  - {area: "annlin-wes extension 12, 19, 21, 23, 40", area_name: gauteng-tshwane-group-11}
+  - {area: "annlin-wes extension 13, 3, 41, 43, 46, 7", area_name: gauteng-tshwane-group-16}
+  - {area: "arcadia extension 0", area_name: gauteng-tshwane-group-3}
+  - {area: "arcadia extension 0, 7, 8", area_name: gauteng-tshwane-group-3}
+  - {area: "asante village", area_name: gauteng-tshwane-group-10}
+  - {area: "ashlea gardens", area_name: gauteng-tshwane-group-3}
+  - {area: "ashlea gardens extension 2, 6", area_name: gauteng-tshwane-group-3}
+  - {area: "atteridgeville extension 0, 16, 17, 18, 3, 4, 5, 6, 7", area_name: gauteng-tshwane-group-15}
+  - {area: "atteridgeville extension 0, 25, 26, 27, 28, 30, 31, 32, 33, 34, 35, 40, 41, 42, 45", area_name: gauteng-tshwane-group-15}
+  - {area: "beau rivage", area_name: gauteng-tshwane-group-5}
+  - {area: "bellevue", area_name: gauteng-tshwane-group-15}
+  - {area: "bergtuin", area_name: gauteng-tshwane-group-8}
+  - {area: "boardwalk extension 1, 10, 15, 2, 21, 4, 5, 7, 9", area_name: gauteng-tshwane-group-2}
+  - {area: "boardwalk extension 11, 12, 13, 16, 18, 20, 22, 25, 29, 3, 30, 31, 35", area_name: gauteng-tshwane-group-2}
+  - {area: "boardwalk manor", area_name: gauteng-tshwane-group-2}
+  - {area: "boardwalk meander", area_name: gauteng-tshwane-group-2}
+  - {area: "boardwalk villas", area_name: gauteng-tshwane-group-2}
+  - {area: "boardwalk villas extension 1, 2, 3, 4", area_name: gauteng-tshwane-group-2}
+  - {area: "booysens", area_name: gauteng-tshwane-group-10}
+  - {area: "booysens extension 1", area_name: gauteng-tshwane-group-10}
+  - {area: "bronberg", area_name: gauteng-tshwane-group-2}
+  - {area: "bronberg close", area_name: gauteng-tshwane-group-2}
+  - {area: "bronberg close extension 1, 2, 3, 5, 6", area_name: gauteng-tshwane-group-2}
+  - {area: "bronberg extension 1, 10, 14, 17, 18, 2, 22, 6, 7, 8", area_name: gauteng-tshwane-group-2}
+  - {area: "bronberg extension 12, 19, 4", area_name: gauteng-tshwane-group-2}
+  - {area: "bronberrik", area_name: gauteng-tshwane-group-14}
+  - {area: "bronkhorstspruit extension 1, 2, 6", area_name: gauteng-tshwane-group-5}
+  - {area: "brooklyn", area_name: gauteng-tshwane-group-6}
+  - {area: "brummeria", area_name: gauteng-tshwane-group-13}
+  - {area: "brummeria extension 1, 12, 13, 14, 16, 17, 18, 2, 3, 4, 7, 8", area_name: gauteng-tshwane-group-13}
+  - {area: "bryntirion", area_name: gauteng-tshwane-group-6}
+  - {area: "camel valley", area_name: gauteng-tshwane-group-2}
+  - {area: "cardinal", area_name: gauteng-tshwane-group-2}
+  - {area: "celtisdal", area_name: gauteng-tshwane-group-14}
+  - {area: "celtisdal extension 11, 13, 15, 19, 20, 23, 29, 3, 33, 39, 4, 42, 48, 55, 57, 61, 7, 8", area_name: gauteng-tshwane-group-14}
+  - {area: "celtisdal extension 25, 26, 28, 30, 34, 44, 56", area_name: gauteng-tshwane-group-13}
+  - {area: "chantelle", area_name: gauteng-tshwane-group-3}
+  - {area: "chantelle extension 1, 13, 14, 16, 2, 22, 23, 24, 25, 26, 27, 28, 3, 30, 31, 39, 4, 40, 41, 42, 6, 8", area_name: gauteng-tshwane-group-3}
+  - {area: "christoburg", area_name: gauteng-tshwane-group-7}
+  - {area: "claremont", area_name: gauteng-tshwane-group-10}
+  - {area: "claremont extension 2", area_name: gauteng-tshwane-group-10}
+  - {area: "clarina extension 1, 19, 21, 22, 25, 26, 27, 28, 29, 3, 30, 32, 35, 37, 38, 6", area_name: gauteng-tshwane-group-10}
+  - {area: "claudius", area_name: gauteng-tshwane-group-7}
+  - {area: "claudius extension 1", area_name: gauteng-tshwane-group-7}
+  - {area: "clubview", area_name: gauteng-tshwane-group-7}
+  - {area: "clubview extension 1, 10, 100, 102, 105, 108, 12, 2, 24, 26, 27, 31, 33, 34, 39, 4, 40, 41, 45, 47, 48, 5, 51, 54, 55, 56, 57, 58, 6, 61, 62, 63, 7, 72, 75, 77, 78, 8, 80, 87, 90, 92, 94, 98, 99", area_name: gauteng-tshwane-group-7}
+  - {area: "colbyn", area_name: gauteng-tshwane-group-6}
+  - {area: "colbyn extension 1, 2", area_name: gauteng-tshwane-group-6}
+  - {area: "constantia park", area_name: gauteng-tshwane-group-3}
+  - {area: "constantia park extension 1, 2, 3", area_name: gauteng-tshwane-group-3}
+  - {area: "country view estate", area_name: gauteng-tshwane-group-2}
+  - {area: "country view estate extension 1", area_name: gauteng-tshwane-group-2}
+  - {area: "cranbrookvale", area_name: gauteng-tshwane-group-14}
+  - {area: "cultura park extension 11", area_name: gauteng-tshwane-group-5}
+  - {area: "danville", area_name: gauteng-tshwane-group-6}
+  - {area: "danville extension 1, 10, 11, 12, 13, 14, 15, 2, 3, 5, 8, 9", area_name: gauteng-tshwane-group-6}
+  - {area: "danville extension 2", area_name: gauteng-tshwane-group-14}
+  - {area: "de beers", area_name: gauteng-tshwane-group-3}
+  - {area: "deerness", area_name: gauteng-tshwane-group-6}
+  - {area: "derdepoort", area_name: gauteng-tshwane-group-8}
+  - {area: "derdepoort extension 3", area_name: gauteng-tshwane-group-8}
+  - {area: "derdepoortpark extension 11, 2, 3", area_name: gauteng-tshwane-group-8}
+  - {area: "despatch", area_name: gauteng-tshwane-group-15}
+  - {area: "die hoewes extension 144", area_name: gauteng-tshwane-group-11}
+  - {area: "die hoewes extension 285, 286, 287, 6, 85, 93", area_name: gauteng-tshwane-group-7}
+  - {area: "die wilgers", area_name: gauteng-tshwane-group-13}
+  - {area: "die wilgers extension 1, 11, 13, 14, 15, 16, 17, 19, 23, 25, 28, 30, 36, 41, 43, 44, 47, 49, 50, 51, 52, 53, 54, 57, 60, 62, 64, 65, 66, 68, 69, 70, 71, 79, 82, 83, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "doornpoort", area_name: gauteng-tshwane-group-16}
+  - {area: "doornpoort extension 1, 6", area_name: gauteng-tshwane-group-16}
+  - {area: "doornpoort extension 29, 31, 32, 33, 34, 35, 38, 40, 41, 42", area_name: gauteng-tshwane-group-12}
+  - {area: "dorandia", area_name: gauteng-tshwane-group-10}
+  - {area: "dorandia extension 1, 10, 11, 13, 15, 16, 2, 3, 4, 5, 6, 7, 8, 9", area_name: gauteng-tshwane-group-10}
+  - {area: "doringkloof", area_name: gauteng-tshwane-group-11}
+  - {area: "doringkloof extension 1", area_name: gauteng-tshwane-group-11}
+  - {area: "eagles landing", area_name: gauteng-tshwane-group-10}
+  - {area: "east lynne", area_name: gauteng-tshwane-group-8}
+  - {area: "east lynne extension 1, 2, 5", area_name: gauteng-tshwane-group-8}
+  - {area: "eersterust", area_name: gauteng-tshwane-group-15}
+  - {area: "eersterust extension 2, 3, 4, 5, 6", area_name: gauteng-tshwane-group-15}
+  - {area: "ekandustria", area_name: gauteng-tshwane-group-5}
+  - {area: "ekklesia", area_name: gauteng-tshwane-group-8}
+  - {area: "ekklesia extension 1, 2, 3, 5", area_name: gauteng-tshwane-group-8}
+  - {area: "elandspoort", area_name: gauteng-tshwane-group-6}
+  - {area: "elardus park", area_name: gauteng-tshwane-group-8}
+  - {area: "elardus park extension 1, 11, 14, 15, 18, 2, 20, 22, 26, 27, 28, 3, 4, 5, 6, 7, 9", area_name: gauteng-tshwane-group-8}
+  - {area: "eldoraigne", area_name: gauteng-tshwane-group-14}
+  - {area: "eldoraigne extension 1, 10, 11, 16, 17, 19, 2, 20, 21, 23, 26, 27, 28, 3, 31, 32, 33, 35, 37, 38, 39, 40, 41, 42, 45, 46, 47, 48, 49, 51, 53, 58, 6, 62, 66, 67, 68, 9", area_name: gauteng-tshwane-group-14}
+  - {area: "eldoraigne extension 18", area_name: gauteng-tshwane-group-13}
+  - {area: "eldorette extension 1, 17, 20, 21, 22, 30, 40, 51", area_name: gauteng-tshwane-group-14}
+  - {area: "eloffsdal", area_name: gauteng-tshwane-group-16}
+  - {area: "eloffsdal extension 1, 13, 2, 3, 4", area_name: gauteng-tshwane-group-16}
+  - {area: "equestria extension 100, 109, 111, 113, 126, 128, 131, 137, 144, 15, 151, 155, 163, 165, 172, 182, 183, 189, 198, 2, 202, 230, 238, 27, 28, 29, 46, 55, 56, 61, 62, 63, 66, 68, 69, 80, 83, 86, 87", area_name: gauteng-tshwane-group-13}
+  - {area: "equestria extension 102, 103, 104, 107, 108, 11, 110, 112, 114, 116, 121, 123, 124, 125, 127, 132, 133, 136, 140, 141, 142, 143, 146, 148, 151, 152, 153, 154, 16, 160, 167, 168, 169, 171, 173, 177, 179, 180, 181, 185, 186, 190, 192, 193, 196, 197, 199, 208, 209, 213, 215, 216, 24, 25, 26, 28, 29, 31, 45, 47, 57, 7, 74, 76, 78, 79, 82, 89, 91, 92, 93, 94, 95, 96, 99", area_name: gauteng-tshwane-group-2}
+  - {area: "erasmia", area_name: gauteng-tshwane-group-7}
+  - {area: "erasmia extension 3, 5, 6", area_name: gauteng-tshwane-group-7}
+  - {area: "erasmus", area_name: gauteng-tshwane-group-5}
+  - {area: "erasmus extension 14, 15, 16, 17, 19, 2, 20, 25, 3, 4, 5, 6, 8", area_name: gauteng-tshwane-group-5}
+  - {area: "erasmuskloof extension 2, 3, 4", area_name: gauteng-tshwane-group-8}
+  - {area: "erasmuspark extension 1", area_name: gauteng-tshwane-group-8}
+  - {area: "erasmusrand", area_name: gauteng-tshwane-group-8}
+  - {area: "eskom customers in tshwane municipal area.  	1 &", area_name: gauteng-tshwane-group-9}
+  - {area: "faerie glen extension 1, 10, 11, 15, 17, 18, 2, 22, 24, 25, 26, 27, 28, 3, 31, 32, 33, 34, 36, 37, 38, 39, 40, 41, 44, 45, 46, 47, 48, 49, 50, 51, 52, 55, 56, 57, 59, 6, 61, 62, 63, 64, 65, 66, 67, 68, 69, 7, 70, 71, 72, 73, 75, 76, 77, 78, 8, 80, 81, 9", area_name: gauteng-tshwane-group-2}
+  - {area: "faerie glen extension 15", area_name: gauteng-tshwane-group-3}
+  - {area: "faerie glen", area_name: gauteng-tshwane-group-2}
+  - {area: "fernel park extension 1, 2", area_name: gauteng-tshwane-group-7}
+  - {area: "florauna", area_name: gauteng-tshwane-group-10}
+  - {area: "florauna extension 1, 2, 3, 5, 7, 8, 9", area_name: gauteng-tshwane-group-10}
+  - {area: "garsfontein", area_name: gauteng-tshwane-group-3}
+  - {area: "garsfontein extension 1, 14, 15, 16, 17, 2, 3, 4, 5, 6, 7, 8", area_name: gauteng-tshwane-group-3}
+  - {area: "garsfontein extension 10, 11, 12, 13, 15", area_name: gauteng-tshwane-group-7}
+  - {area: "georgeville", area_name: gauteng-tshwane-group-13}
+  - {area: "gezina", area_name: gauteng-tshwane-group-11}
+  - {area: "glen lauriston", area_name: gauteng-tshwane-group-14}
+  - {area: "glen lauriston extension 1, 2, 5, 6, 7", area_name: gauteng-tshwane-group-7}
+  - {area: "groenkloof", area_name: gauteng-tshwane-group-6}
+  - {area: "groenkloof extension 1, 5, 9", area_name: gauteng-tshwane-group-6}
+  - {area: "hatfield", area_name: gauteng-tshwane-group-6}
+  - {area: "hazelwood", area_name: gauteng-tshwane-group-6}
+  - {area: "heatherview extension 12, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 31, 32, 34, 35, 36, 37, 38, 39, 4, 48, 49, 52, 55, 56, 60, 61", area_name: gauteng-tshwane-group-10}
+  - {area: "hennopspark", area_name: gauteng-tshwane-group-14}
+  - {area: "hennopspark extension 1, 2, 25, 32, 33, 36, 38, 39, 4, 41, 42, 5, 58, 61, 62, 65, 66, 67, 68, 74, 76, 9", area_name: gauteng-tshwane-group-14}
+  - {area: "hennopspark extension 1, 39", area_name: gauteng-tshwane-group-7}
+  - {area: "hennopspark extension 15, 16, 20, 21, 22, 23, 25, 26, 29, 3, 31, 33, 35, 36, 40, 46, 47, 48, 49, 54, 55, 56, 60, 64, 69, 7, 70, 71, 75, 77, 79, 80, 81, 83, 84, 85, 86, 87, 89, 90, 91, 92, 93, 94", area_name: gauteng-tshwane-group-13}
+  - {area: "hesteapark extension 1, 18, 19, 25, 27, 28, 29, 39, 4, 5, 8, 9", area_name: gauteng-tshwane-group-10}
+  - {area: "heuweloord extension 11, 14, 2, 3, 4, 6", area_name: gauteng-tshwane-group-13}
+  - {area: "highveld extension 108", area_name: gauteng-tshwane-group-13}
+  - {area: "highveld extension 7", area_name: gauteng-tshwane-group-11}
+  - {area: "hillcrest", area_name: gauteng-tshwane-group-6}
+  - {area: "hillcrest extension 1", area_name: gauteng-tshwane-group-6}
+  - {area: "hondsrivier", area_name: gauteng-tshwane-group-5}
+  - {area: "ifafi", area_name: gauteng-tshwane-group-10}
+  - {area: "ifafi extension 1, 12, 6, 7", area_name: gauteng-tshwane-group-10}
+  - {area: "irene", area_name: gauteng-tshwane-group-11}
+  - {area: "irene extension 1, 10, 2, 30, 31, 36, 39, 4, 42, 43, 44, 49, 5, 52, 55, 60, 67, 70, 72, 77, 86, 9, 93, 94", area_name: gauteng-tshwane-group-11}
+  - {area: "irene extension 50, 51", area_name: gauteng-tshwane-group-14}
+  - {area: "jan niemandpark", area_name: gauteng-tshwane-group-8}
+  - {area: "kameeldrift", area_name: gauteng-tshwane-group-15}
+  - {area: "kameeldrift extension 1, 5", area_name: gauteng-tshwane-group-15}
+  - {area: "karenpark extension 0", area_name: gauteng-tshwane-group-10}
+  - {area: "karenpark extension 0, 10, 12, 15, 19, 22, 23, 24, 25, 26, 27, 29, 33, 34, 35, 36, 37, 39, 40, 41, 42, 46, 47, 49, 5, 52, 9", area_name: gauteng-tshwane-group-3}
+  - {area: "kilner park", area_name: gauteng-tshwane-group-8}
+  - {area: "kilner park extension 1, 2", area_name: gauteng-tshwane-group-8}
+  - {area: "kirkney extension 1, 11, 12, 13, 14, 19, 2, 24, 28, 30, 4, 5, 6", area_name: gauteng-tshwane-group-10}
+  - {area: "klerksoord extension 19, 20", area_name: gauteng-tshwane-group-10}
+  - {area: "kloofzicht", area_name: gauteng-tshwane-group-14}
+  - {area: "kloofzicht extension 2", area_name: gauteng-tshwane-group-14}
+  - {area: "koedoespoort", area_name: gauteng-tshwane-group-8}
+  - {area: "kopanong", area_name: gauteng-tshwane-group-3}
+  - {area: "kosmosdal extension 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 29, 30, 31, 32, 33, 37, 38, 4, 51, 52, 53, 55, 56, 61, 62, 65, 66, 67, 68, 7, 70, 73, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84", area_name: gauteng-tshwane-group-12}
+  - {area: "kristalpark", area_name: gauteng-tshwane-group-5}
+  - {area: "kwaggasrand", area_name: gauteng-tshwane-group-14}
+  - {area: "la camargue", area_name: gauteng-tshwane-group-10}
+  - {area: "la concorde", area_name: gauteng-tshwane-group-16}
+  - {area: "la concorde", area_name: gauteng-tshwane-group-15}
+  - {area: "la montagne", area_name: gauteng-tshwane-group-13}
+  - {area: "la montagne extension 1, 11, 13, 2, 3, 6, 7, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "lady selborne extension 1", area_name: gauteng-tshwane-group-10}
+  - {area: "laudium", area_name: gauteng-tshwane-group-3}
+  - {area: "laudium extension 1, 2, 3, 4", area_name: gauteng-tshwane-group-3}
+  - {area: "les marais", area_name: gauteng-tshwane-group-16}
+  - {area: "lindo park", area_name: gauteng-tshwane-group-8}
+  - {area: "lindo park extension 1, 3", area_name: gauteng-tshwane-group-8}
+  - {area: "lisdogan park", area_name: gauteng-tshwane-group-6}
+  - {area: "lotus gardens", area_name: gauteng-tshwane-group-14}
+  - {area: "lotus gardens extension 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9", area_name: gauteng-tshwane-group-14}
+  - {area: "louwlardia extension 10, 11, 12, 13, 22, 25, 32, 34, 35, 36, 38, 39, 43, 46, 47, 61, 8", area_name: gauteng-tshwane-group-12}
+  - {area: "lydiana", area_name: gauteng-tshwane-group-13}
+  - {area: "lynnrodene", area_name: gauteng-tshwane-group-13}
+  - {area: "lynnwood", area_name: gauteng-tshwane-group-6}
+  - {area: "lynnwood extension 1", area_name: gauteng-tshwane-group-6}
+  - {area: "lynnwood glen", area_name: gauteng-tshwane-group-13}
+  - {area: "lynnwood glen extension 2, 3, 4", area_name: gauteng-tshwane-group-13}
+  - {area: "lynnwood manor", area_name: gauteng-tshwane-group-13}
+  - {area: "lynnwood manor extension 1, 2, 3, 4, 6", area_name: gauteng-tshwane-group-13}
+  - {area: "lynnwood park", area_name: gauteng-tshwane-group-2}
+  - {area: "lynnwood ridge", area_name: gauteng-tshwane-group-13}
+  - {area: "lynnwood ridge extension 1, 12, 13, 14, 2, 5", area_name: gauteng-tshwane-group-13}
+  - {area: "lyttelton manor", area_name: gauteng-tshwane-group-14}
+  - {area: "lyttelton manor extension 1, 3", area_name: gauteng-tshwane-group-14}
+  - {area: "lyttelton manor extension 11, 3, 5, 8", area_name: gauteng-tshwane-group-11}
+  - {area: "magalieskruin", area_name: gauteng-tshwane-group-16}
+  - {area: "magalieskruin extension 1, 12, 14, 18, 2, 21, 23, 24, 25, 26, 27, 29, 3, 33, 35, 39, 40, 41, 43, 45, 46, 47, 50, 52, 53, 55, 56, 57, 58, 59, 60, 61, 64, 65, 68, 69, 70, 71, 72, 74, 75, 76, 78, 8, 9", area_name: gauteng-tshwane-group-16}
+  - {area: "mahube valley", area_name: gauteng-tshwane-group-5}
+  - {area: "mahube valley extension 1, 2, 20, 21, 24, 3", area_name: gauteng-tshwane-group-5}
+  - {area: "mamelodi", area_name: gauteng-tshwane-group-5}
+  - {area: "mamelodi extension 1, 10, 11, 12, 13, 15, 17, 18, 2, 20, 22, 24, 26, 27, 28, 3, 31, 4, 5, 6, 7, 8", area_name: gauteng-tshwane-group-5}
+  - {area: "mamelodi sun valley", area_name: gauteng-tshwane-group-5}
+  - {area: "maroelana", area_name: gauteng-tshwane-group-6}
+  - {area: "maroelana extension 3", area_name: gauteng-tshwane-group-3}
+  - {area: "mayville", area_name: gauteng-tshwane-group-16}
+  - {area: "medpark", area_name: gauteng-tshwane-group-5}
+  - {area: "meerhof", area_name: gauteng-tshwane-group-10}
+  - {area: "meerhof extension 1, 2, 3", area_name: gauteng-tshwane-group-10}
+  - {area: "melodie", area_name: gauteng-tshwane-group-10}
+  - {area: "melodie extension 1, 10, 11, 12, 13, 16, 17, 2, 20, 21, 22, 23, 24, 26, 28, 29, 31, 33, 4, 40, 45, 46, 5, 61, 62, 63, 7, 8", area_name: gauteng-tshwane-group-10}
+  - {area: "menlo park", area_name: gauteng-tshwane-group-6}
+  - {area: "menlo park extension 1", area_name: gauteng-tshwane-group-6}
+  - {area: "menlyn", area_name: gauteng-tshwane-group-3}
+  - {area: "menlyn extension 1, 10, 11, 3, 4, 9", area_name: gauteng-tshwane-group-3}
+  - {area: "menlyn extension 4, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "meyerspark", area_name: gauteng-tshwane-group-13}
+  - {area: "meyerspark extension 1, 11, 13, 15, 2, 3, 4, 5, 6, 7, 8", area_name: gauteng-tshwane-group-13}
+  - {area: "monavoni extension 11, 12, 13, 14, 15, 16, 17, 20, 25, 3, 33, 34, 35, 57, 6, 8, 9,", area_name: gauteng-tshwane-group-14}
+  - {area: "monavoni extension 2", area_name: gauteng-tshwane-group-13}
+  - {area: "montana extension 0, 1, 101, 102, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 120, 121, 122, 124, 126, 127, 129, 131, 132, 133, 134, 137, 138, 140, 141, 143, 162, 23, 31, 35, 50, 51, 52, 53, 54, 62, 63, 64, 66, 67, 68, 70, 73, 75, 76, 79, 80, 82, 83, 85, 86, 87, 88, 90, 91, 92, 94, 95, 96, 98", area_name: gauteng-tshwane-group-16}
+  - {area: "montana extension 37, 39, 77, 80, 84, 98, 99", area_name: gauteng-tshwane-group-12}
+  - {area: "montana park", area_name: gauteng-tshwane-group-12}
+  - {area: "montana park extension 1, 100, 103, 104, 106, 109, 112, 114, 119, 12, 120, 13, 14, 17, 19, 20, 22, 23, 24, 25, 26, 29, 3, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 42, 45, 46, 5, 50, 52, 53, 54, 55, 56, 57, 59, 6, 66, 7, 70, 71, 72, 74, 75, 78, 8, 82, 84, 85, 86, 87, 9, 90, 91, 92, 93, 94, 97, 98, 99", area_name: gauteng-tshwane-group-12}
+  - {area: "montana tuine", area_name: gauteng-tshwane-group-12}
+  - {area: "montana tuine extension 1, 11, 15, 19, 2, 21, 23, 25, 27, 30, 32, 35, 37, 39, 41, 44, 46, 47, 48, 49, 50, 52, 53, 55, 56, 57, 9", area_name: gauteng-tshwane-group-12}
+  - {area: "monumentpark", area_name: gauteng-tshwane-group-8}
+  - {area: "monumentpark extension 14, 2, 3, 4, 5, 7, 8", area_name: gauteng-tshwane-group-8}
+  - {area: "mooikloof ridge", area_name: gauteng-tshwane-group-7}
+  - {area: "mooikloof ridge extension 10, 11, 12, 13, 14, 15, 16, 2, 6, 7", area_name: gauteng-tshwane-group-7}
+  - {area: "moregloed", area_name: gauteng-tshwane-group-8}
+  - {area: "moreletapark", area_name: gauteng-tshwane-group-8}
+  - {area: "moreletapark extension 1, 10, 15, 16, 17, 19, 2, 20, 28, 29, 3, 32, 34, 36, 37, 4, 46, 48, 5, 50, 52, 7, 76, 85", area_name: gauteng-tshwane-group-8}
+  - {area: "moreletapark extension 21, 23, 24, 27, 28, 30, 36, 41, 42, 43, 44, 47, 49, 51, 57, 60, 62, 63, 64, 65, 66, 67, 68, 69, 70, 72, 73, 75, 77, 78, 80, 81, 83, 9", area_name: gauteng-tshwane-group-7}
+  - {area: "moretele view", area_name: gauteng-tshwane-group-5}
+  - {area: "mountain view", area_name: gauteng-tshwane-group-16}
+  - {area: "mountain view extension 1", area_name: gauteng-tshwane-group-10}
+  - {area: "mountain view extension 1", area_name: gauteng-tshwane-group-16}
+  - {area: "muckleneuk", area_name: gauteng-tshwane-group-6}
+  - {area: "murrayfield", area_name: gauteng-tshwane-group-13}
+  - {area: "murrayfield extension 1, 2", area_name: gauteng-tshwane-group-13}
+  - {area: "navors", area_name: gauteng-tshwane-group-13}
+  - {area: "nellmapius extension 0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 3, 4, 6, 7, 8, 9", area_name: gauteng-tshwane-group-15}
+  - {area: "nellmapius extension 4", area_name: gauteng-tshwane-group-13}
+  - {area: "newlands", area_name: gauteng-tshwane-group-3}
+  - {area: "newlands extension 1, 2, 3, 8, 9", area_name: gauteng-tshwane-group-3}
+  - {area: "newmark estate", area_name: gauteng-tshwane-group-2}
+  - {area: "nieuw muckleneuk", area_name: gauteng-tshwane-group-6}
+  - {area: "ninapark", area_name: gauteng-tshwane-group-10}
+  - {area: "ninapark extension 1, 14, 15, 2, 21, 22, 23, 25, 26, 27, 29, 3, 31, 32, 33, 34, 35, 36, 5, 6, 8", area_name: gauteng-tshwane-group-10}
+  - {area: "olievenhoutbos extension 13, 15, 19, 20, 21, 22, 23, 24, 25, 26, 30, 31, 32, 33, 34, 36, 37, 4", area_name: gauteng-tshwane-group-12}
+  - {area: "olympus boulevard", area_name: gauteng-tshwane-group-7}
+  - {area: "olympus ridge", area_name: gauteng-tshwane-group-7}
+  - {area: "onderstepoort extension 7, 9", area_name: gauteng-tshwane-group-16}
+  - {area: "onderstepoort extension 9", area_name: gauteng-tshwane-group-16}
+  - {area: "ovipropark", area_name: gauteng-tshwane-group-5}
+  - {area: "paradiso", area_name: gauteng-tshwane-group-2}
+  - {area: "paramount estate", area_name: gauteng-tshwane-group-2}
+  - {area: "park town estate", area_name: gauteng-tshwane-group-16}
+  - {area: "peach tree extension 1, 2, 3", area_name: gauteng-tshwane-group-14}
+  - {area: "pecanwood", area_name: gauteng-tshwane-group-10}
+  - {area: "pecanwood extension 10, 11, 12, 13, 14, 15, 16, 18, 2, 3, 4, 5, 6, 7, 8, 9", area_name: gauteng-tshwane-group-10}
+  - {area: "persequor", area_name: gauteng-tshwane-group-6}
+  - {area: "persequor extension 10, 5, 7", area_name: gauteng-tshwane-group-6}
+  - {area: "philip nel park", area_name: gauteng-tshwane-group-6}
+  - {area: "pierre van ryneveld", area_name: gauteng-tshwane-group-11}
+  - {area: "pierre van ryneveld extension 11, 13, 14, 15, 18, 2, 20, 21, 22, 23, 24, 25, 26, 28, 29, 30, 33, 4, 5, 7", area_name: gauteng-tshwane-group-11}
+  - {area: "port d' afrique", area_name: gauteng-tshwane-group-10}
+  - {area: "prairie giants extension 3", area_name: gauteng-tshwane-group-7}
+  - {area: "pretoria extension 10, 9", area_name: gauteng-tshwane-group-14}
+  - {area: "pretoria industrial", area_name: gauteng-tshwane-group-14}
+  - {area: "pretoria north", area_name: gauteng-tshwane-group-11}
+  - {area: "pretoria north extension 1", area_name: gauteng-tshwane-group-16}
+  - {area: "pretoria north extension 1, 4", area_name: gauteng-tshwane-group-11}
+  - {area: "pretoria north extension 3", area_name: gauteng-tshwane-group-10}
+  - {area: "pretoriuspark", area_name: gauteng-tshwane-group-7}
+  - {area: "pretoriuspark extension 1, 10, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 28, 29, 3, 30, 31, 32, 34, 35, 5, 6, 8", area_name: gauteng-tshwane-group-7}
+  - {area: "pyramid", area_name: gauteng-tshwane-group-15}
+  - {area: "queenswood", area_name: gauteng-tshwane-group-8}
+  - {area: "queenswood extension 1, 10, 11, 2, 3, 4, 5, 9", area_name: gauteng-tshwane-group-8}
+  - {area: "queenswood extension 4", area_name: gauteng-tshwane-group-11}
+  - {area: "raslouw", area_name: gauteng-tshwane-group-14}
+  - {area: "raslouw extension 1, 11, 12, 22, 23, 5, 7", area_name: gauteng-tshwane-group-14}
+  - {area: "riamarpark", area_name: gauteng-tshwane-group-5}
+  - {area: "riamarpark extension 4", area_name: gauteng-tshwane-group-5}
+  - {area: "rietfontein", area_name: gauteng-tshwane-group-11}
+  - {area: "rietvalleipark", area_name: gauteng-tshwane-group-11}
+  - {area: "rietvalleipark", area_name: gauteng-tshwane-group-8}
+  - {area: "rietvalleirand extension 14, 15, 18, 19, 2, 20, 21, 30, 31, 32, 33, 34, 35, 37, 38, 39, 4, 40, 43, 45, 46, 47, 48, 49, 5, 50, 51, 52, 53, 55, 57, 58, 59, 6, 62, 63, 64, 69, 7, 8", area_name: gauteng-tshwane-group-8}
+  - {area: "rietvlei", area_name: gauteng-tshwane-group-11}
+  - {area: "rietvlei heights", area_name: gauteng-tshwane-group-11}
+  - {area: "river view estate extension 2", area_name: gauteng-tshwane-group-10}
+  - {area: "rooihuiskraal", area_name: gauteng-tshwane-group-13}
+  - {area: "rooihuiskraal extension 1, 10, 17, 18, 19, 20, 25, 26, 28, 3, 30, 31, 32, 33, 37, 41, 43, 44, 45, 46, 6, 7, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "rooihuiskraal extension 39", area_name: gauteng-tshwane-group-12}
+  - {area: "rooihuiskraal noord", area_name: gauteng-tshwane-group-13}
+  - {area: "rooihuiskraal noord extension 1, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 32, 36, 40, 41, 42", area_name: gauteng-tshwane-group-13}
+  - {area: "roseville", area_name: gauteng-tshwane-group-15}
+  - {area: "roseville extension 1, 3", area_name: gauteng-tshwane-group-16}
+  - {area: "rosslyn extension 2, 32, 33, 38", area_name: gauteng-tshwane-group-3}
+  - {area: "rua vista extension 12, 15, 16, 9", area_name: gauteng-tshwane-group-12}
+  - {area: "rubena", area_name: gauteng-tshwane-group-10}
+  - {area: "rubena extension 1", area_name: gauteng-tshwane-group-10}
+  - {area: "sable hills waterfront estate", area_name: gauteng-tshwane-group-15}
+  - {area: "salieshoek", area_name: gauteng-tshwane-group-13}
+  - {area: "salvokop extension 1", area_name: gauteng-tshwane-group-8}
+  - {area: "salvokop extension 1, 2", area_name: gauteng-tshwane-group-14}
+  - {area: "salvokop extension 1, 2, 3", area_name: gauteng-tshwane-group-14}
+  - {area: "samcor park", area_name: gauteng-tshwane-group-15}
+  - {area: "samcor park extension 1, 2", area_name: gauteng-tshwane-group-15}
+  - {area: "saulsville", area_name: gauteng-tshwane-group-15}
+  - {area: "savannah country estate extension 1, 2, 3, 4, 5", area_name: gauteng-tshwane-group-5}
+  - {area: "schoemansville", area_name: gauteng-tshwane-group-10}
+  - {area: "schoemansville extension 10, 2, 7, 8, 9", area_name: gauteng-tshwane-group-10}
+  - {area: "silver lakes", area_name: gauteng-tshwane-group-2}
+  - {area: "silver lakes extension 1, 2, 3, 4", area_name: gauteng-tshwane-group-2}
+  - {area: "silver view ridge", area_name: gauteng-tshwane-group-2}
+  - {area: "silver well", area_name: gauteng-tshwane-group-2}
+  - {area: "silver woods country estate", area_name: gauteng-tshwane-group-2}
+  - {area: "silverton", area_name: gauteng-tshwane-group-15}
+  - {area: "silverton extension 1, 12, 4, 64", area_name: gauteng-tshwane-group-8}
+  - {area: "silverton extension 11, 14, 15, 17, 28, 36, 40, 42, 44, 46, 48, 5, 50, 52, 54, 56, 58, 60, 63, 7, 8", area_name: gauteng-tshwane-group-15}
+  - {area: "silverton extension 13, 14, 28, 3, 6, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "silvertondale", area_name: gauteng-tshwane-group-8}
+  - {area: "silvertondale extension 1, 2", area_name: gauteng-tshwane-group-8}
+  - {area: "sinoville", area_name: gauteng-tshwane-group-16}
+  - {area: "sinoville extension 2, 20, 21, 27, 28, 29, 3, 30, 31, 35, 4, 6", area_name: gauteng-tshwane-group-16}
+  - {area: "six fountains", area_name: gauteng-tshwane-group-7}
+  - {area: "six fountains extension 1, 4, 5, 6, 7", area_name: gauteng-tshwane-group-7}
+  - {area: "soshanguve east", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve east extension 3, 4, 5, 6, 8", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve south", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve south extension 1, 10, 11, 12, 13, 14, 2, 3, 4, 5, 8, 9", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-a", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-aa", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-b", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-bb", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-bb extension 1", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-cc", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-dd", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-ee", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-f", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-ff", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-g", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-gg", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-h", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-h extension 1", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-hh", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-ia", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-jj", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-k", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-kk", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-kk extension 1", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-l", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-l extension 1", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-ll", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-m", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-m extension 1", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-nn", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-p", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-pp extension 1, 2, 3", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-r", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-s", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-ss extension 1, 3, 4", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-t", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-tt", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-uu", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-v", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-v extension 1", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-vv", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-w", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-ww", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-x", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-xx", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-y", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-yy", area_name: gauteng-tshwane-group-4}
+  - {area: "soshanguve-zz", area_name: gauteng-tshwane-group-4}
+  - {area: "sterrewag extension 2, 3", area_name: gauteng-tshwane-group-8}
+  - {area: "suiderberg", area_name: gauteng-tshwane-group-10}
+  - {area: "suiderberg", area_name: gauteng-tshwane-group-16}
+  - {area: "sunderland ridge", area_name: gauteng-tshwane-group-14}
+  - {area: "sunderland ridge extension 1, 10, 11, 13, 17, 20, 22, 23, 24", area_name: gauteng-tshwane-group-14}
+  - {area: "sunderland ridge extension 25", area_name: gauteng-tshwane-group-7}
+  - {area: "sunnyside", area_name: gauteng-tshwane-group-3}
+  - {area: "tamara park", area_name: gauteng-tshwane-group-7}
+  - {area: "thaba tshwane", area_name: gauteng-tshwane-group-7}
+  - {area: "the hills extension 3, 4, 5, 6", area_name: gauteng-tshwane-group-7}
+  - {area: "the islands estate extension 1, 2", area_name: gauteng-tshwane-group-10}
+  - {area: "the orchards", area_name: gauteng-tshwane-group-3}
+  - {area: "the orchards extension 10, 11, 13, 16, 17, 2, 21, 24, 26, 3, 30, 31, 33, 34, 36, 37, 38, 47, 5, 50, 51, 53, 55, 56, 57, 58, 6, 63, 64, 67, 69, 76, 77, 9", area_name: gauteng-tshwane-group-3}
+  - {area: "the reed", area_name: gauteng-tshwane-group-13}
+  - {area: "the reeds extension 1, 10, 14, 15, 17, 19, 2, 20, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 41, 43, 44, 45, 5, 6, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "theresapark extension 1, 10, 11, 14, 15, 2, 21, 25, 34, 35, 36, 37, 38, 39, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 54, 58, 59, 6", area_name: gauteng-tshwane-group-10}
+  - {area: "tijger vallei", area_name: gauteng-tshwane-group-2}
+  - {area: "tijger vallei extension 1, 10, 11, 13, 15, 16, 17, 18, 2, 20, 21, 24, 26, 27, 3, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 5, 6, 60, 61, 66, 7, 8, 9", area_name: gauteng-tshwane-group-2}
+  - {area: "tileba", area_name: gauteng-tshwane-group-10}
+  - {area: "trevenna", area_name: gauteng-tshwane-group-3}
+  - {area: "val-de-grace", area_name: gauteng-tshwane-group-13}
+  - {area: "val-de-grace extension 10, 11, 12, 3, 4, 5, 6, 7, 8, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "valhalla", area_name: gauteng-tshwane-group-7}
+  - {area: "villarosa", area_name: gauteng-tshwane-group-7}
+  - {area: "villieria", area_name: gauteng-tshwane-group-11}
+  - {area: "waltloo", area_name: gauteng-tshwane-group-15}
+  - {area: "waltloo extension 1, 2", area_name: gauteng-tshwane-group-15}
+  - {area: "wapadrand extension 1, 10, 11, 12, 18, 21, 27, 29, 31, 32, 34, 36, 4, 43, 44, 5, 6, 8", area_name: gauteng-tshwane-group-2}
+  - {area: "wapadrand extension 17, 3", area_name: gauteng-tshwane-group-13}
+  - {area: "waterkloof extension 1, 2", area_name: gauteng-tshwane-group-11}
+  - {area: "waterkloof glen", area_name: gauteng-tshwane-group-3}
+  - {area: "waterkloof glen extension 1, 11, 2, 3, 4, 5, 6, 8", area_name: gauteng-tshwane-group-3}
+  - {area: "waterkloof heights extension 1, 14, 18, 2, 3, 4, 5, 7, 8", area_name: gauteng-tshwane-group-3}
+  - {area: "waterkloof heights extension 18", area_name: gauteng-tshwane-group-8}
+  - {area: "waterkloof ridge", area_name: gauteng-tshwane-group-8}
+  - {area: "waterkloof ridge extension 2", area_name: gauteng-tshwane-group-8}
+  - {area: "waterkloofpark", area_name: gauteng-tshwane-group-3}
+  - {area: "waterkloofpark extension 2", area_name: gauteng-tshwane-group-3}
+  - {area: "waverley", area_name: gauteng-tshwane-group-8}
+  - {area: "waverley extension 1", area_name: gauteng-tshwane-group-8}
+  - {area: "weavind park", area_name: gauteng-tshwane-group-8}
+  - {area: "west park", area_name: gauteng-tshwane-group-14}
+  - {area: "wierdapark", area_name: gauteng-tshwane-group-14}
+  - {area: "wierdapark extension 1, 5, 6", area_name: gauteng-tshwane-group-14}
+  - {area: "wierdapark extension 2", area_name: gauteng-tshwane-group-13}
+  - {area: "willow acres extension 10, 11, 12, 14, 15, 17, 18, 3, 4, 5, 7, 8, 9", area_name: gauteng-tshwane-group-2}
+  - {area: "willow park manor", area_name: gauteng-tshwane-group-13}
+  - {area: "willow park manor extension 1, 2, 41, 42, 43, 44, 46, 47, 48, 5, 50, 52, 53, 54, 55, 56, 57, 58, 59, 60, 63, 64, 66, 71, 72, 73, 74, 9", area_name: gauteng-tshwane-group-13}
+  - {area: "willow park manor extension 65", area_name: gauteng-tshwane-group-15}
+  - {area: "wingate park", area_name: gauteng-tshwane-group-8}
+  - {area: "wingate park extension 1, 2", area_name: gauteng-tshwane-group-8}
+  - {area: "winterveld extension 3", area_name: gauteng-tshwane-group-4}
+  - {area: "wolmer", area_name: gauteng-tshwane-group-10}
+  - {area: "wolmer extension 1", area_name: gauteng-tshwane-group-10}
+  - {area: "wonderboom", area_name: gauteng-tshwane-group-16}
+  - {area: "wonderboom extension 1, 2, 3, 4, 8, 9", area_name: gauteng-tshwane-group-16}
+  - {area: "wonderboom south", area_name: gauteng-tshwane-group-11}
+  - {area: "wonderboom south", area_name: gauteng-tshwane-group-16}
+  - {area: "xanadu", area_name: gauteng-tshwane-group-10}
+  - {area: "xanadu extension 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9", area_name: gauteng-tshwane-group-10}
+  - {area: "zilkaatsnek wildlife estate", area_name: gauteng-tshwane-group-10}
+  - {area: "zilkaatsnek wildlife estate extension 1, 2", area_name: gauteng-tshwane-group-10}
+  - {area: "zithobeni", area_name: gauteng-tshwane-group-5}
+  - {area: "zithobeni extension 2, 3, 4, 5, 6, 7", area_name: gauteng-tshwane-group-5}
+  - {area: "zwartkop extension 26", area_name: gauteng-tshwane-group-11}
+  - {area: "zwartkop extension 7", area_name: gauteng-tshwane-group-14}
+  - {area: "part of alrode", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "alrode 5/7/8", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "arndhart", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "meyersdal", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "brackenhurst", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "brackenhurst north", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "meyberry park", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "thokoza north", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "alberts park", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "part of alrode( extensions 2/4 5/7/8)", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "randhart", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "meyersdal", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "brackenhurst", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "brackendowns ( excluding ext 5)", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "mayberry park", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "generaal alberts park", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "thokoza north(mpilisweni, phenduka, basothong, hostels)", area_name: gauteng-ekurhuleni-block-1}
+  - {area: "activia park", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "barvallen", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "dawnview", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "delmore (ulana park)", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "dukathole", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "fishers hill", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "gerdview", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "henville", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "homestead", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "knights", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "marlands", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "meadowbrook", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "rustivia", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "south germiston", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "sunnyridge", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "sunnyrock", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "symhurst", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "wannenburg", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "wannenburg hoogte", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "wilbart", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "witfield", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "woodmere", area_name: gauteng-ekurhuleni-block-2}
+  - {area: "bredell", area_name: gauteng-ekurhuleni-block-3}
+  - {area: "brentwood park", area_name: gauteng-ekurhuleni-block-3}
+  - {area: "glen marais extensions (49, 52, 89 & 98)", area_name: gauteng-ekurhuleni-block-3}
+  - {area: "serengeti", area_name: gauteng-ekurhuleni-block-3}
+  - {area: "kaalfontein", area_name: gauteng-ekurhuleni-block-3}
+  - {area: "esselen park and esselen park extensions", area_name: gauteng-ekurhuleni-block-3}
+  - {area: "welgedacht town", area_name: gauteng-ekurhuleni-block-3}
+  - {area: "boksburg east", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "boksburg south boksburg cbd", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "parkrand", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "farrar park", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "parkdene", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "cinderella", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "sunward park", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "freeway park", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "van dyk park", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "salfin", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "welgadacht", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "presida", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "slovo park", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "lazerus", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "dunnottar", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "palm ridge", area_name: gauteng-ekurhuleni-block-4}
+  - {area: "dawn park", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "groeneweide", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "klipportjie", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "villa liza", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "windmill park", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "germiston cbd", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "lampton", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "georgetown", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "simmerfield", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "driehoek", area_name: gauteng-ekurhuleni-block-5}
+  - {area: "clayville", area_name: gauteng-ekurhuleni-block-6}
+  - {area: "olifantsfontein and winnie mandela zone 2, 3, 4, 5, 6, 7, 9, 10, 11 & 12", area_name: gauteng-ekurhuleni-block-6}
+  - {area: "anderbolt", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "atlasville", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "bardene", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "bartletts", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "beyerspark", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "boksburg north", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "boksburg west", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "clearwater estate", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "comet", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "dayanglen", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "delmore", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "hughes", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "impala park", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "jansen park", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "janmutsville", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "jetpark", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "lilliaton", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "plantation", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "ravensklip", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "ravenswood", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "westwood", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "witfield", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "witkoppie ridge", area_name: gauteng-ekurhuleni-block-7}
+  - {area: "bedfordview", area_name: gauteng-ekurhuleni-block-8}
+  - {area: "springs and new era", area_name: gauteng-ekurhuleni-block-8}
+  - {area: "horwood", area_name: gauteng-ekurhuleni-block-9}
+  - {area: "edenvale", area_name: gauteng-ekurhuleni-block-9}
+  - {area: "selcourt", area_name: gauteng-ekurhuleni-block-9}
+  - {area: "petit", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "putfontein", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "hillcrest", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "lillyvale", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "benoni agriculture holdings", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "marister benoni north", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "fairleads", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "cloverdene", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "chief a park", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "rynfield", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "northmead", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "brentwood park", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "daveyton", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "etwatwa", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "kingsway", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "vezi", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "kunene", area_name: gauteng-ekurhuleni-block-10}
+  - {area: "thembisa", area_name: gauteng-ekurhuleni-block-11}
+  - {area: "birch acres ext 23 to ext 32", area_name: gauteng-ekurhuleni-block-11}
+  - {area: "birch arces ext 23 to ext 32", area_name: gauteng-ekurhuleni-block-11}
+  - {area: "winnie mandela zone 1, 8 & 11", area_name: gauteng-ekurhuleni-block-11}
+  - {area: "alrode", area_name: gauteng-ekurhuleni-block-12}
+  - {area: "reiger park", area_name: gauteng-ekurhuleni-block-12}
+  - {area: "mapleton", area_name: gauteng-ekurhuleni-block-12}
+  - {area: "brakpan cbd and surroundings", area_name: gauteng-ekurhuleni-block-13}
+  - {area: "terenure", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "edleen", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "van riebeeck park", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "birch acres", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "kempton west", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "glen marais", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "allen grove", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "bonaero park", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "nimrod park", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "aston manor", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "parts of kempton park ext 2 & ext 4", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "glen erasmia", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "birchleigh", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "birchleigh north", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "kempton park cbd", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "kempton park extensions", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "rhodesfield", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "cresslawn", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "kelvin estate", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "croydon", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "spartan", area_name: gauteng-ekurhuleni-block-14}
+  - {area: "kwathema", area_name: gauteng-ekurhuleni-block-15}
+  - {area: "albertsdal", area_name: gauteng-ekurhuleni-block-15}
+  - {area: "wadeville", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "buhle park", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "phumula", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "roodekop ext", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "rondebult", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "albermale", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "norton small farm", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "benoni cbd", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "mackenzie park", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "lakefield", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "farrarmere", area_name: gauteng-ekurhuleni-block-16}
+  - {area: "part of northmead", area_name: gauteng-ekurhuleni-block-16}
+
