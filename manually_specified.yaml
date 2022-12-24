@@ -21,7 +21,17 @@ changes:
   - stage: 3
     start: 2022-12-24T05:00:00
     finsh: 2022-12-25T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1606296476975386624
+    source: https://twitter.com/Eskom_SA/status/1606650168123817985
+    exclude: coct
+  - stage: 2
+    start: 2022-12-26T05:00:00
+    finsh: 2022-12-27T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1606650168123817985
+    exclude: coct
+  - stage: 3
+    start: 2022-12-27T16:00:00
+    finsh: 2023-01-17T15:59:00
+    source: https://twitter.com/Eskom_SA/status/1606650168123817985
     exclude: coct
 
     # CoCT
@@ -33,7 +43,7 @@ changes:
   - stage: 4
     start: 2022-12-23T22:00:00
     finsh: 2022-12-24T04:59:00
-    source: https://twitter.com/CityofCT/status/1606311646955245569z
+    source: https://twitter.com/CityofCT/status/1606311646955245569
     include: coct
 
   - stage: 1
