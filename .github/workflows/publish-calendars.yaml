@@ -21,6 +21,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Cache Rust dependencies
+      uses: Swatinem/rust-cache@v2
+
     - name: Cache dependencies
       uses: actions/cache@v3
       with:
@@ -60,7 +63,9 @@ jobs:
     - name: Set $env.PASTE to be the contents of machine_friendly.csv
       run: |
         head calendars/machine_friendly.csv
-        echo "PASTE=$(cat calendars/machine_friendly.csv)" >> $GITHUB_ENV
+        echo 'PASTE<<EOF' >> $GITHUB_ENV
+        cat calendars/machine_friendly.csv >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
         echo "${{ env.PASTE }}"
 
     - name: POST machine_friendly.csv to dpaste.org
