@@ -60,7 +60,6 @@ jobs:
     - name: Set $env.PASTE to be the contents of machine_friendly.csv
       run: |
         head calendars/machine_friendly.csv
-        chcp 65001 #set code page to utf-8
         echo ("PASTE=" + $(cat calendars/machine_friendly.csv)) >> $env:GITHUB_ENV && echo $env:PASTE
 
     - name: POST machine_friendly.csv to dpaste.org
