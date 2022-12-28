@@ -57,13 +57,13 @@ jobs:
       id: LS-CALENDARS
 
     - name: Set $PASTE to be the contents of machine_friendly.csv
-      run: PASTE=$(cat calendars/machine_friendly.csv)
+      run: head calendars/machine_friendly.csv && PASTE=$(cat calendars/machine_friendly.csv) 
 
     - name: POST machine_friendly.csv to dpaste.org
       run: curl -X POST -F "expires=31536000" -F "format=url" -F "content=$PASTE" https://dpaste.org/api/ > pastebin.txt
 
     - name: Write pastebin link to GH variable
-      run: echo "::set-output name=pastebin::$(cat pastebin.txt)/raw"
+      run: cat pastebin.txt && echo "::set-output name=pastebin::$(cat pastebin.txt)/raw"
       id: PASTEBIN
 
     - name: Update latest release with new calendars
@@ -112,6 +112,6 @@ jobs:
 
           ### Developers
 
-          There's also a machine-friendly csv file that contains loadshedding information. Have a look at the [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest) for ideas! If you encounter CORS issues, you'll need to use this (pastebin link)[${{ steps.PASTEBIN.outputs.pastebin }}] instead.
+          There's also a machine-friendly csv file that contains loadshedding information. Have a look at the [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest) for ideas! If you encounter CORS issues, you'll need to use this [pastebin link](${{ steps.PASTEBIN.outputs.pastebin }}) instead.
 
           Last updated: ${{ steps.date.outputs.datetime }} UTC"
