@@ -60,13 +60,16 @@ jobs:
     - name: Set $env.PASTE to be the contents of machine_friendly.csv
       run: |
         head calendars/machine_friendly.csv
-        echo ("PASTE=" + $(cat calendars/machine_friendly.csv)) >> $env:GITHUB_ENV && echo $env:PASTE
+        echo "PASTE=$(cat calendars/machine_friendly.csv)" >> $GITHUB_ENV
+        echo "${{ env.PASTE }}"
 
     - name: POST machine_friendly.csv to dpaste.org
       run: curl -X POST -F "expires=31536000" -F "format=url" -F "content=${{ env.PASTE }}" https://dpaste.org/api/ > pastebin.txt
 
     - name: Write pastebin link to GH variable
-      run: cat pastebin.txt && echo "::set-output name=pastebin::$(cat pastebin.txt)/raw"
+      run: |
+        cat pastebin.txt 
+        echo "::set-output name=pastebin::$(cat pastebin.txt)/raw"
       id: PASTEBIN
 
     - name: Update latest release with new calendars
