@@ -60,16 +60,11 @@ jobs:
       run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
       id: LS-CALENDARS
 
-    - name: Set $env.PASTE to be the contents of machine_friendly.csv
+    - name: POST machine_friendly.csv to dpaste.org
       run: |
         head calendars/machine_friendly.csv
-        echo 'PASTE<<EOF' >> $GITHUB_ENV
-        cat calendars/machine_friendly.csv >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
-        echo "${{ env.PASTE }}"
-
-    - name: POST machine_friendly.csv to dpaste.org
-      run: curl -X POST -F "expires=31536000" -F "format=url" -F "content=$(cat calendars/machine_friendly.csv)" https://dpaste.org/api/ > pastebin.txt
+        cat calendars/machine_friendly.csv | curl -X POST -F "expires=31536000" -F 'format=url' -F 'content=<-' https://dpaste.org/api/ > pastebin.txt
+        cat pastebin.txt
 
     - name: Write pastebin link to GH variable
       run: |
