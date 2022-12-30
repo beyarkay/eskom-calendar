@@ -37,33 +37,6 @@ changes:
     exclude: coct
 
     # CoCT
-  - stage: 3
-    start: 2022-12-28T16:00:00
-    finsh: 2022-12-28T21:59:00
-    source: https://twitter.com/CityofCT/status/1608111894694346755
-    include: coct
-  - stage: 4
-    start: 2022-12-28T22:00:00
-    finsh: 2022-12-29T04:59:00
-    source: https://twitter.com/CityofCT/status/1608111894694346755
-    include: coct
-
-  - stage: 2
-    start: 2022-12-29T05:00:00
-    finsh: 2022-12-29T15:59:00
-    source: https://twitter.com/CityofCT/status/1608111894694346755
-    include: coct
-  - stage: 3
-    start: 2022-12-29T16:00:00
-    finsh: 2022-12-29T21:59:00
-    source: https://twitter.com/CityofCT/status/1608111894694346755
-    include: coct
-  - stage: 4
-    start: 2022-12-29T22:00:00
-    finsh: 2022-12-30T04:59:00
-    source: https://twitter.com/CityofCT/status/1608111894694346755
-    include: coct
-
   - stage: 2
     start: 2022-12-30T05:00:00
     finsh: 2022-12-30T15:59:00
@@ -78,6 +51,17 @@ changes:
     start: 2022-12-30T22:00:00
     finsh: 2022-12-31T04:59:00
     source: https://twitter.com/CityofCT/status/1608111894694346755
+    include: coct
+
+  - stage: 1
+    start: 2023-01-02T16:00:00
+    finsh: 2023-01-02T21:59:00
+    source: https://twitter.com/CityofCT/status/1608810418113503232
+    include: coct
+  - stage: 2
+    start: 2023-01-02T22:00:00
+    finsh: 2023-01-03T04:59:00
+    source: https://twitter.com/CityofCT/status/1608810418113503232
     include: coct
 
 historical_changes: []
