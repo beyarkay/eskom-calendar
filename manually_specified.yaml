@@ -13,59 +13,27 @@
 ---
 changes:
     # Eskom
-  - stage: 2
-    start: 2022-12-28T05:00:00
-    finsh: 2022-12-28T16:28:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
-    exclude: coct
-  - stage: 4
-    start: 2022-12-28T16:29:00
-    finsh: 2022-12-29T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
-    exclude: coct
-
-  - stage: 3
-    start: 2022-12-29T05:00:00
-    finsh: 2022-12-29T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
-    exclude: coct
-  - stage: 4
-    start: 2022-12-29T16:00:00
-    finsh: 2022-12-30T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
-    exclude: coct
-
   - stage: 3
     start: 2022-12-30T05:00:00
     finsh: 2022-12-30T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
+    source: https://twitter.com/Eskom_SA/status/1608770681281613824
     exclude: coct
   - stage: 4
     start: 2022-12-30T16:00:00
     finsh: 2022-12-31T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
+    source: https://twitter.com/Eskom_SA/status/1608770681281613824
     exclude: coct
 
-  - stage: 3
+  - stage: 2
     start: 2022-12-31T05:00:00
     finsh: 2022-12-31T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
-    exclude: coct
-  - stage: 4
-    start: 2022-12-31T16:00:00
-    finsh: 2023-01-01T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
+    source: https://twitter.com/Eskom_SA/status/1608770681281613824
     exclude: coct
 
-  - stage: 3
-    start: 2023-01-01T05:00:00
-    finsh: 2023-01-01T15:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
-    exclude: coct
-  - stage: 4
-    start: 2023-01-01T16:00:00
-    finsh: 2023-01-02T04:59:00
-    source: https://twitter.com/Eskom_SA/status/1608107655167606784
+  - stage: 2
+    start: 2023-01-02T05:00:00
+    finsh: 2023-01-12T23:59:00
+    source: https://twitter.com/Eskom_SA/status/1608770826115121153
     exclude: coct
 
     # CoCT
