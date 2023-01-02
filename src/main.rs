@@ -284,7 +284,11 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                     .num_days() as u8;
                     // Don't create events on the 31st of February
                     if local.date_of_month > days_in_month {
-                        yellow_ln!("Not creating event because date ({}) > days in month ({})", local.date_of_month, days_in_month);
+                        yellow_ln!(
+                            "Not creating event because date ({}) > days in month ({})",
+                            local.date_of_month,
+                            days_in_month
+                        );
                         continue;
                     }
                     let l_start = format!(
