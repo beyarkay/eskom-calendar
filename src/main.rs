@@ -253,7 +253,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         // If the local loadshedding matches the include_regex and exclude_regex and the stage
         // is correct, then add the loadshedding
 
-        blue_ln!(
+        blue!(
             "Creating calendar for {:?} from {:?} to {:?}",
             csv_path,
             national.start,
@@ -359,6 +359,11 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                     // eprintln!("   Adding:  {} to {}", event_start, event_finsh);
                 }
             }
+        }
+        if calendar.len() == 0 { 
+            yellow_ln!(" ({} events)", calendar.len());
+        } else {
+            blue_ln!(" ({} events)", calendar.len());
         }
     }
 
