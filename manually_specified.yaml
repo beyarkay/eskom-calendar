@@ -42,5 +42,37 @@ changes:
     source: https://twitter.com/CityofCT/status/1609905691736801281
     include: coct
 
+  - stage: 1
+    start: 2023-01-04T05:00:00
+    finsh: 2023-01-04T21:59:00
+    source: https://twitter.com/CityofCT/status/1610273069225869319
+    include: coct
+  - stage: 2
+    start: 2023-01-04T22:00:00
+    finsh: 2023-01-05T04:59:00
+    source: https://twitter.com/CityofCT/status/1610273069225869319
+    include: coct
+
+  - stage: 1
+    start: 2023-01-05T05:00:00
+    finsh: 2023-01-05T21:59:00
+    source: https://twitter.com/CityofCT/status/1610273069225869319
+    include: coct
+  - stage: 2
+    start: 2023-01-05T22:00:00
+    finsh: 2023-01-06T04:59:00
+    source: https://twitter.com/CityofCT/status/1610273069225869319
+    include: coct
+    
+   - stage: 1
+    start: 2023-01-06T05:00:00
+    finsh: 2023-01-06T21:59:00
+    source: https://twitter.com/CityofCT/status/1610273069225869319
+    include: coct
+  - stage: 2
+    start: 2023-01-06T22:00:00
+    finsh: 2023-01-07T04:59:00
+    source: https://twitter.com/CityofCT/status/1610273069225869319
+    include: coct
 
 historical_changes: []
