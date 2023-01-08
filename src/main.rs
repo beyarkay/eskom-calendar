@@ -419,8 +419,8 @@ fn panic_if_changes_overlap(changes: &Vec<&Shedding>) {
         for change2 in changes {
             // If they're not the same item, but they do overlap, then panic
             if (change1 != change2)
-                && ((change1.finsh >= change2.start && change1.start <= change2.finsh)
-                    || (change2.finsh >= change1.start && change2.start <= change1.finsh))
+                && ((change1.finsh > change2.start && change1.start < change2.finsh)
+                    || (change2.finsh > change1.start && change2.start < change1.finsh))
             {
                 panic!("Changes overlap:\nChange1: {change1:#?}\nChange2: {change2:#?}\nYou probably entered invalid information into `manually_specified.yaml`");
             }
