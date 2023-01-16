@@ -78,7 +78,7 @@ changes:
   - stage: 6
     start: 2023-01-16T22:00:00
     finsh: 2023-01-17T05:00:00
-    source:  v
+    source: https://twitter.com/CityofCT/status/1615031881551970318
     include: coct
   - stage: 3
     start: 2023-01-17T05:00:00
