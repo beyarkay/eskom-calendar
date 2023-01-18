@@ -19,8 +19,10 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 10
-      lat_lngs: []
+    - { name: city of cape town area 10, lat_lngs: [] }
+    - { name: kraaifontein, lat_lngs: [] }
+    - { name: brakenfell, lat_lngs: [] }
+    - { name: kuilsrivier, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-11.ics
     province: western-cape
@@ -30,8 +32,32 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 11
-      lat_lngs: []
+    - { name: city of cape town area 11, lat_lngs: [] }
+    - { name: plumstead, lat_lngs: [] }
+    - { name: wynberg, lat_lngs: [] }
+    - { name: kenilworth, lat_lngs: [] }
+    - { name: deurdrif, lat_lngs: [] }
+    - { name: meadowridge, lat_lngs: [] }
+    - { name: dieprivier, lat_lngs: [] }
+    - { name: diep rivier, lat_lngs: [] }
+    - { name: puntsville, lat_lngs: [] }
+    - { name: elfindale, lat_lngs: [] }
+    - { name: heathfield, lat_lngs: [] }
+    - { name: retreat, lat_lngs: [] }
+    - { name: dennedal, lat_lngs: [] }
+    - { name: sweet valley, lat_lngs: [] }
+    - { name: bergvliet, lat_lngs: [] }
+    - { name: fir grove, lat_lngs: [] }
+    - { name: sillery, lat_lngs: [] }
+    - { name: bishopscourt, lat_lngs: [] }
+    - { name: klassenbosch, lat_lngs: [] }
+    - { name: belle ombre, lat_lngs: [] }
+    - { name: wittenboomen, lat_lngs: [] }
+    - { name: silverhurst, lat_lngs: [] }
+    - { name: constantia, lat_lngs: [] }
+    - { name: high constantia, lat_lngs: [] }
+    - { name: hout bay, lat_lngs: [] }
+    - { name: llandudno, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-12.ics
     province: western-cape
@@ -63,8 +89,13 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 14
-      lat_lngs: []
+    - { name: city of cape town area 14, lat_lngs: [] }
+    - { name: mamre, lat_lngs: [] }
+    - { name: atlantis, lat_lngs: [] }
+    - { name: blouberg, lat_lngs: [] }
+    - { name: bloubergstrand, lat_lngs: [] }
+    - { name: melkbos, lat_lngs: [] }
+    - { name: melkbosstrand, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-15.ics
     province: western-cape
@@ -74,8 +105,18 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 15
-      lat_lngs: []
+    - { name: city of cape town area 15, lat_lngs: [] }
+    - { name: rugby, lat_lngs: [] }
+    - { name: paarden eiland, lat_lngs: [] }
+    - { name: salt river, lat_lngs: [] }
+    - { name: woodstock, lat_lngs: [] }
+    - { name: maitland, lat_lngs: [] }
+    - { name: ndabeni, lat_lngs: [] }
+    - { name: observatory, lat_lngs: [] }
+    - { name: mowbray, lat_lngs: [] }
+    - { name: rosebank, lat_lngs: [] }
+    - { name: rondebosch, lat_lngs: [] }
+    - { name: park estate, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-16.ics
     province: western-cape
@@ -96,19 +137,39 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 2
-      lat_lngs: []
+    - { name: city of cape town area 2, lat_lngs: [] }
+    - { name: milnerton, lat_lngs: [] }
+    - { name: sanddrift, lat_lngs: [] }
+    - { name: kensington, lat_lngs: [] }
+    - { name: factreton, lat_lngs: [] }
+    - { name: wingfield, lat_lngs: [] }
+    - { name: windermere, lat_lngs: [] }
+    - { name: acacia park, lat_lngs: [] }
+    - { name: summer greens, lat_lngs: [] }
+    - { name: century place, lat_lngs: [] }
+    - { name: tijgerhof, lat_lngs: [] }
+    - { name: joe slovo park, lat_lngs: [] }
+    - { name: milnerton ridge, lat_lngs: [] }
+    - { name: royal ascot, lat_lngs: [] }
+    - { name: sunset links, lat_lngs: [] }
+    - { name: sunset beach, lat_lngs: [] }
+    - { name: woodbridge island, lat_lngs: [] }
+    - { name: lagoon beach, lat_lngs: [] }
+    - { name: maitland, lat_lngs: [] }
+    - { name: ndabeni, lat_lngs: [] }
+    - { name: pinelands, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-3.ics
     province: western-cape
     municipality: city-of-cape-town-metropolitan
-    city: cape-town
+    city: somerset west
     provider: city-of-cape-town
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 3
-      lat_lngs: []
+    - { name: city of cape town area 3, lat_lngs: [] }
+    - { name: somerset west, lat_lngs: [] }
+    - { name: strand, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-4.ics
     province: western-cape
@@ -129,8 +190,17 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 5
-      lat_lngs: []
+    - { name: belthorn, lat_lngs: [] }
+    - { name: city of cape town area 5, lat_lngs: [] }
+    - { name: claremont, lat_lngs: [] }
+    - { name: hanover park, lat_lngs: [] }
+    - { name: kenilworth, lat_lngs: [] }
+    - { name: lansdowne, lat_lngs: [] }
+    - { name: newlands, lat_lngs: [] }
+    - { name: ottery, lat_lngs: [] }
+    - { name: rondebosch east, lat_lngs: [] }
+    - { name: rondebosch, lat_lngs: [] }
+    - { name: wetton, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-6.ics
     province: western-cape
@@ -140,8 +210,9 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 6
-      lat_lngs: []
+    - { name: city of cape town area 6, lat_lngs: [] }
+    - { name: durbanville, lat_lngs: [] }
+    - { name: bellville, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-7.ics
     province: western-cape
@@ -151,8 +222,29 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 7
-      lat_lngs: []
+    - { name: city of cape town area 7, lat_lngs: [] }
+    - { name: city bowl, lat_lngs: [] }
+    - { name: woodstock, lat_lngs: [] }
+    - { name: vredehoek, lat_lngs: [] }
+    - { name: oranjezicht, lat_lngs: [] }
+    - { name: zonnebloem, lat_lngs: [] }
+    - { name: foreshore, lat_lngs: [] }
+    - { name: bo-kaap, lat_lngs: [] }
+    - { name: tamboerskloof, lat_lngs: [] }
+    - { name: gardens, lat_lngs: [] }
+    - { name: waterfront, lat_lngs: [] }
+    - { name: mouille point, lat_lngs: [] }
+    - { name: green point, lat_lngs: [] }
+    - { name: three anchor bay, lat_lngs: [] }
+    - { name: sea point, lat_lngs: [] }
+    - { name: fresnaye, lat_lngs: [] }
+    - { name: bantry bay, lat_lngs: [] }
+    - { name: clifton, lat_lngs: [] }
+    - { name: the glen, lat_lngs: [] }
+    - { name: camps bay, lat_lngs: [] }
+    - { name: bakoven, lat_lngs: [] }
+    - { name: rontree, lat_lngs: [] }
+    - { name: cape town city center, lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-8.ics
     province: western-cape
@@ -162,8 +254,34 @@ area_details:
     source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
     source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
     areas:
-    - name: city of cape town area 8
-      lat_lngs: []
+    - { name: city of cape town area 8, lat_lngs: [] }
+    - { name: steenberg, lat_lngs: [] }
+    - { name: tokai, lat_lngs: [] }
+    - { name: kirstenhof, lat_lngs: [] }
+    - { name: westlake, lat_lngs: [] }
+    - { name: lavender hill, lat_lngs: [] }
+    - { name: lakeside, lat_lngs: [] }
+    - { name: marina da gama, lat_lngs: [] }
+    - { name: marina de gama, lat_lngs: [] }
+    - { name: muizenberg, lat_lngs: [] }
+    - { name: noordhoek, lat_lngs: [] }
+    - { name: san michele, lat_lngs: [] }
+    - { name: brakkloof, lat_lngs: [] }
+    - { name: capri, lat_lngs: [] }
+    - { name: sunnydale, lat_lngs: [] }
+    - { name: risiview, lat_lngs: [] }
+    - { name: masiphumelele, lat_lngs: [] }
+    - { name: kommetjie, lat_lngs: [] }
+    - { name: ocean view, lat_lngs: [] }
+    - { name: soet water, lat_lngs: [] }
+    - { name: misty cliffs, lat_lngs: [] }
+    - { name: scarborough, lat_lngs: [] }
+    - { name: pine haven, lat_lngs: [] }
+    - { name: dido valley, lat_lngs: [] }
+    - { name: glancairn, lat_lngs: [] }
+    - { name: da gama, lat_lngs: [] }
+    - { name: "simon's town", lat_lngs: [] }
+    - { name: "miller's point", lat_lngs: [] }
 
   - calendar_name: city-of-cape-town-area-9.ics
     province: western-cape
@@ -500,6 +618,7 @@ area_details:
     - { name: "west turffontein", lat_lngs: [] }
     - { name: "winchester hills", lat_lngs: [] }
     - { name: "wolhuter", lat_lngs: [] }
+
   - calendar_name: city-power-14.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -577,6 +696,7 @@ area_details:
     - { name: "westbury south", lat_lngs: [] }
     - { name: "westbury", lat_lngs: [] }
     - { name: "willowdene", lat_lngs: [] }
+
   - calendar_name: city-power-15.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -622,6 +742,7 @@ area_details:
     - { name: "uj soweto", lat_lngs: [] }
     - { name: "west lake", lat_lngs: [] }
     - { name: "white ridge", lat_lngs: [] }
+
   - calendar_name: city-power-16.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -668,6 +789,7 @@ area_details:
     - { name: "windsor ridge", lat_lngs: [] }
     - { name: "windsor west", lat_lngs: [] }
     - { name: "windsor", lat_lngs: [] }
+
   - calendar_name: city-power-2.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -733,6 +855,7 @@ area_details:
     - { name: "waterval estate", lat_lngs: [] }
     - { name: "westcliff ext", lat_lngs: [] }
     - { name: "willowild", lat_lngs: [] }
+
   - calendar_name: city-power-3.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -770,6 +893,7 @@ area_details:
     - { name: "vorna valley", lat_lngs: [] }
     - { name: "willaway", lat_lngs: [] }
     - { name: "zonkizizwe", lat_lngs: [] }
+
   - calendar_name: city-power-4.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -862,6 +986,7 @@ area_details:
     - { name: "westlake view", lat_lngs: [] }
     - { name: "whitney gardens", lat_lngs: [] }
     - { name: "yeoville", lat_lngs: [] }
+
   - calendar_name: city-power-5.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -924,6 +1049,7 @@ area_details:
     - { name: "uitsaaisentrum", lat_lngs: [] }
     - { name: "vrededorp", lat_lngs: [] }
     - { name: "vredepark", lat_lngs: [] }
+
   - calendar_name: city-power-6.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -951,6 +1077,7 @@ area_details:
     - { name: "westgate ext", lat_lngs: [] }
     - { name: "westgate", lat_lngs: [] }
     - { name: "wits", lat_lngs: [] }
+
   - calendar_name: city-power-7.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -1002,6 +1129,7 @@ area_details:
     - { name: "slovo park", lat_lngs: [] }
     - { name: "university of johannesburg (rau)", lat_lngs: [] }
     - { name: "westdene", lat_lngs: [] }
+
   - calendar_name: city-power-8.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -1030,6 +1158,7 @@ area_details:
     - { name: "sundowner ext 6", lat_lngs: [] }
     - { name: "sundowner ext", lat_lngs: [] }
     - { name: "sundowner", lat_lngs: [] }
+
   - calendar_name: city-power-9.ics
     province: gauteng
     municipality: city-of-johannesburg-metropolitan
@@ -1111,6 +1240,7 @@ area_details:
     - { name: "wierda valley", lat_lngs: [] }
     - { name: "winston ridge", lat_lngs: [] }
     - { name: "wynberg", lat_lngs: [] }
+
   - calendar_name: eastern-cape-adelaide.ics
     province: eastern-cape
     municipality: unknown
@@ -3095,7 +3225,7 @@ area_details:
     areas:
     - name: tshwane group 4
       lat_lngs: []
-  
+
   - calendar_name: gauteng-tshwane-group-5.ics
     province: gauteng
     municipality: city-of-tshwane-metropolitan
