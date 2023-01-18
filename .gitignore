@@ -6,3 +6,4 @@
 */*.html
 *.svg
 calendars/calendar_preview.png
+.secrets
