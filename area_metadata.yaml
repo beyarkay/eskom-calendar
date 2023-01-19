@@ -1326,8 +1326,9 @@ area_details:
     source: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/
     areas:
-    - name: capestfrancisbay
-      lat_lngs: []
+    - { name: capestfrancisbay, lat_lngs: [] }
+    - { name: cape st francis bay, lat_lngs: [] }
+    - { name: cape saint francis bay, lat_lngs: [] }
 
   - calendar_name: eastern-cape-cathcart.ics
     province: eastern-cape
@@ -1678,8 +1679,9 @@ area_details:
     source: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/
     areas:
-    - name: stfrancisbay
-      lat_lngs: []
+    - { name: stfrancisbay, lat_lngs: [] }
+    - { name: st francis bay, lat_lngs: [] }
+    - { name: saint francis bay, lat_lngs: [] }
 
   - calendar_name: eastern-cape-stutterheim.ics
     province: eastern-cape
