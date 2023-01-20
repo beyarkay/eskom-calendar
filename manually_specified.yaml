@@ -13,118 +13,28 @@
 ---
 changes:
     # Eskom
-  - stage: 6
-    start: 2023-01-11T16:00:00
-    finsh: 2023-01-17T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1613158343979171840
-    exclude: coct
-  - stage: 4
-    start: 2023-01-17T05:00:00
-    finsh: 2023-01-17T16:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
-    exclude: coct
-  - stage: 5
-    start: 2023-01-17T16:00:00
-    finsh: 2023-01-18T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
-    exclude: coct
-  - stage: 4
-    start: 2023-01-18T05:00:00
-    finsh: 2023-01-18T16:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
-    exclude: coct
-  - stage: 5
-    start: 2023-01-18T16:00:00
-    finsh: 2023-01-19T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
-    exclude: coct
-  - stage: 4
-    start: 2023-01-19T05:00:00
-    finsh: 2023-01-19T16:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
-    exclude: coct
-  - stage: 5
-    start: 2023-01-19T16:00:00
-    finsh: 2023-01-20T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
-    exclude: coct
   - stage: 4
     start: 2023-01-20T05:00:00
-    finsh: 2023-01-20T16:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
-    exclude: coct
-  - stage: 5
-    start: 2023-01-20T16:00:00
     finsh: 2023-01-21T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
+    source: https://twitter.com/Eskom_SA/status/1616422581439180800
     exclude: coct
-  - stage: 4
+  - stage: 3
     start: 2023-01-21T05:00:00
     finsh: 2023-01-21T16:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
+    source: https://twitter.com/Eskom_SA/status/1616422581439180800
     exclude: coct
-  - stage: 5
+  - stage: 4
     start: 2023-01-21T16:00:00
     finsh: 2023-01-22T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1615001268774227971
+    source: https://twitter.com/Eskom_SA/status/1616422581439180800
+    exclude: coct
+  - stage: 2
+    start: 2023-01-22T05:00:00
+    finsh: 2023-01-22T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1616422581439180800
     exclude: coct
 
     # CoCT
-  - stage: 5
-    start: 2023-01-16T05:00:00
-    finsh: 2023-01-16T22:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 6
-    start: 2023-01-16T22:00:00
-    finsh: 2023-01-17T05:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 3
-    start: 2023-01-17T05:00:00
-    finsh: 2023-01-17T16:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 4
-    start: 2023-01-17T16:00:00
-    finsh: 2023-01-17T22:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 5
-    start: 2023-01-17T22:00:00
-    finsh: 2023-01-18T05:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 3
-    start: 2023-01-18T05:00:00
-    finsh: 2023-01-18T16:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 4
-    start: 2023-01-18T16:00:00
-    finsh: 2023-01-18T22:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 5
-    start: 2023-01-18T22:00:00
-    finsh: 2023-01-19T05:00:00
-    source: https://twitter.com/CityofCT/status/1615031881551970318
-    include: coct
-  - stage: 3
-    start: 2023-01-19T05:00:00
-    finsh: 2023-01-19T16:00:00
-    source: https://twitter.com/CityofCT/status/1615032041162014736
-    include: coct
-  - stage: 4
-    start: 2023-01-19T16:00:00
-    finsh: 2023-01-19T22:00:00
-    source: https://twitter.com/CityofCT/status/1615032041162014736
-    include: coct
-  - stage: 5
-    start: 2023-01-19T22:00:00
-    finsh: 2023-01-20T05:00:00
-    source: https://twitter.com/CityofCT/status/1615032041162014736
-    include: coct
   - stage: 3
     start: 2023-01-20T05:00:00
     finsh: 2023-01-20T16:00:00
