@@ -90,35 +90,50 @@ changes:
     exclude: coct
 
     # CoCT
-  - stage: 3
-    start: 2023-01-20T16:00:00
-    finsh: 2023-01-20T22:00:00
-    source: https://twitter.com/CityofCT/status/1616438384897187842
-    include: coct
-  - stage: 4
-    start: 2023-01-20T22:00:00
-    finsh: 2023-01-21T05:00:00
-    source: https://twitter.com/CityofCT/status/1616438384897187842
-    include: coct
-  - stage: 2
-    start: 2023-01-21T05:00:00
-    finsh: 2023-01-21T16:00:00
-    source: https://twitter.com/CityofCT/status/1616438384897187842
-    include: coct
-  - stage: 4
-    start: 2023-01-21T16:00:00
-    finsh: 2023-01-22T05:00:00
-    source: https://twitter.com/CityofCT/status/1616438384897187842
-    include: coct
   - stage: 2
     start: 2023-01-22T05:00:00
     finsh: 2023-01-22T16:00:00
-    source: https://twitter.com/CityofCT/status/1616438384897187842
+    source: https://twitter.com/CityofCT/status/1617134524185612290
     include: coct
-  - stage: 4
+  - stage: 3
     start: 2023-01-22T16:00:00
     finsh: 2023-01-23T05:00:00
-    source: https://twitter.com/CityofCT/status/1616438384897187842
+    source: https://twitter.com/CityofCT/status/1617134524185612290
+    include: coct
+  - stage: 1
+    start: 2023-01-23T05:00:00
+    finsh: 2023-01-23T16:00:00
+    source: https://twitter.com/CityofCT/status/1617134524185612290
+    include: coct
+  - stage: 3
+    start: 2023-01-23T16:00:00
+    finsh: 2023-01-23T22:00:00
+    source: https://twitter.com/CityofCT/status/1617134524185612290
+    include: coct
+  - stage: 4
+    start: 2023-01-23T22:00:00
+    finsh: 2023-01-24T05:00:00
+    source: https://twitter.com/CityofCT/status/1617134524185612290
+    include: coct
+  - stage: 2
+    start: 2023-01-24T16:00:00
+    finsh: 2023-01-24T22:00:00
+    source: https://twitter.com/CityofCT/status/1617134524185612290
+    include: coct
+  - stage: 3
+    start: 2023-01-24T22:00:00
+    finsh: 2023-01-25T05:00:00
+    source: https://twitter.com/CityofCT/status/1617134524185612290
+    include: coct
+  - stage: 2
+    start: 2023-01-25T16:00:00
+    finsh: 2023-01-25T22:00:00
+    source: https://twitter.com/CityofCT/status/1617134527364595714
+    include: coct
+  - stage: 3
+    start: 2023-01-25T22:00:00
+    finsh: 2023-01-26T05:00:00
+    source: https://twitter.com/CityofCT/status/1617134527364595714
     include: coct
 
 historical_changes: []
