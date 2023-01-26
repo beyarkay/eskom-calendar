@@ -6,6 +6,7 @@ on:
     paths:
       - 'manually_specified.yaml'
       - 'src/*.rs'
+      - 'generated/*.csv'
       - 'src/*.py'
   workflow_dispatch:
 
