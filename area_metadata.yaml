@@ -84,7 +84,7 @@ area_details:
       municipality: "city-of-cape-town"
       name: ["airport","blue-downs-voorbrug","boquinar-industrial-area","camelot","cormac-park","crossroads","crossroads-1","crossroads-coct","delft","delft-south","delro","drift-sands-1","eindehoven","electric-city","fairdale","forest-village","fountain-village","hagley","heinz-park","highgate","hillcrest-heights-1","hindle-park","malibu-village","mandalay","maycape","mfuleni","nyanga","philippi-east","rondevallei","rotterdam","silversands","stratford-2","sunbird-park","sunset-glen","the-connifers","the-hague","tuscany-glen","vogelvlei","wembley-park","wesbank"]
 
-  - calendar_name: eskom-direct-1-evn.ics
+  - calendar_name: eskom-direct-1-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -300,7 +300,7 @@ area_details:
       municipality: "swartland"
       name: ["de-gift","die-mond","goedertrou","groenvlei","holdrif","klein-bakoven","klipdrift","kruispad-ongegund","langkloof","louwsbaken","ongegund","riebeek-wes","rietvlei","sandgat","sluiswyk","uitkyk-ongegund","vaalvlei","vlakkerug","winkelhaaksvlei"]
 
-  - calendar_name: eskom-direct-2-evn.ics
+  - calendar_name: eskom-direct-2-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -531,7 +531,7 @@ area_details:
       municipality: "theewaterskloof"
       name: ["albertyn-houhoek","avontuur","botrivier","die-vlei","eerstehoop-houhoek","houmoed","keerweer","kiesieskraal","klipdrift","klipfontein-houhoek","pampoenkraal-houhoek","perdekloof","salandra","vaaldam","vrede","vredendal","welgemoed-houhoek","windheuwel"]
 
-  - calendar_name: eskom-direct-3-evn.ics
+  - calendar_name: eskom-direct-3-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -729,7 +729,7 @@ area_details:
       municipality: "witzenberg"
       name: ["akasia","apiesklip","botha-chavonnes","corona","diepkloof","gratitude","kapklip","la-rochelle","nuwerus-chavonnes","vergenoeg"]
 
-  - calendar_name: eskom-direct-4-evn.ics
+  - calendar_name: eskom-direct-4-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -903,7 +903,7 @@ area_details:
       municipality: "theewaterskloof"
       name: ["arieskraal","boesmansrug","burtondale","caledon-outlying","dagbreek","de-hoop","de-rust","dennebos","dennekruin","denniston","drostersnes","eerstehoop-vyeboom","eikenhof-elgin","eikenhof-theewater","elgin","evergreen-elgin","evergreen-theewater","fairholme","fisantekraal-vyeboom","fortuin","glen-gary","gloria","grabouw","hammansdal-vyeboom","helderstroom-vyeboom","houhoek","kentucky","klipfontein-vyeboom","kromvlei","lebanon","monteith","moreson-theewater","oudekraal-vyeboom","ouwerf","pampoenkraal-vyeboom","patryslaagte","pineview","queen-anne-vyeboom","rock-haven","rooidakkies","rustfontein","snake-park","sonop","spes-bona-vyeboom","steenbras-storage","steenbras-theewater","swannie-river","twaalffontein","valley-green","vleitjies","vyeboom","welgemoed-vyeboom","westroux"]
 
-  - calendar_name: eskom-direct-5-evn.ics
+  - calendar_name: eskom-direct-5-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -1086,7 +1086,7 @@ area_details:
       municipality: "theewaterskloof"
       name: ["albertyn-hawston"]
 
-  - calendar_name: eskom-direct-6-evn.ics
+  - calendar_name: eskom-direct-6-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -1263,7 +1263,7 @@ area_details:
       municipality: "mossel-bay"
       name: ["arbeidsgenot","barswel","belvedere","bergsig","blandsdrift","bokdrift","bonavontuur","bottelierskop","brakfontein","brandwag","buysplaas","dagbreek","de-doorns","de-hoek","die-poort","die-vlakte","dwarsrivier","erfpag","georgeheim","haelkraal","hamelkop","harmonie","hartenbos","hemelroodt","herbertsdale","jakkalsvlei","kleinplaas","klipkop","langfontein","langkraal","lemoentuin","lenhof","lonetree","matjiespoort","melkhoutassenbosch","melkhoutfontein","middeldrift","middelplaas","modderdrif","mullersvlei","outeniquasdrift","palmietrivier","potkleikraal","rietvlei","rondeheuwel","rooiheuwel","sandfontein","skuinspad","uitkyk","vaalkraal","volop","vyf-brakke-fonteinen","waterkloof","welbedagt","welgevonden","weltevreden"]
 
-  - calendar_name: eskom-direct-7-evn.ics
+  - calendar_name: eskom-direct-7-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -1470,7 +1470,7 @@ area_details:
       municipality: "stellenbosch"
       name: ["cloetesville","franschhoek","groot-drakenstein","idas-valley","lynedoch","onder-papegaaiberg","raithby","robertsvlei","somerset-west-nu","stellenbosch-nu","steynsrust","webersvallei","wemmershoek"]
 
-  - calendar_name: eskom-direct-8-evn.ics
+  - calendar_name: eskom-direct-8-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -1653,7 +1653,7 @@ area_details:
       municipality: "drakenstein"
       name: ["dal-josafat-industrial"]
 
-  - calendar_name: eskom-direct-9-evn.ics
+  - calendar_name: eskom-direct-9-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -1833,7 +1833,7 @@ area_details:
       municipality: "swartland"
       name: ["atlantis-outlying","berg-en-dalen","blijdschap","bordeaux","bottelfontein","chatsworth","driesusters","drodvlei","elandsvlei","glen-lossie","goedgedacht","goedgewag","greater-chatsworth","greater-chatsworth-sp","groenfontein","groot-amoskuil","helderfontein","hillcrest-malmesbury","horingbos","kalbaskraal","kersfontein-kalbaskraal","klein-amoskuil","klein-engeland","klein-morewag-kalbaskraal","klein-morewag-klipheuwel","lemoenkloof","m(reson","middelpos-kalbaskraal","modderkloof","populierbos","rustenburg","skaapkraal","tierfontein","uitkyk-klipheuwel","uitkyk-perdeberg","uitspan","vetkoekheuwel","vlakfontein","welgegund","weltevrede-kalbaskraal","weltevrede-klipheuwel","wintervogel","wolwedans"]
 
-  - calendar_name: eskom-direct-10-evn.ics
+  - calendar_name: eskom-direct-10-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -1986,7 +1986,7 @@ area_details:
       municipality: "swartland"
       name: ["dassenheuwel","de-la-gift","doornkloof","esterhof","hermon","koornlandsdrif","leliefontein-dagbreek","magdalena","malrug","modderfontein","ongegund-dagbreek","onwego","riebeek-kasteel","riebeeksrivier-dagbreek","spes-bona","uitkyk-dagbreek","vlakkenheuwel","waterbron","waterval","waterval-dagbreek","zonquasdrift"]
 
-  - calendar_name: eskom-direct-11-evn.ics
+  - calendar_name: eskom-direct-11-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -2169,7 +2169,7 @@ area_details:
       municipality: "witzenberg"
       name: ["anyskop","bloubank","bonaventure","boontjiesrivier","brouwerstraat","de-heuwel","de-hoop","dennegeur","die-ster","eikenlaan-tulbagh","eikenlaan-wolseley","fonteinberg","grootvlei-tulbagh","grootvlei-wolseley","klipfontein","kluitjieskraal","knovlei","kweekplaat","la-plaisante-wolseley","lemoendrif","meulstroom","middelpos","montana","newtown","olyfrivier","onverwacht","oudekloof","pine-valley","remhoogte","romansrivier-wolseley","schalkenbosch","sewefontein","skilpadrug","steinthal","sterkstroom","theuniskraal","tulbagh","twee-jonge-gezellen","uitkyk","verkyker-wolseley","vrolikheid","waterval-forest-station","welgegund-tulbagh","weltevrede","wolseley","wolwefontein"]
 
-  - calendar_name: eskom-direct-12-evn.ics
+  - calendar_name: eskom-direct-12-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -2385,7 +2385,7 @@ area_details:
       municipality: "witzenberg"
       name: ["alhambra","amperbo","bella-vista","blouberg","bokfontein","bokveldskloof","boskloof","buffelshoek","buitenstekloof","ceres","de-eike","de-hoek","de-keur-gydo","de-keur-leeurivier","de-la-rey","de-meul","de-rust","de-vlei","die-boom","die-drift","die-eike","die-vlakte","die-wingerd","doringkraal","driefontein","ebenhaezer","eikenhof","elim","erfdeel","goudmyn","groenhof","grootrivier","gydo","hartbeesvlei","hoop-en-uitkoms","hottentotskloof","jakkalsnek","jonkershoek","kleinfontein","kleinveld","koelfontein","kromfontein","kunje","kweperkraal","laastedrif","lakenvlei","lammerskraal","leeukuil","leeurivier","leeuwfontein","libertas","lochlynne","long-acres","lushof","matjiesrivier","merino","northridge","odessa","olckersia","onder-tuin","op-die-berg","paardekloof","panorama","pofaddersfontein","prince-alfred-hamlet","quains","rietvlei","rocklands","roggevlei","rosendal","sandfontein","sandvlakte","selfhelp","skoongesig","slagboom","slangfontein","soetfontein","suurvlakte","suurvlei","uitkoms","uitsig","verlorenvlei","vrede","vrisgewaagd","waboomsrivier","wadrif","wakkerstroom","wamakershoogte","welgegund-gydo","welgemeen","weltevrede","welvaart","westland","witklippies","wolwerivier","ysterplaat"]
 
-  - calendar_name: eskom-direct-13-evn.ics
+  - calendar_name: eskom-direct-13-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -2571,7 +2571,7 @@ area_details:
       municipality: "witzenberg"
       name: ["amore","botha-breerivier","de-hoop","de-keur-breerivier","de-liefde","drie-gewels","elandskloof","fairview","la-plaisante-breerivier","mooiplaas","moreson-breerivier","nuwerus-breerivier","palmietvlei","romansrivier-breerivier","sandrivier","tevrede","tweede-tol","uitkyk","verkyker-breerivier","weltevrede"]
 
-  - calendar_name: eskom-direct-14-evn.ics
+  - calendar_name: eskom-direct-14-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -2706,7 +2706,7 @@ area_details:
       municipality: "swartland"
       name: ["agterpos","bovlei","bridgetown","de-brug","de-guns","die-baken","gousblomkraal","klipheuwel-broodkraal","klipvlei-broodkraal","middelburg","middelpos-broodkraal","misverstand","remhoogte","sanddrif","soverby","spitskop","sterhuis","uitvlug","volstruisdrif","vrugbaar","watervlei","windhoek-broodkraal","witwater"]
 
-  - calendar_name: eskom-direct-15-evn.ics
+  - calendar_name: eskom-direct-15-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
@@ -2898,7 +2898,7 @@ area_details:
       municipality: "stellenbosch"
       name: ["bennetsville","klapmuts","paarl-outlying","stellenbosch-nu"]
 
-  - calendar_name: eskom-direct-16-evn.ics
+  - calendar_name: eskom-direct-16-even.ics
     provider: eskom
     source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
