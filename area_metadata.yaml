@@ -1243,7 +1243,7 @@ area_details:
       name: ["greylings-gift","homansvlei","katrina-west","klipfontein-west","koksrus","koosfontein","leeubos-west","sweet-william"]
     - province: north-west
       municipality: "mamusa"
-      name: ["aandster","alamein","albertshoek","amalia","anniesrust","basoetoekraal-west","bohemia","boomplaas","boskop","caledonia","calvyn","danielshoek","dankbaar","dauthsrus-west","de-hoof","delareyskraal","diamantsdoorns","dievedraai","doornbult-west","driehoek","emmas-hein","excelsior","ferreiras-retreat","florrisville","glaudina","groenpan","hampstead","handleton","heidelberg","heuningspruit","holpan","homansvlei","honeyskop","houtvolop","ipelegeng","ipelegeng-ext-2","ipelegeng-ext-3","ipelegeng-ext-4","ipelegeng-ext-5","johannesrust","joubertsrus","juksvlei","kalklaagte","koosfontein","koppiesdam","koppiesvlei-west","krompan","le-rouxpan","london","lopana","luckhoff","m(redou","m(relig","makouskop","masau","matjiespruit","mokala","molatswanene","morgenzon","nooitgedacht-west","noupoort","nuwehoop","nuwerus","palachoema","pavonia","pleidooi","port-la-rey","pretoriusrus","regina","rooikop","roosdorings","sandbult","scharlton","schweizer-reneke","siloam","skoondal","soetendal-west","strausrus","strauss-i","sweet-william","tweelingsdam","uitkoms","vaalpoort","verlaten","vrede","vryheid","welgenoeg","welkom","wesselina"]
+      name: ["aandster","alamein","albertshoek","amalia","anniesrust","basoetoekraal-west","bohemia","boomplaas","boskop","caledonia","calvyn","danielshoek","dankbaar","dauthsrus-west","de-hoof","delareyskraal","diamantsdoorns","dievedraai","doornbult-west","driehoek","emmas-hein","excelsior","ferreiras-retreat","florrisville","glaudina","groenpan","hampstead","handleton","heidelburg","heidelberg","heuningspruit","holpan","homansvlei","honeyskop","houtvolop","ipelegeng","ipelegeng-ext-2","ipelegeng-ext-3","ipelegeng-ext-4","ipelegeng-ext-5","johannesrust","joubertsrus","juksvlei","kalklaagte","koosfontein","koppiesdam","koppiesvlei-west","krompan","le-rouxpan","london","lopana","luckhoff","m(redou","m(relig","makouskop","masau","matjiespruit","mokala","molatswanene","morgenzon","nooitgedacht-west","noupoort","nuwehoop","nuwerus","palachoema","pavonia","pleidooi","port-la-rey","pretoriusrus","regina","rooikop","roosdorings","sandbult","scharlton","schweizer-reneke","siloam","skoondal","soetendal-west","strausrus","strauss-i","sweet-william","tweelingsdam","uitkoms","vaalpoort","verlaten","vrede","vryheid","welgenoeg","welkom","wesselina"]
     - province: north-west
       municipality: "maquassi-hills"
       name: ["doornbult-west","katbosfontein-west"]
@@ -1768,7 +1768,7 @@ area_details:
       name: ["daveyton-ext-2","daveyton-ext-3","daveyton-ext-4","swazi-section","tsonga-section","xhosa-section"]
     - province: gauteng
       municipality: "lesedi"
-      name: ["heidelberg"]
+      name: ["heidelberg", "heidelburg"]
     - province: north-west
       municipality: "ditsobotla"
       name: ["biesiesvlei","bloedzuigerspan-east","draadknip","lusthof-east","makoeiespan-east","matila","rietkolk","springbokpan"]
@@ -8764,8 +8764,8 @@ area_details:
     source: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/
     source_info: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/
     areas:
-    - name: heidelburg
-      lat_lngs: []
+    - { name: heidelberg, lat_lngs: [] }
+    - { name: heidelburg, lat_lngs: [] }
 
   - calendar_name: western-cape-herbetsdal.ics
     province: western-cape
