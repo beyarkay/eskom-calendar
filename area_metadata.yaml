@@ -1465,10 +1465,10 @@ area_details:
       name: ["firgrove","kuils-river-nu-1","macassar"]
     - province: western-cape
       municipality: "drakenstein"
-      name: ["hou-moed","victor-verster"]
+      name: ["hou-moed","victor-verster","pearl-valley","val-de-vie"]
     - province: western-cape
       municipality: "stellenbosch"
-      name: ["cloetesville","franschhoek","groot-drakenstein","idas-valley","lynedoch","onder-papegaaiberg","raithby","robertsvlei","somerset-west-nu","stellenbosch-nu","steynsrust","webersvallei","wemmershoek"]
+      name: ["cloetesville","franschhoek","fransch-hoek","groot-drakenstein","idas-valley","lynedoch","onder-papegaaiberg","raithby","robertsvlei","somerset-west-nu","stellenbosch-nu","steynsrust","webersvallei","wemmershoek","pniel"]
 
   - calendar_name: eskom-direct-8-odd.ics
     provider: eskom
@@ -1651,7 +1651,7 @@ area_details:
       name: ["bloubospan","dedeben","delela","excelsior","faans-grove","gemsbok","gosa","hopewell","koossteyn","liebenberg","louisrus","markramsdraai","mowbray","naauwpoort","nooitverwag","oatlands","platkop","plumstead","sauer","thorns","towton","weenen","whyenbach","winton"]
     - province: western-cape
       municipality: "drakenstein"
-      name: ["dal-josafat-industrial"]
+      name: ["dal-josafat-industrial", "paarl", "simondium"]
 
   - calendar_name: eskom-direct-9-odd.ics
     provider: eskom
@@ -1981,7 +1981,7 @@ area_details:
       name: ["killarney-gardens-outlying"]
     - province: western-cape
       municipality: "drakenstein"
-      name: ["acropolis","blouvlei","brakfontein","de-poort","diemerskraal","eikeboom","fleur-de-lys","gayase","goedehoop","helpmekaar","hermon","hooglande","houtbaai","koornlandsdrif","langkloof","magdalena","micha","newtown","onverwags","onwego","overdale","poplar-grove","saieda","saint-john","stadsicht","twyfeling","valencia","vodlgesang","welgegund","wellington","wellington-north","wellington-outlying","weltevrede"]
+      name: ["acropolis","blouvlei","brakfontein","de-poort","diemerskraal","eikeboom","fleur-de-lys","gayase","goedehoop","helpmekaar","hermon","hooglande","houtbaai","koornlandsdrif","langkloof","magdalena","micha","newtown","onverwags","onwego","overdale","poplar-grove","saieda","saint-john","stadsicht","twyfeling","valencia","vodlgesang","welgegund","wellington","wellington-north","wellington-outlying","weltevrede","windmeul","saron","gouda","slot"]
     - province: western-cape
       municipality: "swartland"
       name: ["dassenheuwel","de-la-gift","doornkloof","esterhof","hermon","koornlandsdrif","leliefontein-dagbreek","magdalena","malrug","modderfontein","ongegund-dagbreek","onwego","riebeek-kasteel","riebeeksrivier-dagbreek","spes-bona","uitkyk-dagbreek","vlakkenheuwel","waterbron","waterval","waterval-dagbreek","zonquasdrift"]
