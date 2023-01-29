@@ -289,6 +289,10 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                             local.date_of_month,
                             days_in_month
                         );
+                        let old_month = dt.month();
+                        while old_month == dt.month() {
+                            dt = dt + Duration::days(1);
+                        }
                         continue;
                     }
                     let l_start = format!(
