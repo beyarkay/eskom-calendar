@@ -75,5 +75,25 @@ changes:
     finsh: 2023-02-02T05:00:00
     source: https://twitter.com/CityofCT/status/1619754740950372352
     include: coct
+  - stage: 4
+    start: 2023-02-02T05:00:00
+    finsh: 2023-02-02T22:00:00
+    source: https://twitter.com/CityofCT/status/1620382805174943746
+    include: coct
+  - stage: 5
+    start: 2023-02-02T22:00:00
+    finsh: 2023-02-03T05:00:00
+    source: https://twitter.com/CityofCT/status/1620382805174943746
+    include: coct
+  - stage: 3
+    start: 2023-02-03T05:00:00
+    finsh: 2023-02-03T22:00:00
+    source: https://twitter.com/CityofCT/status/1620382936934801414
+    include: coct
+  - stage: 4
+    start: 2023-02-03T22:00:00
+    finsh: 2023-02-04T05:00:00
+    source: https://twitter.com/CityofCT/status/1620382936934801414
+    include: coct
 
 historical_changes: []
