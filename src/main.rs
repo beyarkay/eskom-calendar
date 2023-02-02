@@ -4,7 +4,6 @@ use icalendar::{Calendar, Component, Event};
 use scraper::Html;
 use scraper::Selector;
 use serde_yaml;
-use std::env;
 use std::fs::{read_dir, read_to_string, File, OpenOptions};
 use std::io::Write;
 use std::path::{Path, PathBuf};
@@ -20,30 +19,30 @@ mod structs;
 /// Download pdfs if the parsed CSVs don't already exist, and use them to create `ics` files.
 fn main() {
     // Download all the pdfs from the internet
-    let args: Vec<String> = env::args().collect();
+    // let args: Vec<String> = env::args().collect();
     // Up to a limit that can be set via cmdline args (mainly used for testing)
-    let limit = if args.get(1).is_some() {
-        Some(args[1].parse().expect("Failed to parse env::args()[0]"))
-    } else {
-        None
-    };
+    // let limit = if args.get(1).is_some() {
+    //     Some(args[1].parse().expect("Failed to parse env::args()[0]"))
+    // } else {
+    //     None
+    // };
     // Define the URLs which list the PDFs per-province.
-    let source_urls = vec![
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/free-state/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/gauteng/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/kwazulu-natal/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/limpopo/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/mpumalanga/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/north-west/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/northern-cape/",
-        "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/",
-    ];
+    // let source_urls = vec![
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/free-state/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/gauteng/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/kwazulu-natal/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/limpopo/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/mpumalanga/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/north-west/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/northern-cape/",
+    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/",
+    // ];
 
     // Download the PDFs for each province.
-    for url in source_urls {
-        dl_pdfs(url, limit);
-    }
+    // for url in source_urls {
+    //     dl_pdfs(url, limit);
+    // }
 
     // Get the paths of the csv files generated
     let csv_paths = read_dir("generated/")
@@ -285,11 +284,11 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                     .num_days() as u8;
                     // Don't create events on the 31st of February
                     if local.date_of_month > days_in_month {
-                        yellow_ln!(
-                            "Not creating event because date ({}) > days in month ({})",
-                            local.date_of_month,
-                            days_in_month
-                        );
+                        // yellow_ln!(
+                        //     "Not creating event because date ({}) > days in month ({})",
+                        //     local.date_of_month,
+                        //     days_in_month
+                        // );
                         let old_month = dt.month();
                         while old_month == dt.month() {
                             dt = dt + Duration::days(1);
