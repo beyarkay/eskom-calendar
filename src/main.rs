@@ -424,7 +424,12 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                 .summary("⚠️  End of schedule")
                 .description(&description)
                 .starts(last_event.with_timezone(&Utc))
-                .ends(last_event.checked_add_signed(chrono::Duration::hours(1)).unwrap().with_timezone(&Utc))
+                .ends(
+                    last_event
+                        .checked_add_signed(chrono::Duration::hours(1))
+                        .unwrap()
+                        .with_timezone(&Utc),
+                )
                 .done(),
         );
     }
