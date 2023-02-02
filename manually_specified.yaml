@@ -41,9 +41,39 @@ changes:
 
     # CoCT
   - stage: 4
-    start: 2023-01-31T12:00:00
-    finsh: 2023-02-04T00:00:00
-    source: https://twitter.com/CityofCT/status/1620364607012630528
+    start: 2023-01-29T16:00:00
+    finsh: 2023-01-30T05:00:00
+    source: https://twitter.com/CityofCT/status/1619754735237730304
+    include: coct
+  - stage: 3
+    start: 2023-01-30T05:00:00
+    finsh: 2023-01-30T22:00:00
+    source: https://twitter.com/CityofCT/status/1619754735237730304
+    include: coct
+  - stage: 4
+    start: 2023-01-30T22:00:00
+    finsh: 2023-01-31T05:00:00
+    source: https://twitter.com/CityofCT/status/1619754735237730304
+    include: coct
+  - stage: 3
+    start: 2023-01-31T05:00:00
+    finsh: 2023-01-31T22:00:00
+    source: https://twitter.com/CityofCT/status/1619754735237730304
+    include: coct
+  - stage: 4
+    start: 2023-01-31T22:00:00
+    finsh: 2023-02-01T05:00:00
+    source: https://twitter.com/CityofCT/status/1619754735237730304
+    include: coct
+  - stage: 3
+    start: 2023-02-01T05:00:00
+    finsh: 2023-02-01T22:00:00
+    source: https://twitter.com/CityofCT/status/1619754740950372352
+    include: coct
+  - stage: 4
+    start: 2023-02-01T22:00:00
+    finsh: 2023-02-02T05:00:00
+    source: https://twitter.com/CityofCT/status/1619754740950372352
     include: coct
 
 historical_changes: []
