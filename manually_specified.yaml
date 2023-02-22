@@ -15,7 +15,7 @@ changes:
     # Eskom
   - stage: 6
     start: 2023-02-19T22:00:00
-    finsh: 2023-02-30T00:00:00
+    finsh: 2023-03-01T00:00:00
     source: https://twitter.com/Eskom_SA/status/1627405790641369088
     exclude: coct
 
