@@ -42,11 +42,11 @@ changes:
     include: coct
   - stage: 3
     start: 2023-03-10T05:00:00
-    finsh: 2023-03-10T16:00:00
+    finsh: 2023-03-10T22:00:00
     source: https://twitter.com/CityofCT/status/1633424847626817537
     include: coct
   - stage: 4
-    start: 2023-03-10T16:00:00
+    start: 2023-03-10T22:00:00
     finsh: 2023-03-11T05:00:00
     source: https://twitter.com/CityofCT/status/1633424847626817537
     include: coct
