@@ -3,7 +3,6 @@ use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
 use icalendar::{Calendar, Component, Event};
 use scraper::Html;
 use scraper::Selector;
-use serde_yaml;
 use std::fs::{read_dir, read_to_string, File, OpenOptions};
 use std::io::Write;
 use std::path::{Path, PathBuf};
@@ -18,32 +17,6 @@ mod structs;
 
 /// Download pdfs if the parsed CSVs don't already exist, and use them to create `ics` files.
 fn main() {
-    // Download all the pdfs from the internet
-    // let args: Vec<String> = env::args().collect();
-    // Up to a limit that can be set via cmdline args (mainly used for testing)
-    // let limit = if args.get(1).is_some() {
-    //     Some(args[1].parse().expect("Failed to parse env::args()[0]"))
-    // } else {
-    //     None
-    // };
-    // Define the URLs which list the PDFs per-province.
-    // let source_urls = vec![
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/free-state/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/gauteng/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/kwazulu-natal/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/limpopo/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/mpumalanga/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/north-west/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/northern-cape/",
-    //     "https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/western-cape/",
-    // ];
-
-    // Download the PDFs for each province.
-    // for url in source_urls {
-    //     dl_pdfs(url, limit);
-    // }
-
     // Get the paths of the csv files generated
     let csv_paths = read_dir("generated/")
         .expect("Failed to read_dir(\"generated/\")")
@@ -70,8 +43,8 @@ fn main() {
 
     // Write the header line of the csv file
     let mut file = File::create("calendars/machine_friendly.csv").expect("Failed to create file ");
-    writeln!(&mut file, "{}", "area_name,start,finsh,stage,source")
-        .expect(format!("Failed to write to file {:?}", file).as_str());
+    writeln!(&mut file, "area_name,start,finsh,stage,source")
+        .unwrap_or_else(|_| panic!("Failed to write to file {:?}", file));
 
     // Convert the csv files to ics files, taking the intersection of the load shedding events and
     // the manually input loadshedding schedules
@@ -82,7 +55,7 @@ fn main() {
         // }
         create_calendar(
             path.to_str()
-                .expect(format!("Failed to convert {:?} to str", path).as_str())
+                .unwrap_or_else(|| panic!("Failed to convert {:?} to str", path))
                 .to_string(),
             &mis,
         );
@@ -91,9 +64,9 @@ fn main() {
 
 /// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
 /// convert them via a python script to csv file containing load shedding schedules.
-fn dl_pdfs(url: &str, limit: Option<usize>) {
+fn _dl_pdfs(url: &str, limit: Option<usize>) {
     blue_ln!(" Getting province PDFs from {}", url);
-    let val = reqwest::blocking::get(url).expect(format!("Failed to get url {url}").as_str());
+    let val = reqwest::blocking::get(url).unwrap_or_else(|_| panic!("Failed to get url {url}"));
     let html = val.text().unwrap();
     let document = Html::parse_document(&html);
 
@@ -147,10 +120,9 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
             break;
         }
         let fname = area
-            .replace(":", "")
-            .replace(" ", "")
+            .replace([':', ' '], "")
             .replace(|c: char| !c.is_ascii(), "");
-        let province = url.split("/").collect::<Vec<_>>()[7];
+        let province = url.split('/').collect::<Vec<_>>()[7];
         let savename = format!("{province}-{fname}").to_lowercase();
         // Don't bother downloading the pdf if the resultant CSV already exists
         if Path::new(format!("generated/{savename}.csv").as_str()).exists() {
@@ -171,7 +143,7 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                         red_ln!(
                             "   Error with async python process: \n   stdout: {}\n   stderr: {}",
                             String::from_utf8_lossy(&res.stdout),
-                            String::from_utf8_lossy(&res.stderr).replace("\n", "\n    ")
+                            String::from_utf8_lossy(&res.stderr).replace('\n', "\n    ")
                         );
                         grey_ln!("{:?}", res.stderr);
                     }
@@ -191,7 +163,7 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
                     red_ln!(
                         "   Error with async python process: \n   stdout: {}\n   stderr: {}",
                         String::from_utf8_lossy(&res.stdout),
-                        String::from_utf8_lossy(&res.stderr).replace("\n", "\n    ")
+                        String::from_utf8_lossy(&res.stderr).replace('\n', "\n    ")
                     );
                 }
             }
@@ -205,7 +177,7 @@ fn dl_pdfs(url: &str, limit: Option<usize>) {
 /// Create a single loadshedding calendar given one area's csv data
 fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     let mut rdr = csv::Reader::from_path(csv_path.clone())
-        .expect(format!("Failed to parse csv at {csv_path}").as_str());
+        .unwrap_or_else(|_| panic!("Failed to parse csv at {csv_path}"));
     let mut local_sheddings: Vec<MonthlyShedding> = vec![];
     let mut csv_lines = vec![];
     let mut calendar = Calendar::new();
@@ -215,8 +187,8 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
             continue;
         }
         local_sheddings.push(MonthlyShedding {
-            start_time: shedding.start_time.clone(),
-            finsh_time: shedding.finsh_time.clone(),
+            start_time: shedding.start_time,
+            finsh_time: shedding.finsh_time,
             stage: shedding.stage,
             date_of_month: shedding.date_of_month,
             goes_over_midnight: shedding.goes_over_midnight,
@@ -224,7 +196,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     }
 
     let output = Command::new("git")
-        .args(&["rev-parse", "HEAD"])
+        .args(["rev-parse", "HEAD"])
         .output()
         .unwrap();
     let git_hash = String::from_utf8(output.stdout).unwrap();
@@ -268,7 +240,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
             );
 
             if national.stage == local.stage {
-                let mut dt = national.start.clone();
+                let mut dt = national.start;
                 while national.finsh > dt {
                     let year = dt.year();
                     let month = dt.month();
@@ -304,7 +276,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                         minute = local.start_time.minute(),
                     );
                     let local_start = DateTime::parse_from_rfc3339(l_start.as_str())
-                        .expect(format!("Failed to parse time {l_start} as RFC3339").as_str());
+                        .unwrap_or_else(|_| panic!("Failed to parse time {l_start} as RFC3339"));
 
                     let l_finsh = format!(
                         "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
@@ -315,7 +287,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
                         minute = local.finsh_time.minute(),
                     );
                     let mut local_finsh = DateTime::parse_from_rfc3339(l_finsh.as_str())
-                        .expect(format!("Failed to parse time {l_finsh} as RFC3339").as_str());
+                        .unwrap_or_else(|_| panic!("Failed to parse time {l_finsh} as RFC3339"));
 
                     // If the event goes over midnight, then add one day to the end date
                     if local.goes_over_midnight {
@@ -441,9 +413,9 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
         .replace(|c: char| !c.is_ascii(), "")
         .replace("&nbsp;", "");
     let mut file =
-        File::create(fname.as_str()).expect(format!("Failed to create file {}", fname).as_str());
+        File::create(fname.as_str()).unwrap_or_else(|_| panic!("Failed to create file {}", fname));
     writeln!(&mut file, "{}", calendar)
-        .expect(format!("Failed to write to file {:?}", file).as_str());
+        .unwrap_or_else(|_| panic!("Failed to write to file {:?}", file));
 
     // Write out the CSV file
     let mut file = OpenOptions::new()
@@ -455,7 +427,7 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
     csv_lines.sort();
     for line in csv_lines {
         writeln!(&mut file, "{}", line)
-            .expect(format!("Failed to write to file {:?}", file).as_str());
+            .unwrap_or_else(|_| panic!("Failed to write to file {:?}", file));
     }
 }
 
@@ -464,11 +436,11 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
 fn panic_if_changes_overlap(changes: &Vec<&Shedding>) {
     for change1 in changes {
         for change2 in changes {
+            let not_same_item = change1 != change2;
+            let c1_overlaps_c2 = change1.finsh > change2.start && change1.start < change2.finsh;
+            let c2_overlaps_c1 = change2.finsh > change1.start && change2.start < change1.finsh;
             // If they're not the same item, but they do overlap, then panic
-            if (change1 != change2)
-                && ((change1.finsh > change2.start && change1.start < change2.finsh)
-                    || (change2.finsh > change1.start && change2.start < change1.finsh))
-            {
+            if not_same_item && (c1_overlaps_c2 || c2_overlaps_c1) {
                 panic!("Changes overlap:\nChange1: {change1:#?}\nChange2: {change2:#?}\nYou probably entered invalid information into `manually_specified.yaml`");
             }
         }
@@ -486,13 +458,13 @@ fn to_csv_line(
 }
 
 fn to_title_case(s: String) -> String {
-    s.split(" ")
+    s.split(' ')
         .into_iter()
         .map(|si| {
             // Capitalise the first character
-            si.chars().nth(0).unwrap().to_uppercase().to_string()
+            si.chars().next().unwrap().to_uppercase().to_string()
                 // And just join the remaining characters together
-                + si.chars().skip(1).map(|c| c.to_string()).reduce(|acc, curr| acc + &curr).unwrap_or("".to_string()).to_string().as_str()
+                + si.chars().skip(1).map(|c| c.to_string()).reduce(|acc, curr| acc + &curr).unwrap_or_default().as_str()
         })
         .collect()
 }
@@ -519,12 +491,12 @@ fn prettify_area_name(area_name: &str) -> String {
         area_name.replace("gauteng-tshwane-group-", "Tshwane ")
     } else {
         // Convert areas of the form `{province}-{area}` into `{area} ({province acronym})`
-        let mut prettified = to_title_case(area_name.replace("-", " "));
+        let mut prettified = to_title_case(area_name.replace('-', " "));
         for (prefix, replacement) in prefixes {
             if area_name.starts_with(prefix) {
                 prettified = format!(
                     "{} ({})",
-                    to_title_case(area_name.replace(prefix, "").replace("-", " ")),
+                    to_title_case(area_name.replace(prefix, "").replace('-', " ")),
                     replacement
                 );
                 break;

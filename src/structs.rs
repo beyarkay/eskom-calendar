@@ -125,19 +125,21 @@ impl From<RawShedding> for Shedding {
         let exclude_regex = Regex::new(&exclude_str).unwrap_or(Regex::new(r".*").unwrap());
 
         Shedding {
-            start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).expect(
-                format!(
-                    "Failed to parse start time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
-                    raw.start
-                )
-                .as_str(),
+            start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).unwrap_or_else(
+                |_| {
+                    panic!(
+                        "Failed to parse start time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
+                        raw.start
+                    )
+                },
             ),
-            finsh: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.finsh)).expect(
-                format!(
-                    "Failed to parse finsh time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
-                    raw.finsh
-                )
-                .as_str(),
+            finsh: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.finsh)).unwrap_or_else(
+                |_| {
+                    panic!(
+                        "Failed to parse finsh time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
+                        raw.finsh
+                    )
+                },
             ),
             stage: raw.stage,
             source: raw.source,
@@ -207,24 +209,22 @@ impl From<RawMonthlyShedding> for MonthlyShedding {
                 "1970-01-01T{}:00+02:00",
                 raw.start_time
             ))
-            .expect(
-                format!(
+            .unwrap_or_else(|_| {
+                panic!(
                     "Failed to parse start time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
                     raw.start_time
                 )
-                .as_str(),
-            ),
+            }),
             finsh_time: DateTime::parse_from_rfc3339(&format!(
                 "1970-01-{date}T{}:00+02:00",
                 raw.finsh_time
             ))
-            .expect(
-                format!(
+            .unwrap_or_else(|_| {
+                panic!(
                     "Failed to parse start time 1970-01-01T{}:00+02:00 as RFC3339, {raw:?}",
                     raw.finsh_time
                 )
-                .as_str(),
-            ),
+            }),
             stage: raw.stage,
             date_of_month: raw.date_of_month,
             goes_over_midnight,
