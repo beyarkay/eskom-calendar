@@ -20,15 +20,10 @@ changes:
     exclude: coct
 
     # CoCT
-  - stage: 2
-    start: 2023-03-17T05:00:00
-    finsh: 2023-03-17T22:00:00
-    source: https://twitter.com/CityofCT/status/1636017301572014086
-    include: coct
-  - stage: 3
-    start: 2023-03-17T22:00:00
-    finsh: 2023-03-18T05:00:00
-    source: https://twitter.com/CityofCT/status/1636017301572014086
+  - stage: 1
+    start: 2023-03-17T12:00:00
+    finsh: 2023-03-24T00:00:00
+    source: https://twitter.com/CityofCT/status/1636675055844306944
     include: coct
 
 historical_changes: []
