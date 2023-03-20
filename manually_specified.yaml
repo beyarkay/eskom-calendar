@@ -19,26 +19,16 @@ changes:
     source: https://twitter.com/Eskom_SA/status/1637734509075472384
     exclude: coct
 
-  # CoCT
-  - stage: 1
-    start: 2023-03-20T16:00:00
-    finsh: 2023-03-20T22:00:00
-    source: https://twitter.com/CityofCT/status/1637466317451083780
-    include: coct
-  - stage: 2
-    start: 2023-03-20T22:00:00
-    finsh: 2023-03-21T05:00:00
-    source: https://twitter.com/CityofCT/status/1637466317451083780
-    include: coct
+  # CoCT    
   - stage: 1
     start: 2023-03-21T16:00:00
     finsh: 2023-03-21T22:00:00
-    source: https://twitter.com/CityofCT/status/1637466317451083780
+    source: https://twitter.com/CityofCT/status/1637755465932193793
     include: coct
   - stage: 2
     start: 2023-03-21T22:00:00
     finsh: 2023-03-22T05:00:00
-    source: https://twitter.com/CityofCT/status/1637466317451083780
+    source: https://twitter.com/CityofCT/status/1637755465932193793
     include: coct
 
 historical_changes: []
