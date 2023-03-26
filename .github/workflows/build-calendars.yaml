@@ -34,14 +34,6 @@ jobs:
       with:
         requirements: requirements.txt
 
-    - name: Install InkScape
-      run: sudo apt-get install inkscape
-      shell: sh
-
-    - name: Create Calendar Preview
-      run: python src/create_preview.py
-      shell: sh
-
     - name: Cargo build
       uses: actions-rs/cargo@v1
       with:
@@ -68,14 +60,3 @@ jobs:
           This release contains build artefacts. If you want to add load
           shedding to your calendar, click
           [here](https://github.com/beyarkay/eskom-calendar/releases/tag/latest).
-
-    - name: Create summary of calendar changes
-      id: create_summary
-      run: python src/calendars_to_pr_comment.py
-
-    - name: Comment summary to PR
-      uses: mb2dev/github-action-comment-pull-request@1.0.0
-      continue-on-error: true
-      with:
-        message: ${{ steps.create_summary.outputs.pr-comment }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
