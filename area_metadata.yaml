@@ -1468,7 +1468,7 @@ area_details:
     name: ["hou-moed","victor-verster","pearl-valley","val-die-vie","val-de-vie"]
   - province: western-cape
     municipality: "stellenbosch"
-    name: ["cloetesville","de zalze","de-zalze","dwarsrivier","fransch-hoek","franschhoek","groot-drakenstein","idas-valley","jamestown","kayamandi","koelenhof","kylemore","la motte","lanquedoc","lynedoch","onder-papegaaiberg","plankenburg","pniel","raithby","robertsvlei","somerset-west-nu","stellenbosch-nu","steynsrust","vlottenburg","webersvallei","wemmershoek"]
+    name: ["cloetesville","de zalze","dwarsrivier","fransch-hoek","franschhoek","groot-drakenstein","idas-valley","jamestown","kayamandi","koelenhof","kylemore","la motte","lanquedoc","lynedoch","onder-papegaaiberg","plankenburg","pniel","raithby","robertsvlei","somerset-west-nu","stellenbosch-nu","steynsrust","vlottenburg","webersvallei","wemmershoek"]
 
 - calendar_name: eskom-direct-8-odd.ics
   provider: eskom
