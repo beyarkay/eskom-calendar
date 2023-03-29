@@ -4458,17 +4458,6 @@ area_details:
   - name: jeffreysbay
     lat_lngs: []
 
-- calendar_name: eastern-cape-kareedouw.ics
-  province: eastern-cape
-  municipality: unknown
-  city: kareedouw
-  provider: eskom
-  source: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/eastern-cape/
-  source_info: https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/
-  areas:
-  - name: kareedouw
-    lat_lngs: []
-
 - calendar_name: eastern-cape-kirkwood.ics
   province: eastern-cape
   municipality: unknown
