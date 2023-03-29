@@ -295,7 +295,7 @@ area_details:
     name: ["amospoortjie","avondrust","bloemandal","bloupunt","droogekloof","frisgewaagd","gideonshoop","kapteinskraal","klaarstroom","kleinplaas","kluesplaas","koekfontein","lammerkraal","marinco","oorlogskloof","rietfontein","rosselerf","scheepersrus","seekoegat","trakas-kuilen","vlakteplaas","vrolikheid","witrivier","wolwekraal","zwartskraal"]
   - province: western-cape
     municipality: "stellenbosch"
-    name: ["devonvallei"]
+    name: ["devonvallei","stellenbosch central","university of stellenbosch","ida's valley","die boord","paradyskloof","stellenbosch cbd","stellenbosch surrounding areas"]
   - province: western-cape
     municipality: "swartland"
     name: ["de-gift","die-mond","goedertrou","groenvlei","holdrif","klein-bakoven","klipdrift","kruispad-ongegund","langkloof","louwsbaken","ongegund","riebeek-wes","rietvlei","sandgat","sluiswyk","uitkyk-ongegund","vaalvlei","vlakkerug","winkelhaaksvlei"]
@@ -1468,7 +1468,7 @@ area_details:
     name: ["hou-moed","victor-verster","pearl-valley","val-die-vie","val-de-vie"]
   - province: western-cape
     municipality: "stellenbosch"
-    name: ["cloetesville","franschhoek","fransch-hoek","groot-drakenstein","idas-valley","lynedoch","onder-papegaaiberg","raithby","robertsvlei","somerset-west-nu","stellenbosch-nu","steynsrust","webersvallei","wemmershoek","pniel"]
+    name: ["cloetesville","de zalze","de-zalze","dwarsrivier","fransch-hoek","franschhoek","groot-drakenstein","idas-valley","jamestown","kayamandi","koelenhof","kylemore","la motte","lanquedoc","lynedoch","onder-papegaaiberg","plankenburg","pniel","raithby","robertsvlei","somerset-west-nu","stellenbosch-nu","steynsrust","vlottenburg","webersvallei","wemmershoek"]
 
 - calendar_name: eskom-direct-8-odd.ics
   provider: eskom
@@ -2896,7 +2896,7 @@ area_details:
     name: ["bennetsville","driehoek","klapmuts","stellengift"]
   - province: western-cape
     municipality: "stellenbosch"
-    name: ["bennetsville","klapmuts","paarl-outlying","stellenbosch-nu"]
+    name: ["bennetsville","klapmuts","bloekombos","muldersvlei","paarl-outlying","stellenbosch-nu"]
 
 - calendar_name: eskom-direct-16-odd.ics
   provider: eskom
