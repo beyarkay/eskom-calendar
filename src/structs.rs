@@ -1,10 +1,91 @@
+use clap::Parser;
 use regex::Regex;
-use std::fmt::Debug;
+use std::fmt::{Debug, Display};
 
 use chrono::{DateTime, FixedOffset, NaiveTime};
 use serde::{Deserialize, Serialize};
 
-/// A multitude of load shedding for a particular suburb
+/// Represents a duration of time for which the power will be out for a particular area.
+///
+/// Requires specifying where the information came from (in `source`) as well as the stage of
+/// loadshedding.
+#[derive(PartialEq, Eq)]
+pub struct PowerOutage {
+    pub area_name: String,
+    pub stage: u8,
+    pub start: DateTime<FixedOffset>,
+    pub finsh: DateTime<FixedOffset>,
+    pub source: String,
+}
+
+impl PowerOutage {
+    pub fn csv_header() -> String {
+        "area_name,start,finsh,stage,source".to_owned()
+    }
+}
+
+impl PartialOrd for PowerOutage {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        match self.area_name.partial_cmp(&other.area_name) {
+            Some(core::cmp::Ordering::Equal) => {}
+            ord => return ord,
+        }
+        match self.stage.partial_cmp(&other.stage) {
+            Some(core::cmp::Ordering::Equal) => {}
+            ord => return ord,
+        }
+        match self.start.partial_cmp(&other.start) {
+            Some(core::cmp::Ordering::Equal) => {}
+            ord => return ord,
+        }
+        match self.finsh.partial_cmp(&other.finsh) {
+            Some(core::cmp::Ordering::Equal) => {}
+            ord => return ord,
+        }
+        self.source.partial_cmp(&other.source)
+    }
+}
+
+impl Ord for PowerOutage {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.partial_cmp(other).unwrap_or(std::cmp::Ordering::Equal)
+    }
+}
+
+impl Display for PowerOutage {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{area_name},{start:?},{finsh:?},{stage},{source:?}",
+            area_name = self.area_name,
+            start = self.start,
+            finsh = self.finsh,
+            stage = self.stage,
+            source = self.source,
+        )
+    }
+}
+
+/// Parse a number of CSV files and a manually_specified YAML file into various load shedding
+/// outputs.
+#[derive(Parser, Debug)]
+#[command(author, version, about, long_about = None)]
+pub struct Args {
+    /// An optional regex, against which all input CSV schedules must match.
+    #[arg(short, long)]
+    pub include_regex: Option<Regex>,
+    /// Whether or not to output human-friendly ICS files.
+    #[arg(long, action=clap::ArgAction::Set, default_value_t = true)]
+    pub output_ics_files: bool,
+    /// Whether or not to output a machine-friendly CSV file.
+    #[arg(long, action=clap::ArgAction::Set, default_value_t = true)]
+    pub output_csv_file: bool,
+    /// This option provides a fast check which ensures that the YAML is valid.
+    #[arg(long, action=clap::ArgAction::Set, default_value_t = false)]
+    pub only_check_for_overlaps: bool,
+}
+
+/// A multitude of load shedding
 pub struct ManuallyInputSchedule {
     /// LoadShedding changes, usually in the future (but not always)
     pub changes: Vec<Shedding>,
@@ -12,7 +93,7 @@ pub struct ManuallyInputSchedule {
     pub historical_changes: Vec<Shedding>,
 }
 
-/// A multitude of load shedding for a particular suburb
+/// A multitude of load shedding
 #[derive(Serialize, Deserialize)]
 pub struct RawManuallyInputSchedule {
     /// LoadShedding changes, usually in the future (but not always)
@@ -35,7 +116,7 @@ impl From<RawManuallyInputSchedule> for ManuallyInputSchedule {
 }
 
 /// A single duration of loadshedding that only has one stage.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Shedding {
     /// The time when LoadShedding *should* start
     pub start: DateTime<FixedOffset>,
@@ -63,34 +144,34 @@ pub struct Shedding {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RawShedding {
     /// The time when LoadShedding *should* start
-    start: String,
+    pub start: String,
     /// The time when LoadShedding *should* end. Note that `finsh` is spelt without the second `i`,
     /// so that it lines up with `start`.
-    finsh: String,
+    pub finsh: String,
     /// The stage of loadshedding
-    stage: u8,
+    pub stage: u8,
     /// The source of information for this loadshedding event
-    source: String,
+    pub source: String,
     /// Optionally specify a rust-regex pattern which the area name must match in order for this
     /// shedding to be applied to it. For example, `include_regex: city-of-cape-town-area-\d{1,2}`
     /// will include all city of cape town areas. If `include_regex` and `exclude_regex` conflict
     /// with each other, the area *will* be included. If no include/exclude are specified,
     /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
-    include_regex: Option<String>,
+    pub include_regex: Option<String>,
     /// Optionally specify a rust-regex pattern which the area name must *not* match in order for this
     /// shedding to be applied to it. For example, `exclude_regex: city-of-cape-town-area-\d{1,2}`
     /// will exclude all city of cape town areas. If `include_regex` and `exclude_regex` conflict
     /// with each other, the area *will* be included. If no include/exclude are specified,
     /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
-    exclude_regex: Option<String>,
+    pub exclude_regex: Option<String>,
     /// A shorthand so you don't have to specify the full regex. `include: coct` is equivalent to
     /// `include_regex: city-of-cape-town-area-\d{1,2}`. If no include/exclude are specified,
     /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
-    include: Option<String>,
+    pub include: Option<String>,
     /// A shorthand so you don't have to specify the full regex. `exclude: coct` is equivalent to
     /// `exclude_regex: city-of-cape-town-area-\d{1,2}`. If no include/exclude are specified,
     /// `include_regex: .*` is used by default (so the loadshedding is applied to all areas.
-    exclude: Option<String>,
+    pub exclude: Option<String>,
 }
 
 impl From<RawShedding> for Shedding {
@@ -108,21 +189,21 @@ impl From<RawShedding> for Shedding {
         // This will first try to use the explicit regex. If there is no explicit regex, then try
         // to parse the shorthand. If there is no shorthand or if the shorthand is unknown, then
         // use the explicit ".*" match everything regex
-        let include_str = raw.include_regex.clone().unwrap_or(
+        let include_str = raw.include_regex.clone().unwrap_or_else(|| {
             raw.include.clone().map_or(r".*".to_string(), |shorthand| {
                 shorthand_to_regex(shorthand, r".*".to_string())
-            }),
-        );
-        let include_regex = Regex::new(&include_str).unwrap_or(Regex::new(r".*").unwrap());
+            })
+        });
+        let include_regex = Regex::new(&include_str).unwrap_or_else(|_| Regex::new(r".*").unwrap());
 
-        let exclude_str = raw.exclude_regex.clone().unwrap_or(
+        let exclude_str = raw.exclude_regex.clone().unwrap_or_else(|| {
             raw.exclude
                 .clone()
                 .map_or(r"matchnothing^".to_string(), |shorthand| {
                     shorthand_to_regex(shorthand, r"matchnothing^".to_string())
-                }),
-        );
-        let exclude_regex = Regex::new(&exclude_str).unwrap_or(Regex::new(r".*").unwrap());
+                })
+        });
+        let exclude_regex = Regex::new(&exclude_str).unwrap_or_else(|_| Regex::new(r".*").unwrap());
 
         Shedding {
             start: DateTime::parse_from_rfc3339(&format!("{}+02:00", raw.start)).unwrap_or_else(
@@ -165,7 +246,7 @@ impl PartialEq for Shedding {
 /// time (but the date is always 1 Jan 1970 or 2 Jan 1970), a boolean to indicate if the start time and the end
 /// time imply the loadshedding goes over midnight (ie from 22:00 to 00:30) and the stage of the
 /// loadshedding.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct MonthlyShedding {
     /// The time when LoadShedding *should* start. The date of this member will always be 1 Jan
     /// 1970.
@@ -187,13 +268,13 @@ pub struct MonthlyShedding {
 #[derive(Deserialize, Debug)]
 pub struct RawMonthlyShedding {
     /// The time when LoadShedding *should* start.
-    start_time: String,
+    pub start_time: String,
     /// The time when LoadShedding *should* finish (note the spelling).
-    finsh_time: String,
+    pub finsh_time: String,
     /// The stage of loadshedding.
-    stage: u8,
+    pub stage: u8,
     /// The date of the month which this event occurs on
-    date_of_month: u8,
+    pub date_of_month: u8,
 }
 
 impl From<RawMonthlyShedding> for MonthlyShedding {

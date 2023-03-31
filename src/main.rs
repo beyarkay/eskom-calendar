@@ -1,377 +1,419 @@
 use chrono::FixedOffset;
-use chrono::{DateTime, Datelike, Duration, NaiveDate, Timelike, Utc};
-use icalendar::{Calendar, Component, Event};
-use scraper::Html;
-use scraper::Selector;
-use std::fs::{read_dir, read_to_string, File, OpenOptions};
+use chrono::{DateTime, Datelike, NaiveTime, Timelike};
+use icalendar::Calendar;
+use regex::Regex;
+use std::error::Error;
+use std::fs::File;
 use std::io::Write;
 use std::path::{Path, PathBuf};
-use std::process::{Command, Stdio};
-use structs::{
-    ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding, Shedding,
-};
-#[macro_use]
-extern crate colour;
+use std::process::Command;
+use structs::{Args, ManuallyInputSchedule, MonthlyShedding, PowerOutage, Shedding};
+// TODO use rayon's par_iter to speed up lots of operatiosn
+// TODO write docstrings
+// TODO check that the formatting of the description is correct
+// TODO include some sort of progress bar
 
+extern crate pretty_env_logger;
+use log::{info, trace};
+
+use clap::Parser;
 mod structs;
 
 /// Download pdfs if the parsed CSVs don't already exist, and use them to create `ics` files.
-fn main() {
-    // Get the paths of the csv files generated
-    let csv_paths = read_dir("generated/")
-        .expect("Failed to read_dir(\"generated/\")")
-        .filter_map(|f| {
-            if let Ok(entry) = f {
-                if let Some(extension) = entry.path().extension() {
-                    if extension == "csv" {
-                        return Some(entry.path());
-                    }
-                }
-            }
-            None
-        })
-        .collect::<Vec<PathBuf>>();
+fn main() -> Result<(), Box<dyn Error>> {
+    pretty_env_logger::init();
 
-    // Get the loadshedding schedule as defined in `manually_specified.yaml`
-    let mis: ManuallyInputSchedule = serde_yaml::from_str::<RawManuallyInputSchedule>(
-        read_to_string("manually_specified.yaml")
-            .expect("Failed to read_to_string(manually_specified.yaml)")
-            .as_str(),
-    )
-    .expect("Failed to convert string to yaml")
-    .into();
+    // Parse the command-line arguments
+    let args = Args::parse();
 
-    // Write the header line of the csv file
-    let mut file = File::create("calendars/machine_friendly.csv").expect("Failed to create file ");
-    writeln!(&mut file, "area_name,start,finsh,stage,source")
-        .unwrap_or_else(|_| panic!("Failed to write to file {:?}", file));
+    // Read in the CSV paths
+    let paths = read::get_csv_paths("generated/")?;
 
-    // Convert the csv files to ics files, taking the intersection of the load shedding events and
-    // the manually input loadshedding schedules
-    eprintln!("Creating {} calendars", csv_paths.len());
-    for path in csv_paths {
-        // if !path.to_str().unwrap().starts_with("generated/city-power-") {
-        //     continue;
-        // }
-        create_calendar(
-            path.to_str()
-                .unwrap_or_else(|| panic!("Failed to convert {:?} to str", path))
-                .to_string(),
-            &mis,
-        );
-    }
-}
+    // Read in the manually_specified YAML file
+    let manually_specified = read::read_manually_specified("manually_specified.yaml")?;
 
-/// Given a url, download the pdfs from that url that match the css selector `div>div>p>span>a` and
-/// convert them via a python script to csv file containing load shedding schedules.
-fn _dl_pdfs(url: &str, limit: Option<usize>) {
-    blue_ln!(" Getting province PDFs from {}", url);
-    let val = reqwest::blocking::get(url).unwrap_or_else(|_| panic!("Failed to get url {url}"));
-    let html = val.text().unwrap();
-    let document = Html::parse_document(&html);
-
-    let mut areas_hrefs = vec![];
-    let selector1 = Selector::parse("div>div>p>span>a").unwrap();
-    let selector2 = Selector::parse("div>div>p>a").unwrap();
-    let limit = limit.unwrap_or(0)
-        + document.select(&selector1).count()
-        + document.select(&selector2).count();
-
-    eprintln!(
-        "  Parsing {} links ({} + {})",
-        document.select(&selector2).count() + document.select(&selector1).count(),
-        document.select(&selector1).count(),
-        document.select(&selector2).count(),
-    );
-    // First go through the HTML elements which match selector1
-    for element in document.select(&selector1) {
-        let area = element.first_child().unwrap().value().as_text();
-        let href = element.value().attr("href");
-        areas_hrefs.push((&area.unwrap().text, href));
-    }
-    // Second go through the HTML elements which match selector2
-    for element in document.select(&Selector::parse("div>div>p>a").unwrap()) {
-        let mut area = element
-            .first_child()
-            .unwrap()
-            .first_child()
-            .and_then(|c| c.value().as_text());
-        if area.is_none() {
-            area = element.first_child().unwrap().value().as_text();
-        }
-        let href = element.value().attr("href");
-        areas_hrefs.push((&area.unwrap().text, href));
-    }
-    let areas_hrefs = areas_hrefs
-        .into_iter()
-        .filter(|(_a, h)| {
-            h.is_some()
-                && h.unwrap()
-                    .starts_with("https://www.eskom.co.za/distribution/wp-content/uploads")
-        })
-        .map(|(a, h)| (a, h.unwrap()))
-        .collect::<Vec<_>>();
-
-    let mut pdfs_scraped = 0;
-    let mut handles = vec![];
-    for (area, href) in areas_hrefs {
-        if pdfs_scraped >= limit {
-            eprintln!("Reached limit of {limit} URLs, stopping scraping");
-            break;
-        }
-        let fname = area
-            .replace([':', ' '], "")
-            .replace(|c: char| !c.is_ascii(), "");
-        let province = url.split('/').collect::<Vec<_>>()[7];
-        let savename = format!("{province}-{fname}").to_lowercase();
-        // Don't bother downloading the pdf if the resultant CSV already exists
-        if Path::new(format!("generated/{savename}.csv").as_str()).exists() {
-            continue;
-        }
-        eprintln!("   $ python3 src/parse_eskom.py {href:<90} {savename:<20}");
-        let handle = Command::new("python3")
-            .args(["src/parse_eskom.py", href, &savename])
-            .stdout(Stdio::piped())
-            .stderr(Stdio::piped())
-            .spawn()
-            .expect("Failed to execute command");
-        handles.push(handle);
-        if handles.len() > 50 {
-            match handles.pop().unwrap().wait_with_output() {
-                Ok(res) => {
-                    if !res.status.success() {
-                        red_ln!(
-                            "   Error with async python process: \n   stdout: {}\n   stderr: {}",
-                            String::from_utf8_lossy(&res.stdout),
-                            String::from_utf8_lossy(&res.stderr).replace('\n', "\n    ")
-                        );
-                        grey_ln!("{:?}", res.stderr);
-                    }
-                }
-                Err(e) => {
-                    red_ln!("   Error with python process: {}", e);
-                }
-            }
-        }
-        pdfs_scraped += 1;
-    }
-    // Go through all the python processes and wait for them to finish
-    for handle in handles {
-        match handle.wait_with_output() {
-            Ok(res) => {
-                if !res.status.success() {
-                    red_ln!(
-                        "   Error with async python process: \n   stdout: {}\n   stderr: {}",
-                        String::from_utf8_lossy(&res.stdout),
-                        String::from_utf8_lossy(&res.stderr).replace('\n', "\n    ")
-                    );
-                }
-            }
-            Err(e) => {
-                red_ln!("   Error waiting for python process: {}", e);
-            }
-        }
-    }
-}
-
-/// Create a single loadshedding calendar given one area's csv data
-fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
-    let mut rdr = csv::Reader::from_path(csv_path.clone())
-        .unwrap_or_else(|_| panic!("Failed to parse csv at {csv_path}"));
-    let mut local_sheddings: Vec<MonthlyShedding> = vec![];
-    let mut csv_lines = vec![];
-    let mut calendar = Calendar::new();
-    for result in rdr.deserialize::<RawMonthlyShedding>() {
-        let shedding: MonthlyShedding = result.unwrap().into();
-        if shedding.stage == 0 {
-            continue;
-        }
-        local_sheddings.push(MonthlyShedding {
-            start_time: shedding.start_time,
-            finsh_time: shedding.finsh_time,
-            stage: shedding.stage,
-            date_of_month: shedding.date_of_month,
-            goes_over_midnight: shedding.goes_over_midnight,
-        });
+    // Ensure that none of the manually_specified areas conflict with one another
+    err_if_overlaps(&manually_specified.changes, &paths)?;
+    if args.only_check_for_overlaps {
+        return Ok(());
     }
 
-    let output = Command::new("git")
-        .args(["rev-parse", "HEAD"])
-        .output()
-        .unwrap();
-    let git_hash = String::from_utf8(output.stdout).unwrap();
-    let emojis = vec!["😁", "😕", "☹️", "😟", "😣", "😭", "😫", "😤", "😡"];
+    // Only include those CSV paths permitted by the --include-regex CLI argument
+    let mut filtered_paths = filter_paths_by_regex(args.include_regex, paths);
+    filtered_paths.sort();
 
-    let area_name = csv_path
-        .replace("generated/", "")
-        .replace(".csv", "")
-        .replace(|c: char| !c.is_ascii(), "");
-    // eprintln!("{}", area_name);
-    // for national in &mis.changes {
-    //     eprintln!("National {:?}", national);
-    // }
-    let national_changes: Vec<&Shedding> = mis
-        .changes
+    // Convert the paths into lines which can be written to a CSV
+    let mut csv_lines = filtered_paths
         .iter()
-        .filter(|c| !c.exclude_regex.is_match(&area_name) && c.include_regex.is_match(&area_name))
-        .collect();
-    panic_if_changes_overlap(&national_changes);
-    // for national in &national_changes {
-    //     eprintln!("Without Overlap {:?}", national);
-    // }
+        // Convert the paths to (path, shedding) tuples
+        .map(|path| (path, read::read_sheddings_from_csv_path(path)))
+        // Exclude all sheddings which failed
+        .filter_map(|(path, sheddings)| match sheddings {
+            Ok(sheddings) => Some((path, sheddings)),
+            Err(_) => None,
+        })
+        // Exclude all sheddings which can't be converted to CsvLines
+        .filter_map(|(path, sheddings)| {
+            let area_name = fmt::path_to_area_name(path).unwrap();
+            match calculate_power_outages(&area_name, sheddings, &manually_specified) {
+                Ok(lines) => Some((path, lines)),
+                Err(_) => None,
+            }
+        })
+        // Write the individual sheddings to ICS files
+        .map(|(path, lines)| {
+            if args.output_ics_files {
+                write_sheddings_to_ics(path, &lines).unwrap();
+            }
+            (path, lines)
+        })
+        // Fold the multiple CSV vectors into one long vector
+        .fold(vec![], |mut acc, (_path, lines)| {
+            acc.extend(lines);
+            acc
+        });
 
-    let mut last_event: Option<DateTime<FixedOffset>> = None;
-    for national in national_changes {
-        // If the local loadshedding matches the include_regex and exclude_regex and the stage
-        // is correct, then add the loadshedding
+    if args.output_csv_file {
+        // Write the lines to a CSV
+        overwrite_lines_to_csv(&mut csv_lines)?;
+    }
+    Ok(())
+}
 
-        blue!(
-            "Creating calendar for {:?} from {:?} to {:?}",
-            csv_path,
-            national.start,
-            national.finsh,
-        );
-        for local in &local_sheddings {
-            let summary = format!(
-                "🔌{area_name} Stage {stage} {emoji}",
-                area_name = prettify_area_name(&area_name),
-                stage = local.stage,
-                emoji = emojis.get(local.stage as usize).unwrap_or(&"🫠"),
-            );
-
-            if national.stage == local.stage {
-                let mut dt = national.start;
-                while national.finsh > dt {
-                    let year = dt.year();
-                    let month = dt.month();
-                    // println!("Calculating loadshedding for the month {year}-{month:<02}");
-
-                    // Get the number of days in the month by comparing this month's first to the next month's first
-                    let days_in_month = if month == 12 {
-                        NaiveDate::from_ymd(year + 1, 1, 1)
-                    } else {
-                        NaiveDate::from_ymd(year, month + 1, 1)
-                    }
-                    .signed_duration_since(NaiveDate::from_ymd(year, month, 1))
-                    .num_days() as u8;
-                    // Don't create events on the 31st of February
-                    if local.date_of_month > days_in_month {
-                        // yellow_ln!(
-                        //     "Not creating event because date ({}) > days in month ({})",
-                        //     local.date_of_month,
-                        //     days_in_month
-                        // );
-                        let old_month = dt.month();
-                        while old_month == dt.month() {
-                            dt = dt + Duration::days(1);
-                        }
-                        continue;
-                    }
-                    let l_start = format!(
-                        "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
-                        year = year,
-                        month = month,
-                        date = local.date_of_month,
-                        hour = local.start_time.hour(),
-                        minute = local.start_time.minute(),
-                    );
-                    let local_start = DateTime::parse_from_rfc3339(l_start.as_str())
-                        .unwrap_or_else(|_| panic!("Failed to parse time {l_start} as RFC3339"));
-
-                    let l_finsh = format!(
-                        "{year}-{month:02}-{date:02}T{hour:02}:{minute:02}:00+02:00",
-                        year = year,
-                        month = month,
-                        date = local.date_of_month,
-                        hour = local.finsh_time.hour(),
-                        minute = local.finsh_time.minute(),
-                    );
-                    let mut local_finsh = DateTime::parse_from_rfc3339(l_finsh.as_str())
-                        .unwrap_or_else(|_| panic!("Failed to parse time {l_finsh} as RFC3339"));
-
-                    // If the event goes over midnight, then add one day to the end date
-                    if local.goes_over_midnight {
-                        local_finsh = local_finsh + Duration::days(1);
-                    }
-                    if national.start < local_finsh && national.finsh > local_start {
-                        let description = format!(
-                            "{area_name} loadshedding: \n\
-                            - from {local_start} \n\
-                            - to {local_finsh} \n\
-                            \n\
-                            National loadshedding: \n\
-                            - from {nat_start} \n\
-                            - to {nat_finsh} \n\
-                            \n\
-                            Incorrect? Make a suggestion here: https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml \n\
-                            \n\
-                            --- \n\
-                            Generated by Boyd Kane's Eskom-Calendar: https://github.com/beyarkay/eskom-calendar/tree/{git_hash} \n\
-                            \n\
-                            National loadshedding information scraped from {nat_source}\n\
-                            \n\
-                            {area_name} loadshedding information scraped from https://www.eskom.co.za/distribution/customer-service/outages/municipal-loadshedding-schedules/ \n\
-                            \n\
-                            Calendar compiled at {compiletime:?}",
-                            local_start=local_start,
-                            local_finsh=local_finsh,
-                            nat_start=national.start,
-                            nat_finsh=national.finsh,
-                            git_hash=git_hash,
-                            nat_source=national.source,
-                            compiletime=chrono::offset::Local::now(),
-                        );
-                        let event_start = national.start.max(local_start);
-                        let event_finsh = national.finsh.min(local_finsh);
-                        let evt = Event::new()
-                            .summary(summary.as_str())
-                            .description(description.as_str())
-                            .starts(event_start.with_timezone(&Utc))
-                            .ends(event_finsh.with_timezone(&Utc))
-                            .done();
-                        csv_lines.push(to_csv_line(
-                            &area_name,
-                            local.stage,
-                            event_start,
-                            event_finsh,
-                            &national.source,
-                        ));
-                        calendar.push(evt);
-                        // Loadshedding found for this national&local schedule
-                        // eprintln!(" Overlap (National {} and Local {}):\n  national: {} to {},\n  local:    {} to {}",
-                        //     national.stage, local.stage, national.start, national.finsh, local_start, local_finsh,
-                        // );
-                        // eprintln!("   Adding:  {} to {}", event_start, event_finsh);
-                    } else {
-                        // Loadshedding not found for this national&local schedule
-                        // red_ln!("national.start({}) < local_finsh({}) && national.finsh({}) > local_start({})",
-                        //     national.start , local_finsh , national.finsh , local_start
-                        // );
-                    }
-
-                    let old_month = dt.month();
-                    while old_month == dt.month() {
-                        dt = dt + Duration::days(1);
-                    }
+/// Checks the provided changes for illegal overlaps.
+/// For example, specifying Stage 2 from 14h to 16h as well as Stage 3 from 13h to 16h is not
+/// allowed.
+fn err_if_overlaps(changes: &[Shedding], paths: &[PathBuf]) -> Result<(), Box<dyn Error>> {
+    info!("Checking for overlaps...");
+    for path in paths {
+        let area_name = fmt::path_to_area_name(path)?;
+        let regexed_changes = changes
+            .iter()
+            .filter(|c| {
+                !c.exclude_regex.is_match(&area_name) && c.include_regex.is_match(&area_name)
+            })
+            .collect::<Vec<_>>();
+        for change1 in &regexed_changes {
+            for change2 in &regexed_changes {
+                let not_same_item = change1 != change2;
+                let c1_overlaps_c2 = change1.finsh > change2.start && change1.start < change2.finsh;
+                let c2_overlaps_c1 = change2.finsh > change1.start && change2.start < change1.finsh;
+                // If they're not the same item and they overlap, then return an Err()
+                if not_same_item && (c1_overlaps_c2 || c2_overlaps_c1) {
+                    return Err(Box::from(format!(
+                        "Changes overlap:\nChange1: {change1:#?}\nChange2: {change2:#?}\nYou probably entered invalid information into `manually_specified.yaml`"
+                    )));
                 }
             }
         }
-        if calendar.len() == 0 {
-            yellow_ln!(" ({} events)", calendar.len());
-        } else {
-            blue_ln!(" ({} events)", calendar.len());
-        }
-        // Keep track of the very last event
-        if let Some(event) = last_event {
-            last_event = Some(event.max(national.finsh))
-        } else {
-            last_event = Some(national.finsh)
+    }
+    trace!("  No overlaps found");
+    Ok(())
+}
+
+/// Using the `--include-regex` CLI argument, the user can specify that only certain paths be
+/// included. Filter out all paths not explicitly included by `--include-regex`
+fn filter_paths_by_regex(regex: Option<Regex>, paths: Vec<PathBuf>) -> Vec<PathBuf> {
+    info!(
+        "Filtering out {} paths based on regex {:?}",
+        paths.len(),
+        regex
+    );
+    let filtered_paths = paths
+        .into_iter()
+        .filter(|path| {
+            regex
+                .as_ref()
+                .map_or(true, |re| re.is_match(path.to_str().unwrap()))
+        })
+        .collect::<Vec<_>>();
+    trace!("  Resulted with {} paths", filtered_paths.len());
+    filtered_paths
+}
+
+/// Given some local monthly sheddings and some manually specified national sheddings, convert them
+/// into a list of power outages.
+fn calculate_power_outages(
+    area_name: &str,
+    monthly_sheddings: Vec<MonthlyShedding>,
+    manually_specified: &ManuallyInputSchedule,
+) -> Result<Vec<PowerOutage>, Box<dyn Error>> {
+    let national_changes: Vec<Shedding> = manually_specified
+        .changes
+        .clone()
+        .into_iter()
+        .filter(|c| !c.exclude_regex.is_match(area_name) && c.include_regex.is_match(area_name))
+        .collect();
+    let combos = make_combinations_from_sheddings(&monthly_sheddings, &national_changes);
+    trace!(
+        "Checking {} combinations for possible load shedding in {area_name}",
+        combos.len(),
+    );
+
+    let mut lines = vec![];
+
+    for (local, natnl) in combos {
+        let datetimes = gen_datetimes(
+            natnl.start,
+            natnl.finsh,
+            local.date_of_month,
+            local.start_time.time(),
+            local.finsh_time.time(),
+        );
+        for dt in datetimes {
+            lines.push(PowerOutage {
+                area_name: area_name.to_owned(),
+                stage: local.stage,
+                start: dt.0,
+                finsh: dt.1,
+                source: natnl.source.clone(),
+            })
         }
     }
-    // If there is any load shedding scheduled...
-    if let Some(last_event) = last_event {
-        // Add a final event to the calendar, indicating that there's no information past this
-        // point
+    Ok(lines)
+}
+
+/// Attempt to write some PowerOutages to the specified path as a ICS file.
+fn write_sheddings_to_ics(
+    path: &Path,
+    power_outages: &[PowerOutage],
+) -> Result<(), Box<dyn Error>> {
+    // Get the correct filename
+    let fname = path
+        .to_str()
+        .ok_or("Couldn't convert path to string")?
+        .replace("csv", "ics")
+        .replace("generated", "calendars")
+        .replace(|c: char| !c.is_ascii(), "")
+        .replace("&nbsp;", "");
+
+    info!("Writing {} events to {:?}", power_outages.len(), fname);
+
+    let mut calendar = Calendar::new();
+    let mut last_finsh: Option<DateTime<FixedOffset>> = None;
+
+    // Add all the events to the calendar
+    for outage in power_outages {
+        // Keep track of the last finished event, so that we can add one more event immediately
+        // after it
+        last_finsh = match last_finsh {
+            Some(le) => Some(le.max(outage.finsh)),
+            None => Some(outage.finsh),
+        };
+        // Convert the outage to an event, and add it to the calendar
+        calendar.push(fmt::power_outage_to_event(outage)?);
+    }
+
+    // If we have >0 events, add one final event specifying that there's no more loadshedding
+    // information after here.
+    if let Some(last_finsh) = last_finsh {
+        calendar.push(fmt::end_of_schedule_event(last_finsh)?);
+    }
+
+    // Write all the data to disk
+    let mut file = File::create(fname.as_str())?;
+    writeln!(&mut file, "{}", calendar)?;
+
+    Ok(())
+}
+
+/// Given a list of power outages, convert them to a single CSV file for machine consumption.
+fn overwrite_lines_to_csv(power_outages: &mut Vec<PowerOutage>) -> Result<(), Box<dyn Error>> {
+    info!(
+        "Writing {}+1 lines to machine_friendly.csv",
+        power_outages.len()
+    );
+    // Create the file (overwriting if it exists)
+    let mut file = File::create("calendars/machine_friendly.csv")?;
+    // Write the header line of the csv file
+    writeln!(&mut file, "{}", PowerOutage::csv_header())?;
+    // Sort the lines so we have some kind of consistency of the output
+    power_outages.sort();
+    for line in power_outages {
+        writeln!(&mut file, "{}", line)?;
+    }
+    Ok(())
+}
+
+/// Returns the git hash of the current repository.
+///
+/// # Errors
+///
+/// - The `git` command is not found on the system.
+/// - The current directory is not a valid git repository.
+fn get_git_hash() -> Result<String, Box<dyn Error>> {
+    Ok(String::from_utf8(
+        Command::new("git")
+            .args(["rev-parse", "HEAD"])
+            .output()?
+            .stdout,
+    )?)
+}
+
+/// Given some monthly shedding data and some national shedding data, calculate all the ways they
+/// could be combined while ensuring the stages are equal.
+fn make_combinations_from_sheddings(
+    monthly_sheddings: &[MonthlyShedding],
+    national_sheddings: &[Shedding],
+) -> Vec<(MonthlyShedding, Shedding)> {
+    let mut combos = vec![];
+    for monthly in monthly_sheddings {
+        for national in national_sheddings {
+            if monthly.stage == national.stage {
+                combos.push((monthly.clone(), national.clone()));
+            }
+        }
+    }
+    combos.sort_by_key(|(_monthly, natnl)| natnl.start);
+    combos
+}
+
+/// Find all (start, finsh) datetimes in a certain date range, during a certain time range, on a
+/// certain day.
+///
+/// Specifically, the returned (start, finish) datetimes are:
+/// 1. Not before `natnl_start`
+/// 2. Not after `natnl_finsh`
+/// 3. On no other day of the month other than `local_dom`
+/// 4. Never before `local_start` on any particular day.
+/// 5. Never after `local_finsh` on any particular day.
+///
+/// Note that if local_start is 23:30 and local_finsh is 00:30, then the (start, finsh) tuple will
+/// cross over midnight.
+fn gen_datetimes(
+    nat_start_dt: DateTime<FixedOffset>,
+    nat_finsh_dt: DateTime<FixedOffset>,
+    lcl_dom: u8,
+    lcl_start_t: NaiveTime,
+    lcl_finsh_t: NaiveTime,
+) -> Vec<(DateTime<FixedOffset>, DateTime<FixedOffset>)> {
+    nat_start_dt
+        // subtract a day to ensure we handle the midnight boundary condition properly
+        .checked_sub_days(chrono::Days::new(1))
+        .unwrap()
+        // Convert datetime to date to make things simpler. We'll add back the time later.
+        .date_naive()
+        // create an unbounded iterator, starting from one day before nat_start_dt
+        .iter_days()
+        .take_while(|d| d <= &nat_finsh_dt.date_naive())
+        // Get all possible datetime ranges with start and finsh times specified by `lcl_start_t`
+        // and `lcl_finsh_t`
+        .map(|d| {
+            // Create the starting datetime
+            let start_dt = d
+                .and_hms_opt(
+                    lcl_start_t.hour(),
+                    lcl_start_t.minute(),
+                    lcl_start_t.second(),
+                )
+                .unwrap();
+            // Create the finishing datetime
+            let mut finsh_dt = d
+                .and_hms_opt(
+                    lcl_finsh_t.hour(),
+                    lcl_finsh_t.minute(),
+                    lcl_finsh_t.second(),
+                )
+                .unwrap();
+            // its possible that finsh_t is 00:30 and start_t is 22:00, in which case make sure
+            // finsh_dt is on the next day.
+            if finsh_dt < start_dt {
+                finsh_dt = finsh_dt.checked_add_days(chrono::Days::new(1)).unwrap();
+            }
+
+            let lcl_range: (DateTime<FixedOffset>, DateTime<FixedOffset>) = (
+                chrono::DateTime::from_local(start_dt, *nat_start_dt.offset()),
+                chrono::DateTime::from_local(finsh_dt, *nat_finsh_dt.offset()),
+            );
+            lcl_range
+        })
+        // Ensure each range starts on the correct date of the month
+        .filter(|(start, _finsh)| start.day() == lcl_dom as u32)
+        // Truncate each local range so that it's actually within the specified national range
+        .map(|(start, finsh)| (nat_start_dt.max(start), nat_finsh_dt.min(finsh)))
+        // Ensure each range is before the finish
+        .filter(|(start, finsh)| finsh <= &nat_finsh_dt && start < &nat_finsh_dt)
+        // Ensure each range is after the start
+        .filter(|(start, finsh)| start >= &nat_start_dt && finsh > &nat_start_dt)
+        .collect()
+}
+
+/// Contains some formatting functions, including some event-creation functions.
+mod fmt {
+    use crate::get_git_hash;
+    use chrono::FixedOffset;
+    use chrono::{DateTime, Utc};
+    use icalendar::{Component, Event};
+    use std::error::Error;
+    use std::path::Path;
+
+    use crate::structs::PowerOutage;
+
+    /// Format a path as an area name: remove the extension and the `generated/` directory. This fails
+    /// if the path isn't valid.
+    pub fn path_to_area_name(path: &Path) -> Result<String, Box<dyn Error>> {
+        Ok(path
+            .to_str()
+            .ok_or("Path is not valid unicode")?
+            .replace("generated/", "")
+            .replace(".csv", "")
+            .replace(|c: char| !c.is_ascii(), ""))
+    }
+
+    /// Convert a power outage to a ICS calendar event, with a nicely formatted description.
+    pub fn power_outage_to_event(power_outage: &PowerOutage) -> Result<Event, Box<dyn Error>> {
+        // TODO can a default alarm be added to this?
+        let description = format!(
+            "This event shows that there will be loadshedding on {} to {} in the load \
+            shedding area {}.\n\
+            \n\
+            When new loadshedding schedules are announced, your calendar will be \
+            automatically updated to show when your power will be off. \n\
+            \n\
+            While these new schedules are calculated immediately, it can sometimes take a \
+            bit of time for your calendar app (ie Google Calendar, Apple iCalendar, or \
+            Outlook) to fetch the updated schedules. Often you can set the update \n\
+            frequency in the settings of your calendar app. \n\
+            \n\
+            --- \n\
+            \n\
+            Incorrect? Open an issue here: https://github.com/beyarkay/eskom-calendar/issues/new\n\
+            \n\
+            Generated by Boyd Kane's Eskom-Calendar: https://eskomcalendar.co.za/ec?calendar={}.ics.\n\
+            \n\
+            National loadshedding information scraped from {}.\n\
+            \n\
+            Calendar compiled at {}.\n\
+            \n\
+            Eskom-calendar version: https://github.com/beyarkay/eskom-calendar/tree/{}",
+            power_outage.start.format("%A from %H:%M"),
+            power_outage.finsh.format("%H:%M"),
+            power_outage.area_name,
+            power_outage.area_name,
+            power_outage.source,
+            chrono::offset::Local::now(),
+            get_git_hash()?,
+        );
+        let emojis = vec!["😁", "😕", "☹️", "😟", "😣", "😭", "😫", "😤", "😡"];
+        let summary = format!(
+            "🔌{area_name} Stage {stage} {emoji}",
+            area_name = prettify_area_name(&power_outage.area_name),
+            stage = power_outage.stage,
+            emoji = emojis.get(power_outage.stage as usize).unwrap_or(&"🫠"),
+        );
+        let evt = Event::new()
+            .summary(summary.as_str())
+            .description(description.as_str())
+            .starts(power_outage.start.with_timezone(&Utc))
+            .ends(power_outage.finsh.with_timezone(&Utc))
+            .done();
+        Ok(evt)
+    }
+
+    /// Create an event that signals the end of known loadshedding data
+    pub fn end_of_schedule_event(
+        last_event: DateTime<FixedOffset>,
+    ) -> Result<Event, Box<dyn Error>> {
         let description = format!(
             "This is the end of the known loadshedding schedule.\n\
             \n\
@@ -383,82 +425,33 @@ fn create_calendar(csv_path: String, mis: &ManuallyInputSchedule) {
             You don't have to do anything, but just know that there might be loadshedding after \
             this point, but there also might not. It's impossible to say for sure.\n\
             \n\
-            Incorrect? Make a suggestion here: https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml \n\
+            Incorrect? Open an issue here: https://github.com/beyarkay/eskom-calendar/issues/new\n\
             \n\
             --- \n\
             Generated by Boyd Kane's Eskom-Calendar: https://github.com/beyarkay/eskom-calendar/tree/{git_hash} \n\
             Calendar compiled at {compiletime:?}",
-            git_hash=git_hash,
+            git_hash=get_git_hash()?,
             compiletime=chrono::offset::Local::now(),
         );
-        calendar.push(
-            Event::new()
-                .summary("⚠️  End of schedule")
-                .description(&description)
-                .starts(last_event.with_timezone(&Utc))
-                .ends(
-                    last_event
-                        .checked_add_signed(chrono::Duration::hours(1))
-                        .unwrap()
-                        .with_timezone(&Utc),
-                )
-                .done(),
-        );
+
+        let start = last_event.with_timezone(&Utc);
+        let end = last_event
+            .checked_add_signed(chrono::Duration::hours(1))
+            .unwrap()
+            .with_timezone(&Utc);
+
+        Ok(Event::new()
+            .summary("⚠️  End of schedule")
+            .description(&description)
+            .starts(start)
+            .ends(end)
+            .done())
     }
 
-    // Write out the calendar files
-    let fname = csv_path
-        .replace("csv", "ics")
-        .replace("generated", "calendars")
-        .replace(|c: char| !c.is_ascii(), "")
-        .replace("&nbsp;", "");
-    let mut file =
-        File::create(fname.as_str()).unwrap_or_else(|_| panic!("Failed to create file {}", fname));
-    writeln!(&mut file, "{}", calendar)
-        .unwrap_or_else(|_| panic!("Failed to write to file {:?}", file));
-
-    // Write out the CSV file
-    let mut file = OpenOptions::new()
-        .write(true)
-        .append(true)
-        .open("calendars/machine_friendly.csv")
-        .expect("Couldn't open `calendars/machine_friendly.csv` for appending");
-    // Sort so we have some kind of consistency
-    csv_lines.sort();
-    for line in csv_lines {
-        writeln!(&mut file, "{}", line)
-            .unwrap_or_else(|_| panic!("Failed to write to file {:?}", file));
-    }
-}
-
-/// Go over the changes, and return true if any of them overlap. Note that the provided `changes`
-/// should be from the same calendar.
-fn panic_if_changes_overlap(changes: &Vec<&Shedding>) {
-    for change1 in changes {
-        for change2 in changes {
-            let not_same_item = change1 != change2;
-            let c1_overlaps_c2 = change1.finsh > change2.start && change1.start < change2.finsh;
-            let c2_overlaps_c1 = change2.finsh > change1.start && change2.start < change1.finsh;
-            // If they're not the same item, but they do overlap, then panic
-            if not_same_item && (c1_overlaps_c2 || c2_overlaps_c1) {
-                panic!("Changes overlap:\nChange1: {change1:#?}\nChange2: {change2:#?}\nYou probably entered invalid information into `manually_specified.yaml`");
-            }
-        }
-    }
-}
-
-fn to_csv_line(
-    area_name: &str,
-    stage: u8,
-    start: DateTime<FixedOffset>,
-    finsh: DateTime<FixedOffset>,
-    source: &str,
-) -> String {
-    format!("{area_name},{start:?},{finsh:?},{stage},{source:?}")
-}
-
-fn to_title_case(s: String) -> String {
-    s.split(' ')
+    /// Convert a string to title case.
+    /// Rust makes this harder than I ever believed possible.
+    pub fn to_title_case(s: String) -> String {
+        s.split(' ')
         .into_iter()
         .map(|si| {
             // Capitalise the first character
@@ -467,122 +460,587 @@ fn to_title_case(s: String) -> String {
                 + si.chars().skip(1).map(|c| c.to_string()).reduce(|acc, curr| acc + &curr).unwrap_or_default().as_str()
         })
         .collect()
+    }
+
+    /// Take an area name like `western-cape-stellenbosch` and prettify it, ditching the dashes and
+    /// making it title case.
+    pub fn prettify_area_name(area_name: &str) -> String {
+        let prefixes = vec![
+            ("eastern-cape-", "EC"),
+            ("free-state-", "FS"),
+            ("kwazulu-natal-", "KZN"),
+            ("limpopo-", "LP"),
+            ("mpumalanga-", "MP"),
+            ("north-west-", "NC"),
+            ("northern-cape-", "NW"),
+            ("western-cape-", "WC"),
+        ];
+
+        if area_name.starts_with("city-of-cape-town-area-") {
+            area_name.replace("city-of-cape-town-area-", "Cape Town ")
+        } else if area_name.starts_with("city-power") {
+            area_name.replace("city-power", "City Power ")
+        } else if area_name.starts_with("gauteng-ekurhuleni-block-") {
+            area_name.replace("gauteng-ekurhuleni-block-", "Ekurhuleni ")
+        } else if area_name.starts_with("gauteng-tshwane-group-") {
+            area_name.replace("gauteng-tshwane-group-", "Tshwane ")
+        } else {
+            // Convert areas of the form `{province}-{area}` into `{area} ({province acronym})`
+            let mut prettified = to_title_case(area_name.replace('-', " "));
+            for (prefix, replacement) in prefixes {
+                if area_name.starts_with(prefix) {
+                    prettified = format!(
+                        "{} ({})",
+                        to_title_case(area_name.replace(prefix, "").replace('-', " ")),
+                        replacement
+                    );
+                    break;
+                }
+            }
+            prettified
+        }
+    }
 }
 
-fn prettify_area_name(area_name: &str) -> String {
-    let prefixes = vec![
-        ("eastern-cape-", "EC"),
-        ("free-state-", "FS"),
-        ("kwazulu-natal-", "KZN"),
-        ("limpopo-", "LP"),
-        ("mpumalanga-", "MP"),
-        ("north-west-", "NC"),
-        ("northern-cape-", "NW"),
-        ("western-cape-", "WC"),
-    ];
+/// Contains some read-based functions, such as `get_csv_paths` and `read_manually_specified`.
+mod read {
+    use crate::structs::{
+        ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding,
+    };
+    use std::error::Error;
+    use std::fs::read_to_string;
+    use std::path::PathBuf;
 
-    if area_name.starts_with("city-of-cape-town-area-") {
-        area_name.replace("city-of-cape-town-area-", "Cape Town ")
-    } else if area_name.starts_with("city-power") {
-        area_name.replace("city-power", "City Power ")
-    } else if area_name.starts_with("gauteng-ekurhuleni-block-") {
-        area_name.replace("gauteng-ekurhuleni-block-", "Ekurhuleni ")
-    } else if area_name.starts_with("gauteng-tshwane-group-") {
-        area_name.replace("gauteng-tshwane-group-", "Tshwane ")
-    } else {
-        // Convert areas of the form `{province}-{area}` into `{area} ({province acronym})`
-        let mut prettified = to_title_case(area_name.replace('-', " "));
-        for (prefix, replacement) in prefixes {
-            if area_name.starts_with(prefix) {
-                prettified = format!(
-                    "{} ({})",
-                    to_title_case(area_name.replace(prefix, "").replace('-', " ")),
-                    replacement
-                );
-                break;
-            }
-        }
-        prettified
+    extern crate pretty_env_logger;
+    use log::{info, trace};
+
+    /// Get the paths of all CSVs in `dir`.
+    pub fn get_csv_paths(dir: &str) -> Result<Vec<PathBuf>, Box<dyn Error>> {
+        info!("Looking for CSV paths in {}", dir);
+        let paths = std::fs::read_dir(dir)?
+            // Filter out all those directory entries which couldn't be read
+            .filter_map(|res| res.ok())
+            // Map the directory entries to paths
+            .map(|dir_entry| dir_entry.path())
+            // Filter out all paths with extensions other than `csv`
+            .filter_map(|path| {
+                if path.extension().map_or(false, |ext| ext == "csv") {
+                    Some(path)
+                } else {
+                    None
+                }
+            })
+            .collect::<Vec<_>>();
+        trace!("  Found {} CSVs in {dir}", paths.len());
+        Ok(paths)
+    }
+
+    /// Read in `manually_specified.yaml` from YAML to an in-memory struct
+    pub fn read_manually_specified(path: &str) -> Result<ManuallyInputSchedule, Box<dyn Error>> {
+        Ok(
+            serde_yaml::from_str::<RawManuallyInputSchedule>(read_to_string(path)?.as_str())?
+                .into(),
+        )
+    }
+
+    /// Read in the load shedding information from the provided path.
+    pub fn read_sheddings_from_csv_path(
+        path: &PathBuf,
+    ) -> Result<Vec<MonthlyShedding>, Box<dyn Error>> {
+        let local_shedding = csv::Reader::from_path(path)?
+            .deserialize::<RawMonthlyShedding>()
+            .into_iter()
+            .map(|res| Into::<MonthlyShedding>::into(res.unwrap()))
+            .filter(|shedding| shedding.stage != 0)
+            .map(|shedding| MonthlyShedding {
+                start_time: shedding.start_time,
+                finsh_time: shedding.finsh_time,
+                stage: shedding.stage,
+                date_of_month: shedding.date_of_month,
+                goes_over_midnight: shedding.goes_over_midnight,
+            })
+            .collect::<Vec<MonthlyShedding>>();
+        Ok(local_shedding)
     }
 }
 
 #[cfg(test)]
 mod tests {
-    mod panic_if_changes_overlap {
-        use chrono::DateTime;
-        use regex::Regex;
+    use chrono::{DateTime, FixedOffset};
 
-        use crate::{panic_if_changes_overlap, structs::Shedding};
+    fn rfc3339(s: &str) -> DateTime<FixedOffset> {
+        DateTime::parse_from_rfc3339(s).unwrap()
+    }
 
-        fn make_shedding(start: &str, finsh: &str) -> Shedding {
-            Shedding {
-                start: DateTime::parse_from_rfc3339(start).unwrap(),
-                finsh: DateTime::parse_from_rfc3339(finsh).unwrap(),
-                stage: 8,
-                source: "No source".to_string(),
-                include_regex: Regex::new(".*").unwrap(),
-                exclude_regex: Regex::new("matchnothing^").unwrap(),
+    mod power_outage_to_event {
+        use chrono::Utc;
+        use icalendar::Component;
+
+        use crate::{fmt::power_outage_to_event, structs::PowerOutage, tests::rfc3339};
+
+        #[test]
+        fn description_contains() {
+            let e = power_outage_to_event(&PowerOutage {
+                area_name: "test-name".to_owned(),
+                stage: 2,
+                start: rfc3339("2022-01-02T13:00:00+02:00"),
+                finsh: rfc3339("2022-01-02T15:00:00+02:00"),
+                source: "test-source".to_owned(),
+            })
+            .unwrap();
+            let desc = e.get_description().unwrap();
+
+            let should_contain_all = vec![
+                "This event shows that there will be loadshedding on Sunday from 13:00 to 15:00",
+                "Generated by Boyd Kane's Eskom-Calendar: https://eskomcalendar.co.za/ec?calendar=test-name.ics.",
+                "in the load shedding area test-name.",
+                "National loadshedding information scraped from test-source.",
+            ];
+            for should_contain in should_contain_all {
+                assert!(
+                    desc.contains(should_contain),
+                    "Description should contain:\n\"{should_contain}\"\nbut is:\n{desc}"
+                );
             }
         }
 
         #[test]
-        #[should_panic]
-        fn start_lt_finsh_is_overlap() {
-            let change1 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T10:00:00+02:00");
-            let change2 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:30:00+02:00");
-            let changes = vec![&change1, &change2];
-            panic_if_changes_overlap(&changes);
+        fn start_and_finsh_correct() {
+            let start = rfc3339("2022-01-02T13:00:00+02:00");
+            let finsh = rfc3339("2022-01-02T15:00:00+02:00");
+            let e = power_outage_to_event(&PowerOutage {
+                area_name: "test-name".to_owned(),
+                stage: 2,
+                start,
+                finsh,
+                source: "test-source".to_owned(),
+            })
+            .unwrap();
+            assert_eq!(e.get_start().unwrap(), start.with_timezone(&Utc).into());
+            assert_eq!(e.get_end().unwrap(), finsh.with_timezone(&Utc).into());
+        }
+    }
+
+    mod check_for_overlaps {
+        mod err_if {
+            use std::path::PathBuf;
+            use std::str::FromStr;
+
+            use crate::structs::RawShedding;
+            use crate::{err_if_overlaps, structs::Shedding};
+
+            #[test]
+            fn first_is_subset_of_second() {
+                let changes: Vec<Shedding> = vec![
+                    RawShedding {
+                        start: "2022-01-01T10:00:00".to_string(),
+                        finsh: "2022-01-01T13:00:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: Some("coct".to_string()),
+                        exclude: None,
+                    }
+                    .into(),
+                    RawShedding {
+                        start: "2022-01-01T11:00:00".to_string(),
+                        finsh: "2022-01-01T12:00:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: Some("coct".to_string()),
+                        exclude: None,
+                    }
+                    .into(),
+                ];
+                let paths = vec![
+                    PathBuf::from_str("generated/city-of-cape-town-area-1.csv").unwrap(),
+                    PathBuf::from_str("generated/city-of-cape-town-area-10.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-stellenbosch.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-darling.csv.csv").unwrap(),
+                ];
+                assert!(err_if_overlaps(&changes, &paths).is_err())
+            }
+
+            #[test]
+            fn start2_lt_finsh1() {
+                let changes: Vec<Shedding> = vec![
+                    RawShedding {
+                        start: "2022-01-01T10:00:00".to_string(),
+                        finsh: "2022-01-01T12:00:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: Some("coct".to_string()),
+                        exclude: None,
+                    }
+                    .into(),
+                    RawShedding {
+                        start: "2022-01-01T11:00:00".to_string(),
+                        finsh: "2022-01-01T13:00:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: Some("coct".to_string()),
+                        exclude: None,
+                    }
+                    .into(),
+                ];
+                let paths = vec![
+                    PathBuf::from_str("generated/city-of-cape-town-area-1.csv").unwrap(),
+                    PathBuf::from_str("generated/city-of-cape-town-area-10.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-stellenbosch.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-darling.csv.csv").unwrap(),
+                ];
+                assert!(err_if_overlaps(&changes, &paths).is_err())
+            }
+        }
+
+        mod ok_if {
+            use std::path::PathBuf;
+            use std::str::FromStr;
+
+            use crate::structs::RawShedding;
+            use crate::{err_if_overlaps, structs::Shedding};
+            #[test]
+            fn start2_lt_finsh1_but_different_regex() {
+                let changes: Vec<Shedding> = vec![
+                    RawShedding {
+                        start: "2022-01-01T10:00:00".to_string(),
+                        finsh: "2022-01-01T12:00:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: Some("coct".to_string()),
+                        exclude: None,
+                    }
+                    .into(),
+                    RawShedding {
+                        start: "2022-01-01T11:00:00".to_string(),
+                        finsh: "2022-01-01T13:00:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: None,
+                        exclude: Some("coct".to_string()),
+                    }
+                    .into(),
+                ];
+                let paths = vec![
+                    PathBuf::from_str("generated/city-of-cape-town-area-1.csv").unwrap(),
+                    PathBuf::from_str("generated/city-of-cape-town-area-10.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-stellenbosch.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-darling.csv.csv").unwrap(),
+                ];
+                assert!(err_if_overlaps(&changes, &paths).is_ok())
+            }
+            #[test]
+            fn ok_if_start_eq_finsh() {
+                let changes: Vec<Shedding> = vec![
+                    RawShedding {
+                        start: "2022-01-01T10:00:00".to_string(),
+                        finsh: "2022-01-01T12:30:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: Some("coct".to_string()),
+                        exclude: None,
+                    }
+                    .into(),
+                    RawShedding {
+                        start: "2022-01-01T12:30:00".to_string(),
+                        finsh: "2022-01-01T14:30:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        exclude: Some("coct".to_string()),
+                        include: None,
+                    }
+                    .into(),
+                ];
+                let paths = vec![
+                    PathBuf::from_str("generated/city-of-cape-town-area-1.csv").unwrap(),
+                    PathBuf::from_str("generated/city-of-cape-town-area-10.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-stellenbosch.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-darling.csv.csv").unwrap(),
+                ];
+                assert!(err_if_overlaps(&changes, &paths).is_ok())
+            }
+
+            #[test]
+            fn ok_if_mutually_exclusive() {
+                let changes: Vec<Shedding> = vec![
+                    RawShedding {
+                        start: "2022-01-01T10:00:00".to_string(),
+                        finsh: "2022-01-01T12:30:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        include: Some("coct".to_string()),
+                        exclude: None,
+                    }
+                    .into(),
+                    RawShedding {
+                        start: "2022-01-01T10:00:00".to_string(),
+                        finsh: "2022-01-01T12:30:00".to_string(),
+                        stage: 1,
+                        source: "test_source".to_string(),
+                        include_regex: None,
+                        exclude_regex: None,
+                        exclude: Some("coct".to_string()),
+                        include: None,
+                    }
+                    .into(),
+                ];
+                let paths = vec![
+                    PathBuf::from_str("generated/city-of-cape-town-area-1.csv").unwrap(),
+                    PathBuf::from_str("generated/city-of-cape-town-area-10.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-stellenbosch.csv").unwrap(),
+                    PathBuf::from_str("generated/western-cape-darling.csv.csv").unwrap(),
+                ];
+                assert!(err_if_overlaps(&changes, &paths).is_ok())
+            }
+
+            #[test]
+            fn ok_if_empty_vecs() {
+                let changes = vec![];
+                let paths = vec![];
+                assert!(err_if_overlaps(&changes, &paths).is_ok())
+            }
+        }
+    }
+
+    mod gen_datetimes {
+        use crate::tests::rfc3339;
+        use chrono::NaiveTime;
+
+        use crate::gen_datetimes;
+
+        #[test]
+        fn dom_different_to_start_date() {
+            let start_dt = rfc3339("2022-01-02T00:00:00+02:00");
+            let finsh_dt = rfc3339("2022-01-02T01:00:00+02:00");
+            let dom = 1;
+            let start_time = NaiveTime::from_hms_opt(23, 30, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(0, 30, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![(
+                    rfc3339("2022-01-02T00:00:00+02:00"),
+                    rfc3339("2022-01-02T00:30:00+02:00")
+                )]
+            );
         }
 
         #[test]
-        #[should_panic]
-        fn finsh_gt_start_is_overlap() {
-            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:00:00+02:00");
-            let change2 = make_shedding("2022-01-01T08:30:00+02:00", "2022-01-01T10:00:00+02:00");
-            let changes = vec![&change1, &change2];
-            panic_if_changes_overlap(&changes);
+        fn crosses_finsh_boundary() {
+            let start_dt = rfc3339("2022-01-01T10:00:00+02:00");
+            let finsh_dt = rfc3339("2022-01-01T20:00:00+02:00");
+            let dom = 1;
+            let start_time = NaiveTime::from_hms_opt(19, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(21, 0, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![(
+                    rfc3339("2022-01-01T19:00:00+02:00"),
+                    rfc3339("2022-01-01T20:00:00+02:00")
+                )]
+            );
         }
 
         #[test]
-        #[should_panic]
-        fn finsh_eq_start_is_overlap() {
-            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:00:00+02:00");
-            let change2 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T10:00:00+02:00");
-            let changes = vec![&change1, &change2];
-            panic_if_changes_overlap(&changes);
+        fn crosses_start_boundary() {
+            let start_dt = rfc3339("2022-01-01T10:00:00+02:00");
+            let finsh_dt = rfc3339("2022-01-01T20:00:00+02:00");
+            let dom = 1;
+            let start_time = NaiveTime::from_hms_opt(9, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(11, 0, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![(
+                    rfc3339("2022-01-01T10:00:00+02:00"),
+                    rfc3339("2022-01-01T11:00:00+02:00")
+                )]
+            );
         }
 
         #[test]
-        #[should_panic]
-        fn start_lt_start_and_finsh_gt_finsh_is_overlap() {
-            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T09:00:00+02:00");
-            let change2 = make_shedding("2022-01-01T08:15:00+02:00", "2022-01-01T08:45:00+02:00");
-            let changes = vec![&change1, &change2];
-            panic_if_changes_overlap(&changes);
+        fn thirty_first() {
+            let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
+            let finsh_dt = rfc3339("2023-01-01T00:00:00+02:00");
+            let dom = 31;
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![
+                    (
+                        rfc3339("2022-01-31T12:00:00+02:00"),
+                        rfc3339("2022-01-31T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-03-31T12:00:00+02:00"),
+                        rfc3339("2022-03-31T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-05-31T12:00:00+02:00"),
+                        rfc3339("2022-05-31T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-07-31T12:00:00+02:00"),
+                        rfc3339("2022-07-31T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-08-31T12:00:00+02:00"),
+                        rfc3339("2022-08-31T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-10-31T12:00:00+02:00"),
+                        rfc3339("2022-10-31T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-12-31T12:00:00+02:00"),
+                        rfc3339("2022-12-31T14:00:00+02:00")
+                    )
+                ]
+            );
         }
 
         #[test]
-        fn eq_sheddings_dont_overlap() {
-            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
-            let change2 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
-            let changes = vec![&change1, &change2];
-            panic_if_changes_overlap(&changes);
+        fn multiple_months() {
+            let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
+            let finsh_dt = rfc3339("2023-01-01T00:00:00+02:00");
+            let dom = 1;
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![
+                    (
+                        rfc3339("2022-01-01T12:00:00+02:00"),
+                        rfc3339("2022-01-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-02-01T12:00:00+02:00"),
+                        rfc3339("2022-02-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-03-01T12:00:00+02:00"),
+                        rfc3339("2022-03-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-04-01T12:00:00+02:00"),
+                        rfc3339("2022-04-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-05-01T12:00:00+02:00"),
+                        rfc3339("2022-05-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-06-01T12:00:00+02:00"),
+                        rfc3339("2022-06-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-07-01T12:00:00+02:00"),
+                        rfc3339("2022-07-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-08-01T12:00:00+02:00"),
+                        rfc3339("2022-08-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-09-01T12:00:00+02:00"),
+                        rfc3339("2022-09-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-10-01T12:00:00+02:00"),
+                        rfc3339("2022-10-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-11-01T12:00:00+02:00"),
+                        rfc3339("2022-11-01T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-12-01T12:00:00+02:00"),
+                        rfc3339("2022-12-01T14:00:00+02:00")
+                    )
+                ]
+            );
         }
 
         #[test]
-        fn start_gt_finsh_no_overlap() {
-            let change1 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T09:30:00+02:00");
-            let change2 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
-            let changes = vec![&change1, &change2];
-            panic_if_changes_overlap(&changes);
+        fn crosses_year_boundary() {
+            let start_dt = rfc3339("2022-12-31T00:00:00+02:00");
+            let finsh_dt = rfc3339("2023-01-02T00:00:00+02:00");
+            let dom = 1;
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![(
+                    rfc3339("2023-01-01T12:00:00+02:00"),
+                    rfc3339("2023-01-01T14:00:00+02:00")
+                ),]
+            );
         }
 
         #[test]
-        fn finsh_lt_start_no_overlap() {
-            let change1 = make_shedding("2022-01-01T08:00:00+02:00", "2022-01-01T08:30:00+02:00");
-            let change2 = make_shedding("2022-01-01T09:00:00+02:00", "2022-01-01T09:30:00+02:00");
-            let changes = vec![&change1, &change2];
-            panic_if_changes_overlap(&changes);
+        fn crosses_month_boundary() {
+            let start_dt = rfc3339("2022-01-31T00:00:00+02:00");
+            let finsh_dt = rfc3339("2022-02-02T00:00:00+02:00");
+            let dom = 1;
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![(
+                    rfc3339("2022-02-01T12:00:00+02:00"),
+                    rfc3339("2022-02-01T14:00:00+02:00")
+                ),]
+            );
+        }
+
+        #[test]
+        fn crosses_midnight() {
+            let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
+            let finsh_dt = rfc3339("2022-04-01T00:00:00+02:00");
+            let dom = 1;
+            let start_time = NaiveTime::from_hms_opt(22, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(0, 30, 0).unwrap();
+            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            assert_eq!(
+                datetimes,
+                vec![
+                    (
+                        rfc3339("2022-01-01T22:00:00+02:00"),
+                        rfc3339("2022-01-02T00:30:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-02-01T22:00:00+02:00"),
+                        rfc3339("2022-02-02T00:30:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-03-01T22:00:00+02:00"),
+                        rfc3339("2022-03-02T00:30:00+02:00")
+                    )
+                ]
+            );
         }
     }
 }
