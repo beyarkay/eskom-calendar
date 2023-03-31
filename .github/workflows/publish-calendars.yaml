@@ -13,6 +13,7 @@ on:
 env:
   CARGO_TERM_COLOR: always
   PASTE: "no data"
+  RUST_LOG: trace
 
 jobs:
   build-and-publish-calendars:
@@ -69,7 +70,7 @@ jobs:
 
     - name: Write pastebin link to GH variable
       run: |
-        cat pastebin.txt 
+        cat pastebin.txt
         echo "::set-output name=pastebin::$(cat pastebin.txt)/raw"
       id: PASTEBIN
 

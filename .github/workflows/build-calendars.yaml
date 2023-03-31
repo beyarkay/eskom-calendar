@@ -2,13 +2,14 @@ name: Build Calendars
 
 on:
   pull_request:
-    branches: [ "main" ]   
+    branches: [ "main" ]
     paths:
       - 'manually_specified.yaml'
   workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
+  RUST_LOG: trace
 
 jobs:
   build-calendars:
@@ -44,7 +45,7 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: run
-        args: --release
+        args: --release -- --only-check-for-overlaps=true
 
     - name: Update draft release with build artefacts
       uses: beyarkay/update-existing-release@master
