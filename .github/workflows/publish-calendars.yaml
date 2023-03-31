@@ -51,10 +51,10 @@ jobs:
 
     - name: Write current time stamp to GH variable
       id: date
-      run: echo "::set-output name=datetime::$(date +'%Y-%m-%dT%H:%M:%S')"
+      run: echo "datetime=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
 
     - name: List all calendars to GH variable
-      run: echo "::set-output name=LS_CALENDARS::$(ls calendars/* | xargs echo | sed 's/ /,/g')"
+      run: echo "LS_CALENDARS=$(ls calendars/* | xargs echo | sed 's/ /,/g')" >> $GITHUB_OUTPUT
       id: LS-CALENDARS
 
     - name: POST machine_friendly.csv to dpaste.org
@@ -66,7 +66,7 @@ jobs:
     - name: Write pastebin link to GH variable
       run: |
         cat pastebin.txt
-        echo "::set-output name=pastebin::$(cat pastebin.txt)/raw"
+        echo "pastebin=$(cat pastebin.txt)/raw" >> $GITHUB_OUTPUT
       id: PASTEBIN
 
     - name: Update latest release with new calendars
