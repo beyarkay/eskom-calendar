@@ -94,11 +94,11 @@ changes:
     start: 2023-04-01T16:00:00
     finsh: 2023-04-03T05:00:00
     source: https://twitter.com/CityofCT/status/1642538310353534980
-    exclude: coct
+    include: coct
   - stage: 3
     start: 2023-04-03T05:00:00
     finsh: 2023-04-03T22:00:00
     source: https://twitter.com/CityofCT/status/1642538310353534980
-    exclude: coct
+    include: coct
 
 historical_changes: []
