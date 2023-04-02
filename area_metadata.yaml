@@ -9668,3 +9668,335 @@ area_details:
   areas:
   - name: zoar
     lat_lngs: []
+
+- calendar_name: eskom.ics
+  provider: eskom
+  source: https://twitter.com/Eskom_SA
+  source_info: https://twitter.com/Eskom_SA
+  areas: [{name: eskom, lat_lngs: []}]
+
+- calendar_name: city-of-cape-town.ics
+  provider: city-of-cape-town
+  source: https://twitter.com/CityofCT
+  source_info: https://twitter.com/CityofCT
+  areas: [{name: city-of-cape-town, lat_lngs: []}]
+
+- calendar_name: buffalo-city-block-1.ics
+  province: eastern-cape
+  municipality: buffalo-city
+  city: buffalo-city
+  provider: buffalo-city
+  source: https://www.buffalocity.gov.za/CM/uploads/documents/20201001011578662845LoadsheddingInformationPackV5.pdf
+  source_info: https://www.buffalocity.gov.za/folder.php?id=CA4FCA0
+  areas:
+  - {name: east-london-egoli-township,lat_lngs: []}
+  - {name: east-london-scenery-park,lat_lngs: []}
+  - {name: east-london-whelan-township,lat_lngs: []}
+  - {name: east-london-wilsonia,lat_lngs: []}
+  - {name: king-williams-town-cathcart-road,lat_lngs: []}
+  - {name: king-williams-town-ginsberg,lat_lngs: []}
+  - {name: king-williams-town-golf-course,lat_lngs: []}
+  - {name: king-williams-town-henry-street,lat_lngs: []}
+  - {name: king-williams-town-louisa-street,lat_lngs: []}
+  - {name: king-williams-town-cambridge-road,lat_lngs: []}
+  - {name: king-williams-town-douglas-street,lat_lngs: []}
+  - {name: king-williams-town-alice-street,lat_lngs: []}
+  - {name: king-williams-town-wynward-road,lat_lngs: []}
+  - {name: king-williams-town-paul-sauer-street,lat_lngs: []}
+  - {name: king-williams-town-hockley-close,lat_lngs: []}
+  - {name: king-williams-town-reserve-road,lat_lngs: []}
+  - {name: king-williams-town-mary-street,lat_lngs: []}
+  - {name: king-williams-town-oak-street,lat_lngs: []}
+  - {name: king-williams-town-wellington-street,lat_lngs: []}
+  - {name: king-williams-town-bank-street,lat_lngs: []}
+  - {name: king-williams-town-smith-street,lat_lngs: []}
+  - {name: king-williams-town-durban-street,lat_lngs: []}
+  - {name: king-williams-town-beatrice-street,lat_lngs: []}
+  - {name: king-williams-town-hargreaves-road,lat_lngs: []}
+  - {name: king-williams-town-shornville,lat_lngs: []}
+  - {name: king-williams-town-sweet-waters,lat_lngs: []}
+  - {name: king-williams-town-victoria-street-light-industry,lat_lngs: []}
+  - {name: king-williams-town-westbank,lat_lngs: []}
+
+- calendar_name: buffalo-city-block-2.ics
+  province: eastern-cape
+  municipality: buffalo-city
+  city: buffalo-city
+  provider: buffalo-city
+  source: https://www.buffalocity.gov.za/CM/uploads/documents/20201001011578662845LoadsheddingInformationPackV5.pdf
+  source_info: https://www.buffalocity.gov.za/folder.php?id=CA4FCA0
+  areas:
+  - {name: east-london-cambridge,lat_lngs: []}
+  - {name: east-london-cambridge-west,lat_lngs: []}
+  - {name: east-london-highgate,lat_lngs: []}
+  - {name: east-london-gonubie,lat_lngs: []}
+  - {name: east-london-summerpride,lat_lngs: []}
+  - {name: king-williams-town-ilitha,lat_lngs: []}
+
+- calendar_name: buffalo-city-block-3.ics
+  province: eastern-cape
+  municipality: buffalo-city
+  city: buffalo-city
+  provider: buffalo-city
+  source: https://www.buffalocity.gov.za/CM/uploads/documents/20201001011578662845LoadsheddingInformationPackV5.pdf
+  source_info: https://www.buffalocity.gov.za/folder.php?id=CA4FCA0
+  areas:
+  - {name: east-london-amalinda,lat_lngs: []}
+  - {name: east-london-beacon-bay,lat_lngs: []}
+  - {name: belgravia-belgrave-road,lat_lngs: []}
+  - {name: belgravia-Belgravia-crescent,lat_lngs: []}
+  - {name: belgravia-oxford-street,lat_lngs: []}
+  - {name: belgravia-st-georges-street,lat_lngs: []}
+  - {name: belgravia-st-lukes-road,lat_lngs: []}
+  - {name: belgravia-st-marks-road,lat_lngs: []}
+  - {name: belgravia-st-mathews-street,lat_lngs: []}
+  - {name: belgravia-st-patricks-road,lat_lngs: []}
+  - {name: east-london-haven-hills,lat_lngs: []}
+  - {name: east-london-morningside,lat_lngs: []}
+  - {name: east-london-winchester-gardens,lat_lngs: []}
+
+- calendar_name: buffalo-city-block-4.ics
+  province: eastern-cape
+  municipality: buffalo-city
+  city: buffalo-city
+  provider: buffalo-city
+  source: https://www.buffalocity.gov.za/CM/uploads/documents/20201001011578662845LoadsheddingInformationPackV5.pdf
+  source_info: https://www.buffalocity.gov.za/folder.php?id=CA4FCA0
+  areas:
+  - {name: east-london-amalinda,lat_lngs: []}
+  - {name: east-london-pefferville,lat_lngs: []}
+  - {name: east-london-braelyn,lat_lngs: []}
+  - {name: east-london-parkridge,lat_lngs: []}
+  - {name: east-london-cc-loyd,lat_lngs: []}
+  - {name: east-london-parkside,lat_lngs: []}
+  - {name: braelyn-industry,lat_lngs: []}
+  - {name: bunkers-hill-ainsdale-road,lat_lngs: []}
+  - {name: bunkers-hill-blackheath-road,lat_lngs: []}
+  - {name: bunkers-hill-glen-eagles-road,lat_lngs: []}
+  - {name: bunkers-hill-hope-drive,lat_lngs: []}
+  - {name: bunkers-hill-hoylake-avenue,lat_lngs: []}
+  - {name: bunkers-hill-john-bailie-road,lat_lngs: []}
+  - {name: bunkers-hill-muirfield-road,lat_lngs: []}
+  - {name: bunkers-hill-sandwich-road,lat_lngs: []}
+  - {name: bunkers-hill-the-drive,lat_lngs: []}
+  - {name: bunkers-hill-turnberry-avenue,lat_lngs: []}
+  - {name: cbd-beaconsfield-road,lat_lngs: []}
+  - {name: duncan-village-bashe-street,lat_lngs: []}
+  - {name: duncan-village-bokwe-street,lat_lngs: []}
+  - {name: duncan-village-dunga-street,lat_lngs: []}
+  - {name: duncan-village-florence-street,lat_lngs: []}
+  - {name: duncan-village-garvie-street,lat_lngs: []}
+  - {name: duncan-village-godlo-street,lat_lngs: []}
+  - {name: duncan-village-gwijana-street,lat_lngs: []}
+  - {name: duncan-village-jongilanga-street,lat_lngs: []}
+  - {name: duncan-village-kese-street,lat_lngs: []}
+  - {name: duncan-village-kwinana-street,lat_lngs: []}
+  - {name: duncan-village-luijiza-street,lat_lngs: []}
+  - {name: duncan-village-mahlangeni-street,lat_lngs: []}
+  - {name: duncan-village-majombozi-street,lat_lngs: []}
+  - {name: duncan-village-majombozi-street,lat_lngs: []}
+  - {name: duncan-village-matuntuta-street,lat_lngs: []}
+  - {name: duncan-village-mazwi-street,lat_lngs: []}
+  - {name: duncan-village-mdaka-street,lat_lngs: []}
+  - {name: duncan-village-mekeni-street,lat_lngs: []}
+  - {name: duncan-village-meki-street,lat_lngs: []}
+  - {name: duncan-village-mnqika-street,lat_lngs: []}
+  - {name: duncan-village-mpaku-street,lat_lngs: []}
+  - {name: duncan-village-mzonyana-street,lat_lngs: []}
+  - {name: duncan-village-ndende-street,lat_lngs: []}
+  - {name: duncan-village-petshwa-street,lat_lngs: []}
+  - {name: duncan-village-sandile-street,lat_lngs: []}
+  - {name: duncan-village-sofuthe-street,lat_lngs: []}
+  - {name: duncan-village-tappa-street,lat_lngs: []}
+  - {name: duncan-village-tsenyengo-street,lat_lngs: []}
+  - {name: duncan-village-ventshu-street,lat_lngs: []}
+  - {name: duncan-village-xabanisa-street,lat_lngs: []}
+  - {name: milner-estates-downie-street,lat_lngs: []}
+  - {name: milner-estates-elmira-road,lat_lngs: []}
+  - {name: milner-estates-evans-road,lat_lngs: []}
+  - {name: milner-estates-falmouth-road,lat_lngs: []}
+  - {name: milner-estates-grange-road,lat_lngs: []}
+  - {name: milner-estates-hendon-road,lat_lngs: []}
+  - {name: milner-estates-kenswick-road,lat_lngs: []}
+  - {name: milner-estates-leask-crescent,lat_lngs: []}
+  - {name: milner-estates-lennox-road,lat_lngs: []}
+  - {name: milner-estates-livingstone-road,lat_lngs: []}
+  - {name: milner-estates-moffat-road,lat_lngs: []}
+  - {name: milner-estates-moir-street,lat_lngs: []}
+  - {name: milner-estates-scott-road,lat_lngs: []}
+  - {name: nahoon-mouth-bowie-street,lat_lngs: []}
+  - {name: nahoon-mouth-camp-street,lat_lngs: []}
+  - {name: nahoon-mouth-chelodene-road,lat_lngs: []}
+  - {name: nahoon-mouth-colorado-road,lat_lngs: []}
+  - {name: nahoon-mouth-crosbie-street,lat_lngs: []}
+  - {name: nahoon-mouth-florence-street,lat_lngs: []}
+  - {name: nahoon-mouth-greenwich-street,lat_lngs: []}
+  - {name: nahoon-mouth-harewood-drive,lat_lngs: []}
+  - {name: nahoon-mouth-havelock-crescent,lat_lngs: []}
+  - {name: nahoon-mouth-logan-drive,lat_lngs: []}
+  - {name: nahoon-mouth-lower-beach-road,lat_lngs: []}
+  - {name: nahoon-mouth-pembroke-place,lat_lngs: []}
+  - {name: nahoon-mouth-plymouth-drive,lat_lngs: []}
+  - {name: nahoon-mouth-princess-alice-drive,lat_lngs: []}
+  - {name: nahoon-mouth-rosyth-road,lat_lngs: []}
+  - {name: north-end-baywater-street,lat_lngs: []}
+  - {name: north-end-beaconsfield-road,lat_lngs: []}
+  - {name: north-end-bushview-terrace,lat_lngs: []}
+  - {name: north-end-clarkes-lane,lat_lngs: []}
+  - {name: north-end-college-street,lat_lngs: []}
+  - {name: north-end-de-beers-road,lat_lngs: []}
+  - {name: north-end-factory-road,lat_lngs: []}
+  - {name: north-end-jacob-nanni-place,lat_lngs: []}
+  - {name: north-end-kimberley-road,lat_lngs: []}
+  - {name: north-end-lower-albany-street,lat_lngs: []}
+  - {name: north-end-lower-park-avenue,lat_lngs: []}
+  - {name: north-end-magnolia-street,lat_lngs: []}
+  - {name: north-end-milner-road,lat_lngs: []}
+  - {name: north-end-park-close,lat_lngs: []}
+  - {name: north-end-park-street,lat_lngs: []}
+  - {name: north-end-park-place,lat_lngs: []}
+  - {name: north-end-pine-street,lat_lngs: []}
+  - {name: north-end-porter-street,lat_lngs: []}
+  - {name: north-end-reynolds-street,lat_lngs: []}
+  - {name: north-end-richmond-road,lat_lngs: []}
+  - {name: north-end-short-street,lat_lngs: []}
+  - {name: north-end-st-johns-road,lat_lngs: []}
+  - {name: north-end-st-pauls-road,lat_lngs: []}
+  - {name: north-end-wolsely-street,lat_lngs: []}
+  - {name: stirling-bamburgh-road,lat_lngs: []}
+  - {name: stirling-carisbrook-road,lat_lngs: []}
+  - {name: stirling-drake-road,lat_lngs: []}
+  - {name: stirling-epsom-place,lat_lngs: []}
+  - {name: stirling-epsom-road,lat_lngs: []}
+  - {name: stirling-galway-road,lat_lngs: []}
+  - {name: stirling-kenilworth-road,lat_lngs: []}
+  - {name: stirling-sandgate-road,lat_lngs: []}
+  - {name: stirling-sandown-road,lat_lngs: []}
+  - {name: king-williams-town-alfred-street,lat_lngs: []}
+  - {name: king-williams-town-arthur-street,lat_lngs: []}
+  - {name: king-williams-town-ayliff-street,lat_lngs: []}
+  - {name: king-williams-town-bank-street,lat_lngs: []}
+  - {name: king-williams-town-berkely-street,lat_lngs: []}
+  - {name: king-williams-town-botanic-street,lat_lngs: []}
+  - {name: king-williams-town-cathcart-street,lat_lngs: []}
+  - {name: king-williams-town-cross-street,lat_lngs: []}
+  - {name: king-williams-town-downing-street,lat_lngs: []}
+  - {name: king-williams-town-eales-street,lat_lngs: []}
+  - {name: king-williams-town-engineers-terrace,lat_lngs: []}
+  - {name: king-williams-town-fleet-street,lat_lngs: []}
+  - {name: king-williams-town-frere-street,lat_lngs: []}
+  - {name: king-williams-town-garden-street,lat_lngs: []}
+  - {name: king-williams-town-gordon-road,lat_lngs: []}
+  - {name: king-williams-town-grey-street,lat_lngs: []}
+  - {name: king-williams-town-innes-street,lat_lngs: []}
+  - {name: king-williams-town-leopold-street,lat_lngs: []}
+  - {name: king-williams-town-lonsdale-street,lat_lngs: []}
+  - {name: king-williams-town-lower-mount-street,lat_lngs: []}
+  - {name: king-williams-town-maclean-road,lat_lngs: []}
+  - {name: king-williams-town-market-street,lat_lngs: []}
+  - {name: king-williams-town-mary-street,lat_lngs: []}
+  - {name: king-williams-town-mckinnon-street,lat_lngs: []}
+  - {name: king-williams-town-napier-street,lat_lngs: []}
+  - {name: king-williams-town-oak-street,lat_lngs: []}
+  - {name: king-williams-town-percy-street,lat_lngs: []}
+  - {name: king-williams-town-queens-road,lat_lngs: []}
+  - {name: king-williams-town-school-street,lat_lngs: []}
+  - {name: king-williams-town-smith-street,lat_lngs: []}
+  - {name: king-williams-town-taylor-street,lat_lngs: []}
+  - {name: king-williams-town-victoria-street,lat_lngs: []}
+  - {name: king-williams-town-walker-street,lat_lngs: []}
+  - {name: king-williams-town-walker-street,lat_lngs: []}
+  - {name: king-williams-town-wellington-street,lat_lngs: []}
+  - {name: mdantsane-zone-10,lat_lngs: []}
+  - {name: mdantsane-zone-11,lat_lngs: []}
+  - {name: mdantsane-zone-12,lat_lngs: []}
+  - {name: mdantsane-zone-13,lat_lngs: []}
+  - {name: mdantsane-zone-14,lat_lngs: []}
+  - {name: mdantsane-zone-15,lat_lngs: []}
+  - {name: mdantsane-zone-16,lat_lngs: []}
+  - {name: mdantsane-zone-17,lat_lngs: []}
+
+- calendar_name: buffalo-city-block-5.ics
+  province: eastern-cape
+  municipality: buffalo-city
+  city: buffalo-city
+  provider: buffalo-city
+  source: https://www.buffalocity.gov.za/CM/uploads/documents/20201001011578662845LoadsheddingInformationPackV5.pdf
+  source_info: https://www.buffalocity.gov.za/folder.php?id=CA4FCA0
+  areas:
+  - {name: quigney-angle-street,lat_lngs: []}
+  - {name: quigney-aquarium-road,lat_lngs: []}
+  - {name: quigney-blaine-street,lat_lngs: []}
+  - {name: quigney-bonanza-street,lat_lngs: []}
+  - {name: quigney-brighton-street,lat_lngs: []}
+  - {name: quigney-browning-street,lat_lngs: []}
+  - {name: quigney-burns-street,lat_lngs: []}
+  - {name: quigney-cadwallan-road,lat_lngs: []}
+  - {name: quigney-caxton-street,lat_lngs: []}
+  - {name: quigney-chambers-street,lat_lngs: []}
+  - {name: quigney-clifford-street,lat_lngs: []}
+  - {name: quigney-court-cres,lat_lngs: []}
+  - {name: quigney-coutts-street,lat_lngs: []}
+  - {name: quigney-cowper-street,lat_lngs: []}
+  - {name: quigney-currie-street,lat_lngs: []}
+  - {name: quigney-esplanade-street,lat_lngs: []}
+  - {name: quigney-fitzpatrick-road,lat_lngs: []}
+  - {name: quigney-goldschmidt-street,lat_lngs: []}
+  - {name: quigney-gouden-street,lat_lngs: []}
+  - {name: quigney-inverleigh-terrace,lat_lngs: []}
+  - {name: quigney-jameson-street,lat_lngs: []}
+  - {name: quigney-longfellow-street,lat_lngs: []}
+  - {name: quigney-lower-esplanade-street,lat_lngs: []}
+  - {name: quigney-marine-terrace,lat_lngs: []}
+  - {name: quigney-moore-street,lat_lngs: []}
+  - {name: quigney-norden-street,lat_lngs: []}
+  - {name: quigney-quanza-street,lat_lngs: []}
+  - {name: quigney-rees-street,lat_lngs: []}
+  - {name: quigney-rhodes-street,lat_lngs: []}
+  - {name: quigney-seaview-terrace,lat_lngs: []}
+  - {name: quigney-tutton-terrace,lat_lngs: []}
+  - {name: quigney-upper-esplanade-street,lat_lngs: []}
+  - {name: east-london-cbd	park-gates-road,lat_lngs: []}
+  - {name: east-london-cbd	pontoon-road,lat_lngs: []}
+  - {name: east-london-cbd	south-street,lat_lngs: []}
+  - {name: east-london-cbd	stephenson-street,lat_lngs: []}
+  - {name: east-london-cbd	terminus-street,lat_lngs: []}
+  - {name: east-london-cbd	union-street,lat_lngs: []}
+  - {name: east-london-cbd	victoria-road,lat_lngs: []}
+  - {name: east-london-cbd-albany-street,lat_lngs: []}
+  - {name: east-london-cbd-alberts-street,lat_lngs: []}
+  - {name: east-london-cbd-argyle-street,lat_lngs: []}
+  - {name: east-london-cbd-caxton-street,lat_lngs: []}
+  - {name: east-london-cbd-chapel-street,lat_lngs: []}
+  - {name: east-london-cbd-church-street,lat_lngs: []}
+  - {name: east-london-cbd-commissioner-street,lat_lngs: []}
+  - {name: east-london-cbd-convent-lane,lat_lngs: []}
+  - {name: east-london-cbd-gilwell-road,lat_lngs: []}
+  - {name: east-london-cbd-gladstone-street,lat_lngs: []}
+  - {name: east-london-cbd-hill-street,lat_lngs: []}
+  - {name: east-london-cbd-jagger-street,lat_lngs: []}
+  - {name: east-london-cbd-lower-buffalo-street,lat_lngs: []}
+  - {name: east-london-cbd-lower-cambridge-street,lat_lngs: []}
+  - {name: east-london-cbd-lower-oxford-street,lat_lngs: []}
+  - {name: east-london-cbd-north-street,lat_lngs: []}
+  - {name: east-london-cbd-park-avenue,lat_lngs: []}
+  - {name: east-london-cbd-west-fleet-street,lat_lngs: []}
+  - {name: mdantsane-zone-4,lat_lngs: []}
+  - {name: mdantsane-zone-6,lat_lngs: []}
+  - {name: mdantsane-zone-9,lat_lngs: []}
+
+- calendar_name: buffalo-city-block-6.ics
+  province: eastern-cape
+  municipality: buffalo-city
+  city: buffalo-city
+  provider: buffalo-city
+  source: https://www.buffalocity.gov.za/CM/uploads/documents/20201001011578662845LoadsheddingInformationPackV5.pdf
+  source_info: https://www.buffalocity.gov.za/folder.php?id=CA4FCA0
+  areas:
+  - {name: quigney-angle-street,lat_lngs: []}
+
+East London 	Belgravia 	Belgravia Cres 	9
+East London 	Belgravia 	Oxford Str 	9
+East London 	Belgravia 	St Michaels Rd 	9
+East London 	Belgravia 	St Peters Rd 	9
+
