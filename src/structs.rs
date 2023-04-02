@@ -68,6 +68,48 @@ impl Display for PowerOutage {
 
 /// Parse a number of CSV files and a manually_specified YAML file into various load shedding
 /// outputs.
+///
+/// # Examples
+///
+/// By default, convert all files matching `generated/*.csv` into ICS calendar files (which are
+/// written to `calendars/*.ics`), and also write the same data as a machine-friendly CSV file to
+/// `calendars/machine_friendly.csv`:
+/// ```
+/// cargo run --release
+/// ```
+/// The program is silent by default. Use the `RUST_LOG` environment variable to choose your
+/// desired logging level
+/// ```
+/// RUST_LOG=trace cargo run --release
+/// RUST_LOG=info  cargo run --release
+/// RUST_LOG=debug cargo run --release
+/// RUST_LOG=warn  cargo run --release
+/// RUST_LOG=error cargo run --release
+/// ```
+///
+/// You can choose to only calculate loadshedding for files matching the provided regex:
+///
+/// ```
+/// RUST_LOG=info cargo run --release -- --include-regex "city-of-cape-town-area-10"
+/// RUST_LOG=info cargo run --release -- --include-regex "western-cape-stellenbosch"
+/// RUST_LOG=info cargo run --release -- --include-regex "western-cape|eastern-cape"
+/// RUST_LOG=info cargo run --release -- --include-regex "gauteng"
+/// ```
+/// You can choose whether or not you want ICS/CSV files to be calculated and written with the
+/// `--output-ics-files` and `--output-csv-file` flags. These are true by default. Calculating and
+/// writing the ICS files to disk takes a lot longer than the CSV file.
+///
+/// ```
+/// RUST_LOG=info cargo run --release -- --output-ics-files=false
+/// RUST_LOG=info cargo run --release -- --output-csv-file=false
+/// ```
+///
+/// If you only want to check that `manually_specified.yaml` is valid, you can use the
+/// `--only-check-for-overlaps` flag. This is a lot faster than actually creating the ICS/CSV files
+///
+/// ```
+/// RUST_LOG=info cargo run --release -- --only-check-for-overlaps=true
+/// ```
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 pub struct Args {
