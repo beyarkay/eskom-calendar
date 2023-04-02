@@ -15,21 +15,90 @@ changes:
     # Eskom
   - stage: 4
     start: 2023-03-31T21:33:00
-    finsh: 2023-04-07T00:00:00
+    finsh: 2023-04-02T05:00:00
     source: https://twitter.com/Eskom_SA/status/1641886539499143169
+    exclude: coct
+  - stage: 3
+    start: 2023-04-02T05:00:00
+    finsh: 2023-04-02T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 4
+    start: 2023-04-02T16:00:00
+    finsh: 2023-04-03T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 3
+    start: 2023-04-03T05:00:00
+    finsh: 2023-04-03T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 4
+    start: 2023-04-03T16:00:00
+    finsh: 2023-04-04T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 3
+    start: 2023-04-04T05:00:00
+    finsh: 2023-04-04T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 4
+    start: 2023-04-04T16:00:00
+    finsh: 2023-04-05T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 3
+    start: 2023-04-05T05:00:00
+    finsh: 2023-04-05T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 4
+    start: 2023-04-05T16:00:00
+    finsh: 2023-04-06T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 3
+    start: 2023-04-06T05:00:00
+    finsh: 2023-04-06T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 4
+    start: 2023-04-06T16:00:00
+    finsh: 2023-04-07T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 3
+    start: 2023-04-07T05:00:00
+    finsh: 2023-04-07T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 4
+    start: 2023-04-07T16:00:00
+    finsh: 2023-04-08T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
+    exclude: coct
+  - stage: 3
+    start: 2023-04-08T05:00:00
+    finsh: 2023-04-08T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1642540773588516867
     exclude: coct
 
   # CoCT
   - stage: 3
     start: 2023-04-01T05:00:00
     finsh: 2023-04-01T16:00:00
-    source: https://twitter.com/CityofCT/status/1642115491048161282
+    source: https://twitter.com/CityofCT/status/1642538310353534980
     include: coct
   - stage: 4
     start: 2023-04-01T16:00:00
     finsh: 2023-04-03T05:00:00
-    source: https://twitter.com/CityofCT/status/1642115491048161282
-    include: coct
-
+    source: https://twitter.com/CityofCT/status/1642538310353534980
+    exclude: coct
+  - stage: 3
+    start: 2023-04-03T05:00:00
+    finsh: 2023-04-03T22:00:00
+    source: https://twitter.com/CityofCT/status/1642538310353534980
+    exclude: coct
 
 historical_changes: []
