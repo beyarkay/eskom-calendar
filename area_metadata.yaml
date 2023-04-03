@@ -5754,7 +5754,29 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 1
+  - {name: activia-park,lat_lngs: []}
+  - {name: barvallen,lat_lngs: []}
+  - {name: dawnview,lat_lngs: []}
+  - {name: delmore,lat_lngs: []}
+  - {name: dukathole,lat_lngs: []}
+  - {name: fishers-hill,lat_lngs: []}
+  - {name: gerdview,lat_lngs: []}
+  - {name: henville,lat_lngs: []}
+  - {name: homestead,lat_lngs: []}
+  - {name: knights,lat_lngs: []}
+  - {name: marlands,lat_lngs: []}
+  - {name: meadowbrook,lat_lngs: []}
+  - {name: rustivia,lat_lngs: []}
+  - {name: south-germiston,lat_lngs: []}
+  - {name: sunnyridge,lat_lngs: []}
+  - {name: sunnyrock,lat_lngs: []}
+  - {name: symhurst,lat_lngs: []}
+  - {name: ulana-park,lat_lngs: []}
+  - {name: wannenburg,lat_lngs: []}
+  - {name: wannenburg-hoogte,lat_lngs: []}
+  - {name: wilbart,lat_lngs: []}
+  - {name: witfield,lat_lngs: []}
+  - {name: woodmere,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-10.ics
   province: gauteng
@@ -5764,8 +5786,23 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 10
-    lat_lngs: []
+  - {name: benoni-agriculture-holdings,lat_lngs: []}
+  - {name: brentwood-park,lat_lngs: []}
+  - {name: chief-a-park,lat_lngs: []}
+  - {name: cloverdene,lat_lngs: []}
+  - {name: daveyton,lat_lngs: []}
+  - {name: etwatwa,lat_lngs: []}
+  - {name: fairleads,lat_lngs: []}
+  - {name: hillcrest,lat_lngs: []}
+  - {name: kingsway,lat_lngs: []}
+  - {name: kunene,lat_lngs: []}
+  - {name: lillyvale,lat_lngs: []}
+  - {name: marister-benoni-north,lat_lngs: []}
+  - {name: northmead,lat_lngs: []}
+  - {name: petit,lat_lngs: []}
+  - {name: putfontein,lat_lngs: []}
+  - {name: rynfield,lat_lngs: []}
+  - {name: vezi,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-11.ics
   province: gauteng
@@ -5775,7 +5812,20 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - {name: "winnie mandela zone 1,8 & 11",lat_lngs: []}
+  - {name: birch-arces-extension-23,lat_lngs: []}
+  - {name: birch-arces-extension-24,lat_lngs: []}
+  - {name: birch-arces-extension-25,lat_lngs: []}
+  - {name: birch-arces-extension-26,lat_lngs: []}
+  - {name: birch-arces-extension-27,lat_lngs: []}
+  - {name: birch-arces-extension-28,lat_lngs: []}
+  - {name: birch-arces-extension-29,lat_lngs: []}
+  - {name: birch-arces-extension-30,lat_lngs: []}
+  - {name: birch-arces-extension-31,lat_lngs: []}
+  - {name: birch-arces-extension-32,lat_lngs: []}
+  - {name: thembisa,lat_lngs: []}
+  - {name: winnie-mandela-zone-1,lat_lngs: []}
+  - {name: winnie-mandela-zone-11,lat_lngs: []}
+  - {name: winnie-mandela-zone-8,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-12.ics
   province: gauteng
@@ -5785,9 +5835,9 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - {name: "alrode",lat_lngs: []}
-  - {name: "mapleton",lat_lngs: []}
-  - {name: "reiger park",lat_lngs: []}
+  - {name: alrode,lat_lngs: []}
+  - {name: mapleton,lat_lngs: []}
+  - {name: reiger-park,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-13.ics
   province: gauteng
@@ -5797,7 +5847,7 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - {name: "brakpan cbd and surroundings",lat_lngs: []}
+  - {name: brakpan-cbd-and-surroundings,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-14.ics
   province: gauteng
@@ -5807,27 +5857,28 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - {name: "allen grove",lat_lngs: []}
-  - {name: "aston manor",lat_lngs: []}
-  - {name: "birch acres",lat_lngs: []}
-  - {name: "birchleigh north",lat_lngs: []}
-  - {name: "birchleigh",lat_lngs: []}
-  - {name: "bonaero park",lat_lngs: []}
-  - {name: "cresslawn",lat_lngs: []}
-  - {name: "croydon",lat_lngs: []}
-  - {name: "edleen",lat_lngs: []}
-  - {name: "glen erasmia",lat_lngs: []}
-  - {name: "glen marais",lat_lngs: []}
-  - {name: "kelvin estate",lat_lngs: []}
-  - {name: "kempton park cbd",lat_lngs: []}
-  - {name: "kempton park extensions",lat_lngs: []}
-  - {name: "kempton west",lat_lngs: []}
-  - {name: "nimrod park",lat_lngs: []}
-  - {name: "parts of kempton park ext 2 & ext 4",lat_lngs: []}
-  - {name: "rhodesfield",lat_lngs: []}
-  - {name: "spartan",lat_lngs: []}
-  - {name: "terenure",lat_lngs: []}
-  - {name: "van riebeeck park",lat_lngs: []}
+  - {name: terenure,lat_lngs: []}
+  - {name: edleen,lat_lngs: []}
+  - {name: van-riebeeck-park,lat_lngs: []}
+  - {name: birch-acres,lat_lngs: []}
+  - {name: kempton-west,lat_lngs: []}
+  - {name: glen-marais,lat_lngs: []}
+  - {name: allen-grove,lat_lngs: []}
+  - {name: bonaero-park,lat_lngs: []}
+  - {name: nimrod-park,lat_lngs: []}
+  - {name: aston-manor,lat_lngs: []}
+  - {name: parts-of-kempton-park-extension-4,lat_lngs: []}
+  - {name: parts-of-kempton-park-extension-2,lat_lngs: []}
+  - {name: glen-erasmia,lat_lngs: []}
+  - {name: birchleigh,lat_lngs: []}
+  - {name: birchleigh-north,lat_lngs: []}
+  - {name: kempton-park-cbd,lat_lngs: []}
+  - {name: kempton-park-extensions,lat_lngs: []}
+  - {name: rhodesfield,lat_lngs: []}
+  - {name: cresslawn,lat_lngs: []}
+  - {name: kelvin-estate,lat_lngs: []}
+  - {name: croydon,lat_lngs: []}
+  - {name: spartan,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-15.ics
   province: gauteng
@@ -5837,8 +5888,8 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - {name: "albertsdal",lat_lngs: []}
-  - {name: "kwathema",lat_lngs: []}
+  - {name: albertsdal,lat_lngs: []}
+  - {name: kwathema,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-16.ics
   province: gauteng
@@ -5848,18 +5899,18 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - {name: "albermale",lat_lngs: []}
-  - {name: "benoni cbd",lat_lngs: []}
-  - {name: "buhle park",lat_lngs: []}
-  - {name: "farrarmere",lat_lngs: []}
-  - {name: "lakefield",lat_lngs: []}
-  - {name: "mackenzie park",lat_lngs: []}
-  - {name: "norton small farm",lat_lngs: []}
-  - {name: "part of northmead",lat_lngs: []}
-  - {name: "phumula",lat_lngs: []}
-  - {name: "rondebult",lat_lngs: []}
-  - {name: "roodekop ext",lat_lngs: []}
-  - {name: "wadeville",lat_lngs: []}
+  - {name: albermale,lat_lngs: []}
+  - {name: benoni-cbd,lat_lngs: []}
+  - {name: buhle-park,lat_lngs: []}
+  - {name: farrarmere,lat_lngs: []}
+  - {name: lakefield,lat_lngs: []}
+  - {name: mackenzie-park,lat_lngs: []}
+  - {name: norton-small-farm,lat_lngs: []}
+  - {name: part-of-northmead,lat_lngs: []}
+  - {name: phumula,lat_lngs: []}
+  - {name: rondebult,lat_lngs: []}
+  - {name: roodekop-extension,lat_lngs: []}
+  - {name: wadeville,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-2.ics
   province: gauteng
@@ -5869,8 +5920,29 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 2
-    lat_lngs: []
+  - {name: activia-park,lat_lngs: []}
+  - {name: barvallen,lat_lngs: []}
+  - {name: dawnview,lat_lngs: []}
+  - {name: delmore,lat_lngs: []}
+  - {name: dukathole,lat_lngs: []}
+  - {name: fishers-hill,lat_lngs: []}
+  - {name: gerdview,lat_lngs: []}
+  - {name: henville,lat_lngs: []}
+  - {name: homestead,lat_lngs: []}
+  - {name: knights,lat_lngs: []}
+  - {name: marlands,lat_lngs: []}
+  - {name: meadowbrook,lat_lngs: []}
+  - {name: rustivia,lat_lngs: []}
+  - {name: south-germiston,lat_lngs: []}
+  - {name: sunnyridge,lat_lngs: []}
+  - {name: sunnyrock,lat_lngs: []}
+  - {name: symhurst,lat_lngs: []}
+  - {name: ulana-park,lat_lngs: []}
+  - {name: wannenburg,lat_lngs: []}
+  - {name: wannenburg-hoogte,lat_lngs: []}
+  - {name: wilbart,lat_lngs: []}
+  - {name: witfield,lat_lngs: []}
+  - {name: woodmere,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-3.ics
   province: gauteng
@@ -5880,8 +5952,17 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 3
-    lat_lngs: []
+  - {name: bredell,lat_lngs: []}
+  - {name: brentwood-park,lat_lngs: []}
+  - {name: esselen-park,lat_lngs: []}
+  - {name: esselen-park-extensions,lat_lngs: []}
+  - {name: glen-marais-extension-49,lat_lngs: []}
+  - {name: glen-marais-extension-52,lat_lngs: []}
+  - {name: glen-marais-extension-89,lat_lngs: []}
+  - {name: glen-marais-extension-98,lat_lngs: []}
+  - {name: kaalfontein,lat_lngs: []}
+  - {name: serengeti,lat_lngs: []}
+  - {name: welgedacht-town,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-4.ics
   province: gauteng
@@ -5891,8 +5972,23 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 4
-    lat_lngs: []
+  - {name: boksburg-cbd,lat_lngs: []}
+  - {name: boksburg-east,lat_lngs: []}
+  - {name: boksburg-south,lat_lngs: []}
+  - {name: cinderella,lat_lngs: []}
+  - {name: dunnottar,lat_lngs: []}
+  - {name: farrar-park,lat_lngs: []}
+  - {name: freeway-park,lat_lngs: []}
+  - {name: lazerus,lat_lngs: []}
+  - {name: palm-ridge,lat_lngs: []}
+  - {name: parkdene,lat_lngs: []}
+  - {name: parkrand,lat_lngs: []}
+  - {name: presida,lat_lngs: []}
+  - {name: salfin,lat_lngs: []}
+  - {name: slovo-park,lat_lngs: []}
+  - {name: sunward-park,lat_lngs: []}
+  - {name: van-dyk-park,lat_lngs: []}
+  - {name: welgadacht,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-5.ics
   province: gauteng
@@ -5902,8 +5998,16 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 5
-    lat_lngs: []
+  - {name: dawn-park,lat_lngs: []}
+  - {name: driehoek,lat_lngs: []}
+  - {name: georgetown,lat_lngs: []}
+  - {name: germiston-cbd,lat_lngs: []}
+  - {name: groeneweide,lat_lngs: []}
+  - {name: klipportjie,lat_lngs: []}
+  - {name: lampton,lat_lngs: []}
+  - {name: simmerfield,lat_lngs: []}
+  - {name: villa-liza,lat_lngs: []}
+  - {name: windmill-park,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-6.ics
   province: gauteng
@@ -5913,8 +6017,19 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 6
-    lat_lngs: []
+  - {name: clayville,lat_lngs: []}
+  - {name: olifantsfontein,lat_lngs: []}
+  - {name: winnie-mandela-zone-10,lat_lngs: []}
+  - {name: winnie-mandela-zone-11,lat_lngs: []}
+  - {name: winnie-mandela-zone-12,lat_lngs: []}
+  - {name: winnie-mandela-zone-2,lat_lngs: []}
+  - {name: winnie-mandela-zone-3,lat_lngs: []}
+  - {name: winnie-mandela-zone-4,lat_lngs: []}
+  - {name: winnie-mandela-zone-5,lat_lngs: []}
+  - {name: winnie-mandela-zone-6,lat_lngs: []}
+  - {name: winnie-mandela-zone-7,lat_lngs: []}
+  - {name: winnie-mandela-zone-8,lat_lngs: []}
+  - {name: winnie-mandela-zone-9,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-7.ics
   province: gauteng
@@ -5924,8 +6039,29 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 7
-    lat_lngs: []
+  - {name: anderbolt,lat_lngs: []}
+  - {name: atlasville,lat_lngs: []}
+  - {name: bardene,lat_lngs: []}
+  - {name: bartletts,lat_lngs: []}
+  - {name: beyerspark,lat_lngs: []}
+  - {name: boksburg-north,lat_lngs: []}
+  - {name: boksburg-west,lat_lngs: []}
+  - {name: clearwater-estate,lat_lngs: []}
+  - {name: comet,lat_lngs: []}
+  - {name: dayanglen,lat_lngs: []}
+  - {name: delmore,lat_lngs: []}
+  - {name: hughes,lat_lngs: []}
+  - {name: impala-park,lat_lngs: []}
+  - {name: janmutsville,lat_lngs: []}
+  - {name: jansen-park,lat_lngs: []}
+  - {name: jetpark,lat_lngs: []}
+  - {name: lilliaton,lat_lngs: []}
+  - {name: plantation,lat_lngs: []}
+  - {name: ravensklip,lat_lngs: []}
+  - {name: ravenswood,lat_lngs: []}
+  - {name: westwood,lat_lngs: []}
+  - {name: witfield,lat_lngs: []}
+  - {name: witkoppie-ridge,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-8.ics
   province: gauteng
@@ -5935,8 +6071,9 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 8
-    lat_lngs: []
+  - {name: bedfordview,lat_lngs: []}
+  - {name: new-era,lat_lngs: []}
+  - {name: springs,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-9.ics
   province: gauteng
@@ -5946,8 +6083,9 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - name: ekurhuleni block 9
-    lat_lngs: []
+  - {name: edenvale,lat_lngs: []}
+  - {name: horwood,lat_lngs: []}
+  - {name: selcourt,lat_lngs: []}
 
 - calendar_name: gauteng-tshwane-group-1.ics
   province: gauteng
