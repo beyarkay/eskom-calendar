@@ -55,16 +55,16 @@ fn main() -> Result<(), Box<dyn Error + Sync + Send>> {
         .filter_map(|(path, sheddings)| {
             let area_name = fmt::path_to_area_name(path).unwrap();
             match calculate_power_outages(&area_name, sheddings, &manually_specified) {
-                Ok(lines) => Some((path, lines)),
+                Ok(outages) => Some((path, outages)),
                 Err(_) => None,
             }
         })
         // Write the individual sheddings to ICS files
-        .map(|(path, lines)| {
+        .map(|(path, outages)| {
             if args.output_ics_files {
-                write_sheddings_to_ics(path, &lines).unwrap();
+                write_sheddings_to_ics(path, &outages).unwrap();
             }
-            (path, lines)
+            (path, outages)
         })
         .collect();
 
