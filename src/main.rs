@@ -55,14 +55,14 @@ fn main() -> Result<(), Box<dyn Error + Sync + Send>> {
         .filter_map(|(path, sheddings)| {
             let area_name = fmt::path_to_area_name(path).unwrap();
             match calculate_power_outages(&area_name, sheddings, &manually_specified) {
-                Ok(outages) => Some((path, outages)),
+                Ok((outages, last_finsh)) => Some((path, outages, last_finsh)),
                 Err(_) => None,
             }
         })
         // Write the individual sheddings to ICS files
-        .map(|(path, outages)| {
+        .map(|(path, outages, last_finsh)| {
             if args.output_ics_files {
-                write_sheddings_to_ics(path, &outages).unwrap();
+                write_sheddings_to_ics(path, &outages, last_finsh).unwrap();
             }
             (path, outages)
         })
@@ -135,12 +135,12 @@ fn filter_paths_by_regex(regex: Option<Regex>, paths: Vec<PathBuf>) -> Vec<PathB
 }
 
 /// Given some local monthly sheddings and some manually specified national sheddings, convert them
-/// into a list of power outages.
+/// into a list of power outages. Filters out all non-regex matching areas.
 fn calculate_power_outages(
     area_name: &str,
     monthly_sheddings: Vec<MonthlyShedding>,
     manually_specified: &ManuallyInputSchedule,
-) -> Result<Vec<PowerOutage>, Box<dyn Error + Sync + Send>> {
+) -> Result<(Vec<PowerOutage>, Option<DateTime<FixedOffset>>), Box<dyn Error + Sync + Send>> {
     let national_changes: Vec<Shedding> = manually_specified
         .changes
         .clone()
@@ -152,8 +152,8 @@ fn calculate_power_outages(
         "Checking {} combinations for possible load shedding in {area_name}",
         combos.len(),
     );
-
-    let mut lines = vec![];
+    let mut last_finsh: Option<DateTime<FixedOffset>> = None;
+    let mut outages = vec![];
 
     for (local, natnl) in combos {
         let datetimes = gen_datetimes(
@@ -164,7 +164,11 @@ fn calculate_power_outages(
             local.finsh_time.time(),
         );
         for dt in datetimes {
-            lines.push(PowerOutage {
+            // Keep track of the last finished event, so that we can add one more event immediately
+            // after it
+            last_finsh = last_finsh.map_or(Some(dt.1), |le| Some(le.max(dt.1)));
+            // Also create a power outage struct and push it onto the vector
+            outages.push(PowerOutage {
                 area_name: area_name.to_owned(),
                 stage: local.stage,
                 start: dt.0,
@@ -173,13 +177,14 @@ fn calculate_power_outages(
             })
         }
     }
-    Ok(lines)
+    Ok((outages, last_finsh))
 }
 
 /// Attempt to write some PowerOutages to the specified path as a ICS file.
 fn write_sheddings_to_ics(
     path: &Path,
     power_outages: &[PowerOutage],
+    last_finsh: Option<DateTime<FixedOffset>>,
 ) -> Result<(), Box<dyn Error + Sync + Send>> {
     // Get the correct filename
     let fname = path
@@ -193,16 +198,9 @@ fn write_sheddings_to_ics(
     info!("Writing {} events to {:?}", power_outages.len(), fname);
 
     let mut calendar = Calendar::new();
-    let mut last_finsh: Option<DateTime<FixedOffset>> = None;
 
     // Add all the events to the calendar
     for outage in power_outages {
-        // Keep track of the last finished event, so that we can add one more event immediately
-        // after it
-        last_finsh = match last_finsh {
-            Some(le) => Some(le.max(outage.finsh)),
-            None => Some(outage.finsh),
-        };
         // Convert the outage to an event, and add it to the calendar
         calendar.push(fmt::power_outage_to_event(outage)?);
     }
@@ -256,7 +254,7 @@ fn get_git_hash() -> Result<String, Box<dyn Error + Sync + Send>> {
 }
 
 /// Given some monthly shedding data and some national shedding data, calculate all the ways they
-/// could be combined while ensuring the stages are equal.
+/// could be combined while ensuring the stages are equal. Does not check that the regex matches
 fn make_combinations_from_sheddings(
     monthly_sheddings: &[MonthlyShedding],
     national_sheddings: &[Shedding],
@@ -370,6 +368,7 @@ mod fmt {
         power_outage: &PowerOutage,
     ) -> Result<Event, Box<dyn Error + Sync + Send>> {
         // TODO can a default alarm be added to this?
+        // TODO remove the newline after "Often you can set the update..."
         let description = format!(
             "This event shows that there will be loadshedding on {} to {} in the load \
             shedding area {}.\n\
@@ -419,7 +418,7 @@ mod fmt {
 
     /// Create an event that signals the end of known loadshedding data
     pub fn end_of_schedule_event(
-        last_event: DateTime<FixedOffset>,
+        last_finsh: DateTime<FixedOffset>,
     ) -> Result<Event, Box<dyn Error + Sync + Send>> {
         let description = format!(
             "This is the end of the known loadshedding schedule.\n\
@@ -441,8 +440,8 @@ mod fmt {
             compiletime=chrono::offset::Local::now(),
         );
 
-        let start = last_event.with_timezone(&Utc);
-        let end = last_event
+        let start = last_finsh.with_timezone(&Utc);
+        let end = last_finsh
             .checked_add_signed(chrono::Duration::hours(1))
             .unwrap()
             .with_timezone(&Utc);
