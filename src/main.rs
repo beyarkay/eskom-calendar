@@ -9,7 +9,6 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use structs::{Args, ManuallyInputSchedule, MonthlyShedding, PowerOutage, Shedding};
-// TODO include some sort of progress bar
 
 extern crate pretty_env_logger;
 use log::{info, trace};
@@ -345,7 +344,6 @@ mod fmt {
     use chrono::FixedOffset;
     use chrono::{DateTime, Utc};
     use icalendar::{Component, Event};
-    use std::error::Error;
     use std::path::Path;
 
     use crate::structs::PowerOutage;
@@ -508,7 +506,6 @@ mod read {
         ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding,
     };
     use crate::BoxedError;
-    use std::error::Error;
     use std::fs::read_to_string;
     use std::path::PathBuf;
 

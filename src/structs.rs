@@ -221,9 +221,9 @@ impl From<RawShedding> for Shedding {
         let shorthand_to_regex = |shorthand: String, default: String| {
             match shorthand.to_lowercase().as_str() {
             "citypower" | "cp" => r"city-power-\d{1,2}".to_string(),
-            "capetown" | "cpt" | "coct" => r"city-of-cape-town-area-\d{1,2}".to_string(),
+            "capetown" | "cpt" | "coct" => r"city-of-cape-town(-area-\d{1,2})?".to_string(),
             "ekurhuleni" => r"gauteng-ekurhuleni-block-\d{1,2}".to_string(),
-            "eskom" => r"^(eastern-cape-)|(free-state-)|(kwazulu-natal-)|(limpopo-)|(mpumalanga-)|(north-west-)|(northern-cape-)|(western-cape-)".to_string(),
+            "eskom" => r"^(eskom)|(eastern-cape-)|(free-state-)|(kwazulu-natal-)|(limpopo-)|(mpumalanga-)|(north-west-)|(northern-cape-)|(western-cape-)".to_string(),
             "tshwane" => r"gauteng-tshwane-group-\d{1,2}".to_string(),
             _ => default,
         }
@@ -359,20 +359,20 @@ impl From<RawMonthlyShedding> for MonthlyShedding {
 mod tests {
     mod raw_shedding_to_shedding {
         use crate::structs::{RawShedding, Shedding};
-        use chrono::DateTime;
         use regex::Regex;
 
-        fn _get_shedding() -> Shedding {
+        fn cooked_with_regex(include_regex: &str, exclude_regex: &str) -> Shedding {
             Shedding {
-                start: DateTime::parse_from_rfc3339("2022-01-01T08:00:00+02:00").unwrap(),
-                finsh: DateTime::parse_from_rfc3339("2022-01-02T08:00:00+02:00").unwrap(),
+                start: chrono::DateTime::parse_from_rfc3339("2022-01-01T08:00:00+02:00").unwrap(),
+                finsh: chrono::DateTime::parse_from_rfc3339("2022-01-02T08:00:00+02:00").unwrap(),
                 stage: 1,
                 source: "Test source".to_string(),
-                include_regex: Regex::new(".*").unwrap(),
-                exclude_regex: Regex::new(".*").unwrap(),
+                include_regex: Regex::new(include_regex).unwrap(),
+                exclude_regex: Regex::new(exclude_regex).unwrap(),
             }
         }
-        fn _get_raw_shedding() -> RawShedding {
+
+        fn raw_with_regex(include: Option<String>, exclude: Option<String>) -> RawShedding {
             RawShedding {
                 start: "2022-01-01T08:00:00".to_string(),
                 finsh: "2022-01-02T08:00:00".to_string(),
@@ -380,8 +380,47 @@ mod tests {
                 source: "Test source".to_string(),
                 include_regex: None,
                 exclude_regex: None,
-                include: None,
-                exclude: None,
+                include,
+                exclude,
+            }
+        }
+
+        #[test]
+        fn test_regex() {
+            let shorthand_to_longhand = vec![
+                // City power
+                ("citypower", r"city-power-\d{1,2}"),
+                // Cape Town
+                ("coct", r"city-of-cape-town(-area-\d{1,2})?"),
+                ("capetown", r"city-of-cape-town(-area-\d{1,2})?"),
+                ("CapEtOwN", r"city-of-cape-town(-area-\d{1,2})?"),
+                ("cpt", r"city-of-cape-town(-area-\d{1,2})?"),
+                ("coct", r"city-of-cape-town(-area-\d{1,2})?"),
+                // Ekurhuleni
+                ("ekurhuleni", r"gauteng-ekurhuleni-block-\d{1,2}"),
+                // Eskom
+                ("eskom", r"^(eskom)|(eastern-cape-)|(free-state-)|(kwazulu-natal-)|(limpopo-)|(mpumalanga-)|(north-west-)|(northern-cape-)|(western-cape-)"),
+                // Tshwane
+                ("tshwane", r"gauteng-tshwane-group-\d{1,2}"),
+            ];
+            for incl in &shorthand_to_longhand {
+                assert_eq!(
+                    Into::<Shedding>::into(raw_with_regex(Some(incl.0.to_string()), None)),
+                    cooked_with_regex(incl.1, "matchnothing^")
+                );
+                let is_first = false;
+                for excl in &shorthand_to_longhand {
+                    if is_first {
+                        assert_eq!(
+                            Into::<Shedding>::into(raw_with_regex(None, Some(excl.0.to_string()))),
+                            cooked_with_regex(".*", excl.1)
+                        );
+                    }
+                    assert_eq!(
+                        Into::<Shedding>::into(raw_with_regex(Some(incl.0.to_string()), Some(excl.0.to_string()))),
+                        cooked_with_regex(incl.1, excl.1)
+                    );
+                }
             }
         }
     }
