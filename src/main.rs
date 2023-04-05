@@ -17,8 +17,10 @@ use log::{info, trace};
 use clap::Parser;
 mod structs;
 
+type BoxedError = Box<dyn Error + Sync + Send>;
+
 /// Download pdfs if the parsed CSVs don't already exist, and use them to create `ics` files.
-fn main() -> Result<(), Box<dyn Error + Sync + Send>> {
+fn main() -> Result<(), BoxedError> {
     pretty_env_logger::init();
 
     // Parse the command-line arguments
@@ -82,10 +84,7 @@ fn main() -> Result<(), Box<dyn Error + Sync + Send>> {
 /// Checks the provided changes for illegal overlaps.
 /// For example, specifying Stage 2 from 14h to 16h as well as Stage 3 from 13h to 16h is not
 /// allowed.
-fn err_if_overlaps(
-    changes: &[Shedding],
-    paths: &[PathBuf],
-) -> Result<(), Box<dyn Error + Sync + Send>> {
+fn err_if_overlaps(changes: &[Shedding], paths: &[PathBuf]) -> Result<(), BoxedError> {
     info!("Checking for overlaps...");
     for path in paths {
         let area_name = fmt::path_to_area_name(path)?;
@@ -139,7 +138,7 @@ fn calculate_power_outages(
     area_name: &str,
     monthly_sheddings: Vec<MonthlyShedding>,
     manually_specified: &ManuallyInputSchedule,
-) -> Result<(Vec<PowerOutage>, Option<DateTime<FixedOffset>>), Box<dyn Error + Sync + Send>> {
+) -> Result<(Vec<PowerOutage>, Option<DateTime<FixedOffset>>), BoxedError> {
     let national_changes: Vec<Shedding> = manually_specified
         .changes
         .clone()
@@ -184,7 +183,7 @@ fn write_sheddings_to_ics(
     path: &Path,
     power_outages: &[PowerOutage],
     last_finsh: Option<DateTime<FixedOffset>>,
-) -> Result<(), Box<dyn Error + Sync + Send>> {
+) -> Result<(), BoxedError> {
     // Get the correct filename
     let fname = path
         .to_str()
@@ -219,9 +218,7 @@ fn write_sheddings_to_ics(
 }
 
 /// Given a list of power outages, convert them to a single CSV file for machine consumption.
-fn overwrite_lines_to_csv(
-    power_outages: &mut Vec<PowerOutage>,
-) -> Result<(), Box<dyn Error + Sync + Send>> {
+fn overwrite_lines_to_csv(power_outages: &mut Vec<PowerOutage>) -> Result<(), BoxedError> {
     info!(
         "Writing {}+1 lines to machine_friendly.csv",
         power_outages.len()
@@ -244,7 +241,7 @@ fn overwrite_lines_to_csv(
 ///
 /// - The `git` command is not found on the system.
 /// - The current directory is not a valid git repository.
-fn get_git_hash() -> Result<String, Box<dyn Error + Sync + Send>> {
+fn get_git_hash() -> Result<String, BoxedError> {
     Ok(String::from_utf8(
         Command::new("git")
             .args(["rev-parse", "HEAD"])
@@ -344,6 +341,7 @@ fn gen_datetimes(
 /// Contains some formatting functions, including some event-creation functions.
 mod fmt {
     use crate::get_git_hash;
+    use crate::BoxedError;
     use chrono::FixedOffset;
     use chrono::{DateTime, Utc};
     use icalendar::{Component, Event};
@@ -354,7 +352,7 @@ mod fmt {
 
     /// Format a path as an area name: remove the extension and the `generated/` directory. This fails
     /// if the path isn't valid.
-    pub fn path_to_area_name(path: &Path) -> Result<String, Box<dyn Error + Sync + Send>> {
+    pub fn path_to_area_name(path: &Path) -> Result<String, BoxedError> {
         Ok(path
             .to_str()
             .ok_or("Path is not valid unicode")?
@@ -364,9 +362,7 @@ mod fmt {
     }
 
     /// Convert a power outage to a ICS calendar event, with a nicely formatted description.
-    pub fn power_outage_to_event(
-        power_outage: &PowerOutage,
-    ) -> Result<Event, Box<dyn Error + Sync + Send>> {
+    pub fn power_outage_to_event(power_outage: &PowerOutage) -> Result<Event, BoxedError> {
         // TODO can a default alarm be added to this?
         // TODO remove the newline after "Often you can set the update..."
         let description = format!(
@@ -417,9 +413,7 @@ mod fmt {
     }
 
     /// Create an event that signals the end of known loadshedding data
-    pub fn end_of_schedule_event(
-        last_finsh: DateTime<FixedOffset>,
-    ) -> Result<Event, Box<dyn Error + Sync + Send>> {
+    pub fn end_of_schedule_event(last_finsh: DateTime<FixedOffset>) -> Result<Event, BoxedError> {
         let description = format!(
             "This is the end of the known loadshedding schedule.\n\
             \n\
@@ -513,6 +507,7 @@ mod read {
     use crate::structs::{
         ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding,
     };
+    use crate::BoxedError;
     use std::error::Error;
     use std::fs::read_to_string;
     use std::path::PathBuf;
@@ -521,7 +516,7 @@ mod read {
     use log::{info, trace};
 
     /// Get the paths of all CSVs in `dir`.
-    pub fn get_csv_paths(dir: &str) -> Result<Vec<PathBuf>, Box<dyn Error + Sync + Send>> {
+    pub fn get_csv_paths(dir: &str) -> Result<Vec<PathBuf>, BoxedError> {
         info!("Looking for CSV paths in {}", dir);
         let paths = std::fs::read_dir(dir)?
             // Filter out all those directory entries which couldn't be read
@@ -542,9 +537,7 @@ mod read {
     }
 
     /// Read in `manually_specified.yaml` from YAML to an in-memory struct
-    pub fn read_manually_specified(
-        path: &str,
-    ) -> Result<ManuallyInputSchedule, Box<dyn Error + Sync + Send>> {
+    pub fn read_manually_specified(path: &str) -> Result<ManuallyInputSchedule, BoxedError> {
         Ok(
             serde_yaml::from_str::<RawManuallyInputSchedule>(read_to_string(path)?.as_str())?
                 .into(),
@@ -554,7 +547,7 @@ mod read {
     /// Read in the load shedding information from the provided path.
     pub fn read_sheddings_from_csv_path(
         path: &PathBuf,
-    ) -> Result<Vec<MonthlyShedding>, Box<dyn Error + Sync + Send>> {
+    ) -> Result<Vec<MonthlyShedding>, BoxedError> {
         let local_shedding = csv::Reader::from_path(path)?
             .deserialize::<RawMonthlyShedding>()
             .into_iter()
