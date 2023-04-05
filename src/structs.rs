@@ -399,7 +399,10 @@ mod tests {
                 // Ekurhuleni
                 ("ekurhuleni", r"gauteng-ekurhuleni-block-\d{1,2}"),
                 // Eskom
-                ("eskom", r"^(eskom)|(eastern-cape-)|(free-state-)|(kwazulu-natal-)|(limpopo-)|(mpumalanga-)|(north-west-)|(northern-cape-)|(western-cape-)"),
+                (
+                    "eskom",
+                    r"^(eskom)|(eastern-cape-)|(free-state-)|(kwazulu-natal-)|(limpopo-)|(mpumalanga-)|(north-west-)|(northern-cape-)|(western-cape-)",
+                ),
                 // Tshwane
                 ("tshwane", r"gauteng-tshwane-group-\d{1,2}"),
             ];
@@ -417,7 +420,10 @@ mod tests {
                         );
                     }
                     assert_eq!(
-                        Into::<Shedding>::into(raw_with_regex(Some(incl.0.to_string()), Some(excl.0.to_string()))),
+                        Into::<Shedding>::into(raw_with_regex(
+                            Some(incl.0.to_string()),
+                            Some(excl.0.to_string())
+                        )),
                         cooked_with_regex(incl.1, excl.1)
                     );
                 }
