@@ -9,7 +9,6 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use structs::{Args, ManuallyInputSchedule, MonthlyShedding, PowerOutage, Shedding};
-// TODO use rayon's par_iter to speed up lots of operatiosn
 // TODO include some sort of progress bar
 
 extern crate pretty_env_logger;
@@ -69,7 +68,7 @@ fn main() -> Result<(), Box<dyn Error + Sync + Send>> {
         .collect();
 
     let mut csv_lines = paths_and_outages
-        .into_iter()
+        .into_par_iter()
         .flat_map(|(_p, o)| o)
         .collect();
 
@@ -91,7 +90,7 @@ fn err_if_overlaps(
     for path in paths {
         let area_name = fmt::path_to_area_name(path)?;
         let regexed_changes = changes
-            .iter()
+            .par_iter()
             .filter(|c| {
                 !c.exclude_regex.is_match(&area_name) && c.include_regex.is_match(&area_name)
             })
@@ -123,7 +122,7 @@ fn filter_paths_by_regex(regex: Option<Regex>, paths: Vec<PathBuf>) -> Vec<PathB
         regex
     );
     let filtered_paths = paths
-        .into_iter()
+        .into_par_iter()
         .filter(|path| {
             regex
                 .as_ref()
@@ -144,7 +143,7 @@ fn calculate_power_outages(
     let national_changes: Vec<Shedding> = manually_specified
         .changes
         .clone()
-        .into_iter()
+        .into_par_iter()
         .filter(|c| !c.exclude_regex.is_match(area_name) && c.include_regex.is_match(area_name))
         .collect();
     let combos = make_combinations_from_sheddings(&monthly_sheddings, &national_changes);
@@ -205,6 +204,7 @@ fn write_sheddings_to_ics(
         calendar.push(fmt::power_outage_to_event(outage)?);
     }
 
+    // TODO There are no tests to check that an end-of-schedule event is being added properly
     // If we have >0 events, add one final event specifying that there's no more loadshedding
     // information after here.
     if let Some(last_finsh) = last_finsh {
