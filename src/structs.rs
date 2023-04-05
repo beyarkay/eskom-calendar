@@ -30,15 +30,15 @@ impl PartialOrd for PowerOutage {
             Some(core::cmp::Ordering::Equal) => {}
             ord => return ord,
         }
-        match self.stage.partial_cmp(&other.stage) {
-            Some(core::cmp::Ordering::Equal) => {}
-            ord => return ord,
-        }
         match self.start.partial_cmp(&other.start) {
             Some(core::cmp::Ordering::Equal) => {}
             ord => return ord,
         }
         match self.finsh.partial_cmp(&other.finsh) {
+            Some(core::cmp::Ordering::Equal) => {}
+            ord => return ord,
+        }
+        match self.stage.partial_cmp(&other.stage) {
             Some(core::cmp::Ordering::Equal) => {}
             ord => return ord,
         }
