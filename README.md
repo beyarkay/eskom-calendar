@@ -235,3 +235,17 @@ Thanks to [Luc Hayward](https://github.com/LucHayward) and
 ## Contributing
 
 Please see [`CONTRIBUTING.md`](https://github.com/beyarkay/eskom-calendar/blob/docs/CONTRIBUTING.md).
+
+## Support
+
+This project is funded by vibes and good words at the moment. If you like what I do,
+or you use the project commercially, please consider supporting me:
+
+- <a href="https://ko-fi.com/beyarkay">
+    <img alt="Support on Ko-Fi" src="https://img.shields.io/badge/Ko--Fi-Buy%20me%20a%20coffee!-ff5f5f">
+  </a>
+- <a href="https://patreon.com/user?u=91320409&utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link">
+    <img alt="Support on Patreon" src="https://img.shields.io/badge/Patreon-Recurring%20support%20%E2%9D%A4%EF%B8%8F-red">
+  </a>
+
+
