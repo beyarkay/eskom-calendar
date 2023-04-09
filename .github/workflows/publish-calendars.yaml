@@ -72,43 +72,19 @@ jobs:
         tag: latest
         replace: true
         files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
-        body: "# To get your load shedding schedule in your calendar:
+        body: "# How to get the latest loadshedding schedules
 
-          1. Scroll down to the blue links under `Assets`:
-
-          ![Assets image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/assets.png)
-
-          2. Find the `ics` calendar file corresponding to your area (use ctrl-f to search quickly).
-
-          3. Right-click on the file and copy the link:
-
-          ![Right click and copy image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/copy-link.png)
-
-          4. Open your calendar app (Google Calendar, Outlook, Apple Calendar, etc).
-
-          5. Paste the calendar link in your app's `subscribe to calendar` option:
-
-
-          | [Google Calendar](https://calendar.google.com/calendar/u/0/r/settings/addbyurl)  | [Outlook](https://outlook.office.com/calendar/addcalendar) | [Apple Calendar](https://support.apple.com/en-za/guide/calendar/icl1022/mac) |
-
-          | ----------------- | --------------- | --------------- |
-
-          | ![google calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/gcal.png) | ![outlook subscripition image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/outlook.png) | ![apple calendar subscription image](https://github.com/beyarkay/eskom-calendar/blob/main/imgs/ical.png) |
-
-
-          That's it!
-
-
-          ### Details
-
-          Now you've got loadshedding warnings in your calendar that tell you if the power will be off or not. This is better than apps like EskomSePush because it combines what area you're in with your area's loadshedding schedule. You'll only be notified if
-
-          1. there's national loadshedding announced by Eskom *and*
-
-          2. your area has loadshedding scheduled for that time.
+          Go to [eskomcalendar.co.za](https://eskomcalendar.co.za) and type in
+          the name of your suburb. Then select your loadshedding area and you
+          can copy the calendar link from there.
 
           ### Developers
 
-          There's also a machine-friendly csv file that contains loadshedding information. Have a look at the [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest) for ideas! If you encounter CORS issues, you'll need to use this [pastebin link](${{ steps.PASTEBIN.outputs.pastebin }}) instead.
+          There's also a file (called `machine_friendly.csv`) that contains the
+          same loadshedding information, but it's a lot easier to parse than
+          all the ICS calendar files. Have a look at the
+          [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest)
+          for ideas! If you encounter CORS issues, you'll need to use this
+          [pastebin link](${{ steps.PASTEBIN.outputs.pastebin }}) instead.
 
           Last updated: ${{ steps.date.outputs.datetime }} UTC"
