@@ -1,18 +1,32 @@
-<p align="center">
-  <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">
-    <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
-  </a><br>
-  <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license"><br>
-  Loadshedding schedules in your digital calendar. No ads, up-to-date,
-  and developer friendly.
-</p>
-
-<p align="center">
+<div align="center">
+  <h1 alt="Eskom-calendar: loadshedding in your calendar">
+    <a  href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">
+      <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
+    </a>
+  </h1>
+  <a href="https://github.com/beyarkay/eskom-calendar/blob/docs/LICENSE">
+    <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license">
+  </a>
+  <a href="https://github.com/beyarkay/eskom-calendar/actions">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/beyarkay/eskom-calendar/publish-calendars.yaml">
+  </a>
+  <a href="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
+    <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
+  </a>
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/beyarkay/eskom-calendar?style=social">
+  <a href="https://twitter.com/beyarkay">
+    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/beyarkay?label=Say%20thanks%20on%20Twitter%21&style=social">
+  </a>
+  <p>
+    Loadshedding schedules in your digital calendar. No ads, up-to-date, and developer friendly.
+  </p>
   <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">Get it</a> •
   <a href="#easy-to-understand-and-plan-around">Key Features</a> •
-  <a href="#using-the-data-in-your-own-projects">How to use the data</a> •
+  <a href="#using-the-data-in-your-own-projects">Using the data</a> •
   <a href="#project-goals-and-alternatives">Project goals & alternatives</a><br>
 </p>
+
+<br>
 
 ## How to Get It
 
