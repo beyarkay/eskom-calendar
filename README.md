@@ -224,55 +224,14 @@ just the default).
 on [twitter](https://twitter.com/beyarkay) if you want to chat in private, otherwise
 [open an issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
 
-Thanks to [shaunkleyn](https://github.com/shaunkleyn) for helping to update the
+Thanks to [shaunkleyn](https://github.com/shaunkleyn) and 
+[cliffbattco](https://github.com/cliffbattco) for helping to update the
 loadshedding schedule!
+
+Thanks to [Luc Hayward](https://github.com/LucHayward) and
+[Carl Combrinck](https://github.com/carl-combrinck) for helping keep the 
+[website repository](https://github.com/beyarkay/beyarkay.github.io) up-to-date.
 
 ## Contributing
 
-We depend on pull requests to update
-[`manually_specified.yaml`](https://github.com/beyarkay/eskom-calendar/blob/main/manually_specified.yaml)
-with the latest loadshedding schedule. Please [edit and submit a PR to
-`manually_specified.yaml`](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml)
-if [Eskom's twitter feed](https://twitter.com/Eskom_SA) announces a change.
-
-To add a new load shedding event, do the following:
-1. Click
-   [here](https://github.com/beyarkay/eskom-calendar/edit/main/manually_specified.yaml)
-   to edit `manually_specified.yaml`. GitHub might ask you to fork this repository before
-   you can make changes.
-    
-   You'll see a bunch of `changes`. Each change lists one national load
-   shedding event. It includes the stage, the start time, the end time, and the
-   source. The source of a change explains where the information comes from,
-   and should be a link to a tweet from the [official Eskom twitter
-   account](https://twitter.com/Eskom_SA). It must be included or the calendars
-   will not compile.
-2. Add your changes to the list. For example:
-
-```yaml
-changes:
-  # This is one change, indicating loadshedding stage 1 from 5am to 4pm on the
-  # 18th of July 2022
-  - stage: 1
-    start: 2022-07-18T05:00:00     # Timestamp is +02:00 by default
-    finsh: 2022-07-18T16:00:00     # Note that finish is spelt `finsh` so it lines up with `start`
-    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
-  # This is another change, indicating loadshedding stage 2 from 4pm to
-  # midnight on the 18th of July 2022
-  - stage: 2
-    start: 2022-07-18T16:00:00
-    finsh: 2022-07-18T23:59:00
-    source: https://twitter.com/Eskom_SA/status/1547189452161916928?s=20&t=2MH_-k43RExp6ISPIpi-xw
-  ...
-```
-
-3. Once you've added your changes, scroll to the bottom where you see `Propose
-   changes` and add a commit message. The commit body must include the source
-   where you got your information from.
-4. Click the green button `Propose changes`
-5. Check that your changes look good, and then click the button `Create pull
-   request`
-
-That's it! I'll review the PR and when I merge it, the calendars will
-automatically be updated by GitHub actions.
-
+Please see [`CONTRIBUTING.md`](https://github.com/beyarkay/eskom-calendar/blob/docs/CONTRIBUTING.md).
