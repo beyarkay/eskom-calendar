@@ -256,6 +256,7 @@ on [twitter](https://twitter.com/beyarkay) if you want to chat in private, other
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/beyarkay"><img src="https://avatars.githubusercontent.com/u/33420535?v=4?s=100" width="100px;" alt="Boyd Kane"/><br /><sub><b>Boyd Kane</b></sub></a><br /><a href="https://github.com/beyarkay/eskom-calendar/commits?author=beyarkay" title="Tests">⚠️</a> <a href="https://github.com/beyarkay/eskom-calendar/commits?author=beyarkay" title="Code">💻</a> <a href="https://github.com/beyarkay/eskom-calendar/issues?q=author%3Abeyarkay" title="Bug reports">🐛</a> <a href="https://github.com/beyarkay/eskom-calendar/commits?author=beyarkay" title="Documentation">📖</a> <a href="#maintenance-beyarkay" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/shaunkleyn"><img src="https://avatars.githubusercontent.com/u/10231893?v=4?s=100" width="100px;" alt="Shaun"/><br /><sub><b>Shaun</b></sub></a><br /><a href="#maintenance-shaunkleyn" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
@@ -264,7 +265,6 @@ on [twitter](https://twitter.com/beyarkay) if you want to chat in private, other
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
 ## Contributing
 
 Please see [`CONTRIBUTING.md`](https://github.com/beyarkay/eskom-calendar/blob/docs/CONTRIBUTING.md).

@@ -7,6 +7,15 @@
   "commitConvention": "angular",
   "contributors": [
     {
+      "login": "shaunkleyn",
+      "name": "Shaun",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10231893?v=4",
+      "profile": "https://github.com/shaunkleyn",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
       "login": "beyarkay",
       "name": "Boyd Kane",
       "avatar_url": "https://avatars.githubusercontent.com/u/33420535?v=4",
