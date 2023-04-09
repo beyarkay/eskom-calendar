@@ -36,6 +36,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "carl-combrinck",
+      "name": "Carl Combrinck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51913941?v=4",
+      "profile": "http://carlcombrinck.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
