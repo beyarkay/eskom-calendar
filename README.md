@@ -4,19 +4,33 @@
       <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
     </a>
   </h1>
-  <a href="https://github.com/beyarkay/eskom-calendar/blob/docs/LICENSE">
-    <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license">
-  </a>
-  <a href="https://github.com/beyarkay/eskom-calendar/actions">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/beyarkay/eskom-calendar/publish-calendars.yaml">
-  </a>
+
   <a href="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
     <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
   </a>
+
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/beyarkay/eskom-calendar?style=social">
+
+  <a href="https://github.com/beyarkay/eskom-calendar/blob/docs/LICENSE">
+    <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license">
+  </a>
+
+  <a href="https://github.com/beyarkay/eskom-calendar/actions">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/beyarkay/eskom-calendar/publish-calendars.yaml">
+  </a>
+
   <a href="https://twitter.com/intent/tweet?text=Hey%20@beyarkay%20I%20love%20eskom-calendar!">
     <img alt="Twitter share" src="https://img.shields.io/twitter/follow/beyarkay?label=Say%20thanks%20on%20Twitter%21&style=social">
   </a>
+  <br>
+  <a href="https://ko-fi.com/beyarkay">
+    <img alt="Support on Ko-Fi" src="https://img.shields.io/badge/Ko--Fi-Once%20off%20donation-ff5f5f">
+  </a>
+
+  <a href="https://patreon.com/user?u=91320409&utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link">
+    <img alt="Support on Patreon" src="https://img.shields.io/badge/Patreon-Recurring%20donation%20%E2%9D%A4%EF%B8%8F-red">
+  </a>
+
   <p>
     Loadshedding schedules in your digital calendar. No apps, no ads, up-to-date, and developer friendly.
   </p>
@@ -224,13 +238,14 @@ just the default).
 on [twitter](https://twitter.com/beyarkay) if you want to chat in private, otherwise
 [open an issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
 
-Thanks to [shaunkleyn](https://github.com/shaunkleyn) and 
-[cliffbattco](https://github.com/cliffbattco) for helping to update the
-loadshedding schedule!
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
-Thanks to [Luc Hayward](https://github.com/LucHayward) and
-[Carl Combrinck](https://github.com/carl-combrinck) for helping keep the 
-[website repository](https://github.com/beyarkay/beyarkay.github.io) up-to-date.
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Contributing
 
