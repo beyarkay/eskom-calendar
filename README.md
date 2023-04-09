@@ -36,7 +36,7 @@
   <a href="https://patreon.com/user?u=91320409&utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link">
     <img alt="Support on Patreon" src="https://img.shields.io/badge/Patreon-Recurring%20donation%20%E2%9D%A4%EF%B8%8F-red">
   </a>
-  
+
 
 
   <p>
@@ -51,7 +51,7 @@
 ## How to Get It
 
 Go to <a href="https://eskomcalendar.co.za" target="_blank">eskomcalendar.co.za</a>
-and just type in your area! No apps, no adverts, no nonsense. If you want more 
+and just type in your area! No apps, no adverts, no nonsense. If you want more
 information, keep reading.
 
 ## Testimonials
@@ -72,12 +72,12 @@ information, keep reading.
   <tr>
     <td align="center">
       <a href="https://twitter.com/hermux/status/1549851414771503110" target="_blank">
-        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_hermux.png" />
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/main/imgs/testimonial_hermux.png" />
       </a>
     </td>
     <td align="center">
       <a href="https://omny.fm/shows/living-redefined/you-can-now-add-the-load-shedding-schedule-directl?t=26s" target="_blank">
-        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_safm.png" />
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/main/imgs/testimonial_safm.png" />
       </a>
     </td>
   </tr>
@@ -96,12 +96,12 @@ information, keep reading.
   <tr>
     <td align="center">
       <a href="https://www.goodthingsguy.com/lifestyle/south-african-student-just-created-an-open-source-calendar-for-loadshedding/" target="_blank">
-        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_gtg.png" />
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/main/imgs/testimonial_gtg.png" />
       </a>
     </td>
     <td align="center">
       <a href="https://www.sun.ac.za/english/Lists/news/DispForm.aspx?ID=9471" target="_blank">
-        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_su.png" />
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/main/imgs/testimonial_su.png" />
       </a>
     </td>
   </tr>
@@ -114,7 +114,7 @@ information, keep reading.
 eskom-calendar makes planning around loadshedding as easy as it gets. Subscribe
 to the digital calendar for your area, and you'll see loadshedding in your
 schedule on your phone, laptop, smartwatch, smartfridge, alles. We'll show you
-loadshedding as far into the furture as Eskom allows us. 
+loadshedding as far into the furture as Eskom allows us.
 
 ### An event in your calendar means your lights are off
 
@@ -130,7 +130,7 @@ exactly when everyone will go dark so you don't have someone dropping off in
 the middle of a meeting.
 
 Businesses can see loadshedding schedules for all their branches in one view,
-and prepare accordingly. 
+and prepare accordingly.
 
 IT departments can automate turning on generators or shutting down servers (see
 [Using the Data in Your Own Projects](#using-the-data-in-your-own-projects)).
@@ -205,7 +205,7 @@ city-of-cape-town-area-15,4,2022-09-11T08:00:00+02:00,2022-09-11T10:30:00+02:00,
 ...
 ```
 
-#### Get the file in Python 
+#### Get the file in Python
 
 (mac users you might need [this](https://stackoverflow.com/a/60671292/14555505)
 if you get an SSL error)
@@ -270,7 +270,7 @@ on [twitter](https://twitter.com/beyarkay) if you want to chat in private, other
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 ## Contributing
 
-Please see [`CONTRIBUTING.md`](https://github.com/beyarkay/eskom-calendar/blob/docs/CONTRIBUTING.md).
+Please see [`CONTRIBUTING.md`](https://github.com/beyarkay/eskom-calendar/blob/main/CONTRIBUTING.md).
 
 ## Support
 
