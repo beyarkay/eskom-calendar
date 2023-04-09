@@ -4,6 +4,14 @@ First off, thanks for your interest in the project! We really appreciate it.
 There are lots of ways to help out, and not all of them require knowledge about
 programming.
 
+> If you like the project but just don't have time to contribute, that's fine!
+> There are other easy ways to support the project and show your appreciation
+> which we would also be very happy about:
+> - Star the project
+> - Share the website with your friends/family (https://eskomcalendar.co.za)
+> - Use the open-source loadshedding schedules in your own projects, and let us
+>   know about it!
+
 If you don't know how eskom-calendar works at a high level, read [this](TODO)
 section of the README first.
 
@@ -114,6 +122,10 @@ Hello, world! Good to see a fellow coder taking a perusal though this
 repository. We've tried to make the project as friendly as possible to new
 developers, but please ask questions through GitHub issues if you've got any or are just curious.
 
+
+
+#### Project structure
+
 `eskom-calendar` is a [Rust](https://www.rust-lang.org/) project that uses (and
 abuses) GitHub's free services. This allows the project have zero running
 costs.
@@ -127,6 +139,8 @@ copy the link to that file, paste it into their calendar app, and then never
 have to worry about loadshedding updates again.
 
 In the long term we will move away from GitHub hosting, because it does not provide the level of control we'd ideally want, but it is a fantastic solution for now.
+
+#### How it works
 
 At a fairly low level, here's how the process of updating the schedule works:
 
@@ -148,3 +162,19 @@ which is powered by GitHub pages and hosted on Boyd's personal GitHub account
 [beyarkay/beyarkay.github.io](https://github.com/beyarkay/beyarkay.github.io).
 It is a React app which allows users to search through the calendars and view
 the one they want. It's not super complex, and could definitely do with some TLC.
+
+
+#### Making code contributions
+
+If you'd like to make changes, feel free to open an issue so we can discuss it
+first. I have GitHub notifications setup and usually respond in a few hours.
+I'll be able to guide you towards the right area of the code base.
+
+If you're keen to do _something_ but don't know what, check out the
+[`documentation`](https://github.com/beyarkay/eskom-calendar/issues?q=is%3Aopen+label%3Adocumentation+sort%3Aupdated-desc),
+[`good-first-issue`](https://github.com/beyarkay/eskom-calendar/issues?q=is%3Aopen+label%3A%22good+first+issue%22+sort%3Aupdated-desc),
+or the
+[help-wanted](https://github.com/beyarkay/eskom-calendar/issues?q=is%3Aopen+label%3A%22help+wanted%22+sort%3Aupdated-desc)
+tags. These are kept up-to-date with interesting ideas or extensions, and
+usually have fleshed out descriptions. Just make sure you leave a comment if
+you start working on something, so we know not to also try fix it ourselves.
