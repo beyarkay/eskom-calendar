@@ -14,27 +14,76 @@
     <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
   </a>
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/beyarkay/eskom-calendar?style=social">
-  <a href="https://twitter.com/beyarkay">
-    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/beyarkay?label=Say%20thanks%20on%20Twitter%21&style=social">
+  <a href="https://twitter.com/intent/tweet?text=Hey%20@beyarkay%20I%20love%20eskom-calendar!">
+    <img alt="Twitter share" src="https://img.shields.io/twitter/follow/beyarkay?label=Say%20thanks%20on%20Twitter%21&style=social">
   </a>
   <p>
-    Loadshedding schedules in your digital calendar. No ads, up-to-date, and developer friendly.
+    Loadshedding schedules in your digital calendar. No apps, no ads, up-to-date, and developer friendly.
   </p>
   <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">Get it</a> •
   <a href="#easy-to-understand-and-plan-around">Key Features</a> •
   <a href="#using-the-data-in-your-own-projects">Using the data</a> •
   <a href="#project-goals-and-alternatives">Project goals & alternatives</a><br>
-</p>
-
-<br>
+</div>
 
 ## How to Get It
 
-[Click here](https://github.com/beyarkay/eskom-calendar/releases/tag/latest) and
-follow the instructions to get it in your calendar. Keep reading to learn why eskom-calendar is
-[very cool](https://twitter.com/hermux/status/1549851414771503110),
-[the OG](https://twitter.com/AngusRedBlue/status/1574337420048351233), and
-[amazing](https://www.linkedin.com/feed/update/urn:li:activity:6978329466259271680?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A6978329466259271680%2C6978364430430388224%29).
+Go to <a href="https://eskomcalendar.co.za" target="_blank">eskomcalendar.co.za</a>
+and just type in your area! No apps, no adverts, no nonsense. If you want more 
+information, keep reading.
+
+## Testimonials
+
+<table align="center">
+  <tr>
+    <th align="center">
+      <a href="https://twitter.com/hermux/status/1549851414771503110" target="_blank">
+       Creator of EskomSePush
+      </a>
+    </th>
+    <th align="center">
+      <a href="https://omny.fm/shows/living-redefined/you-can-now-add-the-load-shedding-schedule-directl?t=26s" target="_blank">
+        SAfm
+      </a>
+    </th>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://twitter.com/hermux/status/1549851414771503110" target="_blank">
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_hermux.png" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://omny.fm/shows/living-redefined/you-can-now-add-the-load-shedding-schedule-directl?t=26s" target="_blank">
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_safm.png" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <th align="center">
+      <a href="https://www.goodthingsguy.com/lifestyle/south-african-student-just-created-an-open-source-calendar-for-loadshedding" target="_blank">
+        Good Things Guy
+      </a>
+    </th>
+    <th align="center">
+      <a href="https://www.sun.ac.za/english/Lists/news/DispForm.aspx?ID=9471" target="_blank">
+        Stellenbosch University
+      </a>
+    </th>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.goodthingsguy.com/lifestyle/south-african-student-just-created-an-open-source-calendar-for-loadshedding/" target="_blank">
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_gtg.png" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.sun.ac.za/english/Lists/news/DispForm.aspx?ID=9471" target="_blank">
+        <img alt="" width="400" src="https://github.com/beyarkay/eskom-calendar/blob/docs/imgs/testimonial_su.png" />
+      </a>
+    </td>
+  </tr>
+</table>
 
 ## Key Features
 
