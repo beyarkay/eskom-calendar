@@ -1,7 +1,4 @@
 <div align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <h1 alt="Eskom-calendar: loadshedding in your calendar">
     <a  href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">
       <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
@@ -242,6 +239,10 @@ schedule at a glance. Hence eskom-calendar was born (making it open source was
 just the default).
 
 ## Contributors
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [Boyd Kane](https://github.com/beyarkay) is the creator and maintainer. Reach out
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
