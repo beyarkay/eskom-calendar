@@ -245,6 +245,10 @@ just the default).
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [Boyd Kane](https://github.com/beyarkay) is the creator and maintainer. Reach out
+on [twitter](https://twitter.com/beyarkay) if you want to chat in private, otherwise
+[open an issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
+
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -255,17 +259,6 @@ just the default).
     </tr>
   </tbody>
 </table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-on [twitter](https://twitter.com/beyarkay) if you want to chat in private, otherwise
-[open an issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
