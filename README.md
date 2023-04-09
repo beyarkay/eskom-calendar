@@ -1,4 +1,7 @@
 <div align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <h1 alt="Eskom-calendar: loadshedding in your calendar">
     <a  href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">
       <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
@@ -241,6 +244,21 @@ just the default).
 ## Contributors
 
 [Boyd Kane](https://github.com/beyarkay) is the creator and maintainer. Reach out
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/beyarkay"><img src="https://avatars.githubusercontent.com/u/33420535?v=4?s=100" width="100px;" alt="Boyd Kane"/><br /><sub><b>Boyd Kane</b></sub></a><br /><a href="https://github.com/beyarkay/eskom-calendar/commits?author=beyarkay" title="Tests">⚠️</a> <a href="https://github.com/beyarkay/eskom-calendar/commits?author=beyarkay" title="Code">💻</a> <a href="https://github.com/beyarkay/eskom-calendar/issues?q=author%3Abeyarkay" title="Bug reports">🐛</a> <a href="https://github.com/beyarkay/eskom-calendar/commits?author=beyarkay" title="Documentation">📖</a> <a href="#maintenance-beyarkay" title="Maintenance">🚧</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 on [twitter](https://twitter.com/beyarkay) if you want to chat in private, otherwise
 [open an issue](https://github.com/beyarkay/eskom-calendar/issues/new)!
 
