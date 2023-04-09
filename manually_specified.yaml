@@ -14,14 +14,14 @@
 changes:
     # Eskom
   - stage: 2
-    start: 2023-04-08T17:00:00
-    finsh: 2023-04-09T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1644670597945782307
-    exclude: coct
-  - stage: 3
     start: 2023-04-09T17:00:00
     finsh: 2023-04-10T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1644670597945782307
+    source: https://twitter.com/Eskom_SA/status/1645044545434918914
+    exclude: coct
+  - stage: 1
+    start: 2023-04-10T16:00:00
+    finsh: 2023-04-10T17:00:00
+    source: https://twitter.com/Eskom_SA/status/1645044545434918914
     exclude: coct
 
   # CoCT
