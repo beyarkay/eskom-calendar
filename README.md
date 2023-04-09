@@ -5,13 +5,15 @@
     </a>
   </h1>
 
-  <a href="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
+  <a href="https://somsubhra.github.io/github-release-stats/?username=beyarkay&repository=eskom-calendar">
     <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
   </a>
 
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/beyarkay/eskom-calendar?style=social">
+  <a href="https://github.com/beyarkay/eskom-calendar">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/beyarkay/eskom-calendar?style=social">
+  </a>
 
-  <a href="https://github.com/beyarkay/eskom-calendar/blob/docs/LICENSE">
+  <a href="https://github.com/beyarkay/eskom-calendar/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license">
   </a>
 
