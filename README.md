@@ -19,6 +19,10 @@
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/beyarkay/eskom-calendar/publish-calendars.yaml">
   </a>
 
+  <a href="https://github.com/beyarkay/eskom-calendar#contributors">
+    <img alt="GitHub contributors (via allcontributors.org)" src="https://img.shields.io/github/all-contributors/beyarkay/eskom-calendar">
+  </a>
+
   <a href="https://twitter.com/intent/tweet?text=Hey%20@beyarkay%20I%20love%20eskom-calendar!">
     <img alt="Twitter share" src="https://img.shields.io/twitter/follow/beyarkay?label=Say%20thanks%20on%20Twitter%21&style=social">
   </a>
@@ -30,6 +34,8 @@
   <a href="https://patreon.com/user?u=91320409&utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link">
     <img alt="Support on Patreon" src="https://img.shields.io/badge/Patreon-Recurring%20donation%20%E2%9D%A4%EF%B8%8F-red">
   </a>
+  
+
 
   <p>
     Loadshedding schedules in your digital calendar. No apps, no ads, up-to-date, and developer friendly.
@@ -232,7 +238,7 @@ the author didn't want another app, and wanted to see the whole loadshedding
 schedule at a glance. Hence eskom-calendar was born (making it open source was
 just the default).
 
-## Maintainers and Contributors
+## Contributors
 
 [Boyd Kane](https://github.com/beyarkay) is the creator and maintainer. Reach out
 on [twitter](https://twitter.com/beyarkay) if you want to chat in private, otherwise
