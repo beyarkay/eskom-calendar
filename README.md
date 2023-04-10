@@ -13,18 +13,6 @@
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/beyarkay/eskom-calendar?style=social">
   </a>
 
-  <a href="https://github.com/beyarkay/eskom-calendar/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/beyarkay/eskom-calendar" alt="license">
-  </a>
-
-  <a href="https://github.com/beyarkay/eskom-calendar/actions">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/beyarkay/eskom-calendar/publish-calendars.yaml">
-  </a>
-
-  <a href="https://github.com/beyarkay/eskom-calendar#contributors">
-    <img alt="GitHub contributors (via allcontributors.org)" src="https://img.shields.io/github/all-contributors/beyarkay/eskom-calendar">
-  </a>
-
   <a href="https://twitter.com/intent/tweet?text=Hey%20@beyarkay%20I%20love%20eskom-calendar!">
     <img alt="Twitter share" src="https://img.shields.io/twitter/follow/beyarkay?label=Say%20thanks%20on%20Twitter%21&style=social">
   </a>
