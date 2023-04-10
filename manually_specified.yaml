@@ -12,32 +12,23 @@
 # See the README.md for more details
 ---
 changes:
-    # Eskom
-  - stage: 2
-    start: 2023-04-09T17:00:00
-    finsh: 2023-04-10T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1645044545434918914
-    exclude: coct
-  - stage: 1
-    start: 2023-04-10T16:00:00
-    finsh: 2023-04-10T17:00:00
-    source: https://twitter.com/Eskom_SA/status/1645044545434918914
-    exclude: coct
+  # Eskom 
+  # No loadshedding for eskom
 
   # CoCT
-  - stage: 2
-    start: 2023-04-09T17:00:00
-    finsh: 2023-04-10T05:00:00
-    source: https://twitter.com/CityofCT/status/1645066898109767683
-    include: coct
   - stage: 1
-    start: 2023-04-10T16:00:00
+    start: 2023-04-10T17:00:00
     finsh: 2023-04-10T22:00:00
-    source: https://twitter.com/CityofCT/status/1645066898109767683
+    source: https://twitter.com/CityofCT/status/1645420208662691840
     include: coct
   - stage: 3
     start: 2023-04-10T22:00:00
     finsh: 2023-04-11T05:00:00
-    source: https://twitter.com/CityofCT/status/1645066898109767683
+    source: https://twitter.com/CityofCT/status/1645420208662691840
+    include: coct
+  - stage: 2
+    start: 2023-04-11T05:00:00
+    finsh: 2023-04-11T17:00:00
+    source: https://twitter.com/CityofCT/status/1645420208662691840
     include: coct
 historical_changes: []
