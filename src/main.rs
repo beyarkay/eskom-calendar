@@ -6,9 +6,10 @@ use regex::Regex;
 use std::error::Error;
 use std::fs::File;
 use std::io::Write;
+use std::ops::Sub;
 use std::path::{Path, PathBuf};
 use std::process::Command;
-use structs::{Args, ManuallyInputSchedule, MonthlyShedding, PowerOutage, Shedding};
+use structs::{Args, Change, ManuallyInputSchedule, PowerOutage, Recurrence, RecurringShedding};
 
 extern crate pretty_env_logger;
 use log::{info, trace};
@@ -83,7 +84,7 @@ fn main() -> Result<(), BoxedError> {
 /// Checks the provided changes for illegal overlaps.
 /// For example, specifying Stage 2 from 14h to 16h as well as Stage 3 from 13h to 16h is not
 /// allowed.
-fn err_if_overlaps(changes: &[Shedding], paths: &[PathBuf]) -> Result<(), BoxedError> {
+fn err_if_overlaps(changes: &[Change], paths: &[PathBuf]) -> Result<(), BoxedError> {
     info!("Checking for overlaps...");
     for path in paths {
         let area_name = fmt::path_to_area_name(path)?;
@@ -135,10 +136,10 @@ fn filter_paths_by_regex(regex: Option<Regex>, paths: Vec<PathBuf>) -> Vec<PathB
 /// into a list of power outages. Filters out all non-regex matching areas.
 fn calculate_power_outages(
     area_name: &str,
-    monthly_sheddings: Vec<MonthlyShedding>,
+    monthly_sheddings: Vec<RecurringShedding>,
     manually_specified: &ManuallyInputSchedule,
 ) -> Result<(Vec<PowerOutage>, Option<DateTime<FixedOffset>>), BoxedError> {
-    let national_changes: Vec<Shedding> = manually_specified
+    let national_changes: Vec<Change> = manually_specified
         .changes
         .clone()
         .into_par_iter()
@@ -156,7 +157,8 @@ fn calculate_power_outages(
         let datetimes = gen_datetimes(
             natnl.start,
             natnl.finsh,
-            local.date_of_month,
+            local.day_of_recurrence,
+            local.recurrence,
             local.start_time.time(),
             local.finsh_time.time(),
         );
@@ -252,9 +254,9 @@ fn get_git_hash() -> Result<String, BoxedError> {
 /// Given some monthly shedding data and some national shedding data, calculate all the ways they
 /// could be combined while ensuring the stages are equal. Does not check that the regex matches
 fn make_combinations_from_sheddings(
-    monthly_sheddings: &[MonthlyShedding],
-    national_sheddings: &[Shedding],
-) -> Vec<(MonthlyShedding, Shedding)> {
+    monthly_sheddings: &[RecurringShedding],
+    national_sheddings: &[Change],
+) -> Vec<(RecurringShedding, Change)> {
     let mut combos = vec![];
     for monthly in monthly_sheddings {
         for national in national_sheddings {
@@ -282,7 +284,8 @@ fn make_combinations_from_sheddings(
 fn gen_datetimes(
     nat_start_dt: DateTime<FixedOffset>,
     nat_finsh_dt: DateTime<FixedOffset>,
-    lcl_dom: u8,
+    lcl_dor: u8,
+    lcl_recurrence: Recurrence,
     lcl_start_t: NaiveTime,
     lcl_finsh_t: NaiveTime,
 ) -> Vec<(DateTime<FixedOffset>, DateTime<FixedOffset>)> {
@@ -326,8 +329,16 @@ fn gen_datetimes(
             );
             lcl_range
         })
-        // Ensure each range starts on the correct date of the month
-        .filter(|(start, _finsh)| start.day() == lcl_dom as u32)
+        // Ensure each range starts on the correct date of the recurrence
+        .filter(|(start, _finsh)| match lcl_recurrence {
+            Recurrence::Weekly => start.weekday().number_from_monday() == lcl_dor as u32,
+            Recurrence::Monthly => start.day() == lcl_dor as u32,
+            Recurrence::Periodic { offset, period } => {
+                assert!(lcl_dor <= period);
+                let duration = start.date_naive().sub(offset);
+                duration.num_days() % period as i64 == (lcl_dor - 1) as i64
+            }
+        })
         // Truncate each local range so that it's actually within the specified national range
         .map(|(start, finsh)| (nat_start_dt.max(start), nat_finsh_dt.min(finsh)))
         // Ensure each range is before the finish
@@ -362,7 +373,6 @@ mod fmt {
     /// Convert a power outage to a ICS calendar event, with a nicely formatted description.
     pub fn power_outage_to_event(power_outage: &PowerOutage) -> Result<Event, BoxedError> {
         // TODO can a default alarm be added to this?
-        // TODO remove the newline after "Often you can set the update..."
         let description = format!(
             "This event shows that there will be loadshedding on {} to {} in the load \
             shedding area {}.\n\
@@ -503,13 +513,15 @@ mod fmt {
 /// Contains some read-based functions, such as `get_csv_paths` and `read_manually_specified`.
 mod read {
     use crate::structs::{
-        ManuallyInputSchedule, MonthlyShedding, RawManuallyInputSchedule, RawMonthlyShedding,
+        ManuallyInputSchedule, RawManuallyInputSchedule, RawMonthlyShedding, RawPeriodicShedding,
+        RawWeeklyShedding, RecurringShedding,
     };
     use crate::BoxedError;
     use std::fs::read_to_string;
     use std::path::PathBuf;
 
     extern crate pretty_env_logger;
+
     use log::{info, trace};
 
     /// Get the paths of all CSVs in `dir`.
@@ -544,20 +556,45 @@ mod read {
     /// Read in the load shedding information from the provided path.
     pub fn read_sheddings_from_csv_path(
         path: &PathBuf,
-    ) -> Result<Vec<MonthlyShedding>, BoxedError> {
-        let local_shedding = csv::Reader::from_path(path)?
-            .deserialize::<RawMonthlyShedding>()
-            .into_iter()
-            .map(|res| Into::<MonthlyShedding>::into(res.unwrap()))
+    ) -> Result<Vec<RecurringShedding>, BoxedError> {
+        let mut reader = csv::Reader::from_path(path)?;
+        let headers = reader.headers()?;
+        let raw: Vec<RecurringShedding>;
+
+        // Parse the CSV file in a manner that depends on the headers
+        if headers.iter().any(|h| h == "date_of_month") {
+            raw = reader
+                .deserialize::<RawMonthlyShedding>()
+                .into_iter()
+                .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
+                .collect::<Vec<_>>();
+        } else if headers.iter().any(|h| h == "day_of_week") {
+            raw = reader
+                .deserialize::<RawWeeklyShedding>()
+                .into_iter()
+                .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
+                .collect::<Vec<_>>();
+        } else if headers.iter().any(|h| h == "day_of_20_day_cycle") {
+            raw = reader
+                .deserialize::<RawPeriodicShedding>()
+                .into_iter()
+                .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
+                .collect::<Vec<_>>();
+        } else {
+            return Err(Box::from(format!("Could not parse headers {:?}", headers)));
+        }
+
+        let local_shedding = raw
+            .iter()
             .filter(|shedding| shedding.stage != 0)
-            .map(|shedding| MonthlyShedding {
+            .map(|shedding| RecurringShedding {
                 start_time: shedding.start_time,
                 finsh_time: shedding.finsh_time,
                 stage: shedding.stage,
-                date_of_month: shedding.date_of_month,
-                goes_over_midnight: shedding.goes_over_midnight,
+                recurrence: shedding.recurrence,
+                day_of_recurrence: shedding.day_of_recurrence,
             })
-            .collect::<Vec<MonthlyShedding>>();
+            .collect::<Vec<RecurringShedding>>();
         Ok(local_shedding)
     }
 }
@@ -624,13 +661,13 @@ mod tests {
             use std::path::PathBuf;
             use std::str::FromStr;
 
-            use crate::structs::RawShedding;
-            use crate::{err_if_overlaps, structs::Shedding};
+            use crate::structs::RawChange;
+            use crate::{err_if_overlaps, structs::Change};
 
             #[test]
             fn first_is_subset_of_second() {
-                let changes: Vec<Shedding> = vec![
-                    RawShedding {
+                let changes: Vec<Change> = vec![
+                    RawChange {
                         start: "2022-01-01T10:00:00".to_string(),
                         finsh: "2022-01-01T13:00:00".to_string(),
                         stage: 1,
@@ -641,7 +678,7 @@ mod tests {
                         exclude: None,
                     }
                     .into(),
-                    RawShedding {
+                    RawChange {
                         start: "2022-01-01T11:00:00".to_string(),
                         finsh: "2022-01-01T12:00:00".to_string(),
                         stage: 1,
@@ -664,8 +701,8 @@ mod tests {
 
             #[test]
             fn start2_lt_finsh1() {
-                let changes: Vec<Shedding> = vec![
-                    RawShedding {
+                let changes: Vec<Change> = vec![
+                    RawChange {
                         start: "2022-01-01T10:00:00".to_string(),
                         finsh: "2022-01-01T12:00:00".to_string(),
                         stage: 1,
@@ -676,7 +713,7 @@ mod tests {
                         exclude: None,
                     }
                     .into(),
-                    RawShedding {
+                    RawChange {
                         start: "2022-01-01T11:00:00".to_string(),
                         finsh: "2022-01-01T13:00:00".to_string(),
                         stage: 1,
@@ -702,12 +739,12 @@ mod tests {
             use std::path::PathBuf;
             use std::str::FromStr;
 
-            use crate::structs::RawShedding;
-            use crate::{err_if_overlaps, structs::Shedding};
+            use crate::structs::RawChange;
+            use crate::{err_if_overlaps, structs::Change};
             #[test]
             fn start2_lt_finsh1_but_different_regex() {
-                let changes: Vec<Shedding> = vec![
-                    RawShedding {
+                let changes: Vec<Change> = vec![
+                    RawChange {
                         start: "2022-01-01T10:00:00".to_string(),
                         finsh: "2022-01-01T12:00:00".to_string(),
                         stage: 1,
@@ -718,7 +755,7 @@ mod tests {
                         exclude: None,
                     }
                     .into(),
-                    RawShedding {
+                    RawChange {
                         start: "2022-01-01T11:00:00".to_string(),
                         finsh: "2022-01-01T13:00:00".to_string(),
                         stage: 1,
@@ -740,8 +777,8 @@ mod tests {
             }
             #[test]
             fn ok_if_start_eq_finsh() {
-                let changes: Vec<Shedding> = vec![
-                    RawShedding {
+                let changes: Vec<Change> = vec![
+                    RawChange {
                         start: "2022-01-01T10:00:00".to_string(),
                         finsh: "2022-01-01T12:30:00".to_string(),
                         stage: 1,
@@ -752,7 +789,7 @@ mod tests {
                         exclude: None,
                     }
                     .into(),
-                    RawShedding {
+                    RawChange {
                         start: "2022-01-01T12:30:00".to_string(),
                         finsh: "2022-01-01T14:30:00".to_string(),
                         stage: 1,
@@ -775,8 +812,8 @@ mod tests {
 
             #[test]
             fn ok_if_mutually_exclusive() {
-                let changes: Vec<Shedding> = vec![
-                    RawShedding {
+                let changes: Vec<Change> = vec![
+                    RawChange {
                         start: "2022-01-01T10:00:00".to_string(),
                         finsh: "2022-01-01T12:30:00".to_string(),
                         stage: 1,
@@ -787,7 +824,7 @@ mod tests {
                         exclude: None,
                     }
                     .into(),
-                    RawShedding {
+                    RawChange {
                         start: "2022-01-01T10:00:00".to_string(),
                         finsh: "2022-01-01T12:30:00".to_string(),
                         stage: 1,
@@ -818,8 +855,8 @@ mod tests {
     }
 
     mod gen_datetimes {
-        use crate::tests::rfc3339;
-        use chrono::NaiveTime;
+        use crate::{structs::Recurrence, tests::rfc3339};
+        use chrono::{Datelike, NaiveTime};
 
         use crate::gen_datetimes;
 
@@ -827,10 +864,12 @@ mod tests {
         fn dom_different_to_start_date() {
             let start_dt = rfc3339("2022-01-02T00:00:00+02:00");
             let finsh_dt = rfc3339("2022-01-02T01:00:00+02:00");
-            let dom = 1;
+            let dor = 1;
+            let recurrence = Recurrence::Monthly;
             let start_time = NaiveTime::from_hms_opt(23, 30, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(0, 30, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![(
@@ -844,10 +883,12 @@ mod tests {
         fn crosses_finsh_boundary() {
             let start_dt = rfc3339("2022-01-01T10:00:00+02:00");
             let finsh_dt = rfc3339("2022-01-01T20:00:00+02:00");
-            let dom = 1;
+            let dor = 1;
+            let recurrence = Recurrence::Monthly;
             let start_time = NaiveTime::from_hms_opt(19, 0, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(21, 0, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![(
@@ -861,10 +902,12 @@ mod tests {
         fn crosses_start_boundary() {
             let start_dt = rfc3339("2022-01-01T10:00:00+02:00");
             let finsh_dt = rfc3339("2022-01-01T20:00:00+02:00");
-            let dom = 1;
+            let dor = 1;
+            let recurrence = Recurrence::Monthly;
             let start_time = NaiveTime::from_hms_opt(9, 0, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(11, 0, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![(
@@ -874,14 +917,211 @@ mod tests {
             );
         }
 
+        /// The date of recurrence isn't allowed to be greater than the period length
+        #[should_panic]
         #[test]
-        fn thirty_first() {
-            let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
-            let finsh_dt = rfc3339("2023-01-01T00:00:00+02:00");
-            let dom = 31;
+        fn dor_greater_than_period() {
+            let _ = gen_datetimes(
+                rfc3339("2023-02-18T00:00:00+02:00"),
+                rfc3339("2023-06-11T00:00:00+02:00"),
+                2,
+                Recurrence::Periodic {
+                    offset: rfc3339("2023-02-18T00:00:00+02:00").date_naive(),
+                    period: 1,
+                },
+                NaiveTime::from_hms_opt(12, 0, 0).unwrap(),
+                NaiveTime::from_hms_opt(14, 0, 0).unwrap(),
+            );
+        }
+
+        #[test]
+        fn nelson_mandela_bay_end() {
+            // Example taken from https://nelsonmandelabay.gov.za/page/loadshedding
+            let start_dt = rfc3339("2023-02-18T00:00:00+02:00");
+            let finsh_dt = rfc3339("2023-06-11T00:00:00+02:00");
+            let dor = 19;
+            let recurrence = Recurrence::Periodic {
+                offset: rfc3339("2023-02-18T00:00:00+02:00").date_naive(),
+                period: 19,
+            };
             let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let actual = gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
+            let expected = vec![
+                (
+                    rfc3339("2023-03-08T12:00:00+02:00"),
+                    rfc3339("2023-03-08T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-03-27T12:00:00+02:00"),
+                    rfc3339("2023-03-27T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-04-15T12:00:00+02:00"),
+                    rfc3339("2023-04-15T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-05-04T12:00:00+02:00"),
+                    rfc3339("2023-05-04T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-05-23T12:00:00+02:00"),
+                    rfc3339("2023-05-23T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-06-11T12:00:00+02:00"),
+                    rfc3339("2023-06-11T14:00:00+02:00"),
+                ),
+            ];
+            for (i, (expected_item, actual_item)) in actual.iter().zip(expected.iter()).enumerate()
+            {
+                assert_eq!(expected_item, actual_item, "Failed at index {}", i);
+            }
+        }
+
+        #[test]
+        fn nelson_mandela_bay_start() {
+            // Example taken from https://nelsonmandelabay.gov.za/page/loadshedding
+            let start_dt = rfc3339("2023-02-18T00:00:00+02:00");
+            let finsh_dt = rfc3339("2023-06-11T00:00:00+02:00");
+            let dor = 1;
+            let recurrence = Recurrence::Periodic {
+                offset: start_dt.date_naive(),
+                period: 19,
+            };
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let actual = gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
+            let expected = vec![
+                (
+                    rfc3339("2023-02-18T12:00:00+02:00"),
+                    rfc3339("2023-02-18T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-03-09T12:00:00+02:00"),
+                    rfc3339("2023-03-09T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-03-28T12:00:00+02:00"),
+                    rfc3339("2023-03-28T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-04-16T12:00:00+02:00"),
+                    rfc3339("2023-04-16T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-05-05T12:00:00+02:00"),
+                    rfc3339("2023-05-05T14:00:00+02:00"),
+                ),
+                (
+                    rfc3339("2023-05-24T12:00:00+02:00"),
+                    rfc3339("2023-05-24T14:00:00+02:00"),
+                ),
+            ];
+            for (i, (expected_item, actual_item)) in actual.iter().zip(expected.iter()).enumerate()
+            {
+                assert_eq!(expected_item, actual_item, "Failed at index {}", i);
+            }
+        }
+
+        #[test]
+        fn first_day_of_week() {
+            let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
+            let finsh_dt = rfc3339("2022-02-01T00:00:00+02:00");
+            let dor = 1; // Sunday
+            let recurrence = Recurrence::Weekly;
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
+            // Assert that the dates are all on the correct day of the recurrence
+            for (s, f) in &datetimes {
+                assert_eq!(s.weekday().number_from_monday(), dor as u32);
+                assert_eq!(f.weekday().number_from_monday(), dor as u32);
+            }
+            // Assert that they're the correct actual day
+            assert_eq!(
+                datetimes,
+                vec![
+                    (
+                        rfc3339("2022-01-03T12:00:00+02:00"),
+                        rfc3339("2022-01-03T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-10T12:00:00+02:00"),
+                        rfc3339("2022-01-10T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-17T12:00:00+02:00"),
+                        rfc3339("2022-01-17T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-24T12:00:00+02:00"),
+                        rfc3339("2022-01-24T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-31T12:00:00+02:00"),
+                        rfc3339("2022-01-31T14:00:00+02:00")
+                    )
+                ]
+            );
+        }
+
+        #[test]
+        fn last_day_of_week() {
+            let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
+            let finsh_dt = rfc3339("2022-02-01T00:00:00+02:00");
+            let dor = 7; // Sunday
+            let recurrence = Recurrence::Weekly;
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
+            // Assert that the dates are all on the correct day of the recurrence
+            for (s, f) in &datetimes {
+                assert_eq!(s.weekday().number_from_monday(), dor as u32);
+                assert_eq!(f.weekday().number_from_monday(), dor as u32);
+            }
+            // Assert that they're the correct actual day
+            assert_eq!(
+                datetimes,
+                vec![
+                    (
+                        rfc3339("2022-01-02T12:00:00+02:00"),
+                        rfc3339("2022-01-02T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-09T12:00:00+02:00"),
+                        rfc3339("2022-01-09T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-16T12:00:00+02:00"),
+                        rfc3339("2022-01-16T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-23T12:00:00+02:00"),
+                        rfc3339("2022-01-23T14:00:00+02:00")
+                    ),
+                    (
+                        rfc3339("2022-01-30T12:00:00+02:00"),
+                        rfc3339("2022-01-30T14:00:00+02:00")
+                    )
+                ]
+            );
+        }
+
+        /// Assert that a monthly recurrence on the 31st of each month doesn't generate dates like
+        /// the 31st of February.
+        #[test]
+        fn last_day_of_month() {
+            let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
+            let finsh_dt = rfc3339("2023-01-01T00:00:00+02:00");
+            let dor = 31;
+            let recurrence = Recurrence::Monthly;
+            let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
+            let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![
@@ -921,10 +1161,12 @@ mod tests {
         fn multiple_months() {
             let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
             let finsh_dt = rfc3339("2023-01-01T00:00:00+02:00");
-            let dom = 1;
+            let dor = 1;
+            let recurrence = Recurrence::Monthly;
             let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![
@@ -984,10 +1226,12 @@ mod tests {
         fn crosses_year_boundary() {
             let start_dt = rfc3339("2022-12-31T00:00:00+02:00");
             let finsh_dt = rfc3339("2023-01-02T00:00:00+02:00");
-            let dom = 1;
+            let dor = 1;
+            let recurrence = Recurrence::Monthly;
             let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![(
@@ -1001,10 +1245,12 @@ mod tests {
         fn crosses_month_boundary() {
             let start_dt = rfc3339("2022-01-31T00:00:00+02:00");
             let finsh_dt = rfc3339("2022-02-02T00:00:00+02:00");
-            let dom = 1;
+            let dor = 1;
+            let recurrence = Recurrence::Monthly;
             let start_time = NaiveTime::from_hms_opt(12, 0, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(14, 0, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![(
@@ -1018,10 +1264,12 @@ mod tests {
         fn crosses_midnight() {
             let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
             let finsh_dt = rfc3339("2022-04-01T00:00:00+02:00");
-            let dom = 1;
+            let dor = 1;
+            let recurrence = Recurrence::Monthly;
             let start_time = NaiveTime::from_hms_opt(22, 0, 0).unwrap();
             let finsh_time = NaiveTime::from_hms_opt(0, 30, 0).unwrap();
-            let datetimes = gen_datetimes(start_dt, finsh_dt, dom, start_time, finsh_time);
+            let datetimes =
+                gen_datetimes(start_dt, finsh_dt, dor, recurrence, start_time, finsh_time);
             assert_eq!(
                 datetimes,
                 vec![
