@@ -64,7 +64,7 @@ jobs:
       id: PASTEBIN
 
     - name: Update latest release with new calendars
-      uses: beyarkay/update-existing-release@master
+      uses: beyarkay/update-existing-release@503cb30cc6578aa8f24b6cfa1cd85afc9a50351a
       with:
         token: ${{ secrets.GH_ACTIONS_PAT }}
         release: Latest Eskom Loadshedding Calendars
