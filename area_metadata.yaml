@@ -10788,3 +10788,278 @@ area_details:
   - {name: mdantsane-potsdam-east,lat_lngs: []}
   - {name: king-williams-town-phakamisa,lat_lngs: []}
 
+- calendar_name: generated/free-state-mangaung-group-1.ics
+  province: free-state
+  municipality: mangaung-metropolitan
+  city: mangaung
+  provider: mangaung
+  source: https://www.centlec.co.za/LoadShedding/ViewFile?filePath=wwwroot%2FUploadedFiles%2FLoadShedding%2FCENTLEC%20Load%20Shedding%20Schedule%202022%20Updated_245d.pdf
+  source_info: https://www.centlec.co.za/LoadShedding/LoadSheddingDocuments
+  areas:
+  - {name: mangaung-westdene-mediclinic,lat_lngs: []}
+  - {name: mangaung-westdene,lat_lngs: []}
+  - {name: mangaung-westdene-bram-fischer,lat_lngs: []}
+  - {name: mangaung-westdene-checkers,lat_lngs: []}
+  - {name: mangaung-shannon-b-grootvlei-prison,lat_lngs: []}
+  - {name: mangaung-shannon-b-part-of-grasland,lat_lngs: []}
+  - {name: mangaung-shannon-b-bergman-square,lat_lngs: []}
+  - {name: mangaung-shannon-b-grootvlei,lat_lngs: []}
+  - {name: mangaung-coalyard-part-of-bochabela,lat_lngs: []}
+  - {name: mangaung-coalyard-part-of-rocklands,lat_lngs: []}
+  - {name: mangaung-coalyard-old-east-estate,lat_lngs: []}
+  - {name: mangaung-coalyard-cut,lat_lngs: []}
+  - {name: mangaung-coalyard-centlec,lat_lngs: []}
+  - {name: mangaung-coalyard-part-of-city-center,lat_lngs: []}
+  - {name: mangaung-coalyard-part-of-batho,lat_lngs: []}
+  - {name: mangaung-coalyard-oranjesig,lat_lngs: []}
+  - {name: mangaung-selborne-cbd,lat_lngs: []}
+  - {name: mangaung-showground,lat_lngs: []}
+  - {name: mangaung-showground-de-wet,lat_lngs: []}
+  - {name: mangaung-showground-ehrlich-park,lat_lngs: []}
+  - {name: mangaung-showground-hospitaal-park,lat_lngs: []}
+  - {name: mangaung-showground-national-hospital,lat_lngs: []}
+  - {name: mangaung-showground-oranje-hospital,lat_lngs: []}
+  - {name: mangaung-showground-part-of-fichardpark,lat_lngs: []}
+  - {name: mangaung-showground-part-of-oranjesig,lat_lngs: []}
+  - {name: mangaung-showground-part-of-willows,lat_lngs: []}
+  - {name: mangaung-showground-pasteur-hospital,lat_lngs: []}
+  - {name: mangaung-showground-transnet-ctc,lat_lngs: []}
+  - {name: mangaung-showground-wilgehof,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-a-mall,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-a-section-h,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-t-section-a,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-t-section-c2,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-t-section-e,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-t-section-l,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-t-section-m,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-t-section-n,lat_lngs: []}
+  - {name: mangaung-botshabelo-sub-t-section-t,lat_lngs: []}
+
+- calendar_name: generated/free-state-mangaung-group-2.ics
+  province: free-state
+  municipality: mangaung-metropolitan
+  city: mangaung
+  provider: mangaung
+  source: https://www.centlec.co.za/LoadShedding/ViewFile?filePath=wwwroot%2FUploadedFiles%2FLoadShedding%2FCENTLEC%20Load%20Shedding%20Schedule%202022%20Updated_245d.pdf
+  source_info: https://www.centlec.co.za/LoadShedding/LoadSheddingDocuments
+  areas:
+  - {name: mangaung-flora-bloemdal,lat_lngs: []}
+  - {name: mangaung-flora-ferreira,lat_lngs: []}
+  - {name: mangaung-flora-lourier-park,lat_lngs: []}
+  - {name: mangaung-flora-casino,lat_lngs: []}
+  - {name: mangaung-flora-bloemdal-riool,lat_lngs: []}
+  - {name: mangaung-de-wet-hyperama,lat_lngs: []}
+  - {name: mangaung-de-wet-game,lat_lngs: []}
+  - {name: mangaung-de-wet-vista-park,lat_lngs: []}
+  - {name: mangaung-de-wet-fleurdal,lat_lngs: []}
+  - {name: mangaung-de-wet-uitsig,lat_lngs: []}
+  - {name: mangaung-de-wet-fauna,lat_lngs: []}
+  - {name: mangaung-de-wet,lat_lngs: []}
+  - {name: mangaung-de-wet-lengau-pao-test,lat_lngs: []}
+  - {name: mangaung-de-wet-coca-cola,lat_lngs: []}
+  - {name: mangaung-a-kenworth-spar,lat_lngs: []}
+  - {name: mangaung-a-blomanda,lat_lngs: []}
+  - {name: mangaung-a-hillside-view,lat_lngs: []}
+  - {name: mangaung-a-jb-mafora,lat_lngs: []}
+  - {name: mangaung-a-phahameng,lat_lngs: []}
+  - {name: mangaung-a-part-of-rocklands,lat_lngs: []}
+  - {name: mangaung-a-part-of-bochabela,lat_lngs: []}
+  - {name: mangaung-b-hamilton,lat_lngs: []}
+  - {name: mangaung-b-namibia-square,lat_lngs: []}
+  - {name: mangaung-b-kagisanong,lat_lngs: []}
+  - {name: mangaung-b-turflaagte,lat_lngs: []}
+  - {name: mangaung-b-chris-hani,lat_lngs: []}
+  - {name: mangaung-b-freedom-square,lat_lngs: []}
+  - {name: mangaung-b-bloemside,lat_lngs: []}
+  - {name: mangaung-b-part-of-jb-mafora,lat_lngs: []}
+  - {name: mangaung-b-erlichpark,lat_lngs: []}
+  - {name: mangaung-b-part-of-vista-park,lat_lngs: []}
+  - {name: mangaung-mereting-jb-mafora,lat_lngs: []}
+  - {name: mangaung-mereting-kgotsong,lat_lngs: []}
+  - {name: mangaung-mereting-bloemanda-phase-2,lat_lngs: []}
+  - {name: mangaung-mereting-turflaagte-2,lat_lngs: []}
+  - {name: mangaung-mereting-part-of-rocklands,lat_lngs: []}
+
+- calendar_name: generated/free-state-mangaung-group-3.ics
+  province: free-state
+  municipality: mangaung-metropolitan
+  city: mangaung
+  provider: mangaung
+  source: https://www.centlec.co.za/LoadShedding/ViewFile?filePath=wwwroot%2FUploadedFiles%2FLoadShedding%2FCENTLEC%20Load%20Shedding%20Schedule%202022%20Updated_245d.pdf
+  source_info: https://www.centlec.co.za/LoadShedding/LoadSheddingDocuments
+  areas:
+  - {name: mangaung-arcadia,lat_lngs: []}
+  - {name: mangaung-arcadia-kenelworth,lat_lngs: []}
+  - {name: mangaung-arcadia-oranje,lat_lngs: []}
+  - {name: mangaung-arcadia-sopieshoogte,lat_lngs: []}
+  - {name: mangaung-arcadia-tempe-airport,lat_lngs: []}
+  - {name: mangaung-arcadia-waterbron,lat_lngs: []}
+  - {name: mangaung-limousine-bainsvlei-riool,lat_lngs: []}
+  - {name: mangaung-limousine-mooiwater,lat_lngs: []}
+  - {name: mangaung-limousine-part-of-groenvlei,lat_lngs: []}
+  - {name: mangaung-pellisier,lat_lngs: []}
+  - {name: mangaung-pellissier,lat_lngs: []}
+  - {name: mangaung-pellissier-part-of-fichardpark,lat_lngs: []}
+  - {name: mangaung-pellissier-rosepark-hospital,lat_lngs: []}
+  - {name: mangaung-spitskop-brandkop,lat_lngs: []}
+  - {name: mangaung-spitskop-langehoven-park,lat_lngs: []}
+  - {name: mangaung-spitskop-part-of-universitas,lat_lngs: []}
+  - {name: mangaung-willows,lat_lngs: []}
+  - {name: mangaung-willows-part-of-universitas,lat_lngs: []}
+  - {name: mangaung-willows-stadium-cricket,lat_lngs: []}
+  - {name: mangaung-willows-stadium-rugby,lat_lngs: []}
+  - {name: mangaung-willows-waterfront,lat_lngs: []}
+
+
+- calendar_name: generated/free-state-mangaung-group-4.ics
+  province: free-state
+  municipality: mangaung-metropolitan
+  city: mangaung
+  provider: mangaung
+  source: https://www.centlec.co.za/LoadShedding/ViewFile?filePath=wwwroot%2FUploadedFiles%2FLoadShedding%2FCENTLEC%20Load%20Shedding%20Schedule%202022%20Updated_245d.pdf
+  source_info: https://www.centlec.co.za/LoadShedding/LoadSheddingDocuments
+  areas:
+  - {name: botshabelo-4-ways-complex,lat_lngs: []}
+  - {name: botshabelo-part-of-section-d,lat_lngs: []}
+  - {name: botshabelo-part-of-section-e,lat_lngs: []}
+  - {name: botshabelo-re-a-hola-center,lat_lngs: []}
+  - {name: botshabelo-section-a,lat_lngs: []}
+  - {name: botshabelo-section-b,lat_lngs: []}
+  - {name: botshabelo-section-c1,lat_lngs: []}
+  - {name: botshabelo-section-h3,lat_lngs: []}
+  - {name: botshabelo-sub-a,lat_lngs: []}
+  - {name: botshabelo-sub-b,lat_lngs: []}
+  - {name: botshabelo-sub-b,lat_lngs: []}
+  - {name: botshabelo-sub-f,lat_lngs: []}
+  - {name: botshabelo-sub-f,lat_lngs: []}
+  - {name: botshabelo-sub-f-extension,lat_lngs: []}
+  - {name: botshabelo-sub-g,lat_lngs: []}
+  - {name: botshabelo-sub-j,lat_lngs: []}
+  - {name: botshabelo-sub-k,lat_lngs: []}
+  - {name: botshabelo-sub-r,lat_lngs: []}
+  - {name: botshabelo-sub-s,lat_lngs: []}
+  - {name: botshabelo-sub-u,lat_lngs: []}
+  - {name: botshabelo-sub-v,lat_lngs: []}
+  - {name: botshabelo-sub-w,lat_lngs: []}
+  - {name: botshabelo-sub-w,lat_lngs: []}
+  - {name: cecilia,lat_lngs: []}
+  - {name: cecilia-itau-mills,lat_lngs: []}
+  - {name: cecilia-part-of-kelleysview,lat_lngs: []}
+  - {name: cecilia-part-of-kwaggafontein,lat_lngs: []}
+  - {name: cecilia-towers-mall,lat_lngs: []}
+  - {name: park-west-a,lat_lngs: []}
+  - {name: park-west-a-gardenia-park,lat_lngs: []}
+  - {name: park-west-a-kelleysview,lat_lngs: []}
+  - {name: park-west-a-kwaggafontein,lat_lngs: []}
+  - {name: park-west-a-part-of-hospitalpark,lat_lngs: []}
+  - {name: park-west-a-part-of-universitas,lat_lngs: []}
+  - {name: park-west-a-part-of-wilgehof,lat_lngs: []}
+  - {name: universitas,lat_lngs: []}
+  - {name: universitas-brandwag-centre,lat_lngs: []}
+  - {name: universitas-college-crossing,lat_lngs: []}
+  - {name: universitas-mimosa-mall,lat_lngs: []}
+  - {name: universitas-part-of-universitas,lat_lngs: []}
+  - {name: universitas-ufs,lat_lngs: []}
+  - {name: universitas-universitas-hospital,lat_lngs: []}
+  - {name: universitas-universitas-rif,lat_lngs: []}
+
+- calendar_name: generated/free-state-mangaung-group-5.ics
+  province: free-state
+  municipality: mangaung-metropolitan
+  city: mangaung
+  provider: mangaung
+  source: https://www.centlec.co.za/LoadShedding/ViewFile?filePath=wwwroot%2FUploadedFiles%2FLoadShedding%2FCENTLEC%20Load%20Shedding%20Schedule%202022%20Updated_245d.pdf
+  source_info: https://www.centlec.co.za/LoadShedding/LoadSheddingDocuments
+  areas:
+  - {name:mangaung-bayswater,lat_lngs: []}
+  - {name:mangaung-bayswater-bays-village,lat_lngs: []}
+  - {name:mangaung-bayswater-deals-gift,lat_lngs: []}
+  - {name:mangaung-bayswater-douglas-valley,lat_lngs: []}
+  - {name:mangaung-bayswater-noordhoek,lat_lngs: []}
+  - {name:mangaung-bayswater-noordstad-centre,lat_lngs: []}
+  - {name:mangaung-bayswater-part-of-bays-valley,lat_lngs: []}
+  - {name:mangaung-bayswater-part-of-heliconhoogte,lat_lngs: []}
+  - {name:mangaung-bayswater-part-of-kiepersol,lat_lngs: []}
+  - {name:mangaung-bayswater-part-of-waverly,lat_lngs: []}
+  - {name:mangaung-bayswater-ribbles-dale,lat_lngs: []}
+  - {name:mangaung-bayswater-wild-olive,lat_lngs: []}
+  - {name:mangaung-dan-pienaar,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-arboretum,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-bayswater,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-dan-pienaar,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-hillsboro,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-noord-riool-1,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-noord-riool-2,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-part-of-bays-valley,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-part-of-heuwelsig,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-part-of-kiepersol,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-pentagon-park,lat_lngs: []}
+  - {name:mangaung-dan-pienaar-rayton,lat_lngs: []}
+  - {name:mangaung-estoire,lat_lngs: []}
+  - {name:mangaung-estoire-cold-chane,lat_lngs: []}
+  - {name:mangaung-estoire-jbm-hertzog-airport,lat_lngs: []}
+  - {name:mangaung-estoire-new-market,lat_lngs: []}
+  - {name:mangaung-estoire-part-of-olive-hill,lat_lngs: []}
+  - {name:mangaung-maselspoort,lat_lngs: []}
+  - {name:mangaung-naval-park,lat_lngs: []}
+  - {name:mangaung-naval-park-arboretum,lat_lngs: []}
+  - {name:mangaung-naval-park-hamilton-pumpstation,lat_lngs: []}
+  - {name:mangaung-naval-park-hilton,lat_lngs: []}
+  - {name:mangaung-naval-park-naval-hill-microwave-and-fm-tower,lat_lngs: []}
+  - {name:mangaung-naval-park-navalpark,lat_lngs: []}
+  - {name:mangaung-naval-park-part-of-noordhoek,lat_lngs: []}
+  - {name:mangaung-naval-park-part-of-westdene,lat_lngs: []}
+  - {name:mangaung-tibbie-visser-midway,lat_lngs: []}
+  - {name:mangaung-tibbie-visser-part-of-olive-hill,lat_lngs: []}
+  - {name:mangaung-tibbie-visser-rodewal,lat_lngs: []}
+  - {name:mangaung-tibbie-visser-vaalbank-south,lat_lngs: []}
+  - {name:mangaung-tibbie-visser-vallombrasa,lat_lngs: []}
+  - {name:mangaung-transnet-and-prasa,lat_lngs: []}
+
+
+
+- calendar_name: generated/free-state-mangaung-group-5.ics
+  province: free-state
+  municipality: mangaung-metropolitan
+  city: mangaung
+  provider: mangaung
+  source: https://www.centlec.co.za/LoadShedding/ViewFile?filePath=wwwroot%2FUploadedFiles%2FLoadShedding%2FCENTLEC%20Load%20Shedding%20Schedule%202022%20Updated_245d.pdf
+  source_info: https://www.centlec.co.za/LoadShedding/LoadSheddingDocuments
+  areas:
+  - {name:market-part-of-hilton,lat_lngs: []}
+  - {name:market-part-of-city-centre,lat_lngs: []}
+  - {name:market-sanlam-plaza,lat_lngs: []}
+  - {name:coronation-heidedal,lat_lngs: []}
+  - {name:coronation-opkoms,lat_lngs: []}
+  - {name:coronation-grassland,lat_lngs: []}
+  - {name:coronation-bloemspruit,lat_lngs: []}
+  - {name:coronation-part-of-shannon,lat_lngs: []}
+  - {name:coronation-part-of-lakeview,lat_lngs: []}
+  - {name:coronation-part-of-bergman-sq,lat_lngs: []}
+  - {name:coronation-pelonomi-hospital,lat_lngs: []}
+  - {name:coronation-part-of-bloemside,lat_lngs: []}
+  - {name:coronation-part-of-batho,lat_lngs: []}
+  - {name:coronation-twin-city-mall,lat_lngs: []}
+  - {name:coronation-part-of-bochabela,lat_lngs: []}
+  - {name:coronation-part-of-batho,lat_lngs: []}
+  - {name:bloemdustria-hoeveld,lat_lngs: []}
+  - {name:bloemdustria-martindale,lat_lngs: []}
+  - {name:bloemdustria-part-of-rodewal,lat_lngs: []}
+  - {name:bloemdustria-bloemdustria,lat_lngs: []}
+  - {name:bloemdustria-mandela-view,lat_lngs: []}
+  - {name:bloemdustria-part-of-lakeview,lat_lngs: []}
+  - {name:bloemdustria-part-of-grassland,lat_lngs: []}
+  - {name:tempe-brandwag,lat_lngs: []}
+  - {name:tempe-tempe-military,lat_lngs: []}
+  - {name:tempe-part-of-langehovenpark,lat_lngs: []}
+  - {name:tempe-part-of-heuwelsig,lat_lngs: []}
+  - {name:tempe-part-of-dan-pienaar,lat_lngs: []}
+  - {name:tempe-groenvlei,lat_lngs: []}
+  - {name:tempe-woodlandhills,lat_lngs: []}
+  - {name:shannon-a-bergman,lat_lngs: []}
+  - {name:shannon-a-shannon,lat_lngs: []}
+  - {name:shannon-a-bloemside-9,lat_lngs: []}
+  - {name:shannon-a-bloemside-6,lat_lngs: []}
+  - {name:shannon-a-bloemside-10,lat_lngs: []}
+  - {name:shannon-a-grassland-plots,lat_lngs: []}
+  - {name:shannon-a-kheylitsha,lat_lngs: []}
