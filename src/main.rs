@@ -440,7 +440,10 @@ mod fmt {
             .description(description.as_str())
             .starts(power_outage.start.with_timezone(&Utc))
             .ends(power_outage.finsh.with_timezone(&Utc))
-            .alarm(Alarm::display(&format!("In 1 hour: {}", summary), -Duration::hours(1)))
+            .alarm(Alarm::display(
+                &format!("In 1 hour: {}", summary),
+                -Duration::hours(1),
+            ))
             .done();
         Ok(evt)
     }
