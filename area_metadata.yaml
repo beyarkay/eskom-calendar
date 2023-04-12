@@ -11060,3 +11060,810 @@ area_details:
   - {name: tempe-part-of-langehovenpark,lat_lngs: []}
   - {name: tempe-tempe-military,lat_lngs: []}
   - {name: tempe-woodlandhills,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-1.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: avoca-moriah,lat_lngs: []}
+  - {name: durban-north-glen-anil,lat_lngs: []}
+  - {name: inanda-amaoti,lat_lngs: []}
+  - {name: inanda-amaoti-cuba,lat_lngs: []}
+  - {name: inanda-amaoti-e,lat_lngs: []}
+  - {name: inanda-amawothi,lat_lngs: []}
+  - {name: inanda-amawoti-e,lat_lngs: []}
+  - {name: inanda-amawoti-f,lat_lngs: []}
+  - {name: inanda-dubes-land,lat_lngs: []}
+  - {name: inanda-lower-angola,lat_lngs: []}
+  - {name: inanda-lusaka,lat_lngs: []}
+  - {name: inanda-mambha-stores,lat_lngs: []}
+  - {name: inanda-namibia,lat_lngs: []}
+  - {name: inanda-nigeria,lat_lngs: []}
+  - {name: inanda-tanzania,lat_lngs: []}
+  - {name: inanda-upper-amaotana,lat_lngs: []}
+  - {name: inanda-zambia,lat_lngs: []}
+  - {name: inanda-zimbabwe,lat_lngs: []}
+  - {name: lusaka-1-inanda,lat_lngs: []}
+  - {name: lusaka-2-inanda,lat_lngs: []}
+  - {name: mount-edgecombe,lat_lngs: []}
+  - {name: mount-edgecombe-estate,lat_lngs: []}
+  - {name: mount-edgecombe-north,lat_lngs: []}
+  - {name: ottawa,lat_lngs: []}
+  - {name: phoenix-brookdale,lat_lngs: []}
+  - {name: phoenix-caneside,lat_lngs: []}
+  - {name: phoenix-clayfield,lat_lngs: []}
+  - {name: phoenix-eastbury,lat_lngs: []}
+  - {name: phoenix-forest-haven,lat_lngs: []}
+  - {name: phoenix-greenbury-south,lat_lngs: []}
+  - {name: phoenix-grove-end,lat_lngs: []}
+  - {name: phoenix-industrial-south,lat_lngs: []}
+  - {name: phoenix-longcroft,lat_lngs: []}
+  - {name: phoenix-northcroft,lat_lngs: []}
+  - {name: phoenix-palmview,lat_lngs: []}
+  - {name: phoenix-rainham,lat_lngs: []}
+  - {name: phoenix-redfern,lat_lngs: []}
+  - {name: phoenix-rockford-north,lat_lngs: []}
+  - {name: phoenix-rydalvale,lat_lngs: []}
+  - {name: phoenix-shastri-park,lat_lngs: []}
+  - {name: phoenix-southgate,lat_lngs: []}
+  - {name: phoenix-stanmore,lat_lngs: []}
+  - {name: phoenix-starwood,lat_lngs: []}
+  - {name: phoenix-stonebridge,lat_lngs: []}
+  - {name: phoenix-sunford,lat_lngs: []}
+  - {name: phoenix-trenance-manor,lat_lngs: []}
+  - {name: phoenix-westham,lat_lngs: []}
+  - {name: phoenix-whetstone,lat_lngs: []}
+  - {name: phoenix-whitehouse,lat_lngs: []}
+  - {name: phoenix-woodview,lat_lngs: []}
+  - {name: riet-rivier-ottawa,lat_lngs: []}
+  - {name: verulam-mountview,lat_lngs: []}
+  - {name: verulam-mzomuhle,lat_lngs: []}
+  - {name: verulam-old-mutual,lat_lngs: []}
+  - {name: verulam-parkgate,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-2.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: avoca-moriah,lat_lngs: []}
+  - {name: chesterville-blackhurst,lat_lngs: []}
+  - {name: chesterville-ridgeview,lat_lngs: []}
+  - {name: durban-bellair,lat_lngs: []}
+  - {name: durban-cato-manor,lat_lngs: []}
+  - {name: durban-coedmore,lat_lngs: []}
+  - {name: durban-hillary,lat_lngs: []}
+  - {name: durban-memorial-park,lat_lngs: []}
+  - {name: durban-mount-vernon,lat_lngs: []}
+  - {name: durban-part-bellair,lat_lngs: []}
+  - {name: durban-sea-view,lat_lngs: []}
+  - {name: pinetown-farningham-ridge,lat_lngs: []}
+  - {name: pinetown-highland-hills,lat_lngs: []}
+  - {name: pinetown-moseley-park,lat_lngs: []}
+  - {name: pinetown-paradise-valley,lat_lngs: []}
+  - {name: queensburgh-malvern,lat_lngs: []}
+  - {name: westville-berea-west,lat_lngs: []}
+  - {name: westville-beverley-hills-south,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-3.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: mgangeni,lat_lngs: []}
+  - {name: emachobeni,lat_lngs: []}
+  - {name: gunjini-iqadi-sp,lat_lngs: []}
+  - {name: imbozamo,lat_lngs: []}
+  - {name: inanda-a,lat_lngs: []}
+  - {name: inanda-afrika,lat_lngs: []}
+  - {name: inanda-amatikwe,lat_lngs: []}
+  - {name: inanda-armstrong-hill,lat_lngs: []}
+  - {name: inanda-b,lat_lngs: []}
+  - {name: inanda-bester,lat_lngs: []}
+  - {name: inanda-bhambayi-west,lat_lngs: []}
+  - {name: inanda-congo,lat_lngs: []}
+  - {name: inanda-dubes-land-west,lat_lngs: []}
+  - {name: inanda-ekafuleni,lat_lngs: []}
+  - {name: inanda-ekuphakameni,lat_lngs: []}
+  - {name: inanda-emaplazini,lat_lngs: []}
+  - {name: inanda-embokodwe,lat_lngs: []}
+  - {name: inanda-ezimangweni,lat_lngs: []}
+  - {name: inanda-glebe,lat_lngs: []}
+  - {name: inanda-goqokazi,lat_lngs: []}
+  - {name: inanda-langalibalele,lat_lngs: []}
+  - {name: inanda-lindley,lat_lngs: []}
+  - {name: inanda-mshayazafe,lat_lngs: []}
+  - {name: inanda-newtown,lat_lngs: []}
+  - {name: inanda-newtown-b,lat_lngs: []}
+  - {name: inanda-nhlungwane,lat_lngs: []}
+  - {name: inanda-phola-mission,lat_lngs: []}
+  - {name: inanda-soweto,lat_lngs: []}
+  - {name: inanda-tafula,lat_lngs: []}
+  - {name: isipingo-malagazi,lat_lngs: []}
+  - {name: isipingo-hills,lat_lngs: []}
+  - {name: isipingo-lotus-park,lat_lngs: []}
+  - {name: isipingo-orient-hills,lat_lngs: []}
+  - {name: isipingo-rail,lat_lngs: []}
+  - {name: kwamashu-a,lat_lngs: []}
+  - {name: kwamashu-b,lat_lngs: []}
+  - {name: kwamashu-c,lat_lngs: []}
+  - {name: kwamashu-d,lat_lngs: []}
+  - {name: kwamashu-e,lat_lngs: []}
+  - {name: kwamashu-f,lat_lngs: []}
+  - {name: kwamashu-g,lat_lngs: []}
+  - {name: kwamashu-h,lat_lngs: []}
+  - {name: kwamashu-j,lat_lngs: []}
+  - {name: kwamashu-k,lat_lngs: []}
+  - {name: kwamashu-l,lat_lngs: []}
+  - {name: kwamashu-m,lat_lngs: []}
+  - {name: kwamashu-n,lat_lngs: []}
+  - {name: kwamashu-p,lat_lngs: []}
+  - {name: kwamashu-siyanda,lat_lngs: []}
+  - {name: matabetule-lower-manaza,lat_lngs: []}
+  - {name: mgangeni-1-senzokuhle,lat_lngs: []}
+  - {name: mgangeni-amatata,lat_lngs: []}
+  - {name: mgangeni-matata,lat_lngs: []}
+  - {name: mgezanyoni-amalanga,lat_lngs: []}
+  - {name: mgezanyoni-cibane,lat_lngs: []}
+  - {name: ngonweni,lat_lngs: []}
+  - {name: ntuzuma-a,lat_lngs: []}
+  - {name: ntuzuma-b,lat_lngs: []}
+  - {name: ntuzuma-c,lat_lngs: []}
+  - {name: ntuzuma-d,lat_lngs: []}
+  - {name: ntuzuma-e,lat_lngs: []}
+  - {name: ntuzuma-f,lat_lngs: []}
+  - {name: ntuzuma-g,lat_lngs: []}
+  - {name: ntuzuma-h,lat_lngs: []}
+  - {name: ntuzuma-lindelani-d,lat_lngs: []}
+  - {name: osindisweni-inanda-nu,lat_lngs: []}
+  - {name: senzokuhle,lat_lngs: []}
+  - {name: senzokuhle-upper-ukumanaza,lat_lngs: []}
+  - {name: stop-8-inanda,lat_lngs: []}
+  - {name: umlazi-malukazi,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-4.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: canelands,lat_lngs: []}
+  - {name: canelands-belmont-barracks,lat_lngs: []}
+  - {name: canelands-tongaat-beach-rural,lat_lngs: []}
+  - {name: canelands-wesely-stables,lat_lngs: []}
+  - {name: emona,lat_lngs: []}
+  - {name: fairbreeze-tongaat-,lat_lngs: []}
+  - {name: gunjini,lat_lngs: []}
+  - {name: hambanathi-hambanati-village,lat_lngs: []}
+  - {name: hazelmere,lat_lngs: []}
+  - {name: inanda-buffels-draai,lat_lngs: []}
+  - {name: inanda-tea-estate,lat_lngs: []}
+  - {name: isipingo-hills-west,lat_lngs: []}
+  - {name: isipingo-malaba-hills,lat_lngs: []}
+  - {name: kloof-umbhayi-buffels,lat_lngs: []}
+  - {name: la-mercy,lat_lngs: []}
+  - {name: la-mercy-airport,lat_lngs: []}
+  - {name: la-mercy-beach-rural,lat_lngs: []}
+  - {name: lindokuhle-kwatiba,lat_lngs: []}
+  - {name: mount-moreland,lat_lngs: []}
+  - {name: redcliffe,lat_lngs: []}
+  - {name: redcliffe-barns,lat_lngs: []}
+  - {name: redcliffe-community,lat_lngs: []}
+  - {name: redcliffe-industrial,lat_lngs: []}
+  - {name: redcliffe-quarry-heights,lat_lngs: []}
+  - {name: tongaat-amanzimnyama,lat_lngs: []}
+  - {name: tongaat-buffelsdale,lat_lngs: []}
+  - {name: tongaat-central,lat_lngs: []}
+  - {name: tongaat-chelmsford-heights,lat_lngs: []}
+  - {name: tongaat-cottonlands,lat_lngs: []}
+  - {name: tongaat-desainager,lat_lngs: []}
+  - {name: tongaat-flamingo-heights,lat_lngs: []}
+  - {name: tongaat-gandhis-hill,lat_lngs: []}
+  - {name: tongaat-genazano,lat_lngs: []}
+  - {name: tongaat-ghandinager,lat_lngs: []}
+  - {name: tongaat-herrwood,lat_lngs: []}
+  - {name: tongaat-hospital-hill,lat_lngs: []}
+  - {name: tongaat-kruisfontein,lat_lngs: []}
+  - {name: tongaat-magaweni,lat_lngs: []}
+  - {name: tongaat-mithangar,lat_lngs: []}
+  - {name: tongaat-mwamine,lat_lngs: []}
+  - {name: tongaat-riverside,lat_lngs: []}
+  - {name: tongaat-sugarcaneland,lat_lngs: []}
+  - {name: tongaat-tongova-mews,lat_lngs: []}
+  - {name: tongaat-trurolands,lat_lngs: []}
+  - {name: tongaat-vanrova,lat_lngs: []}
+  - {name: tongaat-waterways,lat_lngs: []}
+  - {name: tongaat-watsonia,lat_lngs: []}
+  - {name: umdloti-beach,lat_lngs: []}
+  - {name: umdloti-newsel-beach,lat_lngs: []}
+  - {name: umdloti-selection-beach,lat_lngs: []}
+  - {name: umlazi-a-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-b-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-c-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-d-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-e-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-f-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-g-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-mission-a-east,lat_lngs: []}
+  - {name: umlazi-r-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-s-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-t-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-v-(east)-umlazi,lat_lngs: []}
+  - {name: umlazi-w-(east)-umlazi,lat_lngs: []}
+  - {name: verulam,lat_lngs: []}
+  - {name: verulam-brindhaven,lat_lngs: []}
+  - {name: verulam-dawncrest-north,lat_lngs: []}
+  - {name: verulam-everest-heights,lat_lngs: []}
+  - {name: verulam-grangetown,lat_lngs: []}
+  - {name: verulam-litchie-farm,lat_lngs: []}
+  - {name: verulam-lotusville,lat_lngs: []}
+  - {name: verulam-oaklands,lat_lngs: []}
+  - {name: verulam-riverview-park,lat_lngs: []}
+  - {name: verulam-riyadh,lat_lngs: []}
+  - {name: verulam-saana-township,lat_lngs: []}
+  - {name: verulam-southridge,lat_lngs: []}
+  - {name: verulam-surya-heights,lat_lngs: []}
+  - {name: verulam-trenance-park,lat_lngs: []}
+  - {name: verulam-valdin-heights,lat_lngs: []}
+  - {name: waterloo,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-5.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: clermont,lat_lngs: []}
+  - {name: clermont-christianburg,lat_lngs: []}
+  - {name: durban-essenwood-north,lat_lngs: []}
+  - {name: durban-morningside,lat_lngs: []}
+  - {name: durban-springfield,lat_lngs: []}
+  - {name: durban-stamford-hill-north,lat_lngs: []}
+  - {name: durban-windermere,lat_lngs: []}
+  - {name: kloof-forest-hills-south,lat_lngs: []}
+  - {name: kloof-motalabad,lat_lngs: []}
+  - {name: kloof-wyebank,lat_lngs: []}
+  - {name: kwadabeka,lat_lngs: []}
+  - {name: kwadabeka-a,lat_lngs: []}
+  - {name: kwadabeka-b,lat_lngs: []}
+  - {name: kwadabeka-ba,lat_lngs: []}
+  - {name: kwadabeka-c,lat_lngs: []}
+  - {name: kwadabeka-d,lat_lngs: []}
+  - {name: kwadabeka-e,lat_lngs: []}
+  - {name: kwadabeka-f,lat_lngs: []}
+  - {name: kwadabeka-g,lat_lngs: []}
+  - {name: kwadabeka-h,lat_lngs: []}
+  - {name: kwadabeka-i,lat_lngs: []}
+  - {name: kwadabeka-ia,lat_lngs: []}
+  - {name: kwadabeka-j,lat_lngs: []}
+  - {name: kwadabeka-k,lat_lngs: []}
+  - {name: kwadabeka-l,lat_lngs: []}
+  - {name: kwadabeka-r,lat_lngs: []}
+  - {name: kwadabeka-s,lat_lngs: []}
+  - {name: kwadabeka-siphumelele,lat_lngs: []}
+  - {name: kwadabeka-sp,lat_lngs: []}
+  - {name: kwadabeka-t,lat_lngs: []}
+  - {name: new-germany,lat_lngs: []}
+  - {name: new-germany-the-wolds,lat_lngs: []}
+  - {name: pinetown-cowies-hill,lat_lngs: []}
+  - {name: pinetown-west,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-6.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: bayview-chatsworth,lat_lngs: []}
+  - {name: chatsworth-arena-park,lat_lngs: []}
+  - {name: chatsworth-bulbul,lat_lngs: []}
+  - {name: chatsworth-croftdene,lat_lngs: []}
+  - {name: chatsworth-havenside,lat_lngs: []}
+  - {name: chatsworth-kharwastan,lat_lngs: []}
+  - {name: chatsworth-montford,lat_lngs: []}
+  - {name: chatsworth-silverglen,lat_lngs: []}
+  - {name: chatsworth-town-centre,lat_lngs: []}
+  - {name: chatsworth-umhlatuzana,lat_lngs: []}
+  - {name: chatsworth-westcliff,lat_lngs: []}
+  - {name: chatsworth-woodhurst,lat_lngs: []}
+  - {name: durban-mobeni-heights,lat_lngs: []}
+  - {name: durban-woodlands,lat_lngs: []}
+  - {name: durban-yellowwood-park,lat_lngs: []}
+  - {name: lamontville-joe-slovo,lat_lngs: []}
+  - {name: lamontville-lamont,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-7.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: adams-rural-emansomini,lat_lngs: []}
+  - {name: adams-rural-izwelisha,lat_lngs: []}
+  - {name: adams-rural-mkhazana,lat_lngs: []}
+  - {name: bhekulwandle-madundube,lat_lngs: []}
+  - {name: esidweni,lat_lngs: []}
+  - {name: folweni-a,lat_lngs: []}
+  - {name: folweni-b,lat_lngs: []}
+  - {name: folweni-c,lat_lngs: []}
+  - {name: golokodo,lat_lngs: []}
+  - {name: golokodo-emkhazini,lat_lngs: []}
+  - {name: golokodo-ensimbini,lat_lngs: []}
+  - {name: inwabi-ehlanzeni,lat_lngs: []}
+  - {name: inwabi-ezinyathini,lat_lngs: []}
+  - {name: mapumulo-adams-rural,lat_lngs: []}
+  - {name: nkomokazi,lat_lngs: []}
+  - {name: nkomokazi-umbumbulu,lat_lngs: []}
+  - {name: nungwane,lat_lngs: []}
+  - {name: umlazi-aa-west-umlazi,lat_lngs: []}
+  - {name: umlazi-bb-west-umlazi,lat_lngs: []}
+  - {name: umlazi-cc-west-umlazi,lat_lngs: []}
+  - {name: umlazi-d-west-umlazi,lat_lngs: []}
+  - {name: umlazi-dd-west-umlazi,lat_lngs: []}
+  - {name: umlazi-g-west-umlazi,lat_lngs: []}
+  - {name: umlazi-h-west-umlazi,lat_lngs: []}
+  - {name: umlazi-j-west-umlazi,lat_lngs: []}
+  - {name: umlazi-k-west-umlazi,lat_lngs: []}
+  - {name: umlazi-kwamgaga,lat_lngs: []}
+  - {name: umlazi-l-west-umlazi,lat_lngs: []}
+  - {name: umlazi-m-west-umlazi,lat_lngs: []}
+  - {name: umlazi-n-west-umlazi,lat_lngs: []}
+  - {name: umlazi-p-west-umlazi,lat_lngs: []}
+  - {name: umlazi-q-west-umlazi,lat_lngs: []}
+  - {name: umlazi-r-west-umlazi,lat_lngs: []}
+  - {name: umlazi-t-west-umlazi,lat_lngs: []}
+  - {name: umlazi-t-west-umlazi,lat_lngs: []}
+  - {name: umlazi-u-west-umlazi,lat_lngs: []}
+  - {name: umlazi-w-west-umlazi,lat_lngs: []}
+  - {name: umlazi-y-west-umlazi,lat_lngs: []}
+  - {name: umlazi-z-west-umlazi,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-8.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: assagay-alverstone,lat_lngs: []}
+  - {name: bothas-hill-bothas-hill,lat_lngs: []}
+  - {name: chelmsfordville-everton,lat_lngs: []}
+  - {name: crestholme,lat_lngs: []}
+  - {name: crestholme-berrell,lat_lngs: []}
+  - {name: crestholme-nogxaza,lat_lngs: []}
+  - {name: emagezeni-kwandengezi,lat_lngs: []}
+  - {name: embo-kwakhabazela-mkholombe,lat_lngs: []}
+  - {name: embo-mkholombe,lat_lngs: []}
+  - {name: gillitts,lat_lngs: []}
+  - {name: gillitts-st-helier,lat_lngs: []}
+  - {name: gillitts-winston-park,lat_lngs: []}
+  - {name: hillcrest,lat_lngs: []}
+  - {name: hillcrest-albany,lat_lngs: []}
+  - {name: hillcrest-albinia,lat_lngs: []}
+  - {name: hillcrest-belvedere,lat_lngs: []}
+  - {name: hillcrest-hilldene,lat_lngs: []}
+  - {name: hillcrest-park,lat_lngs: []}
+  - {name: inthuthuko,lat_lngs: []}
+  - {name: kloof,lat_lngs: []}
+  - {name: kloof-forest-hills,lat_lngs: []}
+  - {name: kloof-krantzkloof,lat_lngs: []}
+  - {name: kwanqetho,lat_lngs: []}
+  - {name: kwasondela-kwasondela,lat_lngs: []}
+  - {name: mabedlane,lat_lngs: []}
+  - {name: mabedlane-dimane,lat_lngs: []}
+  - {name: mabedlane-qadi-north,lat_lngs: []}
+  - {name: mabedlane-umgeni,lat_lngs: []}
+  - {name: mkholombe,lat_lngs: []}
+  - {name: molweni,lat_lngs: []}
+  - {name: molweni-congo,lat_lngs: []}
+  - {name: molweni-lower-molweni,lat_lngs: []}
+  - {name: molweni-luthele,lat_lngs: []}
+  - {name: molweni-maromeni,lat_lngs: []}
+  - {name: molweni-nkangala,lat_lngs: []}
+  - {name: molweni-tin-town,lat_lngs: []}
+  - {name: molweni-umgababa,lat_lngs: []}
+  - {name: molweni-umngeni,lat_lngs: []}
+  - {name: mshazi,lat_lngs: []}
+  - {name: mshazi-mahlabathini,lat_lngs: []}
+  - {name: mshazi-ngcolosi,lat_lngs: []}
+  - {name: mshazi-skhambane,lat_lngs: []}
+  - {name: pinetown-padfield-park,lat_lngs: []}
+  - {name: pinetown-tollgate,lat_lngs: []}
+  - {name: pinetown-tollgate-south,lat_lngs: []}
+  - {name: qhodela,lat_lngs: []}
+  - {name: quadi-south-2-bothas-hill,lat_lngs: []}
+  - {name: salem,lat_lngs: []}
+  - {name: salem-ediphini-section,lat_lngs: []}
+  - {name: salem-egwadeni-section,lat_lngs: []}
+  - {name: salem-emangabazini,lat_lngs: []}
+  - {name: salem-ezakhiweni,lat_lngs: []}
+  - {name: salem-kontinga,lat_lngs: []}
+  - {name: shongweni,lat_lngs: []}
+  - {name: shongweni-resources,lat_lngs: []}
+  - {name: waterfall,lat_lngs: []}
+  - {name: waterfall-crestview,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-9.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: blackburn-estate-verulam-rural,lat_lngs: []}
+  - {name: cornubia-blackburn-village,lat_lngs: []}
+  - {name: durban-north-beachwood,lat_lngs: []}
+  - {name: durban-north-broadway-north,lat_lngs: []}
+  - {name: durban-north-glen-anil-east,lat_lngs: []}
+  - {name: durban-north-glenashley,lat_lngs: []}
+  - {name: durban-north-glenhills,lat_lngs: []}
+  - {name: durban-north-virginia,lat_lngs: []}
+  - {name: mount-edgecombe-estate-east,lat_lngs: []}
+  - {name: umhlanga-rocks-la-lucia-,lat_lngs: []}
+  - {name: umhlanga-rocks-somerset-park,lat_lngs: []}
+  - {name: umhlanga-rocks-sunningdale,lat_lngs: []}
+  - {name: umhlanga-rocks-umhlanga-east,lat_lngs: []}
+  - {name: umhlanga-rocks-umhlanga-ridge-west,lat_lngs: []}
+  - {name: umhlanga-rocks-umhlanga-rocks,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-10.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: dassenhoek-lusaka-block-d,lat_lngs: []}
+  - {name: dassenhoek-namibia-c,lat_lngs: []}
+  - {name: durban-gardenpark,lat_lngs: []}
+  - {name: inwabi-ezihyathini,lat_lngs: []}
+  - {name: pinetown-thornwood,lat_lngs: []}
+  - {name: pinetown-woodside,lat_lngs: []}
+  - {name: reservoir-hills,lat_lngs: []}
+  - {name: reservoir-hills-claire-estate,lat_lngs: []}
+  - {name: reservoir-hills-palmiet,lat_lngs: []}
+  - {name: westville,lat_lngs: []}
+  - {name: westville-atholl-heights,lat_lngs: []}
+  - {name: westville-beverley-hills-north,lat_lngs: []}
+  - {name: westville-chiltern-hills,lat_lngs: []}
+  - {name: westville-dawncliffe,lat_lngs: []}
+  - {name: westville-dawncrest,lat_lngs: []}
+  - {name: westville-erin-go-bragth,lat_lngs: []}
+  - {name: westville-grayleigh,lat_lngs: []}
+  - {name: westville-rouken-glen,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-11.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: avoca,lat_lngs: []}
+  - {name: avoca-hills,lat_lngs: []}
+  - {name: avoca-kenville,lat_lngs: []}
+  - {name: avoca-melk-houte,lat_lngs: []}
+  - {name: avoca-riverhorse-valley-west,lat_lngs: []}
+  - {name: avoca-sea-cow-lake,lat_lngs: []}
+  - {name: duffs-road-duffs-road,lat_lngs: []}
+  - {name: durban-north-athlone-east,lat_lngs: []}
+  - {name: durban-north-broadway-south,lat_lngs: []}
+  - {name: durban-north-greenwood-park,lat_lngs: []}
+  - {name: durban-north-parkhill,lat_lngs: []}
+  - {name: durban-north-prospect-hall-,lat_lngs: []}
+  - {name: durban-north-red-hill,lat_lngs: []}
+  - {name: durban-peter-road,lat_lngs: []}
+  - {name: kwamashu-campsite,lat_lngs: []}
+  - {name: newlands,lat_lngs: []}
+  - {name: newlands-briardale,lat_lngs: []}
+  - {name: newlands-castlehill,lat_lngs: []}
+  - {name: newlands-earlsfield,lat_lngs: []}
+  - {name: newlands-east,lat_lngs: []}
+  - {name: newlands-fosaville,lat_lngs: []}
+  - {name: newlands-hillgrove,lat_lngs: []}
+  - {name: newlands-hippo-road,lat_lngs: []}
+  - {name: newlands-newcentre,lat_lngs: []}
+  - {name: newlands-parlock,lat_lngs: []}
+  - {name: newlands-riverdene,lat_lngs: []}
+  - {name: newlands-westrich,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-12.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: durban-ak,lat_lngs: []}
+  - {name: durban-beach,lat_lngs: []}
+  - {name: durban-cbd-north,lat_lngs: []}
+  - {name: durban-cbd-south,lat_lngs: []}
+  - {name: durban-greyville-north,lat_lngs: []}
+  - {name: durban-north-beach,lat_lngs: []}
+  - {name: durban-old-fort,lat_lngs: []}
+  - {name: durban-stamford-hill-south,lat_lngs: []}
+  - {name: durban-windermere-south,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-13.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: bluff-brighton-beach,lat_lngs: []}
+  - {name: bluff-fynnlands,lat_lngs: []}
+  - {name: bluff-grosvenor,lat_lngs: []}
+  - {name: bluff-island-view,lat_lngs: []}
+  - {name: bluff-ocean-view,lat_lngs: []}
+  - {name: bluff-stanvac,lat_lngs: []}
+  - {name: bluff-treasure-beach,lat_lngs: []}
+  - {name: bluff-van-riebeeck-park,lat_lngs: []}
+  - {name: bluff-wentworth,lat_lngs: []}
+  - {name: durban-bayhead-north,lat_lngs: []}
+  - {name: durban-bonela,lat_lngs: []}
+  - {name: durban-carrington-heights,lat_lngs: []}
+  - {name: durban-congella-south,lat_lngs: []}
+  - {name: durban-glenmore,lat_lngs: []}
+  - {name: durban-jacobs-north,lat_lngs: []}
+  - {name: durban-maydon-wharf-south,lat_lngs: []}
+  - {name: durban-umbilo-east,lat_lngs: []}
+  - {name: durban-umkumbaan,lat_lngs: []}
+  - {name: durban-university,lat_lngs: []}
+  - {name: durban-westridge,lat_lngs: []}
+  - {name: durban-wiggins,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-14.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: durban-bulwer,lat_lngs: []}
+  - {name: durban-clare-hills,lat_lngs: []}
+  - {name: durban-essenwood,lat_lngs: []}
+  - {name: durban-glenwood,lat_lngs: []}
+  - {name: durban-musgrave,lat_lngs: []}
+  - {name: durban-sherwood,lat_lngs: []}
+  - {name: durban-sparks,lat_lngs: []}
+  - {name: durban-springfield-flats,lat_lngs: []}
+  - {name: durban-sydenham,lat_lngs: []}
+  - {name: durban-watervalpark,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-15.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: bluff-cave-rock,lat_lngs: []}
+  - {name: durban-beach-front,lat_lngs: []}
+  - {name: durban-cbd-east,lat_lngs: []}
+  - {name: durban-cbd-west,lat_lngs: []}
+  - {name: durban-esplanade,lat_lngs: []}
+  - {name: durban-greyville-south,lat_lngs: []}
+  - {name: durban-harbour,lat_lngs: []}
+  - {name: durban-maydon-wharf-north,lat_lngs: []}
+  - {name: durban-point,lat_lngs: []}
+  - {name: durban-south-beach,lat_lngs: []}
+  - {name: durban-warwick,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-16.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: adams-rural-adams-mission,lat_lngs: []}
+  - {name: adams-rural-emsahweni,lat_lngs: []}
+  - {name: adams-rural-enkanyiswni-shozi,lat_lngs: []}
+  - {name: adams-rural-kwahlongwa,lat_lngs: []}
+  - {name: amanzimtoti,lat_lngs: []}
+  - {name: athlone-park-amanzimtoti,lat_lngs: []}
+  - {name: bhekulwandle-baphehli,lat_lngs: []}
+  - {name: bhekulwandle-iziko-road,lat_lngs: []}
+  - {name: bhekulwandle-nqutshini-russia,lat_lngs: []}
+  - {name: ezimbokodweni,lat_lngs: []}
+  - {name: ezimbokodweni-ebhodini,lat_lngs: []}
+  - {name: ezimbokodweni-emahlabathini,lat_lngs: []}
+  - {name: ezimbokodweni-eplangweni,lat_lngs: []}
+  - {name: ezimbokodweni-new-city,lat_lngs: []}
+  - {name: ezimbokodweni-rhemia,lat_lngs: []}
+  - {name: kingsburgh-astra-park,lat_lngs: []}
+  - {name: kingsburgh-doon-heights,lat_lngs: []}
+  - {name: kingsburgh-doonside,lat_lngs: []}
+  - {name: kingsburgh-illovo-beach,lat_lngs: []}
+  - {name: kingsburgh-illovo-glen,lat_lngs: []}
+  - {name: kingsburgh-karridene-,lat_lngs: []}
+  - {name: kingsburgh-panorama-park,lat_lngs: []}
+  - {name: kingsburgh-shulton-park,lat_lngs: []}
+  - {name: kingsburgh-st-winifreds,lat_lngs: []}
+  - {name: kingsburgh-warner-beach,lat_lngs: []}
+  - {name: kingsburgh-winklespruit,lat_lngs: []}
+  - {name: kwamakhutha,lat_lngs: []}
+  - {name: lovu,lat_lngs: []}
+  - {name: lower-illovo-illovu,lat_lngs: []}
+  - {name: mapumulo-itshehlophe,lat_lngs: []}
+  - {name: mapumulo-kwasunduzwayo-,lat_lngs: []}
+  - {name: mapumulo-mdumezulu,lat_lngs: []}
+  - {name: mapumulo-ungendwa,lat_lngs: []}
+  - {name: toyane-kwafakazi,lat_lngs: []}
+  - {name: toyane-mashiwase,lat_lngs: []}
+  - {name: toyane-nkwali,lat_lngs: []}
+  - {name: umbogintwini,lat_lngs: []}
+  - {name: umhlanga-rocks-hawaan,lat_lngs: []}
+  - {name: umhlanga-rocks-prestondale,lat_lngs: []}
+  - {name: umhlanga-rocks-umhlanga-ridge-east,lat_lngs: []}
+  - {name: umhlanga-rocks-umhlanga-west,lat_lngs: []}
+  - {name: verulam-cordoba-gardens,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-17.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: dalefarm-phoenix,lat_lngs: []}
+  - {name: inanda-bhambayi,lat_lngs: []}
+  - {name: inanda-mzomusha,lat_lngs: []}
+  - {name: kwamashu-a-north,lat_lngs: []}
+  - {name: kwamashu-bridge-city,lat_lngs: []}
+  - {name: kwamashu-e-north,lat_lngs: []}
+  - {name: kwamashu-f-north,lat_lngs: []}
+  - {name: kwamashu-h-north,lat_lngs: []}
+  - {name: kwamashu-l-north,lat_lngs: []}
+  - {name: kwamashu-m-north,lat_lngs: []}
+  - {name: kwamashu-q-north,lat_lngs: []}
+  - {name: mount-royal,lat_lngs: []}
+  - {name: phoenix-greenbury-north,lat_lngs: []}
+  - {name: phoenix-lenham,lat_lngs: []}
+  - {name: phoenix-rockford-south,lat_lngs: []}
+  - {name: phoenix-southgate-north,lat_lngs: []}
+  - {name: queensburgh-industrial,lat_lngs: []}
+  - {name: queensburgh-northdene-industrial,lat_lngs: []}
+  - {name: queensburgh-queensmead-industrial,lat_lngs: []}
+  - {name: shallcross-burlington-heights,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-18.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: avoca-riverhorse-valley,lat_lngs: []}
+  - {name: durban-north-athlone-west,lat_lngs: []}
+  - {name: durban-north-briardene,lat_lngs: []}
+  - {name: durban-north-glen-anil-west,lat_lngs: []}
+  - {name: durban-north-parkhill-industrial,lat_lngs: []}
+  - {name: durban-north-red-hill-industrial,lat_lngs: []}
+  - {name: durban-north-umgeni-park,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-19.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: pinetown-motala-heights,lat_lngs: []}
+  - {name: pinetown-north,lat_lngs: []}
+  - {name: pinetown-westmead,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-20.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: bluff-austerville,lat_lngs: []}
+  - {name: bluff-merewent,lat_lngs: []}
+  - {name: bluff-wentworth-west,lat_lngs: []}
+  - {name: durban-clairwood,lat_lngs: []}
+  - {name: durban-jacobs,lat_lngs: []}
+  - {name: durban-mobeni-north,lat_lngs: []}
+  - {name: durban-rossburgh,lat_lngs: []}
+  - {name: durban-sea-view-industrial,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-21.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: bluff-merebank-east,lat_lngs: []}
+  - {name: durban-bayhead,lat_lngs: []}
+  - {name: durban-mobeni-south,lat_lngs: []}
+  - {name: durban-mobeni-west,lat_lngs: []}
+  - {name: durban-montclair,lat_lngs: []}
+  - {name: durban-woodlands-industrial,lat_lngs: []}
+  - {name: durban-yellowwood-park-industrial,lat_lngs: []}
+  - {name: lamontville-lamont-north,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-22.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: isipingo-beach,lat_lngs: []}
+  - {name: isipingo-durban-airport,lat_lngs: []}
+  - {name: isipingo-prospecton-industrial,lat_lngs: []}
+  - {name: isipingo-reunion,lat_lngs: []}
+  - {name: umbogintwini-industrial,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-23.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: canelands-industrial,lat_lngs: []}
+  - {name: durban-congella-north,lat_lngs: []}
+  - {name: durban-maydon-wharf,lat_lngs: []}
+  - {name: durban-umbilo,lat_lngs: []}
+  - {name: hambanathi-maidstone,lat_lngs: []}
+  - {name: tongaat-belvedere-north,lat_lngs: []}
+  - {name: tongaat-burbreeze,lat_lngs: []}
+  - {name: tongaat-cottonlands-industrial,lat_lngs: []}
+  - {name: tongaat-fairbreeze-industrial,lat_lngs: []}
+  - {name: tongaat-gwala,lat_lngs: []}
+  - {name: tongaat-sandfields,lat_lngs: []}
+  - {name: verulam-industrial,lat_lngs: []}
+  - {name: verulam-missionlands,lat_lngs: []}
+  - {name: verulam-riverview-park-industrial,lat_lngs: []}
+  - {name: verulam-umdhloti-heights,lat_lngs: []}
+
+- calendar_name: kwazulu-natal-ethekwini-block-24.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas:
+  - {name: new-germany-industrial,lat_lngs: []}
+  - {name: new-germany-berkshire-downs,lat_lngs: []}
+  - {name: pinetown-east,lat_lngs: []}
