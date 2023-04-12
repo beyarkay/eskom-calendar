@@ -353,7 +353,6 @@ mod fmt {
     use crate::get_git_hash;
     use crate::BoxedError;
     use chrono::FixedOffset;
-    use chrono::format::strftime;
     use chrono::{DateTime, Utc};
     use icalendar::{Component, Event};
     use std::path::Path;
@@ -378,6 +377,19 @@ mod fmt {
             chrono::offset::Local::now().naive_local(),
             timezone_sast,
         );
+
+        // Get a nice URL link to the exact run which created this calendar (if the run even
+        // exists)
+        let github_run_url = if let Ok(run_id) = std::env::var("GITHUB_RUN_ID") {
+            // And infer the repo name from the ENV variables, because sometimes this code is run
+            // on the development repository `beyarkay/eskom-calendar-dev`
+            let owner_repo = std::env::var("GITHUB_REPOSITORY")
+                .unwrap_or_else(|_| "beyarkay/eskom-calendar".to_owned());
+            format!(" by run https://github.com/{owner_repo}/actions/runs/{run_id}")
+        } else {
+            "".to_string()
+        };
+
         // TODO can a default alarm be added to this?
         let description = format!(
             "This event shows that there will be loadshedding on {} to {} in the load \
@@ -399,7 +411,7 @@ mod fmt {
             \n\
             National loadshedding information scraped from {}.\n\
             \n\
-            Calendar compiled {}.\n\
+            Calendar compiled {}{}.\n\
             \n\
             Eskom-calendar version: https://github.com/beyarkay/eskom-calendar/tree/{}",
             power_outage.start.format("%A from %H:%M"),
@@ -408,6 +420,7 @@ mod fmt {
             power_outage.area_name,
             power_outage.source,
             now.format("on %A %d %h %Y at %H:%M:%S (UTC+02:00)"),
+            github_run_url,
             get_git_hash()?,
         );
         // These emojis are for stages:

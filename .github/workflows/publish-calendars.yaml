@@ -37,6 +37,9 @@ jobs:
         command: build
         args: --release
 
+    - name: export the github run ID
+      run: export GITHUB_RUN_ID="${{github.run_id}}"
+
     - name: Cargo run
       uses: actions-rs/cargo@v1
       with:
