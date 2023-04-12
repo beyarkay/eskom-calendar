@@ -353,6 +353,7 @@ mod fmt {
     use crate::get_git_hash;
     use crate::BoxedError;
     use chrono::FixedOffset;
+    use chrono::format::strftime;
     use chrono::{DateTime, Utc};
     use icalendar::{Component, Event};
     use std::path::Path;
@@ -372,6 +373,11 @@ mod fmt {
 
     /// Convert a power outage to a ICS calendar event, with a nicely formatted description.
     pub fn power_outage_to_event(power_outage: &PowerOutage) -> Result<Event, BoxedError> {
+        let timezone_sast = FixedOffset::east_opt(2 * 60 * 60).unwrap();
+        let now = DateTime::<FixedOffset>::from_local(
+            chrono::offset::Local::now().naive_local(),
+            timezone_sast,
+        );
         // TODO can a default alarm be added to this?
         let description = format!(
             "This event shows that there will be loadshedding on {} to {} in the load \
@@ -393,15 +399,15 @@ mod fmt {
             \n\
             National loadshedding information scraped from {}.\n\
             \n\
-            Calendar compiled at {}.\n\
+            Calendar compiled {}.\n\
             \n\
             Eskom-calendar version: https://github.com/beyarkay/eskom-calendar/tree/{}",
             power_outage.start.format("%A from %H:%M"),
-            power_outage.finsh.format("%H:%M"),
+            power_outage.finsh.format("%A at %H:%M"),
             power_outage.area_name,
             power_outage.area_name,
             power_outage.source,
-            chrono::offset::Local::now(),
+            now.format("on %A %d %h %Y at %H:%M:%S (UTC+02:00)"),
             get_git_hash()?,
         );
         let emojis = vec!["😁", "😕", "☹️", "😟", "😣", "😭", "😫", "😤", "😡"];
