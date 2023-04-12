@@ -410,6 +410,8 @@ mod fmt {
             now.format("on %A %d %h %Y at %H:%M:%S (UTC+02:00)"),
             get_git_hash()?,
         );
+        // These emojis are for stages:
+        //                  0     1     2    3     4     5     6     7     8
         let emojis = vec!["😁", "😕", "☹️", "😟", "😣", "😭", "😫", "😤", "😡"];
         let summary = format!(
             "🔌{area_name} Stage {stage} {emoji}",
