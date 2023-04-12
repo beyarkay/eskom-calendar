@@ -5778,140 +5778,6 @@ area_details:
   - {name: witfield,lat_lngs: []}
   - {name: woodmere,lat_lngs: []}
 
-- calendar_name: gauteng-ekurhuleni-block-10.ics
-  province: gauteng
-  municipality: city-of-ekurhuleni-metropolitan
-  city: ekurhuleni
-  provider: gauteng-ekurhuleni
-  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
-  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
-  areas:
-  - {name: benoni-agriculture-holdings,lat_lngs: []}
-  - {name: brentwood-park,lat_lngs: []}
-  - {name: chief-a-park,lat_lngs: []}
-  - {name: cloverdene,lat_lngs: []}
-  - {name: daveyton,lat_lngs: []}
-  - {name: etwatwa,lat_lngs: []}
-  - {name: fairleads,lat_lngs: []}
-  - {name: hillcrest,lat_lngs: []}
-  - {name: kingsway,lat_lngs: []}
-  - {name: kunene,lat_lngs: []}
-  - {name: lillyvale,lat_lngs: []}
-  - {name: marister-benoni-north,lat_lngs: []}
-  - {name: northmead,lat_lngs: []}
-  - {name: petit,lat_lngs: []}
-  - {name: putfontein,lat_lngs: []}
-  - {name: rynfield,lat_lngs: []}
-  - {name: vezi,lat_lngs: []}
-
-- calendar_name: gauteng-ekurhuleni-block-11.ics
-  province: gauteng
-  municipality: city-of-ekurhuleni-metropolitan
-  city: ekurhuleni
-  provider: gauteng-ekurhuleni
-  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
-  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
-  areas:
-  - {name: birch-arces-extension-23,lat_lngs: []}
-  - {name: birch-arces-extension-24,lat_lngs: []}
-  - {name: birch-arces-extension-25,lat_lngs: []}
-  - {name: birch-arces-extension-26,lat_lngs: []}
-  - {name: birch-arces-extension-27,lat_lngs: []}
-  - {name: birch-arces-extension-28,lat_lngs: []}
-  - {name: birch-arces-extension-29,lat_lngs: []}
-  - {name: birch-arces-extension-30,lat_lngs: []}
-  - {name: birch-arces-extension-31,lat_lngs: []}
-  - {name: birch-arces-extension-32,lat_lngs: []}
-  - {name: thembisa,lat_lngs: []}
-  - {name: winnie-mandela-zone-1,lat_lngs: []}
-  - {name: winnie-mandela-zone-11,lat_lngs: []}
-  - {name: winnie-mandela-zone-8,lat_lngs: []}
-
-- calendar_name: gauteng-ekurhuleni-block-12.ics
-  province: gauteng
-  municipality: city-of-ekurhuleni-metropolitan
-  city: ekurhuleni
-  provider: gauteng-ekurhuleni
-  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
-  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
-  areas:
-  - {name: alrode,lat_lngs: []}
-  - {name: mapleton,lat_lngs: []}
-  - {name: reiger-park,lat_lngs: []}
-
-- calendar_name: gauteng-ekurhuleni-block-13.ics
-  province: gauteng
-  municipality: city-of-ekurhuleni-metropolitan
-  city: ekurhuleni
-  provider: gauteng-ekurhuleni
-  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
-  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
-  areas:
-  - {name: brakpan-cbd-and-surroundings,lat_lngs: []}
-
-- calendar_name: gauteng-ekurhuleni-block-14.ics
-  province: gauteng
-  municipality: city-of-ekurhuleni-metropolitan
-  city: ekurhuleni
-  provider: gauteng-ekurhuleni
-  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
-  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
-  areas:
-  - {name: terenure,lat_lngs: []}
-  - {name: edleen,lat_lngs: []}
-  - {name: van-riebeeck-park,lat_lngs: []}
-  - {name: birch-acres,lat_lngs: []}
-  - {name: kempton-west,lat_lngs: []}
-  - {name: glen-marais,lat_lngs: []}
-  - {name: allen-grove,lat_lngs: []}
-  - {name: bonaero-park,lat_lngs: []}
-  - {name: nimrod-park,lat_lngs: []}
-  - {name: aston-manor,lat_lngs: []}
-  - {name: parts-of-kempton-park-extension-4,lat_lngs: []}
-  - {name: parts-of-kempton-park-extension-2,lat_lngs: []}
-  - {name: glen-erasmia,lat_lngs: []}
-  - {name: birchleigh,lat_lngs: []}
-  - {name: birchleigh-north,lat_lngs: []}
-  - {name: kempton-park-cbd,lat_lngs: []}
-  - {name: kempton-park-extensions,lat_lngs: []}
-  - {name: rhodesfield,lat_lngs: []}
-  - {name: cresslawn,lat_lngs: []}
-  - {name: kelvin-estate,lat_lngs: []}
-  - {name: croydon,lat_lngs: []}
-  - {name: spartan,lat_lngs: []}
-
-- calendar_name: gauteng-ekurhuleni-block-15.ics
-  province: gauteng
-  municipality: city-of-ekurhuleni-metropolitan
-  city: ekurhuleni
-  provider: gauteng-ekurhuleni
-  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
-  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
-  areas:
-  - {name: albertsdal,lat_lngs: []}
-  - {name: kwathema,lat_lngs: []}
-
-- calendar_name: gauteng-ekurhuleni-block-16.ics
-  province: gauteng
-  municipality: city-of-ekurhuleni-metropolitan
-  city: ekurhuleni
-  provider: gauteng-ekurhuleni
-  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
-  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
-  areas:
-  - {name: albermale,lat_lngs: []}
-  - {name: benoni-cbd,lat_lngs: []}
-  - {name: buhle-park,lat_lngs: []}
-  - {name: farrarmere,lat_lngs: []}
-  - {name: lakefield,lat_lngs: []}
-  - {name: mackenzie-park,lat_lngs: []}
-  - {name: norton-small-farm,lat_lngs: []}
-  - {name: part-of-northmead,lat_lngs: []}
-  - {name: phumula,lat_lngs: []}
-  - {name: rondebult,lat_lngs: []}
-  - {name: roodekop-extension,lat_lngs: []}
-  - {name: wadeville,lat_lngs: []}
-
 - calendar_name: gauteng-ekurhuleni-block-2.ics
   province: gauteng
   municipality: city-of-ekurhuleni-metropolitan
@@ -6086,6 +5952,141 @@ area_details:
   - {name: edenvale,lat_lngs: []}
   - {name: horwood,lat_lngs: []}
   - {name: selcourt,lat_lngs: []}
+
+
+- calendar_name: gauteng-ekurhuleni-block-10.ics
+  province: gauteng
+  municipality: city-of-ekurhuleni-metropolitan
+  city: ekurhuleni
+  provider: gauteng-ekurhuleni
+  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
+  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
+  areas:
+  - {name: benoni-agriculture-holdings,lat_lngs: []}
+  - {name: brentwood-park,lat_lngs: []}
+  - {name: chief-a-park,lat_lngs: []}
+  - {name: cloverdene,lat_lngs: []}
+  - {name: daveyton,lat_lngs: []}
+  - {name: etwatwa,lat_lngs: []}
+  - {name: fairleads,lat_lngs: []}
+  - {name: hillcrest,lat_lngs: []}
+  - {name: kingsway,lat_lngs: []}
+  - {name: kunene,lat_lngs: []}
+  - {name: lillyvale,lat_lngs: []}
+  - {name: marister-benoni-north,lat_lngs: []}
+  - {name: northmead,lat_lngs: []}
+  - {name: petit,lat_lngs: []}
+  - {name: putfontein,lat_lngs: []}
+  - {name: rynfield,lat_lngs: []}
+  - {name: vezi,lat_lngs: []}
+
+- calendar_name: gauteng-ekurhuleni-block-11.ics
+  province: gauteng
+  municipality: city-of-ekurhuleni-metropolitan
+  city: ekurhuleni
+  provider: gauteng-ekurhuleni
+  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
+  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
+  areas:
+  - {name: birch-arces-extension-23,lat_lngs: []}
+  - {name: birch-arces-extension-24,lat_lngs: []}
+  - {name: birch-arces-extension-25,lat_lngs: []}
+  - {name: birch-arces-extension-26,lat_lngs: []}
+  - {name: birch-arces-extension-27,lat_lngs: []}
+  - {name: birch-arces-extension-28,lat_lngs: []}
+  - {name: birch-arces-extension-29,lat_lngs: []}
+  - {name: birch-arces-extension-30,lat_lngs: []}
+  - {name: birch-arces-extension-31,lat_lngs: []}
+  - {name: birch-arces-extension-32,lat_lngs: []}
+  - {name: thembisa,lat_lngs: []}
+  - {name: winnie-mandela-zone-1,lat_lngs: []}
+  - {name: winnie-mandela-zone-11,lat_lngs: []}
+  - {name: winnie-mandela-zone-8,lat_lngs: []}
+
+- calendar_name: gauteng-ekurhuleni-block-12.ics
+  province: gauteng
+  municipality: city-of-ekurhuleni-metropolitan
+  city: ekurhuleni
+  provider: gauteng-ekurhuleni
+  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
+  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
+  areas:
+  - {name: alrode,lat_lngs: []}
+  - {name: mapleton,lat_lngs: []}
+  - {name: reiger-park,lat_lngs: []}
+
+- calendar_name: gauteng-ekurhuleni-block-13.ics
+  province: gauteng
+  municipality: city-of-ekurhuleni-metropolitan
+  city: ekurhuleni
+  provider: gauteng-ekurhuleni
+  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
+  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
+  areas:
+  - {name: brakpan-cbd-and-surroundings,lat_lngs: []}
+
+- calendar_name: gauteng-ekurhuleni-block-14.ics
+  province: gauteng
+  municipality: city-of-ekurhuleni-metropolitan
+  city: ekurhuleni
+  provider: gauteng-ekurhuleni
+  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
+  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
+  areas:
+  - {name: terenure,lat_lngs: []}
+  - {name: edleen,lat_lngs: []}
+  - {name: van-riebeeck-park,lat_lngs: []}
+  - {name: birch-acres,lat_lngs: []}
+  - {name: kempton-west,lat_lngs: []}
+  - {name: glen-marais,lat_lngs: []}
+  - {name: allen-grove,lat_lngs: []}
+  - {name: bonaero-park,lat_lngs: []}
+  - {name: nimrod-park,lat_lngs: []}
+  - {name: aston-manor,lat_lngs: []}
+  - {name: parts-of-kempton-park-extension-4,lat_lngs: []}
+  - {name: parts-of-kempton-park-extension-2,lat_lngs: []}
+  - {name: glen-erasmia,lat_lngs: []}
+  - {name: birchleigh,lat_lngs: []}
+  - {name: birchleigh-north,lat_lngs: []}
+  - {name: kempton-park-cbd,lat_lngs: []}
+  - {name: kempton-park-extensions,lat_lngs: []}
+  - {name: rhodesfield,lat_lngs: []}
+  - {name: cresslawn,lat_lngs: []}
+  - {name: kelvin-estate,lat_lngs: []}
+  - {name: croydon,lat_lngs: []}
+  - {name: spartan,lat_lngs: []}
+
+- calendar_name: gauteng-ekurhuleni-block-15.ics
+  province: gauteng
+  municipality: city-of-ekurhuleni-metropolitan
+  city: ekurhuleni
+  provider: gauteng-ekurhuleni
+  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
+  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
+  areas:
+  - {name: albertsdal,lat_lngs: []}
+  - {name: kwathema,lat_lngs: []}
+
+- calendar_name: gauteng-ekurhuleni-block-16.ics
+  province: gauteng
+  municipality: city-of-ekurhuleni-metropolitan
+  city: ekurhuleni
+  provider: gauteng-ekurhuleni
+  source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
+  source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
+  areas:
+  - {name: albermale,lat_lngs: []}
+  - {name: benoni-cbd,lat_lngs: []}
+  - {name: buhle-park,lat_lngs: []}
+  - {name: farrarmere,lat_lngs: []}
+  - {name: lakefield,lat_lngs: []}
+  - {name: mackenzie-park,lat_lngs: []}
+  - {name: norton-small-farm,lat_lngs: []}
+  - {name: part-of-northmead,lat_lngs: []}
+  - {name: phumula,lat_lngs: []}
+  - {name: rondebult,lat_lngs: []}
+  - {name: roodekop-extension,lat_lngs: []}
+  - {name: wadeville,lat_lngs: []}
 
 - calendar_name: gauteng-tshwane-group-1.ics
   province: gauteng
