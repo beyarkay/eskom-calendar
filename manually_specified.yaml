@@ -13,66 +13,16 @@
 ---
 changes:
   # Eskom
-  - stage: 3
-    start: 2023-04-10T17:00:00
-    finsh: 2023-04-11T16:00:00
-    source: https://twitter.com/Eskom_SA/status/1645423209632727042
-    exclude: coct
   - stage: 5
-    start: 2023-04-11T16:00:00
-    finsh: 2023-04-12T05:00:00
-    source: https://twitter.com/Eskom_SA/status/1645423209632727042
-    exclude: coct
-  - stage: 3
     start: 2023-04-12T05:00:00
-    finsh: 2023-04-12T16:00:00
-    source: https://twitter.com/Eskom_SA/status/1645423209632727042
-    exclude: coct
-  - stage: 5
-    start: 2023-04-12T16:00:00
-    finsh: 2023-04-13T00:00:00
-    source: https://twitter.com/Eskom_SA/status/1645423209632727042
+    finsh: 2023-04-15T00:00:00
+    source: https://twitter.com/Eskom_SA/status/1646019602751561728
     exclude: coct
 
   # CoCT
-  - stage: 1
-    start: 2023-04-10T17:00:00
-    finsh: 2023-04-10T22:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
-    include: coct
-  - stage: 3
-    start: 2023-04-10T22:00:00
-    finsh: 2023-04-11T05:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
-    include: coct
-  - stage: 2
-    start: 2023-04-11T05:00:00
-    finsh: 2023-04-11T16:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
-    include: coct
   - stage: 4
-    start: 2023-04-11T16:00:00
-    finsh: 2023-04-11T22:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
-    include: coct
-  - stage: 5
-    start: 2023-04-11T22:00:00
-    finsh: 2023-04-12T05:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
-    include: coct
-  - stage: 2
     start: 2023-04-12T05:00:00
-    finsh: 2023-04-12T16:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
-    include: coct
-  - stage: 4
-    start: 2023-04-12T16:00:00
-    finsh: 2023-04-12T22:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
-    include: coct
-  - stage: 5
-    start: 2023-04-12T22:00:00
-    finsh: 2023-04-13T05:00:00
-    source: https://twitter.com/CityofCT/status/1645444359272235010
+    finsh: 2023-04-15T00:00:00
+    source: https://twitter.com/CityofCT/status/1646019299738279937
     include: coct
 historical_changes: []
