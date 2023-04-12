@@ -5754,29 +5754,30 @@ area_details:
   source: https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf
   source_info: https://www.ekurhuleni.gov.za/for-me/load-shedding-schedules/
   areas:
-  - {name: activia-park,lat_lngs: []}
-  - {name: barvallen,lat_lngs: []}
-  - {name: dawnview,lat_lngs: []}
-  - {name: delmore,lat_lngs: []}
-  - {name: dukathole,lat_lngs: []}
-  - {name: fishers-hill,lat_lngs: []}
-  - {name: gerdview,lat_lngs: []}
-  - {name: henville,lat_lngs: []}
-  - {name: homestead,lat_lngs: []}
-  - {name: knights,lat_lngs: []}
-  - {name: marlands,lat_lngs: []}
-  - {name: meadowbrook,lat_lngs: []}
-  - {name: rustivia,lat_lngs: []}
-  - {name: south-germiston,lat_lngs: []}
-  - {name: sunnyridge,lat_lngs: []}
-  - {name: sunnyrock,lat_lngs: []}
-  - {name: symhurst,lat_lngs: []}
-  - {name: ulana-park,lat_lngs: []}
-  - {name: wannenburg,lat_lngs: []}
-  - {name: wannenburg-hoogte,lat_lngs: []}
-  - {name: wilbart,lat_lngs: []}
-  - {name: witfield,lat_lngs: []}
-  - {name: woodmere,lat_lngs: []}
+  - {name: alberts-park,lat_lngs: []}
+  - {name: alrode-extension-2,lat_lngs: []}
+  - {name: alrode-extension-4,lat_lngs: []}
+  - {name: alrode-extension-5,lat_lngs: []}
+  - {name: alrode-extension-7,lat_lngs: []}
+  - {name: alrode-extension-8,lat_lngs: []}
+  - {name: arndhart,lat_lngs: []}
+  - {name: brackendowns-excluding-extension-5,lat_lngs: []}
+  - {name: brackenhurst,lat_lngs: []}
+  - {name: brackenhurst,lat_lngs: []}
+  - {name: brackenhurst-north,lat_lngs: []}
+  - {name: generaal-alberts-park,lat_lngs: []}
+  - {name: mayberry-park,lat_lngs: []}
+  - {name: meyberry-park,lat_lngs: []}
+  - {name: meyersdal,lat_lngs: []}
+  - {name: meyersdal,lat_lngs: []}
+  - {name: part-of-alrode,lat_lngs: []}
+  - {name: randhart,lat_lngs: []}
+  - {name: thokoza-north,lat_lngs: []}
+  - {name: thokoza-north,lat_lngs: []}
+  - {name: thokoza-north-basothong,lat_lngs: []}
+  - {name: thokoza-north-hostels,lat_lngs: []}
+  - {name: thokoza-north-mpilisweni,lat_lngs: []}
+  - {name: thokoza-north-phenduka,lat_lngs: []}
 
 - calendar_name: gauteng-ekurhuleni-block-2.ics
   province: gauteng
