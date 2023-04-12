@@ -352,8 +352,11 @@ fn gen_datetimes(
 mod fmt {
     use crate::get_git_hash;
     use crate::BoxedError;
+    use chrono::Duration;
     use chrono::FixedOffset;
     use chrono::{DateTime, Utc};
+    use icalendar::Alarm;
+    use icalendar::EventLike;
     use icalendar::{Component, Event};
     use std::path::Path;
 
@@ -437,6 +440,7 @@ mod fmt {
             .description(description.as_str())
             .starts(power_outage.start.with_timezone(&Utc))
             .ends(power_outage.finsh.with_timezone(&Utc))
+            .alarm(Alarm::display(&format!("In 1 hour: {}", summary), -Duration::hours(1)))
             .done();
         Ok(evt)
     }

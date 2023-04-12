@@ -10,7 +10,7 @@ license = "MIT"
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.8"
 chrono = "0.4.19"
-icalendar = "0.13.0"
+icalendar = "0.15.4"
 csv = "1.1"
 regex = "1.6.0"
 pretty_env_logger = "0.4.0"
