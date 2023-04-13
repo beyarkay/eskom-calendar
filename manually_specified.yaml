@@ -20,14 +20,34 @@ changes:
     exclude: coct
 
   # CoCT
-  - stage: 6
-    start: 2023-04-13T04:00:00
-    finsh: 2023-04-13T06:00:00
-    source: https://twitter.com/CityofCT/status/1646352518853586945
-    include: coct
   - stage: 5
     start: 2023-04-13T06:00:00
     finsh: 2023-04-13T16:00:00
-    source: https://twitter.com/CityofCT/status/1646352518853586945
+    source: https://twitter.com/CityofCT/status/1646417867582189568
+    include: coct
+  - stage: 4
+    start: 2023-04-13T16:00:00
+    finsh: 2023-04-13T22:00:00
+    source: https://twitter.com/CityofCT/status/1646417867582189568
+    include: coct
+  - stage: 6
+    start: 2023-04-13T22:00:00
+    finsh: 2023-04-14T06:00:00
+    source: https://twitter.com/CityofCT/status/1646417867582189568
+    include: coct
+  - stage: 5
+    start: 2023-04-14T06:00:00
+    finsh: 2023-04-14T16:00:00
+    source: https://twitter.com/CityofCT/status/1646417867582189568
+    include: coct
+  - stage: 4
+    start: 2023-04-14T16:00:00
+    finsh: 2023-04-14T22:00:00
+    source: https://twitter.com/CityofCT/status/1646417867582189568
+    include: coct
+  - stage: 6
+    start: 2023-04-14T22:00:00
+    finsh: 2023-04-15T06:00:00
+    source: https://twitter.com/CityofCT/status/1646417867582189568
     include: coct
 historical_changes: []
