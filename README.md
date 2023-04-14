@@ -186,6 +186,22 @@ visible even with JavaScript disabled, and not use a tinyurl or any other form o
 or redirection. Furthermore, the links must not be
 [nofollowed](https://googleblog.blogspot.com/2005/01/preventing-comment-spam.html).
 
+To make this easy, here are some code snippets you can copy-paste next to wherever you're using the data
+
+<details>
+<summary>Markdown</summary>
+```md
+[](TODO)
+```
+</details>
+
+<details>
+<summary>HTML</summary>
+```md
+<a> TODO </a>
+```
+</details>
+
 ## Using the Data in Your Own Projects
 
 We are really interested to see what the developers of South Africa do with
