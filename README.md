@@ -141,6 +141,51 @@ pain of loadshedding, and it's the only open-source option to provide the times
 when power will be off, as opposed to just the loadshedding schedule for any
 given area (please get in contact if I'm wrong!, would be great to collab).
 
+## Attribution and using the data (commercially or otherwise)
+
+The data (CSV and ICS files) are available under the
+[cc-by-sa](https://creativecommons.org/licenses/by-sa/4.0/) license. This means
+that
+
+> You are free to:
+>
+> - Share: copy and redistribute the material in any medium or format
+>
+> - Adapt: remix, transform, and build upon the material for any purpose, even commercially. 
+
+But only if you follow the following terms:
+
+> - Attribution: You must give appropriate credit, provide a link to the license, 
+>   and indicate if changes were made. You may do so in any reasonable manner, but
+>   not in any way that suggests the licensor endorses you or your use.
+> 
+> - ShareAlike: If you remix, transform, or build upon the material, you must
+>   distribute your contributions under the same license as the original.
+> 
+> - No additional restrictions: You may not apply legal terms or technological 
+>   measures that legally restrict others from doing anything the license permits.
+
+Attribution should be done in a form similar to how
+[StackOverflow](https://stackoverflow.blog/2009/06/25/attribution-required/) requires it. 
+Specifically:
+
+- Visually indicate that the content is from EskomCalendar in some way. 
+  It doesn’t have to be obnoxious; a discreet text blurb is fine.
+  
+- When a specific calendar is being used, you must hyperlink directly to the website's
+  version of that calendar (for example, https://eskomcalendar.co.za/ec?calendar=city-of-cape-town.ics).
+  You do not have to present the full URL to the user, so long as it is clear that it is an EskomCalendar
+  URL.
+  
+- If no specific calendar is being used, or the `machine_friendly.csv` file is being used, you must either
+  hyperlink *directly* to the project website (https://eskomcalendar.co.za) or *directly* to the 
+  project github page (https://github.com/beyarkay/eskom-calendar)
+
+By *directly*, we mean each hyperlink must point directly to the specified URL in standard HTML
+visible even with JavaScript disabled, and not use a tinyurl or any other form of obfuscation
+or redirection. Furthermore, the links must not be
+[nofollowed](https://googleblog.blogspot.com/2005/01/preventing-comment-spam.html).
+
 ## Using the Data in Your Own Projects
 
 We are really interested to see what the developers of South Africa do with
