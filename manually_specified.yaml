@@ -14,9 +14,29 @@
 changes:
   # Eskom
   - stage: 6
-    start: 2023-04-12T23:00:00
-    finsh: 2023-04-19T00:00:00
-    source: https://twitter.com/Eskom_SA/status/1646257255266787330
+    start: 2023-04-14T00:00:00
+    finsh: 2023-04-15T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1646849219100041218
+    exclude: coct
+  - stage: 5
+    start: 2023-04-15T05:00:00
+    finsh: 2023-04-15T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1646849219100041218
+    exclude: coct
+  - stage: 6
+    start: 2023-04-15T16:00:00
+    finsh: 2023-04-16T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1646849219100041218
+    exclude: coct
+  - stage: 4
+    start: 2023-04-16T05:00:00
+    finsh: 2023-04-16T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1646849219100041218
+    exclude: coct
+  - stage: 6
+    start: 2023-04-16T16:00:00
+    finsh: 2023-04-17T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1646849219100041218
     exclude: coct
 
   # CoCT
