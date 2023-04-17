@@ -14,9 +14,64 @@
 changes:
   # Eskom
   - stage: 6
-    start: 2023-04-16T14:00:00
-    finsh: 2023-04-23T00:00:00
-    source: https://twitter.com/Eskom_SA/status/1647577920251080704
+    start: 2023-04-17T14:00:00
+    finsh: 2023-04-18T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 5
+    start: 2023-04-18T05:00:00
+    finsh: 2023-04-18T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 6
+    start: 2023-04-18T16:00:00
+    finsh: 2023-04-19T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 5
+    start: 2023-04-19T05:00:00
+    finsh: 2023-04-19T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 6
+    start: 2023-04-19T16:00:00
+    finsh: 2023-04-20T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 5
+    start: 2023-04-20T05:00:00
+    finsh: 2023-04-20T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 6
+    start: 2023-04-20T16:00:00
+    finsh: 2023-04-21T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 5
+    start: 2023-04-21T05:00:00
+    finsh: 2023-04-21T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 6
+    start: 2023-04-21T16:00:00
+    finsh: 2023-04-22T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 5
+    start: 2023-04-22T05:00:00
+    finsh: 2023-04-22T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 6
+    start: 2023-04-22T16:00:00
+    finsh: 2023-04-23T05:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
+    exclude: coct
+  - stage: 5
+    start: 2023-04-23T05:00:00
+    finsh: 2023-04-23T16:00:00
+    source: https://twitter.com/Eskom_SA/status/1647934364607557634
     exclude: coct
 
   # CoCT
