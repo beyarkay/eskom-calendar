@@ -144,20 +144,22 @@ given area (please get in contact if I'm wrong!, would be great to collab).
 ## Attribution and using the data (commercially or otherwise)
 
 The data (CSV and ICS files) are available under the
-[cc-by-sa](https://creativecommons.org/licenses/by-sa/4.0/) license. This means
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. This means
 that
 
 > You are free to:
 >
 > - Share: copy and redistribute the material in any medium or format
 >
-> - Adapt: remix, transform, and build upon the material for any purpose, even commercially. 
+> - Adapt: remix, transform, and build upon the material
 
 But only if you follow the following terms:
 
 > - Attribution: You must give appropriate credit, provide a link to the license, 
 >   and indicate if changes were made. You may do so in any reasonable manner, but
 >   not in any way that suggests the licensor endorses you or your use.
+>
+> - NonCommercial: You may not use the material for commercial purposes. 
 > 
 > - ShareAlike: If you remix, transform, or build upon the material, you must
 >   distribute your contributions under the same license as the original.
@@ -185,22 +187,6 @@ By *directly*, we mean each hyperlink must point directly to the specified URL i
 visible even with JavaScript disabled, and not use a tinyurl or any other form of obfuscation
 or redirection. Furthermore, the links must not be
 [nofollowed](https://googleblog.blogspot.com/2005/01/preventing-comment-spam.html).
-
-To make this easy, here are some code snippets you can copy-paste next to wherever you're using the data
-
-<details>
-<summary>Markdown</summary>
-```md
-[](TODO)
-```
-</details>
-
-<details>
-<summary>HTML</summary>
-```md
-<a> TODO </a>
-```
-</details>
 
 ## Using the Data in Your Own Projects
 
