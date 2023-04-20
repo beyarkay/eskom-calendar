@@ -15,6 +15,13 @@ jobs:
   build-calendars:
     runs-on: ubuntu-latest
     steps:
+    - name: Set commit status to pending
+      uses: myrotvorets/set-commit-status-action@1.1.6
+      with:
+        token: ${{ github.token }}
+        status: "pending"
+        allowForks: true
+        description: "Set to pending while build-calendar workflow is completing"
 
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -37,6 +44,8 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: run
+        # Don't actually compile the calendars, only check
+        # manually_specified.yaml for conflicts & errors
         args: --release -- --only-check-for-overlaps=true
 
     - name: Update draft release with build artefacts
@@ -53,3 +62,13 @@ jobs:
           This release contains build artefacts. If you want to add load
           shedding to your calendar, click
           [here](https://github.com/beyarkay/eskom-calendar/releases/tag/latest).
+
+    - name: Set final commit status
+      uses: myrotvorets/set-commit-status-action@1.1.6
+      if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        status: ${{ job.status }}
+        allowForks: true
+        description: "Update commit status with the job's status"
+
