@@ -1,0 +1,16 @@
+---
+yaml-files:
+  - 'area_metadata.yaml'
+
+extends: default
+
+rules:
+  # It's quite common for URLs to cause line lengths longer than 80
+  line-length: disable
+  commas:
+    max-spaces-before: 0
+    min-spaces-after: 0
+    max-spaces-after: 0
+  indentation:
+    spaces: 1
+    indent-sequences: false
