@@ -10,3 +10,9 @@ rules:
   line-length:
     max: 80
     level: warning
+  # PyYAML doesn't support element indentation.
+  # See "Indentation of flow collections" (right at the bottom)
+  # https://pyyaml.org/wiki/PyYAMLDocumentation
+  indentation:
+    spaces: 2
+    indent-sequences: false
