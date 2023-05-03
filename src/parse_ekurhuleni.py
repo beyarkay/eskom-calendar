@@ -2,7 +2,6 @@ import numpy as np
 import os
 import pandas as pd
 import requests
-import sys
 import tabula
 import warnings
 
@@ -11,7 +10,7 @@ warnings.filterwarnings("ignore")
 
 def main():
     # Get the path which the pdf should be saved to
-    path = f"generated/gauteng-ekurhuleni.pdf"
+    path = "generated/gauteng-ekurhuleni.pdf"
     url = "https://www.ekurhuleni.gov.za/wp-content/uploads/2021/11/Ekurhuleni-Load-Shedding-Schedule.pdf"
     if not os.path.exists(path):
         r = requests.get(url, stream=True)
