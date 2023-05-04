@@ -6,13 +6,11 @@ on:
     # Check every minute for new tweets since we're not paying for compute time (:
     - cron: '* * * * *'
 
-env:
-  PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
-  TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
 
 jobs:
   check-coct-twitter:
     runs-on: ubuntu-latest
+    environment: auto-pr-env
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -25,3 +23,6 @@ jobs:
 
     - name: Run python script
       run: python3 src/auto_pull_request.py
+      env:
+        PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
+        TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
