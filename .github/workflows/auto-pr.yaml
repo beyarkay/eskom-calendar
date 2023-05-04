@@ -3,8 +3,9 @@ name: Check twitter for loadshedding
 on:
   workflow_dispatch:
   schedule:
-    # Check every minute for new tweets since we're not paying for compute time (:
-    - cron: '* * * * *'
+    # Jobs can run at most every 5 minutes
+    # https://github.blog/changelog/2019-11-01-github-actions-scheduled-jobs-maximum-frequency-is-changing/
+    - cron: '*/5 * * * *'
 
 
 jobs:
