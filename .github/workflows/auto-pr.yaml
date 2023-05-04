@@ -23,7 +23,7 @@ jobs:
       with:
         python-version: '3.10'
         cache: 'pip'
-    - run: pip install requests yaml
+    - run: pip install requests pyyaml
 
     - name: Run python script
       run: python3 src/auto_pull_request.py
