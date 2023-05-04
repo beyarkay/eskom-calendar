@@ -7,3 +7,4 @@
 *.svg
 calendars/calendar_preview.png
 .secrets
+.env

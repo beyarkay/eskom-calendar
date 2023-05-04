@@ -25,6 +25,7 @@ import os
 import re
 import requests
 import yaml
+import sys
 
 
 PRELUDE = """# How to edit this file:
@@ -118,7 +119,9 @@ def fail_unless_200(response, status_code=200):
 
 
 def get_tweets(tweet_id):
-    print("Getting tweets for CPT")
+    print(
+        f"Getting tweets for CPT after https://twitter.com/CityofCT/status/{tweet_id}"
+    )
 
     def bearer_oauth(r):
         """Method required by bearer token authentication."""
@@ -371,6 +374,16 @@ def main():
         for tweet_json in json_response["data"]
         if parse_into_loadshedding(tweet_json)
     ]
+    if len(tweets_with_loadshedding) == 0:
+        examined_tweets = "\n".join(
+            f"---\nhttps://twitter.com/CityofCT/status/{t['id']}:\n{t['text']}\n..."
+            for t in json_response["data"]
+        )
+        print(
+            "No tweets found that have loadshedding, exiting successfully.\n"
+            f"The following tweets were examined:\n{examined_tweets}"
+        )
+        sys.exit(0)
     tweet_summary = "".join(
         f"---\nhttps://twitter.com/CityofCT/status/{t['id']}:\n{t['text']}\n...\n"
         for t in tweets_with_loadshedding

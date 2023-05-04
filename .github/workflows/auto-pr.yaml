@@ -1,0 +1,27 @@
+name: Check twitter for loadshedding
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Check every minute for new tweets since we're not paying for compute time (:
+    - cron: '* * * * *'
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_LOG: trace
+
+jobs:
+  check-coct-twitter:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+    - run: pip install requests
+
+    - name: Run python script
+      run: python3 src/auto_pull_request.py
