@@ -344,7 +344,7 @@ def tweets_to_changes(tweets_json):
 def main():
     # 0. Setup some useful variables
     base_url = "https://api.github.com/repos/beyarkay/eskom-calendar"
-    github_pat = os.environ["GITHUB_PAT"]
+    github_pat = os.environ["PAT_GITHUB"]
     headers = {
         "Authorization": f"token {github_pat}",
         "Accept": "application/vnd.github.v3+json",
