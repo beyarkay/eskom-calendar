@@ -367,7 +367,7 @@ def main():
     # Get all tweets *after* the latest known CoCT source as shown in
     # `manually_specified.yaml`
     json_response = get_tweets(max(tweet_ids))
-    print("Got {len(json_response['data'])} tweets.")
+    print(f"Got {len(json_response['data'])} tweets.")
 
     # Get all tweets which concern load shedding
     tweets_with_loadshedding = [
