@@ -257,12 +257,13 @@ def write_content_to_manually_specified(
 
     # Convert the base64 file content to a YAML string
     orig_content = (base64.b64decode(file_data["content"])).decode("utf-8")
+    print(f"Original manually_specified:\n{orig_content}")
     # Convert the YAML string to a dict
     content = yaml.safe_load(orig_content)
 
     # Keep only the entries which aren't in the past
     content["changes"] = filter(
-        lambda e: datetime.fromisoformat(e["finsh"]) > datetime.now(),
+        lambda e: e["finsh"] > datetime.now(),
         content["changes"],
     )
     # Remove all the old City of Cape Town entries in the `changes` item
