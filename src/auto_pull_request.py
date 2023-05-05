@@ -199,9 +199,9 @@ def parse_into_loadshedding(tweet_json: dict):
 
 
 def make_change(
-    stage: int,
-    start: datetime,
-    finsh: datetime,
+    stage: int | None,
+    start: datetime | None,
+    finsh: datetime | None,
     source: str,
     exclude: str | None,
     include: str | None,
@@ -209,9 +209,9 @@ def make_change(
     """Convert some fields into a nicely structured dict."""
     return (
         {
-            "stage": int(stage),
-            "start": start.isoformat(sep="T"),
-            "finsh": finsh.isoformat(sep="T"),
+            "stage": "???" if stage is None else int(stage),
+            "start": "???" if start is None else start.isoformat(sep="T"),
+            "finsh": "???" if finsh is None else finsh.isoformat(sep="T"),
             "source": source,
         }
         | ({} if exclude is None else {"exclude": exclude})
@@ -228,7 +228,7 @@ def make_new_branch(base_url, headers, branch_name):
     )
     ref = get_head_ref_request.json()["object"]["sha"]
 
-    # TODO this doesn't do anything if the reference already exists
+    # FIXME this fails if the branch already exists
     # Create a new branch
     data = {"ref": f"refs/heads/{branch_name}", "sha": ref}
     _response = fail_unless_200(
