@@ -7,7 +7,7 @@ on:
       - 'manually_specified.yaml'
       - 'src/*.rs'
       - 'generated/*.csv'
-      - 'src/*.py'
+      - 'src/parse_*.py'
   workflow_dispatch:
 
 env:
