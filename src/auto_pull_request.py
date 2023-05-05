@@ -306,13 +306,10 @@ def write_content_to_manually_specified(
 
 
 def make_pull_request(headers, branch_name, tweets_with_loadshedding):
-    sources = sorted(
-        [
-            f"https://twitter.com/CityofCT/status/{t['id']}\n"
-            for t in tweets_with_loadshedding
-        ],
-        key=lambda t: t["created_at"],
-    )
+    sources = [
+        f"https://twitter.com/CityofCT/status/{t['id']}\n"
+        for t in sorted(tweets_with_loadshedding, key=lambda t: t["created_at"])
+    ]
 
     print(f"Making a pull request {branch_name}->main for tweets {sources}")
     data = {
