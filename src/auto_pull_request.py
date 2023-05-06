@@ -261,9 +261,12 @@ def write_content_to_manually_specified(
     # Convert the YAML string to a dict
     content = yaml.safe_load(orig_content)
 
+   def cmp_finsh(e):
+      finsh = datetime.fromisoformat(e['finsh']) if type(e['finsh']) is str else e['finsh']
+      return finsh > datetime.now()
     # Keep only the entries which aren't in the past
     content["changes"] = filter(
-        lambda e: e["finsh"] > datetime.now(),
+        cmp_finsh,
         content["changes"],
     )
     # Remove all the old City of Cape Town entries in the `changes` item
