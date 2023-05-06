@@ -187,8 +187,8 @@ def parse_into_loadshedding(tweet_json: dict):
             )
             # Cover the case when the loadshedding change goes over midnight.
             # (22:00 though to 05:00). This also covers the Month/year boundary
-            # case
-            if start > finsh:
+            # case. Use `>=` to cover the case of  05:00 to 05:00
+            if start >= finsh:
                 finsh = finsh + timedelta(days=1)
             # Convert the stage to an int
             stage = int(stage)
@@ -262,8 +262,13 @@ def write_content_to_manually_specified(
     content = yaml.safe_load(orig_content)
 
     def cmp_finsh(e):
-        finsh = datetime.fromisoformat(e['finsh']) if type(e['finsh']) is str else e['finsh']
+        finsh = (
+            datetime.fromisoformat(e["finsh"])
+            if type(e["finsh"]) is str
+            else e["finsh"]
+        )
         return finsh > datetime.now()
+
     # Keep only the entries which aren't in the past
     content["changes"] = filter(
         cmp_finsh,
@@ -409,6 +414,29 @@ def main():
         branch_name,
         tweets_with_loadshedding,
     )
+
+
+def test_cases():
+    def start_time_eq_finsh_time():
+        tweet_json = {
+            "created_at": "2023-05-06T07:41:03.000Z",
+            "text": "Load-shedding update 6 May\n\nCity customers \n6 May\nStage 4: 05:00 - 05:00\n\n7 May \nStage 3: 05:00 - 16:00\nStage 4: 16:00 - 05:00\n\n8 May\nStage 3: 05:00 - 20:00\nStage 5: 20:00 - 05:00\n\nUpdates to follow. Subject to rapid change. https://t.co/8BZlIwYYur",  # noqa: E501
+            "id": "1654753124895059969",
+            "edit_history_tweet_ids": ["1654753124895059969"],
+        }
+        changes = parse_into_loadshedding(tweet_json)
+        assert len(changes) == 5
+        assert changes[0] == {
+            "stage": 4,
+            "start": "2023-05-06T05:00:00",
+            "finsh": "2023-05-07T05:00:00",
+            "source": "https://twitter.com/CityofCT/status/1654753124895059969",
+            "include": "coct",
+        }, "if start and finsh time are the same, the second time MUST be on the next day"  # noqa: E501
+
+    tests = [start_time_eq_finsh_time]
+    for test in tests:
+        test()
 
 
 if __name__ == "__main__":
