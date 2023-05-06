@@ -144,7 +144,9 @@ def get_tweets(tweet_id):
     ).json()
 
     if "data" not in result:
-        print(f"JSON response from twitter to get tweets has no data and is {result}")
+        print(
+            f"There are no tweets after https://twitter.com/CityofCT/status/{tweet_id}"
+        )
         sys.exit(0)
     return result
 
@@ -232,13 +234,22 @@ def make_new_branch(base_url, headers, branch_name):
     )
     ref = get_head_ref_request.json()["object"]["sha"]
 
-    # FIXME this fails if the branch already exists
     # Create a new branch
     data = {"ref": f"refs/heads/{branch_name}", "sha": ref}
-    _response = fail_unless_200(
-        requests.post(f"{base_url}/git/refs", headers=headers, json=data),
-        status_code=201,
-    )
+    response = requests.post(f"{base_url}/git/refs", headers=headers, json=data)
+    response_is_422 = response.status_code == 422
+    ref_already_exists = response.json().get("message") == "Reference already exists"
+    if response_is_422 and ref_already_exists:
+        print(
+            f"Branch {branch_name} already exists, not attempting to remake the"
+            " branch\nGo to https://github.com/beyarkay/eskom-calendar/branches"
+            " to delete the branch"
+        )
+        sys.exit(0)
+    elif response.status_code != 201:
+        raise Exception(
+            f"Request returned an error: {response.status_code} {response.text}"
+        )
     print(f"New branch `{branch_name}` created successfully!")
 
 
@@ -319,7 +330,7 @@ def write_content_to_manually_specified(
 
 def make_pull_request(headers, branch_name, tweets_with_loadshedding):
     sources = [
-        f"https://twitter.com/CityofCT/status/{t['id']}\n"
+        f"https://twitter.com/CityofCT/status/{t['id']}"
         for t in sorted(tweets_with_loadshedding, key=lambda t: t["created_at"])
     ]
 
