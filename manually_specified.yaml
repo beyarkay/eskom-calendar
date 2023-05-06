@@ -19,7 +19,7 @@ changes:
   exclude: coct
 - stage: 4
   start: '2023-05-06T05:00:00'
-  finsh: '2023-05-06T05:00:00'
+  finsh: '2023-05-07T05:00:00'
   source: https://twitter.com/CityofCT/status/1654753124895059969
   include: coct
 - stage: 3
