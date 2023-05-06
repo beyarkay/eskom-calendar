@@ -142,6 +142,10 @@ def get_tweets(tweet_id):
             },
         )
     ).json()
+
+    if "data" not in result:
+        print(f"JSON response from twitter to get tweets has no data and is {result}")
+        sys.exit(0)
     return result
 
 
