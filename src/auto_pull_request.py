@@ -26,6 +26,7 @@ import re
 import requests
 import yaml
 import sys
+import traceback
 
 
 PRELUDE = """# How to edit this file:
@@ -156,6 +157,9 @@ def parse_into_loadshedding(tweet_json: dict):
     from it. Returns an empty list on failure."""
     tweet = tweet_json["text"].replace("\n\n", "\n")
     tweet_id = tweet_json["id"]
+    print(
+        f"Attempting to parse https://twitter.com/CityofCT/status/{tweet_id} into a loadshedding tweet"  # noqa: E501
+    )
     dt = datetime.strptime(tweet_json["created_at"], "%Y-%m-%dT%H:%M:%S.%fZ")
 
     change_re = r"Stage\s+(\d):\s+(\d\d:\d\d)\s+-\s+(\d\d:\d\d)"
@@ -166,40 +170,46 @@ def parse_into_loadshedding(tweet_json: dict):
     curr_date = None
     source = f"https://twitter.com/CityofCT/status/{tweet_id}"
 
-    # Try to parse each line in the tweet
-    for line in tweet.splitlines():
-        if match := re.search(date_re, line, flags=re.IGNORECASE):
-            # First check if we've got a date
-            # like `25 April ` or `26 May`
-            curr_date = datetime.strptime(match.group(), "%d %b")
-            # We'll assume the year to be the same as that of the tweet. NYE
-            # will be covered in the elif.
-            curr_date = curr_date.replace(year=dt.year)
-        elif match := re.search(change_re, line):
-            # Now we check if the line is a LS change like:
-            # Stage 0 (no load-shedding): 05:00 - 16:00
-            # Stage 4: 20:00 - 05:00
-            # Stage 6: 22:00 - 05:00
-            stage, start, finsh = match.groups()
-            start = datetime.strptime(start, "%H:%M").replace(
-                year=curr_date.year,
-                month=curr_date.month,
-                day=curr_date.day,
-            )
-            finsh = datetime.strptime(finsh, "%H:%M").replace(
-                year=curr_date.year,
-                month=curr_date.month,
-                day=curr_date.day,
-            )
-            # Cover the case when the loadshedding change goes over midnight.
-            # (22:00 though to 05:00). This also covers the Month/year boundary
-            # case. Use `>=` to cover the case of  05:00 to 05:00
-            if start >= finsh:
-                finsh = finsh + timedelta(days=1)
-            # Convert the stage to an int
-            stage = int(stage)
-            # Convert the data to a dict and append it to the changes array
-            changes.append(make_change(stage, start, finsh, source, None, "coct"))
+    try:
+        # Try to parse each line in the tweet
+        for line in tweet.splitlines():
+            if match := re.search(date_re, line, flags=re.IGNORECASE):
+                # First check if we've got a date
+                # like `25 April ` or `26 May`
+                curr_date = datetime.strptime(match.group(), "%d %b")
+                # We'll assume the year to be the same as that of the tweet. NYE
+                # will be covered in the elif.
+                curr_date = curr_date.replace(year=dt.year)
+            elif match := re.search(change_re, line):
+                # Now we check if the line is a LS change like:
+                # Stage 0 (no load-shedding): 05:00 - 16:00
+                # Stage 4: 20:00 - 05:00
+                # Stage 6: 22:00 - 05:00
+                stage, start, finsh = match.groups()
+                start = datetime.strptime(start, "%H:%M").replace(
+                    year=curr_date.year,
+                    month=curr_date.month,
+                    day=curr_date.day,
+                )
+                finsh = datetime.strptime(finsh, "%H:%M").replace(
+                    year=curr_date.year,
+                    month=curr_date.month,
+                    day=curr_date.day,
+                )
+                # Cover the case when the loadshedding change goes over midnight.
+                # (22:00 though to 05:00). This also covers the Month/year boundary
+                # case. Use `>=` to cover the case of  05:00 to 05:00
+                if start >= finsh:
+                    finsh = finsh + timedelta(days=1)
+                # Convert the stage to an int
+                stage = int(stage)
+                # Convert the data to a dict and append it to the changes array
+                changes.append(make_change(stage, start, finsh, source, None, "coct"))
+    except Exception:
+        print(
+            f"Dropping error because it's okay if we can't parse a tweet: {tweet_json}"
+        )
+        traceback.print_exc()
 
     return changes
 
@@ -388,7 +398,12 @@ def main():
     # Get all tweets *after* the latest known CoCT source as shown in
     # `manually_specified.yaml`
     json_response = get_tweets(max(tweet_ids))
-    print(f"Got {len(json_response['data'])} tweets.")
+    tweet_urls = [
+        f"https://twitter.com/CityofCT/status/{t['id']}"
+        for t in json_response["data"]
+        if "id" in t
+    ]
+    print(f"Got {len(json_response['data'])} tweets: {tweet_urls}")
 
     # Get all tweets which concern load shedding
     tweets_with_loadshedding = [
