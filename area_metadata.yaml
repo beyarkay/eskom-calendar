@@ -2087,6 +2087,9 @@ area_details:
   - province: north-west
     municipality: "rustenburg"
     name: ["bala","boekenhoutfontein","bultfontein","elandsfontein","frischgewaagd","magokgwane","makolokwe","masosobane","onderstepoort","rustenburg-part-1-outlying","segwaelane","shylock","tshwara","windsor","zwartkoppies"]
+  - province: mpumalanga
+    municipality: "govan-mbeki"
+    name: ["secunda-outlying"]
 
 - calendar_name: eskom-direct-12-even.ics
   provider: eskom
