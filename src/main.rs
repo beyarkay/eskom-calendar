@@ -505,7 +505,6 @@ mod fmt {
     /// Rust makes this harder than I ever believed possible.
     pub fn to_title_case(s: String) -> String {
         s.split(' ')
-        .into_iter()
         .map(|si| {
             // Capitalise the first character
             si.chars().next().unwrap().to_uppercase().to_string()
@@ -610,19 +609,16 @@ mod read {
         if headers.iter().any(|h| h == "date_of_month") {
             raw = reader
                 .deserialize::<RawMonthlyShedding>()
-                .into_iter()
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
                 .collect::<Vec<_>>();
         } else if headers.iter().any(|h| h == "day_of_week") {
             raw = reader
                 .deserialize::<RawWeeklyShedding>()
-                .into_iter()
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
                 .collect::<Vec<_>>();
         } else if headers.iter().any(|h| h == "day_of_20_day_cycle") {
             raw = reader
                 .deserialize::<RawPeriodicShedding>()
-                .into_iter()
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
                 .collect::<Vec<_>>();
         } else {
