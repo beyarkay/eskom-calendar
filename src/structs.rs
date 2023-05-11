@@ -9,7 +9,7 @@ use serde::{Deserialize, Serialize};
 ///
 /// Requires specifying where the information came from (in `source`) as well as the stage of
 /// loadshedding.
-#[derive(PartialEq, Eq)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct PowerOutage {
     pub area_name: String,
     pub stage: u8,

@@ -76,7 +76,24 @@ fn main() -> Result<(), BoxedError> {
 
     if args.output_csv_file {
         // Write the lines to a CSV
-        overwrite_lines_to_csv(&mut csv_lines)?;
+        overwrite_lines_to_csv(&mut csv_lines, "machine_friendly.csv".to_owned())?;
+        // NOTE: Hacky solution for embedded platforms.
+        // https://github.com/beyarkay/eskom-calendar/issues/341
+        //
+        // Microcontrollers don't have the memory/storage to handle a 1.42 MB file, so for now
+        // (until an API can be set up), write out just cpt-9 and cpt-15 as their own CSV files so
+        // that they can be downloaded individually.
+        let custom_areas = vec!["city-of-cape-town-area-9", "city-of-cape-town-area-15"];
+        for area in custom_areas {
+            overwrite_lines_to_csv(
+                &mut csv_lines
+                    .iter()
+                    .cloned()
+                    .filter(|l| l.area_name == area)
+                    .collect(),
+                format!("{}.csv", area),
+            )?;
+        }
     }
     Ok(())
 }
@@ -219,13 +236,13 @@ fn write_sheddings_to_ics(
 }
 
 /// Given a list of power outages, convert them to a single CSV file for machine consumption.
-fn overwrite_lines_to_csv(power_outages: &mut Vec<PowerOutage>) -> Result<(), BoxedError> {
-    info!(
-        "Writing {}+1 lines to machine_friendly.csv",
-        power_outages.len()
-    );
+fn overwrite_lines_to_csv(
+    power_outages: &mut Vec<PowerOutage>,
+    path: String,
+) -> Result<(), BoxedError> {
     // Create the file (overwriting if it exists)
-    let mut file = File::create("calendars/machine_friendly.csv")?;
+    let mut file = File::create(format!("calendars/{path}"))?;
+    info!("Writing {}+1 lines to {file:?}", power_outages.len());
     // Write the header line of the csv file
     writeln!(&mut file, "{}", PowerOutage::csv_header())?;
     // Sort the lines so we have some kind of consistency of the output
