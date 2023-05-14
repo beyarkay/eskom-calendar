@@ -13,10 +13,61 @@
 ---
 changes:
 - stage: 3
-  start: 2023-05-14T05:00:00
-  finsh: 2023-05-20T23:59:00
-  source: https://twitter.com/Eskom_SA/status/1657628188489424896
+  start: 2023-05-14T12:00:00
+  finsh: 2023-05-14T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
   exclude: coct
+- stage: 6
+  start: 2023-05-14T16:00:00
+  finsh: 2023-05-15T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 4
+  start: 2023-05-15T05:00:00
+  finsh: 2023-05-15T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 6
+  start: 2023-05-15T16:00:00
+  finsh: 2023-05-16T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 4
+  start: 2023-05-16T05:00:00
+  finsh: 2023-05-16T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 6
+  start: 2023-05-16T16:00:00
+  finsh: 2023-05-17T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 4
+  start: 2023-05-17T05:00:00
+  finsh: 2023-05-17T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 6
+  start: 2023-05-17T16:00:00
+  finsh: 2023-05-18T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 4
+  start: 2023-05-18T05:00:00
+  finsh: 2023-05-18T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 6
+  start: 2023-05-18T16:00:00
+  finsh: 2023-05-19T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+- stage: 4
+  start: 2023-05-19T05:00:00
+  finsh: 2023-05-19T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1657681204747857921
+  exclude: coct
+
 - stage: 3
   start: 2023-05-14T05:00:00
   finsh: 2023-05-20T23:59:00
