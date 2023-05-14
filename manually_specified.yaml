@@ -17,10 +17,9 @@ changes:
   finsh: 2023-05-20T23:59:00
   source: https://twitter.com/Eskom_SA/status/1657628188489424896
   exclude: coct
-
 - stage: 3
   start: 2023-05-14T05:00:00
   finsh: 2023-05-20T23:59:00
-  source https://twitter.com/CityofCT/status/1657645356971065345
+  source: https://twitter.com/CityofCT/status/1657645356971065345
   include: coct
 historical_changes: []
