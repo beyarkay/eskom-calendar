@@ -10,6 +10,9 @@ warnings.filterwarnings("ignore")
 
 def main():
 
+    print(
+        "WARN: This parses stages 5-8 incorrectly, see https://github.com/beyarkay/eskom-calendar/issues/406"
+    )
     path = "generated/buffalo-city.pdf"
     url = "https://www.buffalocity.gov.za/CM/uploads/documents/20201001011578662845LoadsheddingInformationPackV5.pdf"  # noqa: E501
 
