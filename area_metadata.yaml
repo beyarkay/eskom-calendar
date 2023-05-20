@@ -2996,8 +2996,41 @@ area_details:
   source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
   source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
   areas:
-  - name: city of cape town area 1
-    lat_lngs: []
+  - {name: "city of cape town area 1",lat_lngs: []}
+  - {name: bellville,lat_lngs: []}
+  - {name: belville,lat_lngs: []}
+  - {name: boston,lat_lngs: []}
+  - {name: boston,lat_lngs: []}
+  - {name: bosbell,lat_lngs: []}
+  - {name: belrail,lat_lngs: []}
+  - {name: klipklop,lat_lngs: []}
+  - {name: parow east,lat_lngs: []}
+  - {name: florida,lat_lngs: []}
+  - {name: ravensmead,lat_lngs: []}
+  - {name: parow industria,lat_lngs: []}
+  - {name: uwc,lat_lngs: []}
+  - {name: university of the western cape,lat_lngs: []}
+  - {name: belhar ext 23,lat_lngs: []}
+  - {name: belhar ext 22,lat_lngs: []}
+  - {name: belhar ext 21,lat_lngs: []}
+  - {name: belhar ext 20,lat_lngs: []}
+  - {name: belhar ext 19,lat_lngs: []}
+  - {name: belhar ext 18,lat_lngs: []}
+  - {name: kalkfontein,lat_lngs: []}
+  - {name: sa repta,lat_lngs: []}
+  - {name: letru,lat_lngs: []}
+  - {name: brantwood,lat_lngs: []}
+  - {name: voelvlie,lat_lngs: []}
+  - {name: bellville south industria,lat_lngs: []}
+  - {name: glenhaven,lat_lngs: []}
+  - {name: vogelvlei,lat_lngs: []}
+  - {name: greenlands,lat_lngs: []}
+  - {name: saxon industrial,lat_lngs: []}
+  - {name: triangle farm,lat_lngs: []}
+  - {name: labiance,lat_lngs: []}
+  - {name: stikland industria,lat_lngs: []}
+  - {name: meyerhof,lat_lngs: []}
+  - {name: shirley park,lat_lngs: []}
 
 - calendar_name: city-of-cape-town-area-10.ics
   province: western-cape
@@ -3007,10 +3040,108 @@ area_details:
   source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
   source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
   areas:
+  - {name: amandelrug,lat_lngs: []}
+  - {name: amandelsig,lat_lngs: []}
+  - {name: annandale,lat_lngs: []}
+  - {name: arauna,lat_lngs: []}
+  - {name: avalon estate,lat_lngs: []}
+  - {name: bellville teachers college,lat_lngs: []}
+  - {name: belmont park,lat_lngs: []}
+  - {name: benno park,lat_lngs: []}
+  - {name: bonnie brae,lat_lngs: []}
+  - {name: bonnie brook,lat_lngs: []}
+  - {name: bosonia,lat_lngs: []}
+  - {name: bottelary smallholdings 2,lat_lngs: []}
+  - {name: bracken heights,lat_lngs: []}
+  - {name: brackenfell common,lat_lngs: []}
+  - {name: brackenfell industria,lat_lngs: []}
+  - {name: brackenfell south,lat_lngs: []}
+  - {name: brandwag,lat_lngs: []}
+  - {name: buh-rein estate,lat_lngs: []}
+  - {name: burgundy,lat_lngs: []}
+  - {name: cape gate,lat_lngs: []}
   - {name: city of cape town area 10,lat_lngs: []}
+  - {name: danarand,lat_lngs: []}
+  - {name: de kuilen,lat_lngs: []}
+  - {name: de oude spruit,lat_lngs: []}
+  - {name: des hampden,lat_lngs: []}
+  - {name: durbanville meadows,lat_lngs: []}
+  - {name: edenpark,lat_lngs: []}
+  - {name: eensgevonden,lat_lngs: []}
+  - {name: eikendal,lat_lngs: []}
+  - {name: elim,lat_lngs: []}
+  - {name: everite industria,lat_lngs: []}
+  - {name: ferndale,lat_lngs: []}
+  - {name: gersham,lat_lngs: []}
+  - {name: goliath estate,lat_lngs: []}
+  - {name: haasendal,lat_lngs: []}
+  - {name: highbury park,lat_lngs: []}
+  - {name: highbury,lat_lngs: []}
+  - {name: hunters creek,lat_lngs: []}
+  - {name: jacarandas,lat_lngs: []}
+  - {name: jagtershof,lat_lngs: []}
+  - {name: jan kriel,lat_lngs: []}
+  - {name: kaapsig,lat_lngs: []}
+  - {name: klein zevenwacht,lat_lngs: []}
+  - {name: kleinbegin,lat_lngs: []}
+  - {name: kleinbron,lat_lngs: []}
+  - {name: kloofzicht,lat_lngs: []}
+  - {name: kraaifontein east,lat_lngs: []}
+  - {name: kraaifontein industria,lat_lngs: []}
   - {name: kraaifontein,lat_lngs: []}
-  - {name: brakenfell,lat_lngs: []}
-  - {name: kuilsrivier,lat_lngs: []}
+  - {name: kuils river common,lat_lngs: []}
+  - {name: kuils river sports grounds,lat_lngs: []}
+  - {name: kuilsrivier industria,lat_lngs: []}
+  - {name: kuilsrivier south smallholdings,lat_lngs: []}
+  - {name: langeberg hoogte,lat_lngs: []}
+  - {name: langeberg ridge,lat_lngs: []}
+  - {name: loucharmante,lat_lngs: []}
+  - {name: mabille park,lat_lngs: []}
+  - {name: marinda park,lat_lngs: []}
+  - {name: mikro park,lat_lngs: []}
+  - {name: morgan industria,lat_lngs: []}
+  - {name: morgenster heights,lat_lngs: []}
+  - {name: morgenster,lat_lngs: []}
+  - {name: normandie estate,lat_lngs: []}
+  - {name: nrackenfell central,lat_lngs: []}
+  - {name: oakdene,lat_lngs: []}
+  - {name: okavango park,lat_lngs: []}
+  - {name: peerless park east,lat_lngs: []}
+  - {name: peerless park north,lat_lngs: []}
+  - {name: peerless park west,lat_lngs: []}
+  - {name: pinehurst,lat_lngs: []}
+  - {name: protea heights,lat_lngs: []}
+  - {name: protea village,lat_lngs: []}
+  - {name: rouxville,lat_lngs: []}
+  - {name: ruwari,lat_lngs: []}
+  - {name: scottsville,lat_lngs: []}
+  - {name: silveroaks,lat_lngs: []}
+  - {name: sirrocco's,lat_lngs: []}
+  - {name: soneike i,lat_lngs: []}
+  - {name: soneike ii,lat_lngs: []}
+  - {name: sonkring,lat_lngs: []}
+  - {name: sonnekuil,lat_lngs: []}
+  - {name: springbokpark,lat_lngs: []}
+  - {name: st dumas,lat_lngs: []}
+  - {name: st michaels,lat_lngs: []}
+  - {name: stellenbosch farms (kuilsrivier),lat_lngs: []}
+  - {name: stellendale,lat_lngs: []}
+  - {name: summerville,lat_lngs: []}
+  - {name: turtle creek,lat_lngs: []}
+  - {name: uitzicht,lat_lngs: []}
+  - {name: viking village,lat_lngs: []}
+  - {name: vredekloof east,lat_lngs: []}
+  - {name: vredekloof heights,lat_lngs: []}
+  - {name: vredekloof,lat_lngs: []}
+  - {name: vredelust kuils river,lat_lngs: []}
+  - {name: windsor estate,lat_lngs: []}
+  - {name: windsor park estate,lat_lngs: []}
+  - {name: zevenwacht country estate,lat_lngs: []}
+  - {name: zevenwacht farm village,lat_lngs: []}
+  - {name: zevenwacht mall,lat_lngs: []}
+  - {name: zevenwacht retirement village,lat_lngs: []}
+  - {name: zevenzicht,lat_lngs: []}
+  - {name: zoo park,lat_lngs: []}
 
 - calendar_name: city-of-cape-town-area-11.ics
   province: western-cape
