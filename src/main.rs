@@ -12,7 +12,7 @@ use std::process::Command;
 use structs::{Args, Change, ManuallyInputSchedule, PowerOutage, Recurrence, RecurringShedding};
 
 extern crate pretty_env_logger;
-use log::{info, trace};
+use log::{error, info, trace};
 
 use clap::Parser;
 mod structs;
@@ -50,7 +50,10 @@ fn main() -> Result<(), BoxedError> {
         // Exclude all sheddings which failed
         .filter_map(|(path, sheddings)| match sheddings {
             Ok(sheddings) => Some((path, sheddings)),
-            Err(_) => None,
+            Err(e) => {
+                error!("Error while reading CSV {:?}: {}", path, e);
+                None
+            }
         })
         // Exclude all sheddings which can't be converted to CsvLines
         .filter_map(|(path, sheddings)| {
