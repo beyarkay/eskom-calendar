@@ -1,6 +1,6 @@
-use chrono::FixedOffset;
+use chrono::{FixedOffset, Days};
 use chrono::{DateTime, Datelike, NaiveTime, Timelike};
-use icalendar::Calendar;
+use icalendar::{Calendar, EventLike};
 use rayon::prelude::*;
 use regex::Regex;
 use std::error::Error;
@@ -22,6 +22,30 @@ type BoxedError = Box<dyn Error + Sync + Send>;
 /// Download pdfs if the parsed CSVs don't already exist, and use them to create `ics` files.
 fn main() -> Result<(), BoxedError> {
     pretty_env_logger::init();
+
+    // Some of the areas have expired and been replaced with outers. For now, it's just some
+    // eThekwini suburbs so they can be dealt with in a bit of a hacky manner, although proper
+    // methods will have to be implemented when more and more municipalities start updating their
+    // schedules
+    let expired = vec![
+        "kwazulu-natal-ethekwini-block-1",
+        "kwazulu-natal-ethekwini-block-10",
+        "kwazulu-natal-ethekwini-block-11",
+        "kwazulu-natal-ethekwini-block-12",
+        "kwazulu-natal-ethekwini-block-13",
+        "kwazulu-natal-ethekwini-block-14",
+        "kwazulu-natal-ethekwini-block-15",
+        "kwazulu-natal-ethekwini-block-16",
+        "kwazulu-natal-ethekwini-block-2",
+        "kwazulu-natal-ethekwini-block-3",
+        "kwazulu-natal-ethekwini-block-4",
+        "kwazulu-natal-ethekwini-block-5",
+        "kwazulu-natal-ethekwini-block-6",
+        "kwazulu-natal-ethekwini-block-7",
+        "kwazulu-natal-ethekwini-block-8",
+        "kwazulu-natal-ethekwini-block-9",
+    ];
+    let expired_at = DateTime::parse_from_rfc3339("2023-05-25T00:00:00.000000+02:00").unwrap();
 
     // Parse the command-line arguments
     let args = Args::parse();
@@ -69,10 +93,24 @@ fn main() -> Result<(), BoxedError> {
                 }
             }
         })
+        // Some of the schedules are out of date. Exclude them.
+        .map(|(path, outages, last_finsh)| {
+            let new_outages: Vec<PowerOutage> = outages.into_iter().filter(|outage| {
+                if expired.clone().contains(&outage.area_name.as_str()) && outage.start >= expired_at {
+                    info!(
+                        "Area {} expires at {} but outage starts at {:?}, not creating events for it",
+                        outage.area_name, expired_at, outage.start
+                        );
+                    return false
+                }
+                true
+            }).collect();
+            (path, new_outages, last_finsh)
+        })
         // Write the individual sheddings to ICS files
         .map(|(path, outages, last_finsh)| {
             if args.output_ics_files {
-                write_sheddings_to_ics(path, &outages, last_finsh).unwrap();
+                write_sheddings_to_ics(path, &outages, last_finsh, expired.clone(), expired_at).unwrap();
             }
             (path, outages)
         })
@@ -214,6 +252,8 @@ fn write_sheddings_to_ics(
     path: &Path,
     power_outages: &[PowerOutage],
     last_finsh: Option<DateTime<FixedOffset>>,
+    expired: Vec<&str>,
+    expired_at: DateTime<FixedOffset>,
 ) -> Result<(), BoxedError> {
     // Get the correct filename
     let fname = path
@@ -234,11 +274,28 @@ fn write_sheddings_to_ics(
         calendar.push(fmt::power_outage_to_event(outage)?);
     }
 
+    let mut is_expired_ics = false;
+    if let Ok(area_name) = fmt::path_to_area_name(path) {
+        if expired.contains(&area_name.as_str()) {
+            calendar.push(fmt::expired_schedule_event(&area_name, expired_at)?);
+            is_expired_ics = true;
+        }
+        // If the calendar has expired in the past, it's possible a new user might not see the
+        // warning. So add another warning on the same day as compilation, to make sure.
+        if expired_at.checked_add_days(Days::new(1)).unwrap() < chrono::offset::Local::now() {
+            let event = fmt::expired_schedule_event(&area_name, expired_at)?
+                .all_day(chrono::offset::Local::now().date_naive())
+                .done();
+            calendar.push(event);
+        }
+    }
     // TODO There are no tests to check that an end-of-schedule event is being added properly
     // If we have >0 events, add one final event specifying that there's no more loadshedding
     // information after here.
     if let Some(last_finsh) = last_finsh {
-        calendar.push(fmt::end_of_schedule_event(last_finsh)?);
+        if !is_expired_ics {
+            calendar.push(fmt::end_of_schedule_event(last_finsh)?);
+        }
     }
 
     // Write all the data to disk
@@ -476,6 +533,43 @@ mod fmt {
             ))
             .done();
         Ok(evt)
+    }
+
+    /// Create an event that signals that the schedule has expired
+    pub fn expired_schedule_event(
+        area_name: &str,
+        expired_at: DateTime<FixedOffset>,
+    ) -> Result<Event, BoxedError> {
+        let description = format!(
+            "The schedule for {area_name} has expired, and is not valid after {fmt_date}.\n\
+            \n\
+            A schedule expires when the municipality in charge of your area updates their \
+            loadshedding schedules. This might mean that you end up in a different loadshedding \
+            block/group, or you might get loadshedding at different times than you used to. \n\
+            \n\
+            Once the expiry date has passed, this calendar feed will stop being updated. You need \
+            to subscribe to the new calendar feed if you want to keep up-to-date.\n\
+            \n\
+            You can find your new schedule by going to https://eskomcalendar.co.za and searching \
+            for either '{area_name}', or for the suburb you're in.\n\
+            \n\
+            Often the new blocks are similar to the old blocks. For example, try:\n\
+            - https://eskomcalendar.co.za/ec/?calendar={area_name}a.ics \n\
+            - https://eskomcalendar.co.za/ec/?calendar={area_name}b.ics \n\
+            \n\
+            --- \n\
+            Generated by Boyd Kane's eskom-calendar: https://github.com/beyarkay/eskom-calendar/tree/{git_hash} \n\
+            Calendar compiled at {compiletime:?}",
+            fmt_date=expired_at.format("%-d %B %Y"),
+            git_hash=get_git_hash()?,
+            compiletime=chrono::offset::Local::now(),
+        );
+
+        Ok(Event::new()
+            .all_day(expired_at.date_naive())
+            .summary("❌ Schedule expired")
+            .description(&description)
+            .done())
     }
 
     /// Create an event that signals the end of known loadshedding data
