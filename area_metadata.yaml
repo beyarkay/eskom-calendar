@@ -11870,7 +11870,28 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "caneside south",lat_lngs: []}
+  - {name: "clayfield",lat_lngs: []}
+  - {name: "brookdale south",lat_lngs: []}
+  - {name: "eastbury",lat_lngs: []}
+  - {name: "greenbury",lat_lngs: []}
+  - {name: "grove end",lat_lngs: []}
+  - {name: "forest haven south",lat_lngs: []}
+  - {name: "glen anil",lat_lngs: []}
+  - {name: "longcroft",lat_lngs: []}
+  - {name: "moriah",lat_lngs: []}
+  - {name: "mount edgecombe estate",lat_lngs: []}
+  - {name: "northcroft",lat_lngs: []}
+  - {name: "rainham",lat_lngs: []}
+  - {name: "rockford north",lat_lngs: []}
+  - {name: "southgate",lat_lngs: []}
+  - {name: "stanmore",lat_lngs: []}
+  - {name: "stonebridge",lat_lngs: []}
+  - {name: "sunford",lat_lngs: []}
+  - {name: "westham east",lat_lngs: []}
+  - {name: "whetstone east",lat_lngs: []}
+  - {name: "whitehouse",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-1b.ics
   province: kwazulu-natal
@@ -11879,7 +11900,12 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "essenwood east",lat_lngs: []}
+  - {name: "morningside",lat_lngs: []}
+  - {name: "springfield",lat_lngs: []}
+  - {name: "stamford hill west",lat_lngs: []}
+  - {name: "windermere west",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-2a.ics
   province: kwazulu-natal
@@ -11888,7 +11914,24 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "berea west",lat_lngs: []}
+  - {name: "cato manor",lat_lngs: []}
+  - {name: "beverley hills south",lat_lngs: []}
+  - {name: "blackhurst",lat_lngs: []}
+  - {name: "buffels bosch north",lat_lngs: []}
+  - {name: "klaarwater",lat_lngs: []}
+  - {name: "moorton",lat_lngs: []}
+  - {name: "mulberry park",lat_lngs: []}
+  - {name: "nirvana hills",lat_lngs: []}
+  - {name: "northdene",lat_lngs: []}
+  - {name: "phumphele",lat_lngs: []}
+  - {name: "queensburgh west",lat_lngs: []}
+  - {name: "ridgeview",lat_lngs: []}
+  - {name: "savannah park",lat_lngs: []}
+  - {name: "shallcross",lat_lngs: []}
+  - {name: "st wendolins ridge east",lat_lngs: []}
+  - {name: "welbedagt west",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-2b.ics
   province: kwazulu-natal
@@ -11897,7 +11940,17 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "brighton beach",lat_lngs: []}
+  - {name: "grosvenor",lat_lngs: []}
+  - {name: "fynnlands",lat_lngs: []}
+  - {name: "island view",lat_lngs: []}
+  - {name: "jacobs north",lat_lngs: []}
+  - {name: "ocean view",lat_lngs: []}
+  - {name: "treasure beach",lat_lngs: []}
+  - {name: "stanvac",lat_lngs: []}
+  - {name: "van riebeeck park",lat_lngs: []}
+  - {name: "wentworth",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-3a.ics
   province: kwazulu-natal
@@ -11906,7 +11959,46 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "amatikwe south",lat_lngs: []}
+  - {name: "besters",lat_lngs: []}
+  - {name: "bhambayi west",lat_lngs: []}
+  - {name: "dubes land west",lat_lngs: []}
+  - {name: "ekuphakameni",lat_lngs: []}
+  - {name: "emachobeni",lat_lngs: []}
+  - {name: "emaplazini",lat_lngs: []}
+  - {name: "embokodwe",lat_lngs: []}
+  - {name: "ezimangweni",lat_lngs: []}
+  - {name: "inanda glebe",lat_lngs: []}
+  - {name: "inanda-a",lat_lngs: []}
+  - {name: "inanda-b",lat_lngs: []}
+  - {name: "lindelani-d",lat_lngs: []}
+  - {name: "lindley",lat_lngs: []}
+  - {name: "kwamashu-b",lat_lngs: []}
+  - {name: "kwamashu-c",lat_lngs: []}
+  - {name: "kwamashu-d",lat_lngs: []}
+  - {name: "kwamashu-f",lat_lngs: []}
+  - {name: "kwamashu-g",lat_lngs: []}
+  - {name: "kwamashu-h",lat_lngs: []}
+  - {name: "kwamashu-j",lat_lngs: []}
+  - {name: "kwamashu-k",lat_lngs: []}
+  - {name: "kwamashu-l",lat_lngs: []}
+  - {name: "kwamashu-m",lat_lngs: []}
+  - {name: "kwamashu-n",lat_lngs: []}
+  - {name: "kwamashu-p",lat_lngs: []}
+  - {name: "mshayazafe",lat_lngs: []}
+  - {name: "newtown-b",lat_lngs: []}
+  - {name: "nhlungwane",lat_lngs: []}
+  - {name: "ntuzuma-a",lat_lngs: []}
+  - {name: "ntuzuma-b",lat_lngs: []}
+  - {name: "ntuzuma-c",lat_lngs: []}
+  - {name: "ntuzuma-e",lat_lngs: []}
+  - {name: "ntuzuma-f",lat_lngs: []}
+  - {name: "ntuzuma-g",lat_lngs: []}
+  - {name: "ntuzuma-h",lat_lngs: []}
+  - {name: "phola mission east",lat_lngs: []}
+  - {name: "siyanda",lat_lngs: []}
+  - {name: "soweto",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-3b.ics
   province: kwazulu-natal
@@ -11915,7 +12007,50 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "albany",lat_lngs: []}
+  - {name: "albinia",lat_lngs: []}
+  - {name: "alverstone",lat_lngs: []}
+  - {name: "belvedere",lat_lngs: []}
+  - {name: "chelmsfordville",lat_lngs: []}
+  - {name: "bothas hill",lat_lngs: []}
+  - {name: "ediphini section",lat_lngs: []}
+  - {name: "egwadeni section",lat_lngs: []}
+  - {name: "emagezeni",lat_lngs: []}
+  - {name: "emangabazini",lat_lngs: []}
+  - {name: "embo",lat_lngs: []}
+  - {name: "embo kwakhabazela",lat_lngs: []}
+  - {name: "ezakhiweni",lat_lngs: []}
+  - {name: "forest hills south",lat_lngs: []}
+  - {name: "hillcrest",lat_lngs: []}
+  - {name: "hillcrest park",lat_lngs: []}
+  - {name: "hilldene",lat_lngs: []}
+  - {name: "gillitts",lat_lngs: []}
+  - {name: "inthuthuko",lat_lngs: []}
+  - {name: "kloof",lat_lngs: []}
+  - {name: "kontinga",lat_lngs: []}
+  - {name: "krantzkloof",lat_lngs: []}
+  - {name: "mabedlane",lat_lngs: []}
+  - {name: "mahlabathini",lat_lngs: []}
+  - {name: "kwanqetho",lat_lngs: []}
+  - {name: "kwasondela",lat_lngs: []}
+  - {name: "mkholombe",lat_lngs: []}
+  - {name: "molweni",lat_lngs: []}
+  - {name: "mshazi",lat_lngs: []}
+  - {name: "mshazi skhambane",lat_lngs: []}
+  - {name: "ngcolosi",lat_lngs: []}
+  - {name: "padfield park",lat_lngs: []}
+  - {name: "qadi north",lat_lngs: []}
+  - {name: "qhodela",lat_lngs: []}
+  - {name: "quadi south 2",lat_lngs: []}
+  - {name: "salem",lat_lngs: []}
+  - {name: "shongweni",lat_lngs: []}
+  - {name: "tollgate",lat_lngs: []}
+  - {name: "shongweni resources",lat_lngs: []}
+  - {name: "tollgate south",lat_lngs: []}
+  - {name: "st helier",lat_lngs: []}
+  - {name: "umgeni",lat_lngs: []}
+  - {name: "winston park",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-4a.ics
   province: kwazulu-natal
@@ -11924,7 +12059,21 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "malaba hills",lat_lngs: []}
+  - {name: "umlazi mission a (east)",lat_lngs: []}
+  - {name: "umlazi-a (east)",lat_lngs: []}
+  - {name: "umlazi-b (east)",lat_lngs: []}
+  - {name: "umlazi-c (east)",lat_lngs: []}
+  - {name: "umlazi-d (east)",lat_lngs: []}
+  - {name: "umlazi-e (east)",lat_lngs: []}
+  - {name: "umlazi-f (east)",lat_lngs: []}
+  - {name: "umlazi-g (east)",lat_lngs: []}
+  - {name: "umlazi-s (east)",lat_lngs: []}
+  - {name: "umlazi-t (east)",lat_lngs: []}
+  - {name: "umlazi-v (east)",lat_lngs: []}
+  - {name: "umlazi-w (east)",lat_lngs: []}
+
 
 - calendar_name: kwazulu-natal-ethekwini-block-4b.ics
   province: kwazulu-natal
@@ -11933,7 +12082,19 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "atholl heights south",lat_lngs: []}
+  - {name: "beverley hills north",lat_lngs: []}
+  - {name: "chiltern hills",lat_lngs: []}
+  - {name: "dawncliffe",lat_lngs: []}
+  - {name: "dawncrest west",lat_lngs: []}
+  - {name: "erin-go-bragth",lat_lngs: []}
+  - {name: "grayleigh",lat_lngs: []}
+  - {name: "gardenpark",lat_lngs: []}
+  - {name: "paradise valley",lat_lngs: []}
+  - {name: "rouken glen",lat_lngs: []}
+  - {name: "westville",lat_lngs: []}
+  - {name: "woodside",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-5a.ics
   province: kwazulu-natal
@@ -11942,7 +12103,34 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "christianburg",lat_lngs: []}
+  - {name: "clermont",lat_lngs: []}
+  - {name: "kwadabeka",lat_lngs: []}
+  - {name: "kwadabeka sp",lat_lngs: []}
+  - {name: "kwadabeka-a",lat_lngs: []}
+  - {name: "kwadabeka-b",lat_lngs: []}
+  - {name: "kwadabeka-ba",lat_lngs: []}
+  - {name: "kwadabeka-c",lat_lngs: []}
+  - {name: "kwadabeka-d",lat_lngs: []}
+  - {name: "kwadabeka-e",lat_lngs: []}
+  - {name: "kwadabeka-f",lat_lngs: []}
+  - {name: "kwadabeka-g",lat_lngs: []}
+  - {name: "kwadabeka-h",lat_lngs: []}
+  - {name: "kwadabeka-i",lat_lngs: []}
+  - {name: "kwadabeka-ia",lat_lngs: []}
+  - {name: "kwadabeka-j",lat_lngs: []}
+  - {name: "kwadabeka-k",lat_lngs: []}
+  - {name: "kwadabeka-l",lat_lngs: []}
+  - {name: "kwadabeka-r",lat_lngs: []}
+  - {name: "kwadabeka-s",lat_lngs: []}
+  - {name: "kwadabeka-t",lat_lngs: []}
+  - {name: "motalabad",lat_lngs: []}
+  - {name: "new germany",lat_lngs: []}
+  - {name: "the wolds",lat_lngs: []}
+  - {name: "siphumelele",lat_lngs: []}
+  - {name: "wyebank",lat_lngs: []}
+
 
 - calendar_name: kwazulu-natal-ethekwini-block-5b.ics
   province: kwazulu-natal
@@ -11951,7 +12139,15 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "asherville",lat_lngs: []}
+  - {name: "clare hills",lat_lngs: []}
+  - {name: "musgrave north",lat_lngs: []}
+  - {name: "sherwood",lat_lngs: []}
+  - {name: "sparks",lat_lngs: []}
+  - {name: "springfield flats",lat_lngs: []}
+  - {name: "sydenham",lat_lngs: []}
+  - {name: "watervalpark",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-6a.ics
   province: kwazulu-natal
@@ -11960,7 +12156,19 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "arena park",lat_lngs: []}
+  - {name: "chatsworth town centre",lat_lngs: []}
+  - {name: "buffels bosch",lat_lngs: []}
+  - {name: "croftdene",lat_lngs: []}
+  - {name: "crossmoor",lat_lngs: []}
+  - {name: "kharwastan",lat_lngs: []}
+  - {name: "montford",lat_lngs: []}
+  - {name: "risecliff",lat_lngs: []}
+  - {name: "silverglen",lat_lngs: []}
+  - {name: "westcliff",lat_lngs: []}
+  - {name: "woodhurst",lat_lngs: []}
+  - {name: "welbedagt east",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-6b.ics
   province: kwazulu-natal
@@ -11969,7 +12177,19 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "athlone park",lat_lngs: []}
+  - {name: "ebhodini",lat_lngs: []}
+  - {name: "emahlabathini",lat_lngs: []}
+  - {name: "eplangweni",lat_lngs: []}
+  - {name: "ezimbokodweni",lat_lngs: []}
+  - {name: "iziko road",lat_lngs: []}
+  - {name: "kwahlongwa",lat_lngs: []}
+  - {name: "kwamakhuta",lat_lngs: []}
+  - {name: "new city",lat_lngs: []}
+  - {name: "nqutshini russia",lat_lngs: []}
+  - {name: "rhemia",lat_lngs: []}
+  - {name: "umbogintwini",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-7a.ics
   province: kwazulu-natal
@@ -11978,7 +12198,47 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "adams rural",lat_lngs: []}
+  - {name: "bhekulwandle",lat_lngs: []}
+  - {name: "ehlanzeni",lat_lngs: []}
+  - {name: "emansomini",lat_lngs: []}
+  - {name: "emkhazini",lat_lngs: []}
+  - {name: "golokodo",lat_lngs: []}
+  - {name: "golokodo-ensimbini",lat_lngs: []}
+  - {name: "esidweni",lat_lngs: []}
+  - {name: "ezinyathini",lat_lngs: []}
+  - {name: "folweni-a",lat_lngs: []}
+  - {name: "folweni-b",lat_lngs: []}
+  - {name: "folweni-c",lat_lngs: []}
+  - {name: "inwabi",lat_lngs: []}
+  - {name: "izwelisha",lat_lngs: []}
+  - {name: "madundube",lat_lngs: []}
+  - {name: "kwamgaga",lat_lngs: []}
+  - {name: "mkhazana",lat_lngs: []}
+  - {name: "nkomokazi",lat_lngs: []}
+  - {name: "nungwane",lat_lngs: []}
+  - {name: "umbumbulu",lat_lngs: []}
+  - {name: "umlazi-aa (west)",lat_lngs: []}
+  - {name: "umlazi-bb (west)",lat_lngs: []}
+  - {name: "umlazi-cc (west)",lat_lngs: []}
+  - {name: "umlazi-d (west)",lat_lngs: []}
+  - {name: "umlazi-dd (west)",lat_lngs: []}
+  - {name: "umlazi-g (west)",lat_lngs: []}
+  - {name: "umlazi-h (west)",lat_lngs: []}
+  - {name: "umlazi-j (west)",lat_lngs: []}
+  - {name: "umlazi-k (west)",lat_lngs: []}
+  - {name: "umlazi-l (west)",lat_lngs: []}
+  - {name: "umlazi-m (west)",lat_lngs: []}
+  - {name: "umlazi-n (west)",lat_lngs: []}
+  - {name: "umlazi-p (west)",lat_lngs: []}
+  - {name: "umlazi-q (west)",lat_lngs: []}
+  - {name: "umlazi-r (east)",lat_lngs: []}
+  - {name: "umlazi-r (west)",lat_lngs: []}
+  - {name: "umlazi-t (west)",lat_lngs: []}
+  - {name: "umlazi-u (west)",lat_lngs: []}
+  - {name: "umlazi-w (west)",lat_lngs: []}
+  - {name: "umlazi-z (west)",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-7b.ics
   province: kwazulu-natal
@@ -11987,7 +12247,33 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "afrika",lat_lngs: []}
+  - {name: "amalanga",lat_lngs: []}
+  - {name: "amatata",lat_lngs: []}
+  - {name: "amatikwe north",lat_lngs: []}
+  - {name: "armstrong hill",lat_lngs: []}
+  - {name: "cibane",lat_lngs: []}
+  - {name: "ekafuleni",lat_lngs: []}
+  - {name: "goqokazi",lat_lngs: []}
+  - {name: "gunjini",lat_lngs: []}
+  - {name: "imbozamo",lat_lngs: []}
+  - {name: "inanda congo",lat_lngs: []}
+  - {name: "inanda nu",lat_lngs: []}
+  - {name: "iqadi sp",lat_lngs: []}
+  - {name: "langalibalele",lat_lngs: []}
+  - {name: "lower manaza",lat_lngs: []}
+  - {name: "matata",lat_lngs: []}
+  - {name: "mgangeni",lat_lngs: []}
+  - {name: "mgangeni-1",lat_lngs: []}
+  - {name: "newtown",lat_lngs: []}
+  - {name: "ngonweni",lat_lngs: []}
+  - {name: "phola mission west",lat_lngs: []}
+  - {name: "senzokuhle",lat_lngs: []}
+  - {name: "tea estate",lat_lngs: []}
+  - {name: "stop 8",lat_lngs: []}
+  - {name: "tafula inanda",lat_lngs: []}
+  - {name: "upper ukumanaza",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-8a.ics
   province: kwazulu-natal
@@ -11996,7 +12282,21 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "berrell",lat_lngs: []}
+  - {name: "congo",lat_lngs: []}
+  - {name: "crestholme",lat_lngs: []}
+  - {name: "crestview",lat_lngs: []}
+  - {name: "forest hills",lat_lngs: []}
+  - {name: "lower molweni",lat_lngs: []}
+  - {name: "luthele",lat_lngs: []}
+  - {name: "maromeni",lat_lngs: []}
+  - {name: "nkangala",lat_lngs: []}
+  - {name: "nogxaza",lat_lngs: []}
+  - {name: "tin town",lat_lngs: []}
+  - {name: "umgababa",lat_lngs: []}
+  - {name: "umngeni",lat_lngs: []}
+  - {name: "waterfall",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-8b.ics
   province: kwazulu-natal
@@ -12005,7 +12305,12 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "cornubia",lat_lngs: []}
+  - {name: "hawaan",lat_lngs: []}
+  - {name: "prestondale",lat_lngs: []}
+  - {name: "umhlanga ridge east",lat_lngs: []}
+  - {name: "umhlanga west",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-9a.ics
   province: kwazulu-natal
@@ -12014,7 +12319,16 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "beachwood",lat_lngs: []}
+  - {name: "glenashley",lat_lngs: []}
+  - {name: "glenhills",lat_lngs: []}
+  - {name: "la lucia",lat_lngs: []}
+  - {name: "umhlanga east",lat_lngs: []}
+  - {name: "umhlanga ridge west",lat_lngs: []}
+  - {name: "umhlanga rocks",lat_lngs: []}
+  - {name: "sunningdale south",lat_lngs: []}
+  - {name: "virginia",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-9b.ics
   province: kwazulu-natal
@@ -12023,7 +12337,12 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "cave rock",lat_lngs: []}
+  - {name: "cbd south",lat_lngs: []}
+  - {name: "durban beach front",lat_lngs: []}
+  - {name: "point",lat_lngs: []}
+  - {name: "south beach",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-10a.ics
   province: kwazulu-natal
@@ -12032,7 +12351,28 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "atholl heights north",lat_lngs: []}
+  - {name: "belmont barracks",lat_lngs: []}
+  - {name: "claire estate",lat_lngs: []}
+  - {name: "clermont east",lat_lngs: []}
+  - {name: "dawncrest east",lat_lngs: []}
+  - {name: "desainager",lat_lngs: []}
+  - {name: "genazano",lat_lngs: []}
+  - {name: "la mercy beach rural",lat_lngs: []}
+  - {name: "la mercy",lat_lngs: []}
+  - {name: "la mercy airport",lat_lngs: []}
+  - {name: "mount moreland",lat_lngs: []}
+  - {name: "newsel beach",lat_lngs: []}
+  - {name: "palmiet",lat_lngs: []}
+  - {name: "reservoir hills",lat_lngs: []}
+  - {name: "riyadh",lat_lngs: []}
+  - {name: "selection beach",lat_lngs: []}
+  - {name: "tongaat beach rural",lat_lngs: []}
+  - {name: "umdloti beach",lat_lngs: []}
+  - {name: "valdin heights",lat_lngs: []}
+  - {name: "waterloo",lat_lngs: []}
+  - {name: "wesely stables",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-10b.ics
   province: kwazulu-natal
@@ -12041,7 +12381,46 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "amaoti",lat_lngs: []}
+  - {name: "amaoti cuba",lat_lngs: []}
+  - {name: "amaoti-e",lat_lngs: []}
+  - {name: "amawothi",lat_lngs: []}
+  - {name: "amawoti-e",lat_lngs: []}
+  - {name: "amawoti-f",lat_lngs: []}
+  - {name: "caneside north",lat_lngs: []}
+  - {name: "brookdale north",lat_lngs: []}
+  - {name: "dubes land",lat_lngs: []}
+  - {name: "forest haven north",lat_lngs: []}
+  - {name: "longcroft north",lat_lngs: []}
+  - {name: "lower angola",lat_lngs: []}
+  - {name: "lusaka",lat_lngs: []}
+  - {name: "lusaka 1",lat_lngs: []}
+  - {name: "lusaka 2",lat_lngs: []}
+  - {name: "mambha stores",lat_lngs: []}
+  - {name: "mocambique",lat_lngs: []}
+  - {name: "mountview",lat_lngs: []}
+  - {name: "mzomuhle",lat_lngs: []}
+  - {name: "namibia",lat_lngs: []}
+  - {name: "nigeria",lat_lngs: []}
+  - {name: "old mutual",lat_lngs: []}
+  - {name: "ottawa",lat_lngs: []}
+  - {name: "palmview",lat_lngs: []}
+  - {name: "parkgate",lat_lngs: []}
+  - {name: "phoenix industrial north",lat_lngs: []}
+  - {name: "redfern",lat_lngs: []}
+  - {name: "riet rivier",lat_lngs: []}
+  - {name: "rydalvale",lat_lngs: []}
+  - {name: "shastri park",lat_lngs: []}
+  - {name: "trenance manor",lat_lngs: []}
+  - {name: "starwood",lat_lngs: []}
+  - {name: "tanzania",lat_lngs: []}
+  - {name: "westham",lat_lngs: []}
+  - {name: "upper amaotana",lat_lngs: []}
+  - {name: "whetstone",lat_lngs: []}
+  - {name: "woodview",lat_lngs: []}
+  - {name: "zambia",lat_lngs: []}
+  - {name: "zimbabwe",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-11a.ics
   province: kwazulu-natal
@@ -12050,7 +12429,19 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "athlone east",lat_lngs: []}
+  - {name: "avoca",lat_lngs: []}
+  - {name: "avoca hills",lat_lngs: []}
+  - {name: "broadway",lat_lngs: []}
+  - {name: "duffs road",lat_lngs: []}
+  - {name: "greenwood park",lat_lngs: []}
+  - {name: "kwamashu-a",lat_lngs: []}
+  - {name: "melk houte",lat_lngs: []}
+  - {name: "moriah south",lat_lngs: []}
+  - {name: "parkhill",lat_lngs: []}
+  - {name: "prospect hall",lat_lngs: []}
+  - {name: "riverhorse valley east",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-11b.ics
   province: kwazulu-natal
@@ -12059,7 +12450,24 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "ashley",lat_lngs: []}
+  - {name: "bellair",lat_lngs: []}
+  - {name: "coedmore",lat_lngs: []}
+  - {name: "cowies hill",lat_lngs: []}
+  - {name: "farningham ridge",lat_lngs: []}
+  - {name: "highland hills",lat_lngs: []}
+  - {name: "hillary",lat_lngs: []}
+  - {name: "malvern",lat_lngs: []}
+  - {name: "memorial park",lat_lngs: []}
+  - {name: "moseley park",lat_lngs: []}
+  - {name: "mount vernon",lat_lngs: []}
+  - {name: "part bellair",lat_lngs: []}
+  - {name: "queensburgh east",lat_lngs: []}
+  - {name: "queensburgh industrial",lat_lngs: []}
+  - {name: "sea view",lat_lngs: []}
+  - {name: "shallcross north",lat_lngs: []}
+  - {name: "umshinini east",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-12a.ics
   province: kwazulu-natal
@@ -12068,7 +12476,9 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "ak",lat_lngs: []}
+  - {name: "cbd east",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-12b.ics
   province: kwazulu-natal
@@ -12077,7 +12487,15 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "blackburn estate",lat_lngs: []}
+  - {name: "blackburn village",lat_lngs: []}
+  - {name: "glen anil  east",lat_lngs: []}
+  - {name: "la lucia west",lat_lngs: []}
+  - {name: "mount edgecombe",lat_lngs: []}
+  - {name: "mount edgecombe estate east",lat_lngs: []}
+  - {name: "somerset park",lat_lngs: []}
+  - {name: "sunningdale",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-13a.ics
   province: kwazulu-natal
@@ -12086,7 +12504,18 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "bayhead north",lat_lngs: []}
+  - {name: "carrington heights",lat_lngs: []}
+  - {name: "bonela",lat_lngs: []}
+  - {name: "congella south",lat_lngs: []}
+  - {name: "glenmore",lat_lngs: []}
+  - {name: "maydon wharf south",lat_lngs: []}
+  - {name: "umbilo east",lat_lngs: []}
+  - {name: "umkumbaan",lat_lngs: []}
+  - {name: "university",lat_lngs: []}
+  - {name: "westridge",lat_lngs: []}
+  - {name: "wiggins",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-13b.ics
   province: kwazulu-natal
@@ -12095,7 +12524,14 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "beach",lat_lngs: []}
+  - {name: "cbd north",lat_lngs: []}
+  - {name: "greyville north",lat_lngs: []}
+  - {name: "north beach",lat_lngs: []}
+  - {name: "old fort",lat_lngs: []}
+  - {name: "stamford hill",lat_lngs: []}
+  - {name: "windermere east",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-14a.ics
   province: kwazulu-natal
@@ -12104,7 +12540,11 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "bulwer",lat_lngs: []}
+  - {name: "glenwood",lat_lngs: []}
+  - {name: "essenwood west",lat_lngs: []}
+  - {name: "musgrave",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-14b.ics
   province: kwazulu-natal
@@ -12113,7 +12553,17 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "bayview",lat_lngs: []}
+  - {name: "bulbul",lat_lngs: []}
+  - {name: "havenside",lat_lngs: []}
+  - {name: "joe slovo",lat_lngs: []}
+  - {name: "lamont",lat_lngs: []}
+  - {name: "mobeni heights",lat_lngs: []}
+  - {name: "moorton east",lat_lngs: []}
+  - {name: "umhlatuzana",lat_lngs: []}
+  - {name: "woodlands",lat_lngs: []}
+  - {name: "yellowwood park east",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-15a.ics
   province: kwazulu-natal
@@ -12122,7 +12572,14 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "cbd west",lat_lngs: []}
+  - {name: "esplanade",lat_lngs: []}
+  - {name: "greyville south",lat_lngs: []}
+  - {name: "harbour",lat_lngs: []}
+  - {name: "maydon wharf north",lat_lngs: []}
+  - {name: "warwick",lat_lngs: []}
+
 
 - calendar_name: kwazulu-natal-ethekwini-block-15b.ics
   province: kwazulu-natal
@@ -12131,7 +12588,23 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "campsite",lat_lngs: []}
+  - {name: "castlehill",lat_lngs: []}
+  - {name: "briardale",lat_lngs: []}
+  - {name: "earlsfield",lat_lngs: []}
+  - {name: "fosaville",lat_lngs: []}
+  - {name: "hillgrove",lat_lngs: []}
+  - {name: "hippo road",lat_lngs: []}
+  - {name: "kenville",lat_lngs: []}
+  - {name: "newcentre",lat_lngs: []}
+  - {name: "newlands",lat_lngs: []}
+  - {name: "newlands east",lat_lngs: []}
+  - {name: "parlock",lat_lngs: []}
+  - {name: "peter road",lat_lngs: []}
+  - {name: "riverdene",lat_lngs: []}
+  - {name: "sea cow lake",lat_lngs: []}
+  - {name: "westrich",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-16a.ics
   province: kwazulu-natal
@@ -12140,7 +12613,32 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "adams mission",lat_lngs: []}
+  - {name: "amanzimtoti",lat_lngs: []}
+  - {name: "astra park",lat_lngs: []}
+  - {name: "baphehli",lat_lngs: []}
+  - {name: "doon heights",lat_lngs: []}
+  - {name: "doonside",lat_lngs: []}
+  - {name: "emsahweni",lat_lngs: []}
+  - {name: "enkanyiswni shozi",lat_lngs: []}
+  - {name: "illovo beach",lat_lngs: []}
+  - {name: "illovo glen",lat_lngs: []}
+  - {name: "illovu",lat_lngs: []}
+  - {name: "itshehlophe",lat_lngs: []}
+  - {name: "karridene",lat_lngs: []}
+  - {name: "kwafakazi",lat_lngs: []}
+  - {name: "lovu",lat_lngs: []}
+  - {name: "mashiwase",lat_lngs: []}
+  - {name: "kwasunduzwayo",lat_lngs: []}
+  - {name: "mdumezulu",lat_lngs: []}
+  - {name: "nkwali",lat_lngs: []}
+  - {name: "panorama park",lat_lngs: []}
+  - {name: "shulton park",lat_lngs: []}
+  - {name: "st winifreds",lat_lngs: []}
+  - {name: "ungendwa",lat_lngs: []}
+  - {name: "warner beach",lat_lngs: []}
+  - {name: "winklespruit",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-16b.ics
   province: kwazulu-natal
@@ -12149,7 +12647,53 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "amanzimnyama",lat_lngs: []}
+  - {name: "barns",lat_lngs: []}
+  - {name: "canelands",lat_lngs: []}
+  - {name: "chelmsford heights",lat_lngs: []}
+  - {name: "brindhaven",lat_lngs: []}
+  - {name: "buffels draai",lat_lngs: []}
+  - {name: "cordoba gardens",lat_lngs: []}
+  - {name: "buffelsdale",lat_lngs: []}
+  - {name: "cottonlands",lat_lngs: []}
+  - {name: "dawncrest north",lat_lngs: []}
+  - {name: "emona",lat_lngs: []}
+  - {name: "grangetown",lat_lngs: []}
+  - {name: "everest heights",lat_lngs: []}
+  - {name: "fairbreeze",lat_lngs: []}
+  - {name: "hambanati village",lat_lngs: []}
+  - {name: "flamingo heights",lat_lngs: []}
+  - {name: "hazelmere",lat_lngs: []}
+  - {name: "herrwood",lat_lngs: []}
+  - {name: "gandhis hill",lat_lngs: []}
+  - {name: "hospital hill",lat_lngs: []}
+  - {name: "ghandinager",lat_lngs: []}
+  - {name: "kruisfontein",lat_lngs: []}
+  - {name: "litchie farm",lat_lngs: []}
+  - {name: "lotusville",lat_lngs: []}
+  - {name: "magaweni",lat_lngs: []}
+  - {name: "kwatiba",lat_lngs: []}
+  - {name: "mithangar",lat_lngs: []}
+  - {name: "mwamine",lat_lngs: []}
+  - {name: "oaklands",lat_lngs: []}
+  - {name: "quarry heights",lat_lngs: []}
+  - {name: "redcliffe",lat_lngs: []}
+  - {name: "riverside",lat_lngs: []}
+  - {name: "riverview park",lat_lngs: []}
+  - {name: "saana township",lat_lngs: []}
+  - {name: "tongaat central",lat_lngs: []}
+  - {name: "tongova mews",lat_lngs: []}
+  - {name: "trenance park",lat_lngs: []}
+  - {name: "trurolands",lat_lngs: []}
+  - {name: "umbhayi",lat_lngs: []}
+  - {name: "southridge",lat_lngs: []}
+  - {name: "sugarcaneland",lat_lngs: []}
+  - {name: "surya heights",lat_lngs: []}
+  - {name: "vanrova",lat_lngs: []}
+  - {name: "verulam",lat_lngs: []}
+  - {name: "waterways",lat_lngs: []}
+  - {name: "watsonia",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-17.ics
   province: kwazulu-natal
@@ -12158,7 +12702,33 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "burlington heights",lat_lngs: []}
+  - {name: "bhambayi",lat_lngs: []}
+  - {name: "bridge city",lat_lngs: []}
+  - {name: "congella north",lat_lngs: []}
+  - {name: "dalefarm",lat_lngs: []}
+  - {name: "lamont east",lat_lngs: []}
+  - {name: "lenham",lat_lngs: []}
+  - {name: "kwamashu-a north",lat_lngs: []}
+  - {name: "kwamashu-e",lat_lngs: []}
+  - {name: "kwamashu-e north",lat_lngs: []}
+  - {name: "kwamashu-f north",lat_lngs: []}
+  - {name: "kwamashu-h north",lat_lngs: []}
+  - {name: "kwamashu-l north",lat_lngs: []}
+  - {name: "kwamashu-m north",lat_lngs: []}
+  - {name: "kwamashu-q north",lat_lngs: []}
+  - {name: "maydon wharf",lat_lngs: []}
+  - {name: "merebank east",lat_lngs: []}
+  - {name: "mobeni west",lat_lngs: []}
+  - {name: "mount royal",lat_lngs: []}
+  - {name: "mzomusha",lat_lngs: []}
+  - {name: "northdene industrial",lat_lngs: []}
+  - {name: "phoenix industrial",lat_lngs: []}
+  - {name: "pinetown south",lat_lngs: []}
+  - {name: "queensmead industrial",lat_lngs: []}
+  - {name: "umbilo",lat_lngs: []}
+  - {name: "yellowwood park",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-18.ics
   province: kwazulu-natal
@@ -12167,7 +12737,31 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "athlone west",lat_lngs: []}
+  - {name: "canelands industrial",lat_lngs: []}
+  - {name: "belvedere north",lat_lngs: []}
+  - {name: "briardene",lat_lngs: []}
+  - {name: "broadway south",lat_lngs: []}
+  - {name: "cottonlands industrial",lat_lngs: []}
+  - {name: "burbreeze",lat_lngs: []}
+  - {name: "fairbreeze industrial",lat_lngs: []}
+  - {name: "gwala",lat_lngs: []}
+  - {name: "glen anil west",lat_lngs: []}
+  - {name: "kenville east",lat_lngs: []}
+  - {name: "maidstone",lat_lngs: []}
+  - {name: "missionlands",lat_lngs: []}
+  - {name: "parkhill industrial",lat_lngs: []}
+  - {name: "red hill",lat_lngs: []}
+  - {name: "red hill industrial",lat_lngs: []}
+  - {name: "redcliffe community",lat_lngs: []}
+  - {name: "redcliffe industrial",lat_lngs: []}
+  - {name: "riverhorse valley",lat_lngs: []}
+  - {name: "riverview park industrial",lat_lngs: []}
+  - {name: "sandfields",lat_lngs: []}
+  - {name: "umdhloti heights",lat_lngs: []}
+  - {name: "umgeni park",lat_lngs: []}
+  - {name: "verulam industrial",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-19.ics
   province: kwazulu-natal
@@ -12176,7 +12770,16 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "berkshire downs",lat_lngs: []}
+  - {name: "caversham glen",lat_lngs: []}
+  - {name: "mahogany ridge",lat_lngs: []}
+  - {name: "motala heights",lat_lngs: []}
+  - {name: "new germany industrial",lat_lngs: []}
+  - {name: "pinetown east",lat_lngs: []}
+  - {name: "pinetown west",lat_lngs: []}
+  - {name: "umbogintwini industrial",lat_lngs: []}
+  - {name: "westmead",lat_lngs: []}
 
 - calendar_name: kwazulu-natal-ethekwini-block-20.ics
   province: kwazulu-natal
@@ -12185,4 +12788,18 @@ area_details:
   provider: ethekwini
   source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas: []
+  areas:
+  - {name: "austerville",lat_lngs: []}
+  - {name: "clairwood",lat_lngs: []}
+  - {name: "jacobs",lat_lngs: []}
+  - {name: "merewent",lat_lngs: []}
+  - {name: "mobeni north",lat_lngs: []}
+  - {name: "mobeni south",lat_lngs: []}
+  - {name: "montclair",lat_lngs: []}
+  - {name: "mount edgecombe north",lat_lngs: []}
+  - {name: "rockford south",lat_lngs: []}
+  - {name: "rossburgh",lat_lngs: []}
+  - {name: "sea view industrial",lat_lngs: []}
+  - {name: "southgate north",lat_lngs: []}
+  - {name: "woodlands industrial",lat_lngs: []}
+  - {name: "wentworth west",lat_lngs: []}
