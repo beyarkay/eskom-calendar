@@ -10018,7 +10018,7 @@ area_details:
   - {name: east-london-amalinda,lat_lngs: []}
   - {name: east-london-beacon-bay,lat_lngs: []}
   - {name: belgravia-belgrave-road,lat_lngs: []}
-  - {name: belgravia-Belgravia-crescent,lat_lngs: []}
+  - {name: belgravia-belgravia-crescent,lat_lngs: []}
   - {name: belgravia-oxford-street,lat_lngs: []}
   - {name: belgravia-st-georges-street,lat_lngs: []}
   - {name: belgravia-st-lukes-road,lat_lngs: []}
@@ -11863,143 +11863,326 @@ area_details:
   - {name: umhlanga-rocks-umhlanga-west,lat_lngs: []}
   - {name: verulam-cordoba-gardens,lat_lngs: []}
 
+- calendar_name: kwazulu-natal-ethekwini-block-1a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-1b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-2a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-2b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-3a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-3b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-4a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-4b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-5a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-5b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-6a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-6b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-7a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-7b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-8a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-8b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-9a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-9b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-10a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-10b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-11a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-11b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-12a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-12b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-13a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-13b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-14a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-14b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-15a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-15b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-16a.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
+- calendar_name: kwazulu-natal-ethekwini-block-16b.ics
+  province: kwazulu-natal
+  municipality: ethekwini-metropolitan
+  city: ethekwini
+  provider: ethekwini
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
+  source_info: https://www.durban.gov.za/pages/residents/load-shedding
+  areas: []
+
 - calendar_name: kwazulu-natal-ethekwini-block-17.ics
   province: kwazulu-natal
   municipality: ethekwini-metropolitan
   city: ethekwini
   provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: dalefarm-phoenix,lat_lngs: []}
-  - {name: inanda-bhambayi,lat_lngs: []}
-  - {name: inanda-mzomusha,lat_lngs: []}
-  - {name: kwamashu-a-north,lat_lngs: []}
-  - {name: kwamashu-bridge-city,lat_lngs: []}
-  - {name: kwamashu-e-north,lat_lngs: []}
-  - {name: kwamashu-f-north,lat_lngs: []}
-  - {name: kwamashu-h-north,lat_lngs: []}
-  - {name: kwamashu-l-north,lat_lngs: []}
-  - {name: kwamashu-m-north,lat_lngs: []}
-  - {name: kwamashu-q-north,lat_lngs: []}
-  - {name: mount-royal,lat_lngs: []}
-  - {name: phoenix-greenbury-north,lat_lngs: []}
-  - {name: phoenix-lenham,lat_lngs: []}
-  - {name: phoenix-rockford-south,lat_lngs: []}
-  - {name: phoenix-southgate-north,lat_lngs: []}
-  - {name: queensburgh-industrial,lat_lngs: []}
-  - {name: queensburgh-northdene-industrial,lat_lngs: []}
-  - {name: queensburgh-queensmead-industrial,lat_lngs: []}
-  - {name: shallcross-burlington-heights,lat_lngs: []}
+  areas: []
 
 - calendar_name: kwazulu-natal-ethekwini-block-18.ics
   province: kwazulu-natal
   municipality: ethekwini-metropolitan
   city: ethekwini
   provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: avoca-riverhorse-valley,lat_lngs: []}
-  - {name: durban-north-athlone-west,lat_lngs: []}
-  - {name: durban-north-briardene,lat_lngs: []}
-  - {name: durban-north-glen-anil-west,lat_lngs: []}
-  - {name: durban-north-parkhill-industrial,lat_lngs: []}
-  - {name: durban-north-red-hill-industrial,lat_lngs: []}
-  - {name: durban-north-umgeni-park,lat_lngs: []}
+  areas: []
 
 - calendar_name: kwazulu-natal-ethekwini-block-19.ics
   province: kwazulu-natal
   municipality: ethekwini-metropolitan
   city: ethekwini
   provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: pinetown-motala-heights,lat_lngs: []}
-  - {name: pinetown-north,lat_lngs: []}
-  - {name: pinetown-westmead,lat_lngs: []}
+  areas: []
 
 - calendar_name: kwazulu-natal-ethekwini-block-20.ics
   province: kwazulu-natal
   municipality: ethekwini-metropolitan
   city: ethekwini
   provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
+  source: https://www.durban.gov.za/storage/LoadSheddingSchedule2023.pdf
   source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: bluff-austerville,lat_lngs: []}
-  - {name: bluff-merewent,lat_lngs: []}
-  - {name: bluff-wentworth-west,lat_lngs: []}
-  - {name: durban-clairwood,lat_lngs: []}
-  - {name: durban-jacobs,lat_lngs: []}
-  - {name: durban-mobeni-north,lat_lngs: []}
-  - {name: durban-rossburgh,lat_lngs: []}
-  - {name: durban-sea-view-industrial,lat_lngs: []}
-
-- calendar_name: kwazulu-natal-ethekwini-block-21.ics
-  province: kwazulu-natal
-  municipality: ethekwini-metropolitan
-  city: ethekwini
-  provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
-  source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: bluff-merebank-east,lat_lngs: []}
-  - {name: durban-bayhead,lat_lngs: []}
-  - {name: durban-mobeni-south,lat_lngs: []}
-  - {name: durban-mobeni-west,lat_lngs: []}
-  - {name: durban-montclair,lat_lngs: []}
-  - {name: durban-woodlands-industrial,lat_lngs: []}
-  - {name: durban-yellowwood-park-industrial,lat_lngs: []}
-  - {name: lamontville-lamont-north,lat_lngs: []}
-
-- calendar_name: kwazulu-natal-ethekwini-block-22.ics
-  province: kwazulu-natal
-  municipality: ethekwini-metropolitan
-  city: ethekwini
-  provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
-  source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: isipingo-beach,lat_lngs: []}
-  - {name: isipingo-durban-airport,lat_lngs: []}
-  - {name: isipingo-prospecton-industrial,lat_lngs: []}
-  - {name: isipingo-reunion,lat_lngs: []}
-  - {name: umbogintwini-industrial,lat_lngs: []}
-
-- calendar_name: kwazulu-natal-ethekwini-block-23.ics
-  province: kwazulu-natal
-  municipality: ethekwini-metropolitan
-  city: ethekwini
-  provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
-  source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: canelands-industrial,lat_lngs: []}
-  - {name: durban-congella-north,lat_lngs: []}
-  - {name: durban-maydon-wharf,lat_lngs: []}
-  - {name: durban-umbilo,lat_lngs: []}
-  - {name: hambanathi-maidstone,lat_lngs: []}
-  - {name: tongaat-belvedere-north,lat_lngs: []}
-  - {name: tongaat-burbreeze,lat_lngs: []}
-  - {name: tongaat-cottonlands-industrial,lat_lngs: []}
-  - {name: tongaat-fairbreeze-industrial,lat_lngs: []}
-  - {name: tongaat-gwala,lat_lngs: []}
-  - {name: tongaat-sandfields,lat_lngs: []}
-  - {name: verulam-industrial,lat_lngs: []}
-  - {name: verulam-missionlands,lat_lngs: []}
-  - {name: verulam-riverview-park-industrial,lat_lngs: []}
-  - {name: verulam-umdhloti-heights,lat_lngs: []}
-
-- calendar_name: kwazulu-natal-ethekwini-block-24.ics
-  province: kwazulu-natal
-  municipality: ethekwini-metropolitan
-  city: ethekwini
-  provider: ethekwini
-  source: https://www.durban.gov.za/storage/Documents/Electricity%20Forms/load-shedding/Load%20Shedding%20Schedule%202022%20on%20A4%20v03.pdf
-  source_info: https://www.durban.gov.za/pages/residents/load-shedding
-  areas:
-  - {name: new-germany-industrial,lat_lngs: []}
-  - {name: new-germany-berkshire-downs,lat_lngs: []}
-  - {name: pinetown-east,lat_lngs: []}
+  areas: []
