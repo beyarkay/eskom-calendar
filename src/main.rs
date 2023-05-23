@@ -60,7 +60,13 @@ fn main() -> Result<(), BoxedError> {
             let area_name = fmt::path_to_area_name(path).unwrap();
             match calculate_power_outages(&area_name, sheddings, &manually_specified) {
                 Ok((outages, last_finsh)) => Some((path, outages, last_finsh)),
-                Err(_) => None,
+                Err(e) => {
+                    error!(
+                        "Error while calculating power outages for {}: {}",
+                        area_name, e
+                    );
+                    None
+                }
             }
         })
         // Write the individual sheddings to ICS files
