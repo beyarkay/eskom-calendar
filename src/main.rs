@@ -12,7 +12,7 @@ use std::process::Command;
 use structs::{Args, Change, ManuallyInputSchedule, PowerOutage, Recurrence, RecurringShedding};
 
 extern crate pretty_env_logger;
-use log::{error, info, trace};
+use log::{error, info, trace, warn};
 
 use clap::Parser;
 mod structs;
@@ -166,10 +166,14 @@ fn calculate_power_outages(
         .filter(|c| !c.exclude_regex.is_match(area_name) && c.include_regex.is_match(area_name))
         .collect();
     let combos = make_combinations_from_sheddings(&monthly_sheddings, &national_changes);
-    trace!(
-        "Checking {} combinations for possible load shedding in {area_name}",
-        combos.len(),
-    );
+    if combos.is_empty() {
+        warn!("No combinations for possible load shedding in {area_name}\nmonthly sheddings: {}, national changes: {}", monthly_sheddings.len(), national_changes.len());
+    } else {
+        trace!(
+            "Checking {} combinations for possible load shedding in {area_name}",
+            combos.len(),
+        );
+    }
     let mut last_finsh: Option<DateTime<FixedOffset>> = None;
     let mut outages = vec![];
 
