@@ -1,5 +1,5 @@
-use chrono::{FixedOffset, Days};
 use chrono::{DateTime, Datelike, NaiveTime, Timelike};
+use chrono::{Days, FixedOffset};
 use icalendar::{Calendar, EventLike};
 use rayon::prelude::*;
 use regex::Regex;
