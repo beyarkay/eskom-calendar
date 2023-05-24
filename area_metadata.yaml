@@ -6088,7 +6088,6 @@ area_details:
   - {name: horwood,lat_lngs: []}
   - {name: selcourt,lat_lngs: []}
 
-
 - calendar_name: gauteng-ekurhuleni-block-10.ics
   province: gauteng
   municipality: city-of-ekurhuleni-metropolitan
@@ -6222,6 +6221,299 @@ area_details:
   - {name: rondebult,lat_lngs: []}
   - {name: roodekop-extension,lat_lngs: []}
   - {name: wadeville,lat_lngs: []}
+
+- calendar_name: gauteng-emfuleni-area-a1.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - peacehaven
+  - duncanville extension 4
+  - proroof
+  - sar houses
+  - usco flat in peacehaven
+
+- calendar_name: gauteng-emfuleni-area-a2.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - indian plaza
+  - rivera aquatic club
+  - vereeniging cbd
+  - leeuhof
+  - vereeniging area
+  - vereeniging
+
+- calendar_name: gauteng-emfuleni-area-a3.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - three rivers proper west
+  - three rivers extension 1
+  - three rivers proper east
+  - klipplardrift three rivers extension 2
+  - three rivers extension 1
+  - three rivers mall
+  - midvaal hospital
+
+- calendar_name: gauteng-emfuleni-area-a4.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - steelpark
+  - homer
+  - tshepiso
+  - roods garden
+
+- calendar_name: gauteng-emfuleni-area-a5.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - leeukuil
+  - leeukuil water treatment plant
+  - leeukuil market
+  - leeukuil prison
+  - leeukuil premeur foods
+  - premiuer milling
+  - premuer milling
+  - saps
+  - huawei
+
+- calendar_name: gauteng-emfuleni-area-a6.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - powerville industrial
+
+- calendar_name: gauteng-emfuleni-area-a7.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - arconpark
+  - waldrift
+  - springkol
+  - duncanville
+  - vereeniging extension 1
+  - unitaspark
+  - redan
+  - kopanong
+  - sa block
+  - duncanville extension 3
+
+- calendar_name: gauteng-emfuleni-area-a8.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - mitco
+  - metso
+  - vaal toyota
+  - duncaville industrial
+  - dickson batteries
+  - blue ribbon
+  - ctm
+
+- calendar_name: gauteng-emfuleni-area-a9.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - union steel
+  - usco 5
+
+- calendar_name: gauteng-emfuleni-area-a10.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - verref
+
+- calendar_name: gauteng-emfuleni-area-a11.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - north east 3 industries
+  - north east 3 industries metal box
+  - north east 3 industries collect a can
+  - north east 3 industries divpac
+  - north east 3 industries central wire industries
+
+- calendar_name: gauteng-emfuleni-area-a12.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - South East 6
+  - South East 7
+  - South East 8
+  - South East 10
+  - riverbend gardens
+  - emerald
+  - nwu
+  - riverspray
+  - curro
+
+- calendar_name: gauteng-emfuleni-area-a13.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - north west 7 industries slagment
+  - north west 7 industries afrox
+  - north west 7 industries dorbyl
+
+- calendar_name: gauteng-emfuleni-area-a14.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - cw 2
+  - cw 3
+  - cw 4
+  - cw 5
+  - cw 6
+  - bophelong
+  - north west 7
+  - bonanne
+  - stefano park
+
+- calendar_name: gauteng-emfuleni-area-a15.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - vecor sarco
+  - vecor clotan steel
+
+- calendar_name: gauteng-emfuleni-area-a17.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - cape gate
+
+- calendar_name: gauteng-emfuleni-area-a18.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - roshnee
+  - rustervaal
+  - dudaville
+  - dreamlads
+  - roshashia
+  - waterdaal
+  - lenteland
+  - ocon
+  - vlaakfontein
+  - koppiesol
+
+- calendar_name: gauteng-emfuleni-area-a19.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - sebokeng hostel
+  - peace height
+  - ironsyde
+  - tshepong
+  - eatonside
+  - vaalower
+
+- calendar_name: gauteng-emfuleni-area-a20.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - mackinen chain
+
+- calendar_name: gauteng-emfuleni-area-a21.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - sonlandpark
+  - falcon ridge
+  - houtkop plot
+  - helenasrus
+  - van der merweskroon
+  - harmoniesrus
+  - lanteland
+
+- calendar_name: gauteng-emfuleni-area-a22.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - bedworthpark
+
+- calendar_name: gauteng-emfuleni-area-a23.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - vanderbijl cbd
+  - ce 1
+  - ce 2
+  - ce 3
+  - ce 4
+  - ce 5
+  - ce 6
+  - ce 7
+  - miami sands
+  - technikon vut
+  - powervillepark
 
 - calendar_name: gauteng-tshwane-group-1.ics
   province: gauteng
@@ -12803,3 +13095,4 @@ area_details:
   - {name: "southgate north",lat_lngs: []}
   - {name: "woodlands industrial",lat_lngs: []}
   - {name: "wentworth west",lat_lngs: []}
+
