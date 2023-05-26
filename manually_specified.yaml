@@ -12,31 +12,6 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 5
-  start: 2023-05-23T16:00:00
-  finsh: 2023-05-24T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1660938174791663616
-  exclude: coct
-- stage: 4
-  start: 2023-05-24T05:00:00
-  finsh: 2023-05-24T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1660938174791663616
-  exclude: coct
-- stage: 5
-  start: 2023-05-24T16:00:00
-  finsh: 2023-05-25T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1660938174791663616
-  exclude: coct
-- stage: 4
-  start: 2023-05-25T05:00:00
-  finsh: 2023-05-25T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1660938174791663616
-  exclude: coct
-- stage: 5
-  start: 2023-05-25T16:00:00
-  finsh: 2023-05-26T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1660938174791663616
-  exclude: coct
 - stage: 4
   start: 2023-05-26T05:00:00
   finsh: 2023-05-26T16:00:00
@@ -78,43 +53,33 @@ changes:
   source: https://twitter.com/Eskom_SA/status/1660938174791663616
   exclude: coct
 - stage: 3
-  start: '2023-05-23T05:00:00'
-  finsh: '2023-05-23T20:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
-  include: coct
-- stage: 5
-  start: '2023-05-23T20:00:00'
-  finsh: '2023-05-24T05:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
-  include: coct
-- stage: 3
-  start: '2023-05-24T05:00:00'
-  finsh: '2023-05-24T20:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
-  include: coct
-- stage: 5
-  start: '2023-05-24T20:00:00'
-  finsh: '2023-05-25T05:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
-  include: coct
-- stage: 3
-  start: '2023-05-25T05:00:00'
-  finsh: '2023-05-25T22:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
-  include: coct
-- stage: 5
-  start: '2023-05-25T22:00:00'
-  finsh: '2023-05-26T05:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
-  include: coct
-- stage: 3
   start: '2023-05-26T05:00:00'
   finsh: '2023-05-26T22:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
+  source: https://twitter.com/CityofCT/status/1662091022543859712
   include: coct
 - stage: 5
   start: '2023-05-26T22:00:00'
   finsh: '2023-05-27T05:00:00'
-  source: https://twitter.com/CityofCT/status/1660963541325692929
+  source: https://twitter.com/CityofCT/status/1662091022543859712
+  include: coct
+- stage: 3
+  start: '2023-05-27T05:00:00'
+  finsh: '2023-05-27T16:00:00'
+  source: https://twitter.com/CityofCT/status/1662091022543859712
+  include: coct
+- stage: 5
+  start: '2023-05-27T16:00:00'
+  finsh: '2023-05-28T05:00:00'
+  source: https://twitter.com/CityofCT/status/1662091022543859712
+  include: coct
+- stage: 2
+  start: '2023-05-28T05:00:00'
+  finsh: '2023-05-28T16:00:00'
+  source: https://twitter.com/CityofCT/status/1662091022543859712
+  include: coct
+- stage: 4
+  start: '2023-05-28T16:00:00'
+  finsh: '2023-05-29T05:00:00'
+  source: https://twitter.com/CityofCT/status/1662091022543859712
   include: coct
 historical_changes: []
