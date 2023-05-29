@@ -108,9 +108,9 @@ fn main() -> Result<(), BoxedError> {
             (path, new_outages, last_finsh)
         })
         // Write the individual sheddings to ICS files
-        .map(|(path, outages, last_finsh)| {
+        .map(|(path, mut outages, last_finsh)| {
             if args.output_ics_files {
-                write_sheddings_to_ics(path, &outages, last_finsh, expired.clone(), expired_at).unwrap();
+                write_sheddings_to_ics(path, &mut outages, last_finsh, expired.clone(), expired_at).unwrap();
             }
             (path, outages)
         })
@@ -250,7 +250,7 @@ fn calculate_power_outages(
 /// Attempt to write some PowerOutages to the specified path as a ICS file.
 fn write_sheddings_to_ics(
     path: &Path,
-    power_outages: &[PowerOutage],
+    power_outages: &mut [PowerOutage],
     last_finsh: Option<DateTime<FixedOffset>>,
     expired: Vec<&str>,
     expired_at: DateTime<FixedOffset>,
@@ -271,12 +271,29 @@ fn write_sheddings_to_ics(
 
     let mut calendar = Calendar::new();
 
-    let short_enough_outages = power_outages
-        .iter()
-        .filter(|outage| outage.finsh - outage.start > min_duration);
+    power_outages.sort_by_key(|outage| outage.start);
 
-    // Add all the short enough events to the calendar
-    for outage in short_enough_outages {
+    let long_enough_outages = power_outages.iter().enumerate().filter(|(i, outage)| {
+        println!("{i}/{}: {outage}", power_outages.len() - 1);
+        let curr_event_long_enough = outage.finsh - outage.start > min_duration;
+
+        // If i == 0, then there's no previous event so they can't collide
+        let prev_event_collides = i != &0
+            && power_outages
+                .get(i - 1)
+                .map_or(false, |o| outage.start.sub(o.finsh) <= Duration::minutes(1));
+
+        // If i+1 == power_outages.len, then there's no next event so they can't collide
+        let next_event_does_collide = i + 1 != power_outages.len()
+            && power_outages
+                .get(i + 1)
+                .map_or(false, |o| o.start.sub(outage.finsh) <= Duration::minutes(1));
+
+        dbg!(curr_event_long_enough) || (dbg!(prev_event_collides) || dbg!(next_event_does_collide))
+    });
+
+    // Add all the long enough events to the calendar
+    for (_i, outage) in long_enough_outages {
         // Convert the outage to an event, and add it to the calendar
         calendar.push(fmt::power_outage_to_event(outage)?);
     }
@@ -1019,11 +1036,78 @@ mod tests {
 
         use crate::tests::rfc3339;
         use crate::{structs::PowerOutage, write_sheddings_to_ics};
+        use std::fs::remove_file;
         use std::path::PathBuf;
 
         #[test]
+        fn doesnt_remove_sequential_events() {
+            let mut power_outages = vec![
+                // First the long event, then the 30 minute event
+                PowerOutage {
+                    area_name: "test_area".to_string(),
+                    stage: 2,
+                    start: rfc3339("2023-05-29T18:00:00+02:00"),
+                    finsh: rfc3339("2023-05-29T20:00:00+02:00"),
+                    source: "test source".to_string(),
+                },
+                PowerOutage {
+                    area_name: "test_area".to_string(),
+                    stage: 4,
+                    start: rfc3339("2023-05-29T20:00:00+02:00"),
+                    finsh: rfc3339("2023-05-29T20:30:00+02:00"),
+                    source: "test source".to_string(),
+                },
+                // First the 30 minute event, then the long event
+                PowerOutage {
+                    area_name: "test_area".to_string(),
+                    stage: 2,
+                    start: rfc3339("2023-05-29T10:00:00+02:00"),
+                    finsh: rfc3339("2023-05-29T10:30:00+02:00"),
+                    source: "test source".to_string(),
+                },
+                PowerOutage {
+                    area_name: "test_area".to_string(),
+                    stage: 4,
+                    start: rfc3339("2023-05-29T10:30:00+02:00"),
+                    finsh: rfc3339("2023-05-29T12:00:00+02:00"),
+                    source: "test source".to_string(),
+                },
+            ];
+
+            let last_finsh = power_outages
+                .iter()
+                .max_by_key(|outage| outage.finsh)
+                .map(|outage| outage.finsh);
+
+            let calendar = write_sheddings_to_ics(
+                &PathBuf::from("test.csv"),
+                &mut power_outages,
+                last_finsh,
+                vec![],
+                rfc3339("2099-01-01T00:00:00+02:00"),
+            )
+            .unwrap();
+
+            let _ = remove_file("test.ics");
+
+            let events: Vec<_> = calendar
+                .components
+                .iter()
+                .filter_map(|c| c.as_event())
+                // Filter out all the non-loadshedding events
+                .filter(|e| {
+                    e.get_summary().map_or(false, |s| {
+                        !s.contains("End of schedule") && !s.contains("Schedule expired")
+                    })
+                })
+                .collect();
+
+            assert!(events.len() == power_outages.len());
+        }
+
+        #[test]
         fn removes_events_le_30_minutes() {
-            let power_outages = vec![
+            let mut power_outages = vec![
                 PowerOutage {
                     area_name: "test_area".to_string(),
                     stage: 4,
@@ -1054,12 +1138,13 @@ mod tests {
 
             let calendar = write_sheddings_to_ics(
                 &PathBuf::from("test.csv"),
-                &power_outages,
+                &mut power_outages,
                 last_finsh,
                 vec![],
                 rfc3339("2099-01-01T00:00:00+02:00"),
             )
             .unwrap();
+            let _ = remove_file("test.ics");
 
             let events: Vec<_> = calendar
                 .components
