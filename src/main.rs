@@ -279,14 +279,18 @@ fn write_sheddings_to_ics(
         if expired.contains(&area_name.as_str()) {
             calendar.push(fmt::expired_schedule_event(&area_name, expired_at)?);
             is_expired_ics = true;
-        }
-        // If the calendar has expired in the past, it's possible a new user might not see the
-        // warning. So add another warning on the same day as compilation, to make sure.
-        if expired_at.checked_add_days(Days::new(1)).unwrap() < chrono::offset::Local::now() {
-            let event = fmt::expired_schedule_event(&area_name, expired_at)?
-                .all_day(chrono::offset::Local::now().date_naive())
-                .done();
-            calendar.push(event);
+            // If the calendar has expired in the past, it's possible a new user might not see the
+            // warning. So add another warning on the same day as compilation, to make sure.
+            if expired_at.checked_add_days(Days::new(1)).unwrap() < chrono::offset::Local::now() {
+                info!(
+                    "Writing expired event because {area_name} in expired && {expired_at:?} < {:?}",
+                    chrono::offset::Local::now()
+                );
+                let event = fmt::expired_schedule_event(&area_name, expired_at)?
+                    .all_day(chrono::offset::Local::now().date_naive())
+                    .done();
+                calendar.push(event);
+            }
         }
     }
     // TODO There are no tests to check that an end-of-schedule event is being added properly
