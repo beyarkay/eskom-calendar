@@ -1,4 +1,4 @@
-use chrono::{DateTime, Datelike, NaiveTime, Timelike};
+use chrono::{DateTime, Datelike, Duration, NaiveTime, Timelike};
 use chrono::{Days, FixedOffset};
 use icalendar::{Calendar, EventLike};
 use rayon::prelude::*;
@@ -254,7 +254,7 @@ fn write_sheddings_to_ics(
     last_finsh: Option<DateTime<FixedOffset>>,
     expired: Vec<&str>,
     expired_at: DateTime<FixedOffset>,
-) -> Result<(), BoxedError> {
+) -> Result<Calendar, BoxedError> {
     // Get the correct filename
     let fname = path
         .to_str()
@@ -266,10 +266,17 @@ fn write_sheddings_to_ics(
 
     info!("Writing {} events to {:?}", power_outages.len(), fname);
 
+    // Any shedding duration <= min_duration is not included
+    let min_duration = Duration::minutes(30);
+
     let mut calendar = Calendar::new();
 
-    // Add all the events to the calendar
-    for outage in power_outages {
+    let short_enough_outages = power_outages
+        .iter()
+        .filter(|outage| outage.finsh - outage.start > min_duration);
+
+    // Add all the short enough events to the calendar
+    for outage in short_enough_outages {
         // Convert the outage to an event, and add it to the calendar
         calendar.push(fmt::power_outage_to_event(outage)?);
     }
@@ -306,7 +313,7 @@ fn write_sheddings_to_ics(
     let mut file = File::create(fname.as_str())?;
     writeln!(&mut file, "{}", calendar)?;
 
-    Ok(())
+    Ok(calendar)
 }
 
 /// Given a list of power outages, convert them to a single CSV file for machine consumption.
@@ -1003,6 +1010,77 @@ mod tests {
                 let paths = vec![];
                 assert!(err_if_overlaps(&changes, &paths).is_ok())
             }
+        }
+    }
+
+    mod write_sheddings_to_ics {
+        use chrono::Duration;
+        use icalendar::{CalendarDateTime, Component, DatePerhapsTime};
+
+        use crate::tests::rfc3339;
+        use crate::{structs::PowerOutage, write_sheddings_to_ics};
+        use std::path::PathBuf;
+
+        #[test]
+        fn removes_events_le_30_minutes() {
+            let power_outages = vec![
+                PowerOutage {
+                    area_name: "test_area".to_string(),
+                    stage: 4,
+                    start: rfc3339("2023-05-29T10:00:00+02:00"),
+                    finsh: rfc3339("2023-05-29T10:30:00+02:00"),
+                    source: "test source".to_string(),
+                },
+                PowerOutage {
+                    area_name: "test_area".to_string(),
+                    stage: 4,
+                    start: rfc3339("2023-05-29T18:00:00+02:00"),
+                    finsh: rfc3339("2023-05-29T18:10:00+02:00"),
+                    source: "test source".to_string(),
+                },
+                PowerOutage {
+                    area_name: "test_area".to_string(),
+                    stage: 4,
+                    start: rfc3339("2023-05-29T20:00:00+02:00"),
+                    finsh: rfc3339("2023-05-29T20:31:00+02:00"),
+                    source: "test source".to_string(),
+                },
+            ];
+
+            let last_finsh = power_outages
+                .iter()
+                .max_by_key(|outage| outage.finsh)
+                .map(|outage| outage.finsh);
+
+            let calendar = write_sheddings_to_ics(
+                &PathBuf::from("test.csv"),
+                &power_outages,
+                last_finsh,
+                vec![],
+                rfc3339("2099-01-01T00:00:00+02:00"),
+            )
+            .unwrap();
+
+            let events: Vec<_> = calendar
+                .components
+                .iter()
+                .filter_map(|c| c.as_event())
+                .collect();
+
+            let min_duration = Duration::minutes(30);
+
+            assert!(events.iter().all(|e| {
+                if let DatePerhapsTime::DateTime(CalendarDateTime::Utc(start)) =
+                    e.get_start().unwrap()
+                {
+                    if let DatePerhapsTime::DateTime(CalendarDateTime::Utc(finsh)) =
+                        e.get_end().unwrap()
+                    {
+                        return finsh - start > min_duration;
+                    }
+                }
+                false
+            }));
         }
     }
 
