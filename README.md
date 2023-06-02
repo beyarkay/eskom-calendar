@@ -4,18 +4,19 @@
       <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
     </a>
   </h1>
-
   <a href="https://somsubhra.github.io/github-release-stats/?username=beyarkay&repository=eskom-calendar">
     <img alt="GitHub downloads" src="https://img.shields.io/github/downloads/beyarkay/eskom-calendar/latest/total?label=Calendar%20Downloads">
   </a>
-
   <a href="https://github.com/beyarkay/eskom-calendar">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/beyarkay/eskom-calendar?style=social">
   </a>
-
   <a href="https://twitter.com/intent/tweet?text=Hey%20@beyarkay%20I%20love%20eskom-calendar!">
     <img alt="Twitter share" src="https://img.shields.io/twitter/follow/beyarkay?label=Say%20thanks%20on%20Twitter%21&style=social">
   </a>
+  <a href="https://discord.gg/m8rWu3n3Ws">
+    <img alt="Discord" src="https://img.shields.io/discord/1109409373077372969?color=blueviolet&label=discord.gg">
+  </a>
+  
   <br>
   <a href="https://ko-fi.com/beyarkay">
     <img alt="Support on Ko-Fi" src="https://img.shields.io/badge/Ko--Fi-Once%20off%20donation-ff5f5f">
