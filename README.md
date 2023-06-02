@@ -32,7 +32,7 @@
   </p>
   <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">Get it</a> •
   <a href="#easy-to-understand-and-plan-around">Key Features</a> •
-  <a href="#using-the-data-in-your-own-projects">Using the data</a> •
+  <a href="#using-the-api">Using the API</a> •
   <a href="#project-goals-and-alternatives">Project goals & alternatives</a><br>
 </div>
 
@@ -188,10 +188,42 @@ visible even with JavaScript disabled, and not use a tinyurl or any other form o
 or redirection. Furthermore, the links must not be
 [nofollowed](https://googleblog.blogspot.com/2005/01/preventing-comment-spam.html).
 
-## Using the Data in Your Own Projects
+## Using the API
 
 We are really interested to see what the developers of South Africa do with
-this data source.
+this data source. Go view the api [here](https://eskom-calendar-api.shuttleapp.rs/)
+
+> Hey! The API is version 0.0.1, so might still have some rough edges. That said,
+> it *does* have all the data you'd want for regular usage and should already be
+> stable enough for hobby projects. If you find a problem or have a suggestion,
+> please open an issue on the [API repo](https://github.com/beyarkay/eskom-calendar-api) ❤️
+
+Thanks to the folks at [shuttle.rs](https://www.shuttle.rs/) for powering the backend! Honestly it
+probably wouldn't have happened without their free tier.
+
+As a quick preview, the API lets you get the times when Stellenbosch will be out of power with
+a simple get request:
+
+```
+curl https://eskom-calendar-api.shuttleapp.rs/outages/western-cape-stellenbosch | jq
+
+[
+  {
+    "area_name": "western-cape-stellenbosch",
+    "stage": 6,
+    "start": "2023-06-01T18:00:00+02:00",
+    "finsh": "2023-06-01T20:30:00+02:00",
+    "source": "https://twitter.com/Eskom_SA/status/1664250326818365440"
+  },
+  ...
+]
+```
+
+Go check it out! It's free and unrestricted.
+
+## `curl`-ing the raw github data
+
+> (This method has been replaced by the API, and isn't as nice to use as the API.)
 
 The main file of interest will be
 [`machine_friendly.csv`](https://github.com/beyarkay/eskom-calendar/releases/download/latest/machine_friendly.csv)
