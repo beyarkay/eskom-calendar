@@ -23,6 +23,7 @@ import base64
 import json
 import os
 import re
+from typing import Optional
 import requests
 import yaml
 import sys
@@ -119,10 +120,13 @@ def fail_unless_200(response, status_code=200):
     return response
 
 
-def get_tweets(tweet_id):
-    print(
-        f"Getting tweets for CPT after https://twitter.com/CityofCT/status/{tweet_id}"
-    )
+def get_tweets(tweet_id: Optional[int]):
+    if tweet_id is None:
+        print("Getting the most recent 100 tweets")
+    else:
+        print(
+            f"Getting tweets for CPT after https://twitter.com/CityofCT/status/{tweet_id}"
+        )
 
     def bearer_oauth(r):
         """Method required by bearer token authentication."""
@@ -130,13 +134,22 @@ def get_tweets(tweet_id):
         r.headers["User-Agent"] = "eskom-calendar-auto-pr-bot"
         return r
 
+    # TODO this might ignore time zones...
+    thirty_mns_ago_Z = (datetime.now() - timedelta(minutes=30)).isoformat(
+        sep="T",
+    )[:-7] + "Z"
+
     result = fail_unless_200(
         requests.request(
             "GET",
             f"https://api.twitter.com/2/users/{COCT_USER_ID}/tweets",
             auth=bearer_oauth,
             params={
-                "since_id": str(tweet_id),
+                **(
+                    {"start_time": thirty_mns_ago_Z}
+                    if tweet_id is None
+                    else {"since_id": str(tweet_id)}
+                ),
                 "tweet.fields": "created_at",
                 "max_results": 100,
                 "exclude": "retweets,replies",
@@ -145,9 +158,12 @@ def get_tweets(tweet_id):
     ).json()
 
     if "data" not in result:
-        print(
-            f"There are no tweets after https://twitter.com/CityofCT/status/{tweet_id}"
-        )
+        if tweet_id is None:
+            print(f"There are no tweets after {thirty_mns_ago_Z}")
+        else:
+            print(
+                f"There are no tweets after https://twitter.com/CityofCT/status/{tweet_id}"
+            )
         sys.exit(0)
     return result
 
@@ -397,7 +413,7 @@ def main():
 
     # Get all tweets *after* the latest known CoCT source as shown in
     # `manually_specified.yaml`
-    json_response = get_tweets(max(tweet_ids))
+    json_response = get_tweets(None if len(tweet_ids) == 0 else max(tweet_ids))
     tweet_urls = [
         f"https://twitter.com/CityofCT/status/{t['id']}"
         for t in json_response["data"]
