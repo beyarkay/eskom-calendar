@@ -761,15 +761,8 @@ mod read {
         }
 
         let local_shedding = raw
-            .iter()
+            .into_iter()
             .filter(|shedding| shedding.stage != 0)
-            .map(|shedding| RecurringShedding {
-                start_time: shedding.start_time,
-                finsh_time: shedding.finsh_time,
-                stage: shedding.stage,
-                recurrence: shedding.recurrence,
-                day_of_recurrence: shedding.day_of_recurrence,
-            })
             .collect::<Vec<RecurringShedding>>();
         Ok(local_shedding)
     }
