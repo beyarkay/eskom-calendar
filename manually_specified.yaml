@@ -27,7 +27,7 @@ changes:
   finsh: 2023-06-04T16:00:00
   source: https://twitter.com/Eskom_SA/status/1664987567463309312
   exclude: coct
-  
+
 - stage: 0
   start: 2023-06-03T11:40:00
   finsh: 2023-06-03T16:00:00
