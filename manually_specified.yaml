@@ -14,7 +14,6 @@
 changes:
 - stage: 0
   start: 2023-06-03T11:40:00
-  finsh: 2023-06-31T23:59:00
+  finsh: 2023-07-01T00:00:00
   source: https://twitter.com/Eskom_SA/status/1664943896822939649
-
 historical_changes: []
