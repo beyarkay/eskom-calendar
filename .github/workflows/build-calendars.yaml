@@ -1,7 +1,10 @@
 name: Build Calendars
 
 on:
-  pull_request:
+  # Use `pull_request_target` to allow PRs from forks
+  # to have access to the repository's secrets
+  # https://stackoverflow.com/a/74959635/14555505
+  pull_request_target:
     branches: [ "main" ]
     paths:
       - 'manually_specified.yaml'
