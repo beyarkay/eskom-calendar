@@ -812,3 +812,69 @@ mod gen_datetimes {
         );
     }
 }
+
+/// TODO: Things to test
+/// - that there are no overlaps in the CSVs in `generated/*.csv`
+/// - that there are no duplicated area names in  areas.csv
+/// - that there are no duplicated URLs in urls.csv
+mod csvs {
+    use std::path::Path;
+
+    #[test]
+    fn csvs_exist() {
+        let paths = vec![
+            "data/aliases.csv",
+            "data/areas.csv",
+            "data/municipalities.csv",
+            "data/recurring_schedules.csv",
+            "data/schedules",
+            "data/urls.csv",
+        ];
+        for path in paths {
+            assert!(Path::new(path).exists())
+        }
+    }
+
+    #[ignore = "WIP"]
+    #[test]
+    /// Takes a long time (~40s)
+    fn no_overlapping_schedules() {
+        let mut overlaps = vec![];
+        let paths = crate::read::get_csv_paths("generated/").unwrap();
+        for path in paths {
+            let sheddings = crate::read::read_sheddings_from_csv_path(&path).unwrap();
+            for (i, s1) in sheddings.iter().enumerate() {
+                let s1_start = s1.start_time.time();
+                let s1_finsh = s1.finsh_time.time();
+                for s2 in sheddings.iter().skip(i + 1) {
+                    let s2_start = s2.start_time.time();
+                    let s2_finsh = s2.finsh_time.time();
+                    let same_stage = s1.stage == s2.stage;
+
+                    let crosses_midnight = s1_start > s1_finsh || s2_start > s2_finsh;
+
+                    let times_overlap =
+                        !crosses_midnight && (s1_start < s2_finsh && s1_finsh > s2_start);
+
+                    let same_day = s1.day_of_recurrence == s2.day_of_recurrence;
+
+                    if same_stage && times_overlap && same_day {
+                        overlaps.push(format!(
+                                "Two times overlap for stage {} in file {:?}:\n- {}: {} -> {}\n- {}: {} -> {}",
+                                s1.stage, path,
+                                s1.day_of_recurrence, s1_start, s1_finsh,
+                                s2.day_of_recurrence, s2_start, s2_finsh,
+                            )
+                        );
+                    }
+                }
+            }
+        }
+        if !overlaps.is_empty() {
+            for overlap in &overlaps {
+                println!("{}\n", overlap);
+            }
+            panic!("Overlaps has {} (which is >0) elements", overlaps.len());
+        }
+    }
+}
