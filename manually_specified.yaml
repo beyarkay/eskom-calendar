@@ -13,31 +13,6 @@
 ---
 changes:
 - stage: 3
-  start: 2023-06-16T16:00:00
-  finsh: 2023-06-17T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
-  start: 2023-06-17T16:00:00
-  finsh: 2023-06-18T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
-  start: 2023-06-18T16:00:00
-  finsh: 2023-06-19T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
-  start: 2023-06-19T16:00:00
-  finsh: 2023-06-20T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
-  start: 2023-06-20T16:00:00
-  finsh: 2023-06-21T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
   start: 2023-06-21T16:00:00
   finsh: 2023-06-22T00:00:00
   source: https://twitter.com/Eskom_SA/status/1668984599936991232
@@ -47,22 +22,32 @@ changes:
   finsh: 2023-06-23T00:00:00
   source: https://twitter.com/Eskom_SA/status/1668984599936991232
   exclude: coct
-
 - stage: 3
-  start: 2023-06-18T16:00:00
-  finsh: 2023-06-19T00:00:00
-  source: https://twitter.com/CityofCT/status/1670445029519753218
-  include: coct
-- stage: 1
-  start: 2023-06-19T16:00:00
-  finsh: 2023-06-20T00:00:00
-  source: https://twitter.com/CityofCT/status/1670445029519753218
-  include: coct
-- stage: 1
-  start: 2023-06-20T16:00:00
-  finsh: 2023-06-21T00:00:00
-  source: https://twitter.com/CityofCT/status/1670445029519753218
-  include: coct
+  start: 2023-06-23T16:00:00
+  finsh: 2023-06-24T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  exclude: coct
+- stage: 3
+  start: 2023-06-24T16:00:00
+  finsh: 2023-06-25T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  exclude: coct
+- stage: 3
+  start: 2023-06-25T16:00:00
+  finsh: 2023-06-26T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  exclude: coct
+- stage: 3
+  start: 2023-06-26T16:00:00
+  finsh: 2023-06-27T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  exclude: coct
+- stage: 3
+  start: 2023-06-27T16:00:00
+  finsh: 2023-06-28T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  exclude: coct
+
 - stage: 1
   start: 2023-06-21T16:00:00
   finsh: 2023-06-22T00:00:00
