@@ -12,40 +12,30 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 3
-  start: 2023-06-23T16:00:00
-  finsh: 2023-06-24T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+- stage: 1
+  start: 2023-06-24T05:00:00
+  finsh: 2023-06-24T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1672279129914236928
   exclude: coct
 - stage: 3
   start: 2023-06-24T16:00:00
   finsh: 2023-06-25T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  source: https://twitter.com/Eskom_SA/status/1672279129914236928
+  exclude: coct
+- stage: 1
+  start: 2023-06-25T05:00:00
+  finsh: 2023-06-25T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1672279129914236928
   exclude: coct
 - stage: 3
   start: 2023-06-25T16:00:00
   finsh: 2023-06-26T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  source: https://twitter.com/Eskom_SA/status/1672279129914236928
   exclude: coct
 - stage: 3
   start: 2023-06-26T16:00:00
   finsh: 2023-06-27T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
-  start: 2023-06-27T16:00:00
-  finsh: 2023-06-28T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
-  start: 2023-06-28T16:00:00
-  finsh: 2023-06-29T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
-  exclude: coct
-- stage: 3
-  start: 2023-06-29T16:00:00
-  finsh: 2023-06-30T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1668984599936991232
+  source: https://twitter.com/Eskom_SA/status/1672279129914236928
   exclude: coct
 
 - stage: 1
