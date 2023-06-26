@@ -266,15 +266,21 @@ fn write_sheddings_to_ics(
 
     info!("Writing {} events to {:?}", power_outages.len(), fname);
 
-    // Any shedding duration <= min_duration is not included
+    // Any shedding duration <= min_duration is not included.
+    //
+    // NOTE: these events *are* include in the CSV file, but are *not* included in the ICS file.
+    // There's no formal notice from any municipality that they won't turn off the power if a
+    // loadshedding outage is <=30m long, however this is the widely observed truth. So for the
+    // user-facing ICS files, we remove the 30m loadshedding item, but for the machine-facing CSV
+    // file, we keep it in.
     let min_duration = Duration::minutes(30);
 
     let mut calendar = Calendar::new();
 
     power_outages.sort_by_key(|outage| outage.start);
 
+    // Filter out all the outages which are under 30 minutes long
     let long_enough_outages = power_outages.iter().enumerate().filter(|(i, outage)| {
-        // println!("{i}/{}: {outage}", power_outages.len() - 1);
         let curr_event_long_enough = outage.finsh - outage.start > min_duration;
 
         // If i == 0, then there's no previous event so they can't collide
@@ -289,6 +295,7 @@ fn write_sheddings_to_ics(
                 .get(i + 1)
                 .map_or(false, |o| o.start.sub(outage.finsh) <= Duration::minutes(1));
 
+        // trace!("{curr_event_long_enough} || ({prev_event_collides} || {next_event_does_collide})");
         (curr_event_long_enough) || ((prev_event_collides) || (next_event_does_collide))
     });
 
