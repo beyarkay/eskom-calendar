@@ -1,21 +1,37 @@
 import yaml
 import pandas as pd
-import uuid
 from enum import Enum
 from typing import NewType
 import datetime
 from typing import Optional
 import dataclasses
+import random
 
 with open("area_metadata.yaml", "r") as f:
     data = yaml.safe_load(f)['area_details']
 
+Id = NewType("Id", str)
+MunicName = NewType("MunicName", str)
 
-UrlId = NewType("UrlId", uuid.UUID)
-RecurringScheduleId = NewType("RecurringScheduleId", uuid.UUID)
-AreaId = NewType("AreaId", uuid.UUID)
-MunicipalityId = NewType("MunicipalityId", uuid.UUID)
-AliasId = NewType("AliasId", uuid.UUID)
+ids = set()
+
+
+def gen_id() -> Id:
+    # Ambiguous characters `I`, `l`, `1`, `0`, `O` are removed
+    alphabet = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+    _id = Id(''.join(random.choices(alphabet, k=6)))
+    while _id in ids:
+        print(f"{_id} in ids")
+        _id = Id(''.join(random.choices(alphabet, k=6)))
+    ids.add(_id)
+    return _id
+
+
+UrlId = NewType("UrlId", Id)
+RecurringScheduleId = NewType("RecurringScheduleId", Id)
+AreaId = NewType("AreaId", Id)
+MunicipalityId = NewType("MunicipalityId", Id)
+AliasId = NewType("AliasId", Id)
 
 # TODO normalize this
 AreaName = str | list[str]
@@ -111,7 +127,7 @@ class NewArea:
     schedule_id: RecurringScheduleId
     alias_id: AliasId
     province: Optional[Province]
-    munic_id: Optional[MunicipalityId]
+    munic: Optional[MunicName]
 
 
 recurring_schedules: list[NewRecurringSchedule] = []
@@ -120,7 +136,9 @@ areas: list[NewArea] = []
 aliases: list[Alias] = []
 munics: list[Municipality] = []
 
-known_munics: pd.DataFrame = pd.read_csv("data/municipalities.csv")
+known_munics: pd.DataFrame = pd.read_csv(
+    "municipalities.txt", header=None, names=['name']
+)
 
 for d in data:
     area_detail = AreaDetail(
@@ -131,19 +149,19 @@ for d in data:
         **({'province': None, 'municipality': None} | a)) for a in area_detail.areas
     ]
 
-    info_id = UrlId(uuid.uuid4())
-    recsched_id = RecurringScheduleId(uuid.uuid4())
+    info_id = UrlId(gen_id())
+    recsched_id = RecurringScheduleId(gen_id())
 
     u = [url for url in urls if url.url == area_detail.source]
     if len(u) == 0:
-        sources_id = UrlId(uuid.uuid4())
+        sources_id = UrlId(gen_id())
         urls.append(Url(sources_id, area_detail.source))
     else:
         sources_id = u[0]._id
 
     u = [url for url in urls if url.url == area_detail.source_info]
     if len(u) == 0:
-        info_id = UrlId(uuid.uuid4())
+        info_id = UrlId(gen_id())
         urls.append(Url(info_id, area_detail.source_info))
     else:
         info_id = u[0]._id
@@ -163,7 +181,7 @@ for d in data:
         province = str_to_prov(area.province)
 
         # Figure out the municipality ID
-        munic_id = None
+        munic_name = None
         if area.municipality is not None:
             def norm_munic(m):
                 return (
@@ -178,12 +196,13 @@ for d in data:
                     .replace("â", "a")
                 )
             normed_needle = norm_munic(area.municipality)
-            matches = known_munics[known_munics['name'].apply(
-                norm_munic) == normed_needle]
-            if len(matches) == 0:  # noqa: E501
-                print(f"{area.municipality} is not in the known munics")
+            matches = known_munics[
+                known_munics['name'].apply(norm_munic) == normed_needle
+            ]
+            if len(matches) != 1:  # noqa: E501
+                print(f"{area.municipality} is not in the known munics, {matches}")
             else:
-                munic_id = MunicipalityId(matches['_id'].values[0])
+                munic_name = matches['name'].values[0]
 
         # Handle scalar names
         if type(area.name) is str:
@@ -191,7 +210,7 @@ for d in data:
             assert area.municipality is None
             assert area.province is None
 
-            alias_id = AliasId(uuid.uuid4())
+            alias_id = AliasId(gen_id())
             # Add the name as an alias. Since area.name is a string, we only
             # have one alias.
             aliases.append(Alias(
@@ -200,17 +219,17 @@ for d in data:
             ))
 
             areas.append(NewArea(
-                _id=AreaId(uuid.uuid4()),
+                _id=AreaId(gen_id()),
                 name=area.name,
                 schedule_id=recsched_id,
                 alias_id=alias_id,
                 province=province,
-                munic_id=munic_id,
+                munic=munic_name,
             ))
 
         elif type(area.name) is list:
             # Handle lists of names / lists of objects
-            alias_id = AliasId(uuid.uuid4())
+            alias_id = AliasId(gen_id())
             for item in area.name:
                 assert type(item) is str, f"{item} isn't a string ):"
                 aliases.append(Alias(
@@ -219,13 +238,13 @@ for d in data:
                 ))
 
             areas.append(NewArea(
-                _id=AreaId(uuid.uuid4()),
-                # If there are loads of names, how can we pick one?
+                _id=AreaId(gen_id()),
+                # TODO If there are loads of names, how can we pick one?
                 name=None,
                 schedule_id=recsched_id,
                 alias_id=alias_id,
                 province=province,
-                munic_id=munic_id,
+                munic=munic_name,
             ))
         else:
             raise Exception(
@@ -245,6 +264,4 @@ aliases_df.to_csv("data/aliases.csv", index=False)
 
 print("""
 TODO: Remove munic_id, make it just one enum
-Make the file size smaller.
-Are aliases really needed?
 """)
