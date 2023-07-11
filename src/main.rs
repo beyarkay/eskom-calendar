@@ -640,7 +640,7 @@ mod fmt {
 
         let start = last_finsh.with_timezone(&Utc);
         let end = last_finsh
-            .checked_add_signed(chrono::Duration::hours(1))
+            .checked_add_signed(chrono::Duration::minutes(1))
             .unwrap()
             .with_timezone(&Utc);
 
