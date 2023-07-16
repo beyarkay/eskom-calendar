@@ -3291,7 +3291,22 @@ area_details:
   provider: city-of-cape-town
   source: https://www.capetown.gov.za/Loadshedding1/loadshedding/Load_Shedding_All_Areas_Schedule_and_Map.pdf
   source_info: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
-  areas: [{name: city of cape town area 4}]
+  areas:
+  - {name: "Mitchell's Plain"}
+  - {name: Beacon Valley}
+  - {name: Colorado Park}
+  - {name: Eastridge}
+  - {name: Khayelitsha}
+  - {name: Lentegeur}
+  - {name: New Woodlands}
+  - {name: Portland}
+  - {name: Rocklands}
+  - {name: Strandfontein}
+  - {name: Tafelsig}
+  - {name: Westgate}
+  - {name: Westridge}
+  - {name: Woodlands}
+  - {name: city of cape town area 4}
 
 - calendar_name: city-of-cape-town-area-5.ics
   province: western-cape
