@@ -12,20 +12,65 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 6
-  start: 2023-07-13T14:00:00
-  finsh: 2023-07-16T01:35:00
-  source: https://twitter.com/Eskom_SA/status/1680441055211077634
-  exclude: coct
-- stage: 2
-  start: 2023-07-16T08:00:00
-  finsh: 2023-07-16T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1680441055211077634
-  exclude: coct
 - stage: 4
   start: 2023-07-16T16:00:00
   finsh: 2023-07-17T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1680441055211077634
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 2
+  start: 2023-07-17T05:00:00
+  finsh: 2023-07-17T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 4
+  start: 2023-07-17T16:00:00
+  finsh: 2023-07-18T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 2
+  start: 2023-07-18T05:00:00
+  finsh: 2023-07-18T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 4
+  start: 2023-07-18T16:00:00
+  finsh: 2023-07-19T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 2
+  start: 2023-07-19T05:00:00
+  finsh: 2023-07-19T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 4
+  start: 2023-07-19T16:00:00
+  finsh: 2023-07-20T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 2
+  start: 2023-07-20T05:00:00
+  finsh: 2023-07-20T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 4
+  start: 2023-07-20T16:00:00
+  finsh: 2023-07-21T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 2
+  start: 2023-07-21T05:00:00
+  finsh: 2023-07-21T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 4
+  start: 2023-07-21T16:00:00
+  finsh: 2023-07-22T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
+  exclude: coct
+- stage: 2
+  start: 2023-07-22T05:00:00
+  finsh: 2023-07-22T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1680532844173488128
   exclude: coct
 
 - stage: 2
