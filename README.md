@@ -34,7 +34,8 @@
   <a href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">Get it</a> •
   <a href="#easy-to-understand-and-plan-around">Key Features</a> •
   <a href="#using-the-api">Using the API</a> •
-  <a href="#project-goals-and-alternatives">Project goals & alternatives</a><br>
+  <a href="#project-goals-and-alternatives">Project goals & alternatives</a> •
+  <a href="https://stats.uptimerobot.com/l9gAnCO16z">Website & API uptime</a><br>
 </div>
 
 ## How to Get It
