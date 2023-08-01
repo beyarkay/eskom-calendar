@@ -16,7 +16,10 @@
   <a href="https://discord.gg/m8rWu3n3Ws">
     <img alt="Discord" src="https://img.shields.io/discord/1109409373077372969?color=blueviolet&label=discord.gg">
   </a>
-  
+  <a href="https://eskom-calendar-api.shuttleapp.rs/#/latest/health_check">
+    <img alt="Eskom-calendar API Health" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Feskom-calendar-api.shuttleapp.rs%2Fhealth_check&query=%24.overall&label=API%20Health">
+  </a>
+
   <br>
   <a href="https://ko-fi.com/beyarkay">
     <img alt="Support on Ko-Fi" src="https://img.shields.io/badge/Ko--Fi-Once%20off%20donation-ff5f5f">
@@ -25,8 +28,6 @@
   <a href="https://patreon.com/user?u=91320409&utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link">
     <img alt="Support on Patreon" src="https://img.shields.io/badge/Patreon-Recurring%20donation%20%E2%9D%A4%EF%B8%8F-red">
   </a>
-
-
 
   <p>
     Loadshedding schedules in your digital calendar. No apps, no ads, up-to-date, and developer friendly.
