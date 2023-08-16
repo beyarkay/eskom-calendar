@@ -12,21 +12,6 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 3
-  start: 2023-08-14T16:00:00
-  finsh: 2023-08-15T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1691057549682802688
-  exclude: coct
-- stage: 1
-  start: 2023-08-15T05:00:00
-  finsh: 2023-08-15T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1691057549682802688
-  exclude: coct
-- stage: 3
-  start: 2023-08-15T16:00:00
-  finsh: 2023-08-16T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1691057549682802688
-  exclude: coct
 - stage: 1
   start: 2023-08-16T05:00:00
   finsh: 2023-08-16T16:00:00
@@ -74,63 +59,33 @@ changes:
   exclude: coct
 
 - stage: 1
-  start: 2023-08-14T05:00:00
-  finsh: 2023-08-14T22:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
-  include: coct
-- stage: 3
-  start: 2023-08-14T22:00:00
-  finsh: 2023-08-15T05:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
-  include: coct
-- stage: 1
-  start: 2023-08-15T05:00:00
-  finsh: 2023-08-15T22:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
-  include: coct
-- stage: 3
-  start: 2023-08-15T22:00:00
-  finsh: 2023-08-16T05:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
-  include: coct
-- stage: 1
   start: 2023-08-16T05:00:00
   finsh: 2023-08-16T22:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
+  source: https://twitter.com/CityofCT/status/1691814096503517449
   include: coct
 - stage: 3
   start: 2023-08-16T22:00:00
   finsh: 2023-08-17T05:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
+  source: https://twitter.com/CityofCT/status/1691814096503517449
   include: coct
 - stage: 1
   start: 2023-08-17T05:00:00
   finsh: 2023-08-17T22:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
+  source: https://twitter.com/CityofCT/status/1691814096503517449
   include: coct
 - stage: 3
   start: 2023-08-17T22:00:00
   finsh: 2023-08-18T05:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
+  source: https://twitter.com/CityofCT/status/1691814096503517449
   include: coct
 - stage: 1
   start: 2023-08-18T05:00:00
   finsh: 2023-08-18T22:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
+  source: https://twitter.com/CityofCT/status/1691814096503517449
   include: coct
 - stage: 3
   start: 2023-08-18T22:00:00
   finsh: 2023-08-19T05:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
-  include: coct
-- stage: 1
-  start: 2023-08-19T05:00:00
-  finsh: 2023-08-19T22:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
-  include: coct
-- stage: 3
-  start: 2023-08-19T22:00:00
-  finsh: 2023-08-20T05:00:00
-  source: https://twitter.com/CityofCT/status/1691063029444591617
+  source: https://twitter.com/CityofCT/status/1691814096503517449
   include: coct
 historical_changes: []
