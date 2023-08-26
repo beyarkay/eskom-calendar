@@ -32,6 +32,6 @@ changes:
   start: 2023-08-26T12:50:00
   finsh: 2023-08-30T00:00:00
   source: https://twitter.com/CityofCT/status/1695387813187878915
-  exclude: coct
+  include: coct
 
 historical_changes: []
