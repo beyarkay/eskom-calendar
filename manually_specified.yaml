@@ -12,6 +12,7 @@
 # See the README.md for more details
 ---
 changes:
+- stage: 4
   start: 2023-08-31T14:00:00
   finsh: 2023-09-02T05:00:00
   source: https://twitter.com/Eskom_SA/status/1697210092179935262
