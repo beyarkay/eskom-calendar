@@ -17,6 +17,66 @@ changes:
   finsh: 2023-09-03T16:00:00
   source: https://twitter.com/Eskom_SA/status/1698047161961685424
   exclude: coct
+- stage: 5
+  start: 2023-09-03T16:00:00
+  finsh: 2023-09-04T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 4
+  start: 2023-09-04T05:00:00
+  finsh: 2023-09-04T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 5
+  start: 2023-09-04T16:00:00
+  finsh: 2023-09-05T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 4
+  start: 2023-09-05T05:00:00
+  finsh: 2023-09-05T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 5
+  start: 2023-09-05T16:00:00
+  finsh: 2023-09-06T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 4
+  start: 2023-09-06T05:00:00
+  finsh: 2023-09-06T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 5
+  start: 2023-09-06T16:00:00
+  finsh: 2023-09-07T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 4
+  start: 2023-09-07T05:00:00
+  finsh: 2023-09-07T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 5
+  start: 2023-09-07T16:00:00
+  finsh: 2023-09-08T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 4
+  start: 2023-09-08T05:00:00
+  finsh: 2023-09-08T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 5
+  start: 2023-09-08T16:00:00
+  finsh: 2023-09-09T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
+- stage: 4
+  start: 2023-09-09T05:00:00
+  finsh: 2023-09-09T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1698296736949657659
+  exclude: coct
 
 - stage: 4
   start: 2023-09-02T05:00:00
