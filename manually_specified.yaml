@@ -12,77 +12,17 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 5
-  start: 2023-09-04T16:00:00
-  finsh: 2023-09-05T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1698296736949657659
-  exclude: coct
 - stage: 6
   start: 2023-09-05T05:00:00
-  finsh: 2023-09-11T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1698733183225737650
+  finsh: 2023-09-08T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1699855373975339170
+  exclude: coct
+- stage: 5
+  start: 2023-09-08T05:00:00
+  finsh: 2023-09-08T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1699855373975339170
   exclude: coct
 
-- stage: 3
-  start: 2023-09-04T10:00:00
-  finsh: 2023-09-04T22:00:00
-  source: https://twitter.com/CityofCT/status/1698744757000831345
-  include: coct
-- stage: 5
-  start: 2023-09-04T22:00:00
-  finsh: 2023-09-05T05:00:00
-  source: https://twitter.com/CityofCT/status/1698744757000831345
-  include: coct
-- stage: 4
-  start: 2023-09-05T05:00:00
-  finsh: 2023-09-05T10:00:00
-  source: https://twitter.com/CityofCT/status/1698744757000831345
-  include: coct
-- stage: 5
-  start: 2023-09-05T10:00:00
-  finsh: 2023-09-05T16:00:00
-  source: https://twitter.com/CityofCT/status/1698744757000831345
-  include: coct
-- stage: 4
-  start: 2023-09-05T16:00:00
-  finsh: 2023-09-05T22:00:00
-  source: https://twitter.com/CityofCT/status/1698744757000831345
-  include: coct
-- stage: 6
-  start: 2023-09-05T22:00:00
-  finsh: 2023-09-06T05:00:00
-  source: https://twitter.com/CityofCT/status/1698744757000831345
-  include: coct
-- stage: 4
-  start: 2023-09-06T05:00:00
-  finsh: 2023-09-06T10:00:00
-  source: https://twitter.com/CityofCT/status/1698744760037437712
-  include: coct
-- stage: 5
-  start: 2023-09-06T10:00:00
-  finsh: 2023-09-06T16:00:00
-  source: https://twitter.com/CityofCT/status/1698744760037437712
-  include: coct
-- stage: 4
-  start: 2023-09-06T16:00:00
-  finsh: 2023-09-06T22:00:00
-  source: https://twitter.com/CityofCT/status/1698744760037437712
-  include: coct
-- stage: 6
-  start: 2023-09-06T22:00:00
-  finsh: 2023-09-07T05:00:00
-  source: https://twitter.com/CityofCT/status/1698744760037437712
-  include: coct
-- stage: 4
-  start: 2023-09-07T05:00:00
-  finsh: 2023-09-07T10:00:00
-  source: https://twitter.com/CityofCT/status/1698744760037437712
-  include: coct
-- stage: 5
-  start: 2023-09-07T10:00:00
-  finsh: 2023-09-07T16:00:00
-  source: https://twitter.com/CityofCT/status/1698744760037437712
-  include: coct
 - stage: 4
   start: 2023-09-07T16:00:00
   finsh: 2023-09-07T22:00:00
