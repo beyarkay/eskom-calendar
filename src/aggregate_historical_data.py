@@ -36,7 +36,7 @@ def find_erroneous_line(file):
 
 def load_yaml_files(directory):
     num_file_import_errors = 0
-    files = sorted([os.path.join(directory, f) for f in os.listdir(directory) if f.endswith('.yml')])
+    files = sorted([os.path.join(directory, f) for f in os.listdir(directory) if f.endswith('.yml') or f.endswith(".yaml")])
     loadshedding_data = []
     for file in files:
         try:
@@ -58,25 +58,34 @@ def load_yaml_files(directory):
 
 def resolve_conflicts(sorted_data):
     resolved_data = []
+
     i = 0
     while i < len(sorted_data):
-        current_entry = sorted_data[i]
+        current_entry = sorted_data[i].copy()
 
         j = i + 1
         while j < len(sorted_data) and current_entry['finsh'] > sorted_data[j]['start']:
-            # If the next entry's commit_time is more recent, update the 'finsh' time of the current entry
-            if sorted_data[j]['commit_time'] > current_entry['commit_time']:
-                current_entry['finsh'] = sorted_data[j]['start']
+            next_entry = sorted_data[j]
+
+            # Only consider overlaps where 'include' or 'exclude' tags match
+            if ('include' in current_entry and 'include' in next_entry and
+                current_entry['include'] == next_entry['include']) or \
+                    ('exclude' in current_entry and 'exclude' in next_entry and
+                     current_entry['exclude'] == next_entry['exclude']):
+
+                # If the next entry's commit_time is more recent, update the 'finsh' time of the current entry
+                if next_entry['commit_time'] > current_entry['commit_time']:
+                    current_entry['finsh'] = next_entry['start']
 
             j += 1
-
-        # If the 'finsh' time of the current entry is greater than its 'start' time, add it to the resolved_data
-        if current_entry['finsh'] > current_entry['start']:
-            resolved_data.append(current_entry)
+        # remove commit time
+        current_entry.pop('commit_time', None)
+        resolved_data.append(current_entry)
 
         i = j
 
     return resolved_data
+
 
 
 def write_yaml(filtered_aggregated_data, file_path):
@@ -92,8 +101,8 @@ def aggregate_data(data_as_dict, key):
     return aggregated_data
 
 
-if __name__ == "__main__":
-    raw_data = load_yaml_files(NEW_DIRECTORY)
+def create_historical_data(directory):
+    raw_data = load_yaml_files(directory)
     aggregated_data = aggregate_data(raw_data, 'changes')
     num_entries_unfiltered = len(aggregated_data)
     aggregated_data = [entry for entry in aggregated_data if 'start' in entry]
@@ -105,10 +114,31 @@ if __name__ == "__main__":
         if isinstance(entry.get('finsh'), str):
             entry['finsh'] = parse(entry['finsh'])
 
-    sorted_data = sorted(aggregated_data, key=lambda x: (x['start'], -x['commit_time'].timestamp()))
+    unique_entries_dict = {}
+
+    for entry in aggregated_data:
+        # Creating a unique key for each entry using a subset of the fields
+        entry_key = (entry['start'], entry['finsh'], entry['stage'], entry.get('include', ''), entry.get('exclude', ''))
+
+        # If this is a newer version of an already seen entry, replace the older version
+        if entry_key not in unique_entries_dict or entry['commit_time'] > unique_entries_dict[entry_key]['commit_time']:
+            unique_entries_dict[entry_key] = entry
+
+    unique_entries = list(unique_entries_dict.values())
+
+    sorted_data = sorted(unique_entries, key=lambda x: (x['start'], -x['commit_time'].timestamp()))
     num_entries_filtered = len(sorted_data)
     diff = num_entries_unfiltered - num_entries_filtered
-    print(f"{diff} entries were incorrectly formatted and dropped")
+    print(f"{diff} entries were incorrectly formatted/duplicates and dropped")
     total_overlaps = 0
-    overlaps = find_overlaps(sorted_data)
     resolved_data = resolve_conflicts(sorted_data)
+    print(len(resolved_data))
+    overlaps = find_overlaps(resolved_data)
+    print(len(overlaps))
+    resolved_data.sort(key=lambda x: x['start'], reverse=True)
+    return resolved_data
+
+
+if __name__ == "__main__":
+    data = create_historical_data("../test-files")
+    print(data)
