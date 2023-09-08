@@ -57,11 +57,24 @@ def load_yaml_files(directory):
 
 
 def resolve_conflicts(sorted_data):
-
-
     resolved_data = []
+    i = 0
+    while i < len(sorted_data):
+        current_entry = sorted_data[i]
 
-    # Logic to resolve conflicts goes here
+        j = i + 1
+        while j < len(sorted_data) and current_entry['finsh'] > sorted_data[j]['start']:
+            # If the next entry's commit_time is more recent, update the 'finsh' time of the current entry
+            if sorted_data[j]['commit_time'] > current_entry['commit_time']:
+                current_entry['finsh'] = sorted_data[j]['start']
+
+            j += 1
+
+        # If the 'finsh' time of the current entry is greater than its 'start' time, add it to the resolved_data
+        if current_entry['finsh'] > current_entry['start']:
+            resolved_data.append(current_entry)
+
+        i = j
 
     return resolved_data
 
@@ -92,9 +105,10 @@ if __name__ == "__main__":
         if isinstance(entry.get('finsh'), str):
             entry['finsh'] = parse(entry['finsh'])
 
-    sorted_data = sorted(aggregated_data, key=lambda x: x.get('start'))
+    sorted_data = sorted(aggregated_data, key=lambda x: (x['start'], -x['commit_time'].timestamp()))
     num_entries_filtered = len(sorted_data)
     diff = num_entries_unfiltered - num_entries_filtered
     print(f"{diff} entries were incorrectly formatted and dropped")
     total_overlaps = 0
     overlaps = find_overlaps(sorted_data)
+    resolved_data = resolve_conflicts(sorted_data)
