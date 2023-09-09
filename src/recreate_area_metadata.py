@@ -1,14 +1,19 @@
+from typing_extensions import deprecated
 import yaml
+import psycopg2
 import pandas as pd
 from enum import Enum
-from typing import NewType
+from typing import NewType, cast
 import datetime
 from typing import Optional
 import dataclasses
 import random
+import sys
+import subprocess
 
 with open("area_metadata.yaml", "r") as f:
     data = yaml.safe_load(f)['area_details']
+
 
 Id = NewType("Id", str)
 MunicName = NewType("MunicName", str)
@@ -16,32 +21,70 @@ MunicName = NewType("MunicName", str)
 ids = set()
 
 
-def gen_id() -> Id:
-    # Ambiguous characters `I`, `l`, `1`, `0`, `O` are removed
-    alphabet = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
-    _id = Id(''.join(random.choices(alphabet, k=6)))
+def gen_id(hint=None) -> Id:
+    alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
+    if hint is None:
+        choices = random.choices(alphabet, k=6)
+        _id = Id(''.join(choices[:3]) + '-' + ''.join(choices[3:]))
+    else:
+        _id = ''.join(c for c in hint.lower() if (c.isascii() and c.isalnum()))
+        if len(_id) > 7:
+            _id = (
+                _id
+                .replace("cityofcapetownarea", 'cpt')
+                .replace("cityofcapetown", 'cpt')
+                .replace("gautengekurhuleniblock", 'ekurhuleni')
+                .replace("kwazulunatalethekwiniblock", 'ethekwini')
+                .replace("gautengemfuleniarea", 'emfuleni')
+                .replace("gautengtshwanegroup", 'tshwane')
+                .replace("citypower", 'cp')
+                .replace("buffalocityblock19", 'buffalocity')
+                .replace("eskomdirect", "eskm")
+                .replace("even", "e")
+                .replace("odd", "o")
+                .replace("cityof", "")
+                .replace("easterncape", "ec")
+                .replace("freestate", "fs")
+                .replace("gauteng", "gp")
+                .replace("kwazulunatal", "kzn")
+                .replace("limpopo", "lp")
+                .replace("mpumalanga", "mp")
+                .replace("northerncape", "nc")
+                .replace("northwest", "nw")
+                .replace("westerncape", "wc")
+
+            )
+        if len(_id) > 7:
+            _id = _id.replace('a', '').replace('e', '').replace(
+                'i', '').replace('o', '').replace('u', '')
+        if len(_id) > 7:
+            _id = _id[:7]
+        _id = Id(_id)
+
     while _id in ids:
-        print(f"{_id} in ids")
-        _id = Id(''.join(random.choices(alphabet, k=6)))
+        print(f"{_id} in ids, hint was {hint}")
+        choices = random.choices(alphabet, k=6)
+        _id = Id(''.join(choices[:3]) + '-' + ''.join(choices[3:]))
     ids.add(_id)
     return _id
 
 
 UrlId = NewType("UrlId", Id)
-RecurringScheduleId = NewType("RecurringScheduleId", Id)
-AreaId = NewType("AreaId", Id)
+_RecurringScheduleId = NewType("_RecurringScheduleId", Id)
+_AreaId = NewType("_AreaId", Id)
 MunicipalityId = NewType("MunicipalityId", Id)
 AliasId = NewType("AliasId", Id)
+ScheduleId = NewType("ScheduleId", Id)
+PlaceId = NewType("PlaceId", Id)
+GeofenceId = NewType("GeofenceId", Id)
 
-# TODO normalize this
 AreaName = str | list[str]
 
 
-class MunicipalityType(Enum):
+class MunicipalityKind(Enum):
     Metropolitan = 1,
     District = 2,
     Local = 3,
-    Unknown = 4,
 
 
 class Province(Enum):
@@ -57,18 +100,69 @@ class Province(Enum):
 
 
 def str_to_prov(s: Optional[str]) -> Optional[Province]:
-    match s:
-        case None: return None  # noqa: E701
-        case "eastern-cape": return Province.EasternCape  # noqa: E701
-        case "free-state": return Province.FreeState  # noqa: E701
+    if s is None:
+        return None
+    match s.replace("-", "").replace("_", ""):
+        case "easterncape": return Province.EasternCape  # noqa: E701
+        case "freestate": return Province.FreeState  # noqa: E701
         case "gauteng": return Province.Gauteng  # noqa: E701
-        case "kwazulu-natal": return Province.KwazuluNatal  # noqa: E701
+        case "kwazulunatal": return Province.KwazuluNatal  # noqa: E701
         case "limpopo": return Province.Limpopo  # noqa: E701
         case "mpumalanga": return Province.Mpumalanga  # noqa: E701
-        case "north-west": return Province.NorthWest  # noqa: E701
-        case "northern-cape": return Province.NorthernCape  # noqa: E701
-        case "western-cape": return Province.WesternCape  # noqa: E701
+        case "northwest": return Province.NorthWest  # noqa: E701
+        case "northerncape": return Province.NorthernCape  # noqa: E701
+        case "westerncape": return Province.WesternCape  # noqa: E701
     raise Exception(f"Boo hoo {s}")
+
+
+@dataclasses.dataclass
+class Url:
+    _id: UrlId
+    url: str
+
+
+@dataclasses.dataclass
+class Schedule:
+    _id: ScheduleId
+    filename: str
+    sources_id: Optional[str]
+    info_id: Optional[str]
+    last_updated: Optional[datetime.datetime]
+    valid_from: Optional[datetime.datetime]
+    valid_until: Optional[datetime.datetime]
+
+
+@dataclasses.dataclass
+class Municipality:
+    _id: MunicipalityId
+    name: str
+    province: Province
+    kind: Optional[MunicipalityKind]
+
+
+@dataclasses.dataclass
+class Alias:
+    _id: AliasId
+    alias: str
+
+
+@dataclasses.dataclass
+class Place:
+    _id: PlaceId
+    schedule_id: ScheduleId
+    display_name: str
+    munic_id: Optional[MunicipalityId]
+    name_aliases_id: Optional[AliasId]
+
+
+@dataclasses.dataclass
+class Geofence:
+    _id: GeofenceId
+    lat: float
+    lng: float
+    path_index: int
+    point_index: int
+    place_id: PlaceId
 
 
 @dataclasses.dataclass
@@ -90,9 +184,10 @@ class AreaDetail:
     areas: list[Area]
 
 
+@deprecated
 @dataclasses.dataclass
 class NewRecurringSchedule:
-    _id: RecurringScheduleId
+    _id: _RecurringScheduleId
     filename: str
     sources_id: UrlId
     info_id: UrlId
@@ -101,46 +196,31 @@ class NewRecurringSchedule:
     valid_until: Optional[datetime.datetime]
 
 
-@dataclasses.dataclass
-class Alias:
-    _id: AliasId
-    alias: str
-
-
-@dataclasses.dataclass
-class Municipality:
-    _id: MunicipalityId
-    _type: MunicipalityType
-    name: str
-
-
-@dataclasses.dataclass
-class Url:
-    _id: UrlId
-    url: str
-
-
+@deprecated
 @dataclasses.dataclass
 class NewArea:
-    _id: AreaId
+    _id: _AreaId
     name: Optional[str]
-    schedule_id: RecurringScheduleId
-    alias_id: AliasId
+    schedule_id: _RecurringScheduleId
+    alias_id: Optional[AliasId]
     province: Optional[Province]
     munic: Optional[MunicName]
 
 
-recurring_schedules: list[NewRecurringSchedule] = []
 urls: list[Url] = []
-areas: list[NewArea] = []
+schedules: list[Schedule] = []
 aliases: list[Alias] = []
-munics: list[Municipality] = []
+places: list[Place] = []
+geofences: list[Geofence] = []
 
-known_munics: pd.DataFrame = pd.read_csv(
-    "municipalities.txt", header=None, names=['name']
-)
+known_munics: pd.DataFrame = cast(
+    pd.DataFrame, pd.read_csv("municipalities.csv"))
+# Assign all municipalities an approximately mnemonic ID
+known_munics['_id'] = known_munics['name'].apply(
+    lambda name: gen_id(hint=name))
 
-for d in data:
+for i, d in enumerate(data):
+    print(f'{i}/{len(data)}')
     area_detail = AreaDetail(
         **({'province': None, 'municipality': None, 'city': None} | d)
     )
@@ -150,30 +230,74 @@ for d in data:
     ]
 
     info_id = UrlId(gen_id())
-    recsched_id = RecurringScheduleId(gen_id())
+    recsched_id = _RecurringScheduleId(gen_id())
 
+    # Get all URLs which have already been seen and are equal to the source of
+    # the current area_detail
     u = [url for url in urls if url.url == area_detail.source]
+    # If this URL hasn't been seen before, add it to the list of unique URLs
+    # and assign it as the source_id
     if len(u) == 0:
         sources_id = UrlId(gen_id())
         urls.append(Url(sources_id, area_detail.source))
-    else:
+    elif len(u) == 1:
         sources_id = u[0]._id
+    else:
+        raise Exception(f"Unreachable: {area_detail.source}, {u}")
 
+    # repeat the same as above, but for the info
     u = [url for url in urls if url.url == area_detail.source_info]
     if len(u) == 0:
         info_id = UrlId(gen_id())
         urls.append(Url(info_id, area_detail.source_info))
-    else:
+    elif len(u) == 1:
         info_id = u[0]._id
+    else:
+        raise Exception(f"Unreachable: {area_detail.source_info}, {u}")
 
-    recurring_schedules.append(NewRecurringSchedule(
-        _id=recsched_id,
-        filename=area_detail.calendar_name,
+    # Get the file creation date and use it as the `valid_from` date
+    filename = area_detail.calendar_name.replace('.ics', '.csv')
+    result = subprocess.run([
+        'git',
+        'log',
+        '--diff-filter=A',
+        '--',
+        f'generated/{filename}'
+    ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True)
+    # The commit log looks like:
+    # commit 237d6d9df20059133f89fe2d40b93417075fb43e
+    # Author: beyarkay <boydrkane@gmail.com>
+    # Date:   Sat Jul 16 22:01:17 2022 +0200
+    #
+    #     Add code to parse COCT html files
+    #
+    creation_log = result.stdout.split('\n')[2].replace("Date:", "").strip()
+    valid_from = datetime.datetime.strptime(
+        creation_log,  "%a %b %d %H:%M:%S %Y %z")
+
+    # get the file last updated date and use it as the `last_updated` date
+    result = subprocess.run([
+        'git',
+        'log',
+        '--follow',
+        '--format=%ad',
+        '--',
+        f'generated/{filename}'
+    ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True)
+    last_updated_log = result.stdout.split('\n')[0]
+    last_updated = datetime.datetime.strptime(
+        last_updated_log,  "%a %b %d %H:%M:%S %Y %z")
+
+    filename = area_detail.calendar_name.replace(".ics", "")
+    schedule_id = ScheduleId(gen_id(hint=filename))
+    schedules.append(Schedule(
+        _id=schedule_id,
+        filename=filename,
         sources_id=sources_id,
         info_id=info_id,
-        last_updated=None,
-        valid_from=None,
-        valid_until=None
+        last_updated=last_updated,
+        valid_from=valid_from,
+        valid_until=None,
     ))
 
     for i, area in enumerate(area_detail.areas):
@@ -182,7 +306,9 @@ for d in data:
 
         # Figure out the municipality ID
         munic_name = None
+        municipality_id = None
         if area.municipality is not None:
+            # Figure out the name of the municipality
             def norm_munic(m):
                 return (
                     m.lower()
@@ -199,10 +325,12 @@ for d in data:
             matches = known_munics[
                 known_munics['name'].apply(norm_munic) == normed_needle
             ]
-            if len(matches) != 1:  # noqa: E501
+            assert matches is not None
+            if len(matches) != 1:
                 print(f"{area.municipality} is not in the known munics, {matches}")
             else:
                 munic_name = matches['name'].values[0]
+                municipality_id = matches['_id'].values[0]
 
         # Handle scalar names
         if type(area.name) is str:
@@ -210,21 +338,12 @@ for d in data:
             assert area.municipality is None
             assert area.province is None
 
-            alias_id = AliasId(gen_id())
-            # Add the name as an alias. Since area.name is a string, we only
-            # have one alias.
-            aliases.append(Alias(
-                _id=alias_id,
-                alias=area.name
-            ))
-
-            areas.append(NewArea(
-                _id=AreaId(gen_id()),
-                name=area.name,
-                schedule_id=recsched_id,
-                alias_id=alias_id,
-                province=province,
-                munic=munic_name,
+            places.append(Place(
+                _id=PlaceId(gen_id(hint=area.name)),
+                schedule_id=schedule_id,
+                display_name=area.name,
+                munic_id=municipality_id,
+                name_aliases_id=None,  # Scalar names have no aliases
             ))
 
         elif type(area.name) is list:
@@ -232,36 +351,92 @@ for d in data:
             alias_id = AliasId(gen_id())
             for item in area.name:
                 assert type(item) is str, f"{item} isn't a string ):"
-                aliases.append(Alias(
-                    _id=alias_id,
-                    alias=item
+                places.append(Place(
+                    _id=PlaceId(gen_id(hint=item)),
+                    schedule_id=schedule_id,
+                    display_name=item,
+                    munic_id=municipality_id,
+                    name_aliases_id=None,
                 ))
 
-            areas.append(NewArea(
-                _id=AreaId(gen_id()),
-                # TODO If there are loads of names, how can we pick one?
-                name=None,
-                schedule_id=recsched_id,
-                alias_id=alias_id,
-                province=province,
-                munic=munic_name,
-            ))
         else:
             raise Exception(
                 "Type {type(area.name)} of `{area.name}` not known")
 
 
-areas_df = pd.DataFrame(areas)
-recurring_schedules_df = pd.DataFrame(recurring_schedules)
 urls_df = pd.DataFrame(urls)
+schedules_df = pd.DataFrame(schedules)
+places_df = pd.DataFrame(places)
 aliases_df = pd.DataFrame(aliases)
 
-areas_df.to_csv("data/areas.csv", index=False)
-recurring_schedules_df.to_csv("data/recurring_schedules.csv", index=False)
-urls_df.to_csv("data/urls.csv", index=False)
-aliases_df.to_csv("data/aliases.csv", index=False)
+
+def conn_to_db():
+    try:
+        conn = psycopg2.connect(
+            database="eskom-calendar",
+            user="brk",
+        )
+    except psycopg2.Error as e:
+        print("Error: Unable to connect to the database")
+        print(e)
+        sys.exit(1)
+    return conn
 
 
-print("""
-TODO: Remove munic_id, make it just one enum
-""")
+conn = conn_to_db()
+cursor = conn.cursor()
+
+
+for i, row in urls_df.iterrows():
+    insert_query = """INSERT INTO urls (id, url) VALUES (%s, %s)"""
+    data_to_insert = (row['_id'], row['url'])
+    cursor.execute(insert_query, data_to_insert)
+    conn.commit()
+
+for i, row in schedules_df.iterrows():
+    print(row)
+    insert_query = """INSERT INTO schedules (id, filename, sources_id, info_id, last_updated, valid_from, valid_until)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+    data_to_insert = (
+        row['_id'],
+        row['filename'],
+        row['sources_id'],
+        row['info_id'],
+        row['last_updated'],
+        row['valid_from'],
+        row['valid_until'],
+    )
+    cursor.execute(insert_query, data_to_insert)
+    conn.commit()
+
+for i, row in known_munics.iterrows():
+    print(row)
+    insert_query = """INSERT INTO municipalities (id, name, province, kind)
+                    VALUES (%s, %s, %s, %s)"""
+    data_to_insert = (
+        row['_id'],
+        row['name'],
+        row['province'],
+        row['kind'],
+    )
+    cursor.execute(insert_query, data_to_insert)
+    conn.commit()
+
+for i, row in places_df.iterrows():
+    print(row)
+    insert_query = """INSERT INTO places (id, schedule_id, display_name, munic_id, name_aliases_id)
+                    VALUES (%s, %s, %s, %s, %s)"""
+    data_to_insert = (
+        row['_id'], row['schedule_id'], row['display_name'], row['munic_id'], row['name_aliases_id'],
+    )
+    cursor.execute(insert_query, data_to_insert)
+    conn.commit()
+
+
+# To export from postgres into CSV files
+# \copy aliases        TO 'data/aliases.csv' WITH (FORMAT CSV, HEADER)
+# \copy geofences      TO 'data/geofences.csv' WITH (FORMAT CSV, HEADER)
+# \copy municipalities TO 'data/municipalities.csv' WITH (FORMAT CSV, HEADER)
+# \copy places         TO 'data/places.csv' WITH (FORMAT CSV, HEADER)
+# \copy schedules      TO 'data/schedules.csv' WITH (FORMAT CSV, HEADER)
+# \copy urls           TO 'data/urls.csv' WITH (FORMAT CSV, HEADER)
