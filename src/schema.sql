@@ -38,7 +38,7 @@ CREATE TABLE
 -- Contains the loadshedding schedule as per machine_friendly.csv
 CREATE TABLE
   loadshedding (
-    id VARCHAR(7) PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     filename VARCHAR(255) REFERENCES schedules (filename),
     stage INTEGER NOT NULL UNIQUE,
     start TIMESTAMP NOT NULL,
