@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS loadshedding CASCADE;
+
 DROP TABLE IF EXISTS geofences CASCADE;
 
 DROP TABLE IF EXISTS aliases CASCADE;
@@ -17,6 +19,17 @@ CREATE TABLE
   urls (
     id VARCHAR(7) PRIMARY KEY,
     url TEXT NOT NULL UNIQUE
+  );
+
+-- Contains the loadshedding schedule as per machine_friendly.csv
+CREATE TABLE
+  loadshedding (
+    id VARCHAR(7) PRIMARY KEY,
+    filename VARCHAR(255) REFERENCES schedules (filename),
+    stage INTEGER NOT NULL UNIQUE,
+    start TEXT TIMESTAMP NOT NULL,
+    finsh TEXT TIMESTAMP NOT NULL,
+    last_updated TIMESTAMP NOT NULL,
   );
 
 -- All the schedules for all the places. This references a CSV file that's on
