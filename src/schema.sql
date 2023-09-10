@@ -40,7 +40,7 @@ CREATE TABLE
   loadshedding (
     id SERIAL PRIMARY KEY,
     filename VARCHAR(255) REFERENCES schedules (filename),
-    stage INTEGER NOT NULL UNIQUE,
+    stage INTEGER NOT NULL,
     start TIMESTAMP NOT NULL,
     finsh TIMESTAMP NOT NULL,
     last_updated TIMESTAMP NOT NULL
