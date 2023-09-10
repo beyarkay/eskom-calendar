@@ -40,7 +40,8 @@ def download_excel(province_url):
 
 def excel_to_schedule(sheets):
     print("Converting excel to schedules")
-    sched = sheets["Schedule"].copy()  # Extract the schedule from the spreadsheet
+    # Extract the schedule from the spreadsheet
+    sched = sheets["Schedule"].copy()
     sched = sched.iloc[14:110, :]  # Only get info we care about
     # Rename the columns to something reasonable
     sched.columns = ["start", "finsh", "stage"] + list(range(1, 32))
@@ -128,7 +129,8 @@ def filter_duplicates(df):
             else:
                 df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
         # area_df = df2.sort_values(["date_of_month", "start_time", "stage"])
-        areas[area_idx] = df2.sort_values(["date_of_month", "start_time", "stage"])
+        areas[area_idx] = df2.sort_values(
+            ["date_of_month", "start_time", "stage"])
     return areas
 
 
@@ -141,7 +143,8 @@ def make_odd_even_areas(areas):
     new_areas = {}
     for block, df in areas.items():
         new_areas[f"{block}-even"] = df.copy()
-        add_one_hour = lambda x: (x + datetime.timedelta(hours=1)).strftime("%H:%M")
+        def add_one_hour(x): return (
+            x + datetime.timedelta(hours=1)).strftime("%H:%M")
         df["start_time"] = pd.to_datetime(df["start_time"]).apply(add_one_hour)
         df["finsh_time"] = pd.to_datetime(df["finsh_time"]).apply(add_one_hour)
         new_areas[f"{block}-odd"] = df.copy()
@@ -162,7 +165,8 @@ def main():
     df = subset_stages(df)
     areas = filter_duplicates(df)
     areas = make_odd_even_areas(areas)
-    save_areas(areas)
+    print("NOT saving areas")
+    # save_areas(areas)
 
 
 all_suburbs = []
@@ -193,10 +197,11 @@ suburbs = pd.concat(all_suburbs)
 
 # PyYaml isn't flexible enough to have some items be block-format and others be
 # flow-format. So just write to a tmp file and copy into the correct file. It only
-# has to be done once.
+# has to be done ~once~ twice.
 
 text = []
 for name, group in suburbs.groupby(["block", "type"]):
+    print(f"Processing {name=}")
     odd_or_even = "odd" if name[1].endswith("U") else "even"
     text.append(
         f"""\
@@ -214,8 +219,6 @@ for name, group in suburbs.groupby(["block", "type"]):
       municipality: "{name2[1]}"
       name: [{names}]"""
         )
-#         break
-# print("\n".join(text))
 
 with open("tmp.yaml", "w") as f:
     f.write("\n".join(text))
