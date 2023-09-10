@@ -1200,6 +1200,375 @@ area_details:
     municipality: "local-municipality-of-madibeng"
     name: ["bultfontein","damsig","daverich","de-rust","die-moot","elandsrand","emiliehof","esperanzia","eureka","grootplaas","hartbeespoort-dam-nature-reserve","hartebeeshoek","jacksonstuin","leeukloof","lekkerbly","lerulaneng","lynkloof","makau","mamogaleskraal","maroelabult","pecanwood-estate","protea","rabokala","ramogaodi","rankatia","rashoop","remhoogte","skeerpoort","spookplaas","wilger"]
 
+- calendar_name: eskom-direct-5-even.ics
+  provider: eskom
+  source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
+  source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
+  areas:
+  - province: free-state
+    municipality: "kopanong"
+    name: ["aalwynskop","abercairn","allandale","annex-eben","avondson","baghdad","bankfontein-a","bergpunt-b","beyersberg","bloufontein","blydschap-b","bo-dwarsrivier","boesmansfontein","boskrans","bosrand","bounapartesfontein","cadeau","cyferfontein-a","damfontein-a","de-kolke","de-rust-a","diepfontein-a","driefontein-a","dwarsrivier","eendrag","elim-a","emerald-hill","ems","excelsior-a","florida-a","groenvlei","groenvlei-b","grootfontein","grootfontein-a","grootkaliesfontein","groot-suurfontein","hamilton-manor","hartebeesfontein-c","hartmanshoop","hereford","highbury","iona","jantjiesfontein","kareepoort","klawerfontein-a","kleinskietfontein","klein-suurfontein","klipbankfontein","klipplaatsdam","knapsakrivier","kommetjiesfontein","kransdraai","kransfontein-b","kroonpos","kuilfontein-b","langkloof","lofter","loopfontein","m(reson","maphodi","mauritzkop","memo","middelbron","middelfontein","middelfontein-a","middelpunt","mierkraal","mistkuil","modderfontein-a","montpellier","mount-brand","muurkraal","niet-te-weet","nooitgedacht-a","oranje-a","oranjevlei","ospoort","oudestrypoort","paaiskloof","paardeplaas","philippolis","platkop","ploegfontein","poding-tse-rolo","prior-grange","providence","pypersfontein","rekwesfontein","renswoude","rheboksfontein","rietkuil-b","rondefontein","roodepoort-a","rooikop","rooirantjies","ruigtevlei-b","rusfontein","rusplaas","savannah","schoonbeeksfontein","skietfontein","skoonuitsig","slangfontein-a","smartryk","soetvlei-a","sonderhout","spioenkop","springbokfontein","staplehurst","stinkhoutsfontein","stockport","swartfontein","sybil","tafelberg","tuindam","tuinplaas","uitenhage","uithou","uitsig","vaalbank-c","vlakfontein-a","vlakplaas","vleiplaas","vlugkop","vrede-b","vrolikheid","waaifontein","waterkloof-outlying","wilna","winkelshoek"]
+  - province: free-state
+    municipality: "letsemeng"
+    name: ["abrahamskraal","damvlei","doornhoek-a","doornlaagte-a","erfkroon","geduld-b","helderfontein","holvlakte","katdoornput","kelvedon","lovedale","malana","middelpunt-a","modderpan","nielsview","olive-hill","ooshoek","saamsuiping","strydomspan","surry","the-chase","thorndale","thornycroft","uitvlug-b","verlosput","vlaklaagte","waaihoek","witkraal"]
+  - province: free-state
+    municipality: "maluti-a-phofung"
+    name: ["42nd-hill","harrismith","intabazwe","the-willows"]
+  - province: free-state
+    municipality: "mangaung"
+    name: ["aandgloor","aandrust","aasvodlkop","alfa","amalia","annex","annexe-lionslvei","avenham","barberspan","bartrus","beginsel","bekkersfontein","berlin","besemkop","bethel","beveren","bewed","bishops-glen","bloemdal","bloubank","bloubospan-b","bluegum","blydschap","blydskap-a","boesmanskop","boomerang","bosplaat","brakfontein","braklaagte","brandmag","bukskop","bultfontein","cecilia","clearwater","conserva-a","cumbrae","damfontein","danielskuil","de-brug-a","de-dam","de-hoop","de-lelien","deelkop","dennehof","dexter","die-vlakte","diepfontein","dieseldeane","donkerhoek","driefontein","dwaalhoek","eben-a","elandsbult","elim","ems","enkelboom","erfdeel","fairview","fleur","floradale","fraaiuitsig","geluksbron","georgia","georgina","glen","glen-lyon","glendoring","goedgedacht","goedgenoeg","golders-green","goldingsrust","goodhope","graspan","grassland","groenteplein","grootvlei","gwentham","harmonie","hebron","heeltevrede","heelvroef","helderfontein-a","helderpoort","highveld","hillridge","hillside","hoekpan","holmesdale","holspruit","holtzhuisfontein","homestead","hopefield","hugosrust","irene","kaalfontein","kaalspruit","kalkbult","kareelaagte","karreeput","kirkintilloch","klein-donkerpoort","klein-vaalbank","kleinbegin","kleinheuwel","kleinverdeel","klipdift","klipkraal","kranskraal","kromdraai","kromspruit","kroonpos","krugersdeel","la-motte","lakeside","langverwag","leeukop","leeuvlei","leeuwberg","liefdefontein","lindesvlei","louisdale","lushof-a","m(reson","magdalen","mamend","manitaba","mara","marlien","marlowe-estate","maronan","matjiespruit","measgeluk","meriba","merino-a","meyersgeluk","middelplaas","middelpoort","middelpunt","middelpunt-a","middelwater","mimosa-a","mimosa-glen","mispa","moedersgift","molhoek","mooihoek","mooipoort","mooivlei","morgenson-a","morwelo","mount-pleasant","mowbray","mysterie","nalisview","nasionaal","nooitgedacht-a","olive-hills","onze-rust","oorlog","paardekop","paardekraal","paardekuil","parady","petruspan","plaatjiesfontein","potsdam","poundisford","prinspan","putdam","quaggaleegte","randjiesfontein","rasanna","regkom","rendezvous","republiek","rietpan-a","rietspruit","riverton","ronnepleegte-a","roodekop","rooikraal","rosarum","rustdam","rustplaas","saint-elmo","salngfontein","samekom","sannaspos","saxony","schmidtsrust","sekretarispan","skemerte","skoonsigt","skuinshoek","soetvlei","somerveld","soutput","spesbona","stoomhoek","strydfontein","suidhoek","swartjan-sh-a","swartkoppies","te-vrede","tevrede","the-meadows","the-willows","theronsvlakte","thorngrove","trutersdrif","tuishoek","tweeling","uithoek-a","uitkyk","uitsig","uitvlug-wes","vaalbank","vaalbank-suid","vaalplaat","vadersgift","valleifontein","ventersville","ventersvlei","veronica","veruitsig","villa-rosa","vlaklaagte","vlakpoort","vleifontein","volmoed-a","vooruitsig","vrede","vredeshof","waaikraal-a","waldo","warmkloof","waterlaagte","waterval","waveren","welbedagt","welgevonden","welvaart-a","whittington-north","wildealskloof","wilson's-fort","windhoek","wonderfontein","wonderkop","zandvoort","zuurfontein","zwartlaagte"]
+  - province: free-state
+    municipality: "masilonyana"
+    name: ["aandrust","aarbeidsloon","amerika","amsterdam","barletta","bellavista","cyferbank","daskop","doornspruit","elim-a","enkeldoorn-a","enkeldoring","erwell","eureka","fairfield","florisbad","fruidfontein","geluk-b","gesina","glendower","goedehoop-a","grasdam","hagenstad","hillridge","houmoed","hugospan","idonia","inhoek-a","japan","karee","karreekloof","karreekop","kleinosspruit","kleinverdeel","klipfontein-a","langkuil","loskop","luna","mareesrust","marico","massa-a","meriba","middelbult-a","middelkop","middelwater","miemiesdeel","mimosa-a","molhoek","mooiwater-a","motala","myburgsfontein","naartjie","olivia","oskop","palmietfontein-a","palmietvlei","plessis","prima-donna","purple-grove","quaggavlei","rietfontein-e","riverton","rondas","roodeheuvel","roodekop","roodewal","rooibult","rooikraal","rosmead","rusfontein","rusplaas","rusthof","saaibult","somerveld","soutpan","spioenkop-a","spytfontein","sterkfontein","steurbank","sunshine","thorngrove","twyfelkopspan","uithoek-a","vlakfontein","vrede-a","wardenfield","welgegund","welgelegen","welgeluk","weltevrede-a","weltevreden","wilgerfontein","wintersdam","witfontein","wolwesuip","zoar","zwartlaagte"]
+  - province: free-state
+    municipality: "matjhabeng"
+    name: ["alberta","alma-b","annies-velden","balcarres","beginsel-a","bergstroom","bloemskraal","calabria-a","christiana","daeraad","de-barracks","de-rust-b","die-hoek","jan-cilliers-park","junction-drif","kriegerskraal","le-roux","leeuwbosch","lelievlei","meloding-a","parys-a","pylkop","roodekop-a","saaihoek","sameloop","skaapdraai","thabong","thabong-b","utopia","vaalbankskuil","venstersdeel","virginia-outlying","western-holdings-gold-mine","wintershoek"]
+  - province: free-state
+    municipality: "naledi"
+    name: ["alberts-pos","damfontein","diepleegte","doornhoek","ebenhaeser","geluk","grootfontein","hebron","klipplaatdrif","klippoortjie","middeldeel","middelwater-b","niekerksvlei","perskefontein","slangfontein","somerset","toggekry-a","vaalkop","vrede","vrederust","wanatha"]
+  - province: free-state
+    municipality: "tokologo"
+    name: ["bankfontein","blinkklip","boschrand","braambos","braklaagte","damvlei","darling","doornhoek-a","doornlaagte-a","doringrandjies","erfkroon","gannaleegte","gedenksrust","geluk-b","goede-hoop-b","goedehoop","goldingsrust","graspan-a","groenspruit","henningsdal","johanna","karreekloof","karreenek","kentari","klipfontein","leeuwfontein-a","leliehoek","liberie","maidstone","middelpunt-a","molgatsfontein","morgenzon","nielsview","noodshulp","onverwag","rietfontein-e","rietpan-a","rooiwalsleegte","sheila","sunnyside-a","sybrand","thorndale","thornycroft","trutersdrif","tswaraganang","turner's-estate","twyfelkopspan","vlaklaagte","walviskuil","waterbron","waterval","welgeluk","witlaagte","wolfpan","wolwespruit"]
+  - province: free-state
+    municipality: "tswelopele"
+    name: ["basberg","saaidam"]
+  - province: gauteng
+    municipality: "city-of-johannesburg"
+    name: ["chiawelo-ext-1","chiawelo-ext-2","chiawelo-ext-3","chiawelo-east","klipriviersoog-ext-1","mapetla","mapetla-ext-1","molapo-east","phiri","protea","protea-north","protea-north-ext-1","protea-south-ext-1","senaone-east","slovoville","slovoville-ext-1","south-roodepoort-main-reef-areas-gold-mine","soweto-east","westonaria-nu-c"]
+  - province: gauteng
+    municipality: "city-of-tshwane"
+    name: ["fairfield","hartebeestspruit","jakkalsdans","leeufontein","loodswaai","m(relied","moloto","mount-hope","savanna-lodge","springfontein"]
+  - province: gauteng
+    municipality: "merafong-city"
+    name: ["bankdrif","boshoek-west","dagbreek-b","deelkraal-east","driefontein","eigenaarsfontein","kaalplaas","klipdrift","lakeview","merweda","mimosapark","stompoortfontein","taaiboschspruit-east","varkfontein","witkoppiesfontein"]
+  - province: gauteng
+    municipality: "mogale-city"
+    name: ["hillsview-west","kagiso-ext","kagiso-ext-12","kagiso-ext-14","rietvallei-ext-2","rietvallei-ext-3","rietvallei-outlying","zwaneville"]
+  - province: gauteng
+    municipality: "randfontein"
+    name: ["panvlak-gold-mine-sp","randfontein-part-1-sp-west"]
+  - province: gauteng
+    municipality: "westonaria"
+    name: ["hills-haven","randfontein-mine","suurbekom","waterworks","west-rand-garden-ah"]
+  - province: north-west
+    municipality: "city-of-matlosana"
+    name: ["boontjieskraal-west","hartbeesfontein","hauptrus","kameeldorings","klerksdorp-outlying-west","leeufontein-west","lemmersville","mauritz","morea","oblate","oorbietjiesfontein","otterfontein","paardeplaas","rhenosterberghoek","rhenosterspruit","rietkuil-west","sakhrol","syferfontein-west","syferlaagte","thornhurst-west","tigane","welgevonde","witpoort-west","wolwerandjies","wolwerand-west","woodlands"]
+  - province: north-west
+    municipality: "tlokwe-city-council"
+    name: ["baillie-park","beginsel","berlin","bloubos","eigenaarsfontein-west","ekutuleni","geldengenot","gryskop","hanekraai","hartebeesfontein","ikageng","kaalplaas","klipdrift","koedoesfontein-west","kromdraai","lustfontein","merweda-east","merweda-west","new-machavie","niemeer","noyjons","prinsloosrus","rietfontein","rietkolk","suikerbos","tarentaal-east","tarentaal-west","tygerfontein","vryhoek-sh","vyfhoek","wilgeboom","wilgeboom-sh","witkoppiesfontein-east","witkoppiesfontein-west","witrandsfontein","zwelisha"]
+  - province: north-west
+    municipality: "ventersdorp"
+    name: ["bloubos","bulskop","klein-kaalfontein","lustfontein","niemeer","witrandsfontein"]
+  - province: northern-cape
+    municipality: "kopanong"
+    name: ["bethulie","maphodi","staplehurst"]
+  - province: western-cape
+    municipality: "city-of-cape-town"
+    name: ["broadlands","die-bos","ekuphumleni","erinvale","gordon's-bay","graceland","griffiths-mxenge","helderberg-sh","helderzicht","kalamuda","khayelitsha","khayelitsha-site-c-montrose","khayelitsha-sp1","khayelitsha-t1-v2","khayelitsha-t1-v3-site-b","khayelitsha-t1-v4-site-b","khayelitsha-t2-v2b","khayelitsha-t3-v2","khayelitsha-t3-v3","khayelitsha-t3-v4","khayelitsha-t3-v5","lwandle","nomzamo","roma-glen","sir-lowry's-pass","somerset-west-amic","somerset-west-mall","somerset-west-nu","somerset-west-outlying"]
+  - province: western-cape
+    municipality: "overstrand"
+    name: ["dagbreek","denniston","high-noon","houhoek","kromvlei","lebanon"]
+  - province: western-cape
+    municipality: "theewaterskloof"
+    name: ["arieskraal","boesmansrug","burtondale","caledon-outlying","dagbreek","de-hoop","de-rust","dennebos","dennekruin","denniston","drostersnes","eerstehoop-vyeboom","eikenhof-elgin","eikenhof-theewater","elgin","evergreen-elgin","evergreen-theewater","fairholme","fisantekraal-vyeboom","fortuin","glen-gary","gloria","grabouw","hammansdal-vyeboom","helderstroom-vyeboom","houhoek","kentucky","klipfontein-vyeboom","kromvlei","lebanon","monteith","moreson-theewater","oudekraal-vyeboom","ouwerf","pampoenkraal-vyeboom","patryslaagte","pineview","queen-anne-vyeboom","rock-haven","rooidakkies","rustfontein","snake-park","sonop","spes-bona-vyeboom","steenbras-storage","steenbras-theewater","swannie-river","twaalffontein","valley-green","vleitjies","vyeboom","welgemoed-vyeboom","westroux"]
+
+- calendar_name: eskom-direct-5-odd.ics
+  provider: eskom
+  source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
+  source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
+  areas:
+  - province: eastern-cape
+    municipality: "amahlathi"
+    name: ["bellrock","bloomfield","buxton","driefontein","good-luck","mimosa-park-b","sunny-slope","thorn-park","wolseley-estate"]
+  - province: eastern-cape
+    municipality: "baviaans"
+    name: ["du-preezkraal","langrug","miller","rooirand","swanepoelspoort"]
+  - province: eastern-cape
+    municipality: "buffalo-city"
+    name: ["anders-mission","bangilizwe","barracks","bellevue","breidbach-outlying-1","brooklyn","bulembu","chalumna-3","dongwe","driefontein","dyam-dyam-3","ebongweni","ejojweni-3","eluxolweni","eluxolweni-part-1","fort-murray","godidi","golden-valley","gqala-3","grey's-gift","gwaba","gxetu","hamburg-3","hittcrest","ikhiwane-3","imidushane","jenesse","khayelitsha-3","kulogaxa","kwaaltile-3","kwabhonke","kwadikidikana","kwakalkeni-3","kwalini-1","kwamamata-2","kwamlakalaka","kwandubungela","kwangcamama-3","kwanoncampa","kwaqongqotha","liefeldt","lily-stone","lilyspring","litha-1","mabaleni","mamata","mbolompeni","mimosa-park","mngqesha-b","mntla","mntlabathi-1","mount-coke-mission","mount-pleasant-2","mozana-3","mzantsi","ndevana","ndileka","ngcamgeni","ngqinisa-3","ngxwalane","ngxwalane-outlying","nqantosi","oaklands","phakamisa","phozi-c","plum-hill","potsdam-1","qualasha","rhayi","rini","roslyn","sandile-3","speedwell","sunnyside","thornfield","thubalethu","torwood-3","twecwana-3","tyhusha-3","umzantsi","waterfall","welcome-wood","wesleyville-3","witch-krantz","xhama-3","zikova","zikova-3","zixothyeni"]
+  - province: eastern-cape
+    municipality: "camdeboo"
+    name: ["aberdeen","allemanskraal-1","althro","badsfontein","beenekuil","belmont","blouboskuil","bokvlei","breipaal","chelmsford","cypress-valley-1","de-kroon","de-kruis","de-kust","de-vlak","doorndraai","doornpoort","eureka","fairview","fairwell","francois-rus","gannahoek","gannaleegte","glen-loch","glencliff","graafwater","grootfontein","hartbeeshoek","herbousvlei","highlands","hopsrivier","jongetjiesleegte","kaapse-poortjie","kariegasfontein","karreepoort","kiewietskuil","kipstawel","kleinplaas","klipdrift-2","klipkoppies","klipkuil","komskloof","koningdal","kraairivier","kriegars-hoek","kruidfontein","kunna","langrug","leeukop","lotusville","louisan","makathees-plaas","mary's-hills","maxton","middelplaas","midlands","mon-repos","mountain-view","new-farm","newlands-2","nuwerus","oorlogspoort","ouplaas","palmietfontein-1","perseverance","petrusville","platdrif","poffertjiesleegte","poukop","pretoruiskuil","rooidraai","sandkraal","sandrivier","spes-bona","springbokvlakte-noord","stoepies","sypher","teerputs","the-glen-2","the-ranges","the-wattles","thembalesizwe","tierberg","tweespruit","upper-kiewietskuil","vaalvlei","veedam","vlakfontein","voorspoed","vrede-rust","vredepoort","vriespoort","walplaas","waterkloof","windermere","wolwekloof","wynlaagte"]
+  - province: eastern-cape
+    municipality: "elundini"
+    name: ["detyana","epifane-mission","gemfane","gwadane","hardale","herbert's-pride","inxu-drift","makuleni-1","merridor","ngxaza","ntywenka","qurana","qwidlana","saint-augustine's-mission","sinxago","tsitsa","view-hill","woodstock"]
+  - province: eastern-cape
+    municipality: "emalahleni"
+    name: ["alban","argyll","avondster","balta","blaauwkranz","boomkop","brakleegte","brandon","cencele","coldstream","damplaas","de-hoek","devon-bank","dordrecht","dunvegan","eikenhof","emayaluleni","fairfield","findon","geluk","goodhope","hala-1","hardup","heimat","hillview","hoggskloof","houtnek","ida","indwe","kaalfontein","klippoort","lapesi","limoges","m(rester","mackayskop","mangase","manyano","mavuya","mgwalana","milford","mooifontein","mthini","munnikville","mzamomhle","ohoboshana-1","overton","paradys","post-catherine","rietfontein","rondeheuwel","runagaul","rustdal","sinakho","skipnish","southcombe","steilpunt","sterkfontein","the-springs","thornhill","tyoksville","vrede","washington"]
+  - province: eastern-cape
+    municipality: "maletswai"
+    name: ["carlton","clark's-siding","green-vale","hartebeesthoek","lauriston","locarno","mackayskop","morning-sun","rondawel","schoemansnek","sterkfontein-1","sudbrook","sunset","uitkoms","uitkyk-a"]
+  - province: eastern-cape
+    municipality: "mhlontlo"
+    name: ["bencuti","cengcane","culunca","culuncea","detyana","encalukeni","enyanisweni","etwa","forest-view","gabazi","gcayi","gemfane","gwadane","inxu-drift-1","khalankomo","kumbelembushe","kundezebe","kunobamba","kunotsweleba","kwamampengeni","kwankese","lotana-1","lower-roza","lower-tyira","madokodeni","mafusini","magutywa-1","mahlungulu","makuleni-1","makuleni-2","malepa","maloseni","maqanyeni-1","marambeni","mbalisweni","mbentsa","mbokotwana-1","mdeni","mhlabamnyama","mijikweni","mkwezweni","ncolosi-1","ndundumeni","ndwane","ngqubusini","ngwemnyama","nkungwini","nogaya","nolinges-farm-1","ntaboduli","ntsukandihlale","qumbu","qurana","qwidlana","rockdale","saint-bartholomew's","sangqu","shawbury-mission-station","shukuna","sinxago","sulenkama","tabase","thembeni","tina-bridge","tina-falls","tintwa","tsitsa-bridge","zilandana"]
+  - province: eastern-cape
+    municipality: "ngqushwa"
+    name: ["allenby","allenby-3","barracks","begha-3","bell-3","bhele","bingqale-3","cross-roads-3","cwala","cwala-3","edenvale-3","elaini-c","elalini--1","engqokweni","eqeto-3","fallodon-3","gobozana","good-hope","grassridge-3","gxetu","hamburg-c","hamilton-3","hercules-3","hilltop-3","hogg's-back-3","komkulu-3","kwahoyi-3","kwajaji-3","kwajubisa","kwamasele","kwamhlekwa-3","kwampeko","kwampeko-3","kwandaba-3","kwathuba-3","leqeni-3","majamanini","milton-3","mimosa-park","mozana-c","mpekweni-3","msengeni","mtati","mtyinweni","new-bradford-3","ngele","ngqowa-3","nonibe","prudhoe-3","qaga","sportsvale-3","stanway-3","tafeni","tamara","thamarha-1","thornfield","thornpark-3","torwood-c","waterford-3","wesley-c","wesleyville-3","willington-3","wooldridge-3","zalara","zimbaba"]
+  - province: eastern-cape
+    municipality: "ngquza-hill"
+    name: ["bukazi","hillside","klondyke","kudupu","kwabhushula","kwadick","kwazulu","lumayini","mbotyi-2","mfinizweni","mount-hope","mount-nelson","ntabengatshi","nyareni","palmerton"]
+  - province: eastern-cape
+    municipality: "nyandeni"
+    name: ["lotana-a","ngqubusini-1"]
+  - province: eastern-cape
+    municipality: "port-st-johns"
+    name: ["bhukada","kwazulu","mbotyi","mount-nelson","ntabengatshi","valley-view"]
+  - province: eastern-cape
+    municipality: "sakhisizwe"
+    name: ["hardup","kilmeny","kippersol","lichfield","luxeni","sifonondile","tshukutshezi-2"]
+  - province: eastern-cape
+    municipality: "senqu"
+    name: ["aasvogelkop","abo","appeldoorn","ashton","avoca","avondzon","bamboesfontein","barkly-east","belmore","ben-moore","ben-nevis","bergplaas","bonny-doone","bonnyvale","bontehoek","bosch-hoek","branksome","bremerside","broadford","broadlands","burley","burnside","buttermead","carabas","chateau-du-plessis","clearwater","clifford","cloverley","colvinton","de-hoek","den-hagen","donny-brook","draaiom","dunley","dynover-park","eaglescrag","elandsberg","elandsfontein","elibank","fairfield","fairholm","fairview","fonteinkloof","franshoek","gelegenfontein","gelukfontein","glassnevin","glen-avon","glen-gyle","glen-lyon","glenfillan","glengariff","goede-hoop","granard","halstone","hamilton","happy-valley","harmonie","hartebeestefontein","hazeldell","hendria","hentland","hillbury","holbrook","holderness","hugenot","jakkalsdrif","joubert","kenmure","klipspruit","koppiesfontein","kopshorn","kromdraai","lacolleen","leeuspruit","lekkerwater","locksley","loskop","lower-kenmure","lower-rosstrevor","lundin's-nek","lushof","magdala","malpas","marshill","mavis-bank","merino","merino-hoek","middle-drumbo","millerd","modderfontein","mooiplaas","morgenzon","morristown","mortoun","moshesh's-ford","mount-mourne","mount-nephin","naauwpoort","new-england","newstead","nkululeko","noodshulp","nooitgedacht-b","osbourne","paardekraal","paardenek","pelgrimsrus","pine-grove","pitlochrie","platfontein","powerscourt","pretoriusdraai","prospect","queensberry","ravenfell","ravenscrag","reedsdell","rhodes","rockfield","rondehoek","roodepoort","ross-trever","rust-de-winter","sandham","saxony-merino","schiehallion","silverwood","slaapkrantz","smoorfontein","steepside","stoppoort","strydfontein","strydpoort","sunnyslope","swartfontein","the-dargle","the-dingle","tierkrans","tinyside","tramore","tytherly","vaalkop","vale-of-health","vlakfontein","waaikraal","waschbank","westbrook","wolwekloof","zakhele"]
+  - province: free-state
+    municipality: "phumelela"
+    name: ["adalia","allanvale","amelia","beginsel","bergplaas","bothaspas","cliffdale","colliesdale","cornelia","de-bakke","delta","driehoek","eben","ecclefechan","erfdeel","evenwyd","franshoek","fredriksrus","galaxy","galaxyvlei","ganskraal","geduld","geluk_b","glen-allen","goeie-hoop","grasbult","grootpoort","houthoek","johanna","koloniesplaas","koolhoek","leeudans","lincolnshire","memel","meulstroom","middeldeel","mispah","mons","negenfontein","nogtans","nuwejaarshoek","ons-t'huis","oudewerf","roodepoort","seekoeivlei","seekoeivleipoort","spitskop","springbok","springbokbult","stormhoek","tevrede","tygerfontein","uitspanning","uysheim","vastrap","welgelegen","welgeluk","zamani"]
+  - province: kwazulu-natal
+    municipality: "emadlangeni"
+    name: ["bonita-view_a","clontarf_a","coetzenburg","harlow-health","homer","kromellemboog_a","lofdal","skuilklip_a","weltevreden_a"]
+  - province: kwazulu-natal
+    municipality: "emnambithi/ladysmith"
+    name: ["broadview","colenso","corrylynn","doornkloof","doornkraal","ezakheni_a","georgina_a","gevonden","graythorne_a","grobbelaarskloof","inniskilling","nkankezi","riverside","tugela-drift","wolfenden_a"]
+  - province: kwazulu-natal
+    municipality: "ethekwini"
+    name: ["camperdown-nu_b","condor","fredville","harrison_b","inchanga","radnor","roydene"]
+  - province: kwazulu-natal
+    municipality: "imbabazane"
+    name: ["de-hoek","driefontein","ellerslie","ennersdale_a","express_a","loskop","maqabaqabeni","mara","mopona","mount-maria","moyeni","mqedandaba","okehampton","portington_a","powana","rosedale_a","the-gums","woodcote"]
+  - province: kwazulu-natal
+    municipality: "impendle"
+    name: ["dargle","norwood_a"]
+  - province: kwazulu-natal
+    municipality: "indaka"
+    name: ["doornkloof","doornkraal"]
+  - province: kwazulu-natal
+    municipality: "newcastle"
+    name: ["aandrus","amelia","bonita-view","bothaspas","cadie","clontarf","coetzenburg","de-hook","doornhoek","draaihoek","dumfirmline","esmt","fransina","glen-view","glenharte","gordon","happy-valley","harlow-health","ingogo","langverwag","lennoxton","lentevlei","lofdal","loskop","matandas-kraal","montreal","moyeni","oakley","revine","rietspruit","rocketdale","samsonsklip","shortscliff","skaapvlakte","skuilklip","sterkstroom","sweet-water","trekboer","tweefontein","underberg","undercliffe","waterfall_b","waterhoek","wide-hope","zinnia"]
+  - province: kwazulu-natal
+    municipality: "okhahlamba"
+    name: ["adanar","alpine-view_a","annas-rus","arthur's-seat","avondale","beginsel","bell-park","bergville","bergvlei","berwin","boland","bonheim","brandkraal","broadacres","brotherton","busingatha","camelot","chervara","claymore_a","clydesdale","connaught","corrylynn","dankbaar","delta-flats","devon-barton","drakensville","drayton","driel","dukuza","eastlynne","ekombe","el-dorado_a","el-mirador","ellerslie","emkhizweni","enon","erasmusdam","eversholt","fairfax","gangadweni","gertina","gevonden","glen-gray","glenisla","glenrust","glenside","good-hope","gourton","graignethan_a","groenveld","harmonie_a","hartebeesfontein","hathaway","hazelhurst","hillside","hoffenthal-mission","hongerspoort","horton-radford","hunters-rest","inniskilling","isandlwana","jagersrust","kameeldraai","kia-ora","kokwane","koplaagte","kopleegte_a","kruispad","kwaggashoek","kwamiya","kwanokopela","langeni","langham","langkloof","mafefetheni","maganganguzi","mandon-ridge","mara","meroz","mkukwini","mooihoek","moorfield","mopona","morningside","mount-hilda","noodhulp","nooitgedacht","olivia","oppermanskraal","park-vale","poortjie","residence","riverside","rivulet","roodebult","rookdale","rusoord","rustenberg","sunnybraes","sunnyside_a","the-downs","the-gums","tugela-vaal","tzamenkomst","uitzicht","ukhahlamba","vaalbank","vimy-ridge","viviers","waaihoek","wanhoop","waterloo","welgekozen","winterton","woodcote","woodford","zunckels","zwelisha"]
+  - province: kwazulu-natal
+    municipality: "umhlathuze"
+    name: ["braeburn","embaleni","eniwe_a","felixton","iniwe","muzi_a","ndabayakhe","ngwelezana","ngwelezana_b","pentlands","thandabantu_b","umhlatuzi-valley","umhlatuzi-valley_b","umzimbele","windsor"]
+  - province: kwazulu-natal
+    municipality: "umngeni"
+    name: ["aird_a","allerton","arden","balgowan_b","barland","blesberg_a","blesberg_b","boschfontein","bridgewood","cairn-marsh","cedara_a","chartwell","corrie-lynn_a","cronmel","dargle_a","dee-bee","ehlatini","esseldene","freelands","good-hope","hill-side","hopedale","impofana","innesfree","kwanyoni","leonard","lidgetton_a","lions-river_a","lions-river_c","lythwood","maidstone","manor-farm_b","merrivale_a","michaelhouse_b","norglen","petrusstroom","rockhaven","rosslands","selshey","shelaine_a","sitela_a","southdown_b","templeton_a","the-chestnuts","the-chestnuts_a","the-dargle","the-wallows","townley","triple-creek","warsash","weltevreden_a"]
+  - province: kwazulu-natal
+    municipality: "umtshezi"
+    name: ["avondale","brakfontein","broadview","chieveley","colenso","cornfields","express","frere","gannahoek","grenford","hattingsvlakte","hill-grove","inniskilling","kopleegte","makahyana","meadowyondale","monte-christo","moordkraal","mount-elizabeth","noqayizivele","oburn","onverwacht_a","prospect","selby","tugela-drift","vaalkrans"]
+  - province: kwazulu-natal
+    municipality: "umzumbe"
+    name: ["ardee","brooklands","cathula_b","cold-place","deyi","dingle","elupepeni","ezitendeni","goba","gumatane","hlokozi","khunyana","kwa-dweshula_b","madonella","maria-trust","nhlalwane","nsimba","saint-anthony","saint-faith's","umzumbe","vukani"]
+  - province: limpopo
+    municipality: "greater-giyani"
+    name: ["babangu","bambeni","bode","caledon","gaula","giyani","hahlathi","hlaneki","hlophekane","homu","ka-dzingidzingi","ka-gidiya","ka-guwela","ka-kheyi","ka-makhuva","ka-mapayeni","ka-mapuva","ka-matsotsosela","ka-mbadlhe","ka-mbatlo","ka-munghonghoma","ka-mushiyani","ka-ndengeza","ka-nghalalume","ka-ngove","ka-nkuri","ka-rhangani","ka-sabulane","ka-siandana","ka-sikhunyane","ka-xikukwani","khakhala","kremetart","macene","magosha","ma-phata","maswanganyi","mavalani","mbaula","mininginisi","mlhava","muyexe","ndindani","nkomo","nwadzedzeku","phalakubeni","shivulani","sifasonke","thomo","tiyani","tomu","vuhehli","wagendrift","xawela","xikhumba"]
+  - province: limpopo
+    municipality: "makhado"
+    name: ["doli","ha-davhana","ha-mahatlani","ha-mashamba","ha-masia","ha-mufeba","hanani","ha-ribungwani","ha-wayeni","hlanganani","ka-bungeni","ka-majosi","ka-nkuzani","ka-nwamatatani","ka-nwaxinyamana","kurulen","magoro","malonga","masakona","matsila","mukondeni","nieuw-england","olifantshoek","sereni","sidoni","tshikwarani","tshiphuseni","tshivhade","wagendrift"]
+  - province: limpopo
+    municipality: "mutale"
+    name: ["matiami","punda-maria"]
+  - province: limpopo
+    municipality: "thulamela"
+    name: ["boltman","botsoleni","budeli","buluni","bulwini","dakari-2","dididi","dinga","dumasi","gandlanani","gijamandzini","gondeni","green-farm","gumbani","ha-matsika","jerome","jilongo","jimmy-jones","josefa","ka-hasane","ka-mahonisi","ka-mphambo","ka-vhele","ka-xigamani","khakhanwa","mabayeni","machele","magomane","makovha","makumeke","malamhala","malamulele","malavuwe","mangondi","maphophe","matiami","matsakali","mavambe","maveke","mchipisi","merve","mhinga","mphego","mukande","mukhomi","mulamula","muledane","mulenzhe","munwe","muraga","muswane","mutoti","muyexe","nghezimani","nsimbhi","ntlhaveni","nyavhani","phaphazela","roadhouse","saselemani","shigalo","shivulani","sterkstroom","tshamutavha","tshianzwani","tshififi","tshikonela","tshikundu","xihosana","xitlhelani"]
+  - province: western-cape
+    municipality: "beaufort-west"
+    name: ["alexanderkraal","de-put","grootfontein","kruidfontein","langrug","misthoek","poortjie-wes","sarelsrivier","stellenboschvlei","vierfontein","winterberg"]
+
+- calendar_name: eskom-direct-6-even.ics
+  provider: eskom
+  source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
+  source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
+  areas:
+  - province: eastern-cape
+    municipality: "camdeboo"
+    name: ["gordonville"]
+  - province: eastern-cape
+    municipality: "gariep"
+    name: ["brakleegte","devon-home","drodfontein","fonteintjie","grootvlei","kingslynn","lucerndale","olywenkloof","rusoord","stille-hoop","tafelberg","welkom"]
+  - province: eastern-cape
+    municipality: "inxuba-yethemba"
+    name: ["aandrus","beaconsfield","bulhoek","coetseesfontein","coetzeeskraal","drodfontein","eindelik","fairview","forteinplaas","good-hope","grootvlei","hartebeesfontein","heathdale","heydon","juriesbaken","karmel","loocksvlei","lucernevale","lynton","maryland","middelburg","middelplaats","modderfontein","onbekend","paardevlei","ravensbourne","the-poplars","the-willows","twistkraal","vaaldrift","valsdrif","vlakfontein","vriesfontein","waterkloof","westaway","whatton","zuurfontein"]
+  - province: eastern-cape
+    municipality: "tsolwana"
+    name: ["beaconsfield","forteinplaas","hillview","jericho","kraaiplaas","maryland","vaaldrift"]
+  - province: free-state
+    municipality: "matjhabeng"
+    name: ["saaiplaas"]
+  - province: gauteng
+    municipality: "city-of-johannesburg"
+    name: ["dube","dube-ext-1","jabavu-ext-2-east","meadowlands-zone-10","meadowlands-zone-4","meadowlands-zone-6","mofolo-north-a","mofolo-east"]
+  - province: gauteng
+    municipality: "city-of-tshwane"
+    name: ["dark-city","ekandustria","ekangala","ekangala-b","ekangala-c","ekangala-d","ekangala-f","ekangala-h","ekangala-outlying"]
+  - province: gauteng
+    municipality: "ekurhuleni"
+    name: ["ncala-a"]
+  - province: gauteng
+    municipality: "merafong-city"
+    name: ["bloubank","goudvlakte-wes-east","khutsong","khutsong-ext-2","khutsong-ext-3","khutsong-ext-6","khutsong-outlying","khutsong-sp","leeupan","pahtiki","phila-park","vooruitsig","vreysrus","wildfontein-east","witstinkhoutboom"]
+  - province: gauteng
+    municipality: "mogale-city"
+    name: ["vooruitsig"]
+  - province: gauteng
+    municipality: "randfontein"
+    name: ["doornfontein-east","vreysrus","witfontein-east"]
+  - province: north-west
+    municipality: "city-of-matlosana"
+    name: ["adamayview","boontjieskraal-east","bosworth-farm","brakspruit","buisfontein","doringkruin","flamwood","frisgewaagd-west","grysbult","khuma","khuma-outlying","khuma-proper","lahoff","lapfontein-east","mahemsvlei","margaret-mine","nichol","rheboksfontein","rietfontein","rietfontein-east","rietkuil-east","rykaartspos","stilfontein","taaibosvlei","uitval","vlaklaagte","welgelegen-west","wilkoppies","willkoppies","witpoort-east"]
+  - province: north-west
+    municipality: "ditsobotla"
+    name: ["blydeville","boikhutso","boikhutso-outlying","cyerfontein-east","goedehoop-b","goedgedacht-a","hakboslaagte","kareebosbult","lutterloh-east","oppaslaagte","platvlei-east","rhenosterdoorns-east","rietgat-b"]
+  - province: north-west
+    municipality: "maquassi-hills"
+    name: ["beyersrus","biesieslaagte-b","bosplaas-b","brakpan-west","brakvlei-west","buysfontein","dagbreek-west","doornfontein-b","frisgewaagd-west","highlands","klipdrif-west","klipfontein-b","lakensvlei-west","langverwag-west","lebaleng-east","nemo-west","port-allen","rietkuil-west","shangri-la-west","skaapplaas-west","spruitplaas-b","strydpoort-west","tswelelang","tussenpan-west","vogelstruiskuil-west","volstruiskuil-b","waagkraal-west","welgelegen-west","witklip-west","witpoort-west","wolmaransstad-east","wolwekop"]
+  - province: north-west
+    municipality: "tswaing"
+    name: ["biesieslaagte-west","bosbult-west","boshoffsrust-west","bospan-west","bossieslaagte-west","doornbult-west","doornhoek-west","doornkuil-west","doornpan-west","doornspruit-west","emmarentia-west","gestoptefontein-west","gunsteling-west","hermanus-west","humanskraal-west","kareekuil-west","kleinplaas-west","korannafontein-west","langverwag-west","lettiesrus-west","mooiplaas-west","oshoek-west","ottosdal-west","perdevlei-west","rietkuil-west","rostrataville-west","simonsvallei-west","simonsvlei-west","steynspan-west","susanna-west","vlakpan-west","welgevonden-west","wilgervlei-west","witpoort-west"]
+  - province: north-west
+    municipality: "ventersdorp"
+    name: ["adriana","blesbokfontein","boshoek-west","bovenste-oog","buckingham","bultfontein","doornplaat","dovesdale","droogpan","drylands","grootbos-east","inhoek","khutsong","klerkskraal","klipgat","leeukraal","melville","mesa-west","morgenzon","muiskraal-west","oatlands","preston-pans","roodepan","rooidraai-west","syferbult","thyszyndoorns","varkenskraal","ventersdraai","wildebeeslaagte","wolsley","zamenkomst"]
+  - province: northern-cape
+    municipality: "emthanjeni"
+    name: ["beestekuil","benades-dale","brimscombe","driekoppen","gordonsfontein","hoogmoedsfontein","kriegerspoort","leeupoort","leeuwrand","philandskraal","sterkstroom"]
+  - province: northern-cape
+    municipality: "inxuba-yethemba"
+    name: ["twistkraal","valsdrif"]
+  - province: northern-cape
+    municipality: "renosterberg"
+    name: ["zingfontein"]
+  - province: northern-cape
+    municipality: "ubuntu"
+    name: ["auguskraal","avontuur","cypherwater","dassiefontein","haaskraal","jantjiesfontein","kouenburg","langford-hill","leopardsvlei","middle-mount","niekerksfontein","palmietfontein","perdefontein","roelofsfontein","schanskraal","skietkraal","slaaifontein","the-lands","van-zyls-kraal","vlakplaas","volstruisfontein","welgelegen","zoetvlei"]
+  - province: northern-cape
+    municipality: "umsobomvu"
+    name: ["achtersteland","allan-water","arbeidsgenot","baskop","boskop","bosvarkfontein","bovenstefontein","bovlei","brakhoek","brandewynsfontein","buffelsvlei","bultfontein","colesberg","damfontein","damplaas","de-kruis","de-poort-a","de-put","de-voor","drodfontein","ebenaeser","eerstepoort","elandsfontein","eurekaville","excelsior","gansgat","groenfontein","hamelfontein","heron-court","holfontein","holle-river","jasfontein","kayalami","ketelfontein","kleintoren","klipfontein","klipkraal","klipplaatsfontein","knoffelfontein","kuipersfontein","kuyasa","kwazamwxolo","leeukop","middelwater","mooiplaas","morgenzon","naauwpoort","nooitgedacht","noupoort","noupoort-sp","nuwefontein","poortjie-a","poplar-grove","potfontein","quaggasfontein-b","rietfontein-f","rietfontein-poort-b","rietpoort","riverside","roberta","rosslands","sewefontein","slingersfontein","spiesmanspoort","springfontein","starston","straussheim","sunnydale","taaibosfontein","the-mills","the-willows","tweedepoort","tzamenkomst-b","vaalkop","ventersfontein","vergelegen","visgat","vlugfontein","vodlfontein","windpoort","winterhoek","wolwefontein","wonderheuwel","wondervlei","yardley","zaaifontein"]
+  - province: western-cape
+    municipality: "city-of-cape-town"
+    name: ["airport--airfranc","airport-1","belhar-ext-1","belhar-ext-10","belhar-ext-11","belhar-ext-12","belhar-ext-13","belhar-ext-14","belhar-ext-15","belhar-ext-16","belhar-ext-17","belhar-ext-2","belhar-ext-23","belhar-ext-3","belhar-ext-4","belhar-ext-6","belhar-ext-7","belhar-ext-8","belhar-ext-9","bishop-lavis-heilbot","boquinar-industrial-area-heilbot","erica-township","nooitgedacht","the-hague","uitsig-1"]
+  - province: western-cape
+    municipality: "overstrand"
+    name: ["afdak","albertyn","fisherhaven","hoopjesrivier","onrus","vermont"]
+  - province: western-cape
+    municipality: "saldanha-bay"
+    name: ["louwville"]
+  - province: western-cape
+    municipality: "theewaterskloof"
+    name: ["albertyn-hawston"]
+
+- calendar_name: eskom-direct-6-odd.ics
+  provider: eskom
+  source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
+  source_info: https://www.eskom.co.za/distribution/customer-service/outages/downloadable-loadshedding-spreadsheets-for-eskom-customers/
+  areas:
+  - province: eastern-cape
+    municipality: "camdeboo"
+    name: ["adendorp","graaff-reinet","tjoksville-2","umasizakhe-2"]
+  - province: eastern-cape
+    municipality: "elundini"
+    name: ["aandrus","agassiz","arbeidsgenot","aubigny","baldhills","ballyran","belmont","ben-roy","ben-voirlich","bendamba","benderag","bisset","blue-mountains","boncourt","bonnievale","braemar","brownlee","camadra","carlsbad","charfred","chillingly","confluence","corban","de-hoop","delemont","dunsany","eastward-ho","ediphini","elands-height","emoyeni","enyibibeni","eramatiya","esperanto","fahy","fairbairn","fairbridge","fairlight","fairview","falstaff-glen","ferngrove","frankstead","geluk","glen-cullen","glen-rowan","glengreive","golomane","goodhope","gqeqhala","greendale","halcyon-drift","hardale","highfield","hillrise","honingkloof","hope","hopedale","hopewell","inglewood","jk-bokwe","katies-rest","kenmore","killarney","kilmeny","kincardine","klipkraal","liberton","lily-vale","lubalweni","m(reson","maclear","madeira","maglona","magutyubeni","maidenhead","makuleni-2","maladini","many-vales","mati's","merlin","mgcantsi","mhontlo","minnehaha","misty-mount","moedhou","mondamin","mooilaagte","mount-elton","mountain-view","nekina","nelani","ngcengane","ngqayi","ngxaza","nkalweni","northbrook","ntokozweni","oakhurst","oakleigh","orpen","perseverance","plateau","pomona","pot-luck","reivilo","remia","rhodesia","riverside","rocky-park","rosendal","roslyn-park","rustig","sandhurst","sandwick","sheeprun","sonop","sonwabile","strathalan","sunny-slopes","surat","the-granary","the-rosary-1","the-rosary-2","tiger-valley","tortoni","troswick","truro","tv-park","ugie","vipan","vrede","wainwright","waterbron","weatherley","weatherstone","weltevrede","werda","wimbledon","woodcliffs","woodlands"]
+  - province: eastern-cape
+    municipality: "emalahleni"
+    name: ["bhomeni","bhozwana","boomplaas","braunville-2","dongweni","dophu","drayini","driver's-drift","ecacadu","egcibhala","emthonjeni","encalukeni","engqanda","glen-grey-2","gqadu","greyspan","guba","gugulethu-2","gxojeni","hala-2","hali-no-1","hali-no-2","holani","hoogerandt","icumakala","jawo","kudyobhudaka","kujaho","kuliweni","kundonga","kundulu","kwa-percy","kwatshatsu-1","lady-frere","lapesini-2","ligwa","lututu","magemfaneni","maloyi","matyhantya","mbholompheni","mdeni","mkapusi-2","mmangweni","mtsheko","ndenxe","ngcuka","ngqoko","njombela","nqiningana","ntaba-maria-mission","ntlalo-ntle","nyongwana-1","ohoboshana-2","phesheya","platkop","qutubeni","riverside","rona","sidakeni","stoney-croft","tafeni","the-mission","thornlands","tshatshu","xeni","xonxa","zingqolweni"]
+  - province: eastern-cape
+    municipality: "engcobo"
+    name: ["encalukeni","matuana","mnyolo","mooivlei","nekina"]
+  - province: eastern-cape
+    municipality: "intsika-yethu"
+    name: ["emntla","emzantsi","guse","kundonga","maqwateni","nyongwana","southeyville"]
+  - province: eastern-cape
+    municipality: "king-sabata-dalindyebo"
+    name: ["kwanduli","kwenxura","machibini","majwareni","mandlovini","maweni","mthatha-part-1","ngcwala","nkominco","nonkobe","silverton","thurwini","tyumbu-1"]
+  - province: eastern-cape
+    municipality: "maletswai"
+    name: ["avontuur","bankfontein","beerfontein","brakfontein-1","brandlaagte","de-hoop","eendracht","ehrenbreistein","fraaiuitzicht","holdfast-1","hollywood","hopewell-1","houtkraal","inhoek","koppieskraal","kraairivierspoort","la-mascotte","meyers-halt-1","mooivlei","nooitgedag","paardefontein","platkop","poortjie","poppie","richmond","rietfontein-1","rietvlei","rooikoppies","saffier","schoongesig-1","solitaire","strahlsund","toekomst","tugela","uitkyk-b","vlakfontein-1","waterval-1","welkom","weltevreden","wenhoek","wilgespruit","witkoppies","wonderboom"]
+  - province: eastern-cape
+    municipality: "mhlontlo"
+    name: ["maladini","maqanyeni-2"]
+  - province: eastern-cape
+    municipality: "nyandeni"
+    name: ["buntingville","coranlay","komkulu","lutoli","majwareni","mambethu","mantanjeni","maweni","mdeni-1","ncambedlana","ndindimeni","ngolo","nobantu","ntakwendela","ntilini","sibangweni","sitebe","sixhotyeni"]
+  - province: eastern-cape
+    municipality: "sakhisizwe"
+    name: ["askeaton","elixeni","geluk-2","gubenxa","maqwateni","nqwebebeni","the-home"]
+  - province: eastern-cape
+    municipality: "senqu"
+    name: ["arrarat","bultfontein","delta","drizzly-hill","glen-doone","halcyo","helvellyn","hollywood","kantienpoort","karringmelkspruit","killarney","kwezinaledi","lady-grey","lammermoor","l'ideal","lower-orpendale","lower-pelion","lower-tempe","middelplaat","ono","ossa","rietfontein","rocklands","sophiashof","tauhill","tempe","unity","vickersdale","vorstershoek","welverdiend","wolwepoort","woodlands","zachtevlei","zwartfontein"]
+  - province: gauteng
+    municipality: "mogale-city"
+    name: ["lynkloof"]
+  - province: kwazulu-natal
+    municipality: "abaqulusi"
+    name: ["bedrog_b","ekuthuthukeni","emondlo","emvunyane","esigodini","haddon-hall","kwambunda_a","mhlungwane","mvunyane","ndatshana-mission","nkande","ntabebomvu","saint-johns-mission","saint-pauls-mission","siyakhathala","telezini","verlorenhoop_b","waterval_d"]
+  - province: kwazulu-natal
+    municipality: "dannhauser"
+    name: ["broadfields_a","cupar_b","dafelsfontein"]
+  - province: kwazulu-natal
+    municipality: "emadlangeni"
+    name: ["de-rust","eenkantlangs_a","flint","geluk_a","hopedale","kameelboom","kingsley_a","klipfontein","kwaggasdrift","rooipoort","rooisand","ruigtefontein","vaalbank_a"]
+  - province: kwazulu-natal
+    municipality: "endumeni"
+    name: ["alicedale","avemore","avoca_a","avon-industrial-areas","battersea-park","beaucamp","beith","belgravia","belleek","bergvliet","bernersyde","biggarsgat","bloemhof","brakfontein","broad-acres","cinderford","cotswold","dumain","dundee","dundee-outlying","dundee-town","eersteling","forestdale","gladstone","goedehoop","gowrie","halifax","harrowdale","hayfield","hazeldene","irondale","kalkoenkrans","kilburnie","klipfontein","langverwag","lennox","lerryn","links-of-buffalo","loraine","lusthof","marinovlakte","mauchine","miller","mons","nordenveldt","outfall","palmyra","peacevale","prestwick","rae-moir","randfontein","rietspruit","rietvlei","rietvlei_a","rosemount","spitskop","stille-rust","strathearn","strathview","stratton","sukses","sunnyside","sunshine","talana","taveta","the-oaks","the-wilderness","tygerkrans","uithoek_a","voortrekker","whinstone","winkel","winston","zuurfontein"]
+  - province: kwazulu-natal
+    municipality: "ezingoleni"
+    name: ["banginyama","big-bend","brookvale","chibini","horseshoe","izingolweni_b","kwacele","kwahlomendini","kwamshiwa","kwanyuswa_a","kwanyuswa_b","luna","mahlabatini","mahlubini","mansfield_b","mpunzi-drift","mpunzi-drift_b","nqabeni","retreat","ridge-road","riverside","saint-boniface","saint-luke's","thembeni","thistles","thornton","tonjeni","van-dyk"]
+  - province: kwazulu-natal
+    municipality: "imbabazane"
+    name: ["briar-mains","callcote","crystal-springs","dalton","emahlutshini","eversley","harleigh","highveld","holmes-dale","kwadlamini","kwamankonjane","kwamkhize","louisdaal","moorberg","mount-lebanon","ntabamhlope","otterburn","rockmount","springbank","the-heights","tierhoek","yorkville"]
+  - province: kwazulu-natal
+    municipality: "kwadukuza"
+    name: ["tugela-estate"]
+  - province: kwazulu-natal
+    municipality: "mandeni"
+    name: ["endondakusuka","good-hope_b","havelock","ithembe_b","mandini_b","mangeti","new-hastings_b","newark","nyoni_b","thorny-park","tugela","tugela-estate","williamson_b"]
+  - province: kwazulu-natal
+    municipality: "mkhambathini"
+    name: ["mkhambathini_b"]
+  - province: kwazulu-natal
+    municipality: "mpofana"
+    name: ["ballina_b","bracken-burn","broadmoor","carshalton_a","cleopatra","cragie-byres","fairfield","game-pass","glengarry","kangatong","kilmore","little-falls","meshlynn","middlefield_a","mooi-river","prosperity","redcliffe","riverside_a","silwerstroom","stagstones","the-prairies","thendele","whyteleafe_b","woodford","yorkshire-wolds-east","yorkshire-wolds-west","yorkville"]
+  - province: kwazulu-natal
+    municipality: "msinga"
+    name: ["baviaankloof","craig-millar","doringkop","dresden","elandsberg","elandskraal","excelsior","fugitives-drift","giba","grootevlei","harding","helpmekaar_b","hermanskluft","hohoza","kersgrove","kilburnie","knostrope","kromdraai","lanesburg","langfontein","mahlaba","matatana","mierhoopbaken","nazareth-mission-station","neues-haim","ntile_b","paddock","petroscar","rooifontein","rorke's-drift","shepleigh","sikaskloof","somerset","steinthal","sutherland_b","swartwater","uitzicht_a","zuurfontein","zuurkop"]
+  - province: kwazulu-natal
+    municipality: "nkandla"
+    name: ["amagogo","phumuzamaphiko_b"]
+  - province: kwazulu-natal
+    municipality: "nqutu"
+    name: ["amagogo","barklieside","boshoek","brakwal","broad-acres","doornhoek","eensgevonden","ekuthuthukeni","esigodini","fahlaza","fort-louis","good-hope","haddon-hall","hlazakazi","jabavu","kromellenboog","kwambunda","mabululwane","mabusa","mabusa_a","mabusa_b","mafitleng","magabeni","magongolozi","mangeni","mfeka","mhlungwane","mkonjane","ndatshana-mission","ndlala","new-adelaide","ngwebini","nhlabamkhozi","nkande","nondweni","nqutu","ntinini","nzimini","onvergenoeg","overton","patsoana","petroscar","phindo","rietvlei","river-view","rorke's-drift","saint-augustine's","saint-james-mission","saint-johns-mission","saint-matthews","saint-peters-mission","saint-thomas-mission","saint-vincent's","silutshana","simonskamp","straalfontein","sunrise","telezini","thandinkosi","vant's-drift","vegkop","vuka-phansi","vukuzenzele","vuna","welverdien","witklip","witkop","zwartkop"]
+  - province: kwazulu-natal
+    municipality: "richmond"
+    name: ["baynesfield","coningsby","hopewell","maybole-farm","merrowdown","meyershoek","richmond-nu_b","the-mynde","thornville","windsor-park"]
+  - province: kwazulu-natal
+    municipality: "the-msunduzi"
+    name: ["shenstone-sh_b"]
+  - province: kwazulu-natal
+    municipality: "umngeni"
+    name: ["allendale","dargavel","reekie-lynn"]
+  - province: kwazulu-natal
+    municipality: "umtshezi"
+    name: ["broadmoor","bursea","eversley","fernhurst","highthorn","kilmosque","little-falls","lowlands","old-land","rietvlei","south-downs","spitzkop","stockton","the-rise","the-wattles","tintern","willbrook","yorkville"]
+  - province: kwazulu-natal
+    municipality: "umuziwabantu"
+    name: ["big-bend","braeside","brookvale","ekuzameni","fingal","gangala","harmony","hluku","hopedale","khayalithe","kwahlomendini","kwamboto","kwamshiwa","lotbob","lovat","luna","mahlubini","marchmont_b","mjika","mpindweni","mseni","ndlovini","nhlangwini","pleasant-view","retreat","rydal-mount","saint-luke's","samuel","slexel","the-ridges","thistles","thornton","tonjeni","van-dyk","whitecliff"]
+  - province: limpopo
+    municipality: "blouberg"
+    name: ["ga-kibi"]
+  - province: limpopo
+    municipality: "greater-giyani"
+    name: ["babangu","basani","blinkwater","dingamanzi","ghandlanani","hlaneki","ka-ndengeza","ka-nwamankena","ka-rivala","makgakgaptse","muhlahlandlela","shimange","ximausa"]
+  - province: limpopo
+    municipality: "greater-letaba"
+    name: ["bellevue","makgakgaptse","mamokgadi","molototsi","nakampe","rotterdam","sekhukhubje"]
+  - province: limpopo
+    municipality: "makhado"
+    name: ["boskoppies","chavani","dakari-2","doli","elim","forget-me-not","ga-ramokgopa","ha-davhana","hanani","ha-ramantsha","ha-ramaru","ha-ravele","ha-sundani","ka-madzivi","ka-nwaxinyamana","lwenzhe","madabani","madobi","madombidzha","maebani","maila","makhado","makhasa","mara","masakona","matitivhala","mavhulani","mbhokota","midoroni","mudufuni","muila","mukhoro","muraleni","palmietfontein","phelendavha","rivierplaas","schiel-farm","sidoni","tshikhwani","tshimbupfe","tshino","tshiozwi","tshitungulwani","tshivangani","tshivhade","tshivhazwaulu","vleifontein","vuwani","vyeboom","zyferfontein"]
+  - province: limpopo
+    municipality: "maruleng"
+    name: ["antioch","augusta","bushlands","casketts","cheetah-inn","driehoek","eden","el-franko","fleur-de-lys","ga-maotole","geursney","guernsey","guersney","guersney-landgoed","klaserie","kremetartboom","liveydale","madrid","mariepskop","mbabaat","moabetsi","morea","mossienes","murmelendewaters","sandringham","sark","schoongezicht","scotia","sesiti","sondela","thorny-bush"]
+  - province: north-west
+    municipality: "local-municipality-of-madibeng"
+    name: ["bultfontein","damsig","daverich","de-rust","die-moot","elandsrand","emiliehof","esperanzia","eureka","grootplaas","hartbeespoort-dam-nature-reserve","hartebeeshoek","jacksonstuin","leeukloof","lekkerbly","lerulaneng","lynkloof","makau","mamogaleskraal","maroelabult","pecanwood-estate","protea","rabokala","ramogaodi","rankatia","rashoop","remhoogte","skeerpoort","spookplaas","wilger"]
+
 - calendar_name: eskom-direct-7-even.ics
   provider: eskom
   source: https://www.eskom.co.za/distribution/wp-content/uploads/2022/09/WesternCape_LS.xlsx
