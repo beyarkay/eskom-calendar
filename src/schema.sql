@@ -27,8 +27,8 @@ CREATE TABLE
     id VARCHAR(7) PRIMARY KEY,
     filename VARCHAR(255) REFERENCES schedules (filename),
     stage INTEGER NOT NULL UNIQUE,
-    start TEXT TIMESTAMP NOT NULL,
-    finsh TEXT TIMESTAMP NOT NULL,
+    start TIMESTAMP NOT NULL,
+    finsh TIMESTAMP NOT NULL,
     last_updated TIMESTAMP NOT NULL,
   );
 
