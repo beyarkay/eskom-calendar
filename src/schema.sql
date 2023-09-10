@@ -21,6 +21,20 @@ CREATE TABLE
     url TEXT NOT NULL UNIQUE
   );
 
+-- All the schedules for all the places. This references a CSV file that's on
+-- disk, and provides a means to verify where the informaiton came from via
+-- sources_id and info_id.
+CREATE TABLE
+  schedules (
+    id VARCHAR(7) PRIMARY KEY,
+    filename VARCHAR(255) NOT NULL UNIQUE,
+    sources_id VARCHAR(7) REFERENCES urls (id),
+    info_id VARCHAR(7) REFERENCES urls (id),
+    last_updated TIMESTAMP,
+    valid_from TIMESTAMP,
+    valid_until TIMESTAMP
+  );
+
 -- Contains the loadshedding schedule as per machine_friendly.csv
 CREATE TABLE
   loadshedding (
@@ -29,21 +43,7 @@ CREATE TABLE
     stage INTEGER NOT NULL UNIQUE,
     start TIMESTAMP NOT NULL,
     finsh TIMESTAMP NOT NULL,
-    last_updated TIMESTAMP NOT NULL,
-  );
-
--- All the schedules for all the places. This references a CSV file that's on
--- disk, and provides a means to verify where the informaiton came from via
--- sources_id and info_id.
-CREATE TABLE
-  schedules (
-    id VARCHAR(7) PRIMARY KEY,
-    filename VARCHAR(255) NOT NULL,
-    sources_id VARCHAR(7) REFERENCES urls (id),
-    info_id VARCHAR(7) REFERENCES urls (id),
-    last_updated TIMESTAMP,
-    valid_from TIMESTAMP,
-    valid_until TIMESTAMP
+    last_updated TIMESTAMP NOT NULL
   );
 
 -- Every municipality in South Africa, as defined by Wikipedia
