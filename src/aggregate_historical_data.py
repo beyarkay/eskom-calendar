@@ -36,7 +36,8 @@ def find_erroneous_line(file):
 
 def load_yaml_files(directory):
     num_file_import_errors = 0
-    files = sorted([os.path.join(directory, f) for f in os.listdir(directory) if f.endswith('.yml') or f.endswith(".yaml")])
+    files = sorted(
+        [os.path.join(directory, f) for f in os.listdir(directory) if f.endswith('.yml') or f.endswith(".yaml")])
     loadshedding_data = []
     for file in files:
         try:
@@ -76,16 +77,19 @@ def resolve_conflicts(sorted_data):
                 # If the next entry's commit_time is more recent, update the 'finsh' time of the current entry
                 if next_entry['commit_time'] > current_entry['commit_time']:
                     current_entry['finsh'] = next_entry['start']
+                else:
+                    # the next item has a commit time after the current item in which case it can be ignored
+                    sorted_data.pop(j)
 
             j += 1
         # remove commit time
-        current_entry.pop('commit_time', None)
-        resolved_data.append(current_entry)
+        if current_entry:
+            current_entry.pop('commit_time', None)
+            resolved_data.append(current_entry)
 
-        i = j
+        i += 1
 
     return resolved_data
-
 
 
 def write_yaml(filtered_aggregated_data, file_path):
@@ -129,13 +133,12 @@ def create_historical_data(directory):
     sorted_data = sorted(unique_entries, key=lambda x: (x['start'], -x['commit_time'].timestamp()))
     num_entries_filtered = len(sorted_data)
     diff = num_entries_unfiltered - num_entries_filtered
-    print(f"{diff} entries were incorrectly formatted/duplicates and dropped")
-    total_overlaps = 0
+    # print(f"{diff} entries were incorrectly formatted/duplicates and dropped")
     resolved_data = resolve_conflicts(sorted_data)
-    print(len(resolved_data))
-    overlaps = find_overlaps(resolved_data)
-    print(len(overlaps))
+
     resolved_data.sort(key=lambda x: x['start'], reverse=True)
+    overlaps = find_overlaps(resolved_data)
+    print(f"There are/is {len(overlaps)} over(s)")
     return resolved_data
 
 
