@@ -94,6 +94,7 @@ def resolve_conflicts(sorted_data):
 
 def write_yaml(filtered_aggregated_data, file_path):
     with open(file_path, 'w') as f:
+        f.write("# This data automatically generated py aggregate_historical_data.py\n")
         yaml.safe_dump({'historical_data': filtered_aggregated_data}, f)
 
 
@@ -138,10 +139,9 @@ def create_historical_data(directory):
 
     resolved_data.sort(key=lambda x: x['start'], reverse=True)
     overlaps = find_overlaps(resolved_data)
-    print(f"There are/is {len(overlaps)} over(s)")
     return resolved_data
 
 
 if __name__ == "__main__":
-    data = create_historical_data("../test-files")
-    print(data)
+    data = create_historical_data("./historical_versions")
+    write_yaml(data, "test_historical.yaml")
