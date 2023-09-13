@@ -6522,6 +6522,25 @@ area_details:
   - {name: vecor sarco}
   - {name: vecor clotan steel}
 
+- calendar_name: gauteng-emfuleni-area-a16.ics
+  province: gauteng
+  municipality: emfuleni-local
+  provider: gauteng-emfuleni
+  source: http://emfuleni.gov.za/images/docs/electricity/2019/notice_load_shedding2015.pdf
+  source_info: https://www.emfuleni.gov.za/index.php/documents-77289/electricity
+  areas:
+  - {name: "SW 1"}
+  - {name: "SW 2"}
+  - {name: "SW 5"}
+  - {name: "SE 1"}
+  - {name: "SE 2"}
+  - {name: "SE 3"}
+  - {name: "SE 4"}
+  - {name: Mantevrede}
+  - {name: Lasiandra}
+  - {name: "Flora Gardens"}
+  - {name: "Vaal Mall"}
+
 - calendar_name: gauteng-emfuleni-area-a17.ics
   province: gauteng
   municipality: emfuleni-local
