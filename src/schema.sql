@@ -16,10 +16,7 @@ DROP TABLE IF EXISTS places CASCADE;
 -- are often long URLs that get duplicated. They all get stored as a URL ID
 -- which is referenced here.
 CREATE TABLE
-  urls (
-    id VARCHAR(7) PRIMARY KEY,
-    url TEXT NOT NULL UNIQUE
-  );
+  urls (id SERIAL PRIMARY KEY, url TEXT NOT NULL UNIQUE);
 
 -- All the schedules for all the places. This references a CSV file that's on
 -- disk, and provides a means to verify where the informaiton came from via
@@ -28,8 +25,8 @@ CREATE TABLE
   schedules (
     id VARCHAR(7) PRIMARY KEY,
     filename VARCHAR(255) NOT NULL UNIQUE,
-    sources_id VARCHAR(7) REFERENCES urls (id),
-    info_id VARCHAR(7) REFERENCES urls (id),
+    sources_id INTEGER REFERENCES urls (id),
+    info_id INTEGER REFERENCES urls (id),
     last_updated TIMESTAMP,
     valid_from TIMESTAMP,
     valid_until TIMESTAMP
@@ -43,7 +40,9 @@ CREATE TABLE
     stage INTEGER NOT NULL,
     start TIMESTAMP NOT NULL,
     finsh TIMESTAMP NOT NULL,
-    last_updated TIMESTAMP NOT NULL
+    last_updated TIMESTAMP NOT NULL,
+    -- TODO the source for the loadshedding needs to get inserted into the table
+    sources_id INTEGER REFERENCES urls (id)
   );
 
 -- Every municipality in South Africa, as defined by Wikipedia

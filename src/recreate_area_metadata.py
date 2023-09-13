@@ -1,4 +1,5 @@
 from typing_extensions import deprecated
+import tqdm
 import yaml
 import psycopg2
 import pandas as pd
@@ -219,8 +220,8 @@ known_munics: pd.DataFrame = cast(
 known_munics['_id'] = known_munics['name'].apply(
     lambda name: gen_id(hint=name))
 
-for i, d in enumerate(data):
-    print(f'{i}/{len(data)}')
+for i, d in tqdm.tqdm(enumerate(data), total=len(data)):
+    # print(f'{i}/{len(data)}')
     area_detail = AreaDetail(
         **({'province': None, 'municipality': None, 'city': None} | d)
     )
@@ -386,22 +387,33 @@ def conn_to_db():
 conn = conn_to_db()
 cursor = conn.cursor()
 
-
-for i, row in urls_df.iterrows():
-    insert_query = """INSERT INTO urls (id, url) VALUES (%s, %s)"""
-    data_to_insert = (row['_id'], row['url'])
+db_ids = []
+for i, row in tqdm.tqdm(urls_df.iterrows(), total=len(urls_df)):
+    insert_query = """INSERT INTO urls (url) VALUES (%s) RETURNING id"""
+    data_to_insert = (row['url'],)
     cursor.execute(insert_query, data_to_insert)
+    inserted_id = cursor.fetchone()[0]
+    db_ids.append(inserted_id)
     conn.commit()
+urls_df['db_id'] = db_ids
 
-for i, row in schedules_df.iterrows():
+for i, row in tqdm.tqdm(schedules_df.iterrows(), total=len(schedules_df)):
     print(row)
     insert_query = """INSERT INTO schedules (id, filename, sources_id, info_id, last_updated, valid_from, valid_until)
                     VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+    info_id = urls_df.loc[
+        urls_df['_id'] == row['info_id'],
+        'db_id'
+    ].values[0]
+    sources_id = urls_df.loc[
+        urls_df['_id'] == row['sources_id'],
+        'db_id'
+    ].values[0]
     data_to_insert = (
         row['_id'],
         row['filename'],
-        row['sources_id'],
-        row['info_id'],
+        int(sources_id),
+        int(info_id),
         row['last_updated'],
         row['valid_from'],
         row['valid_until'],
@@ -409,8 +421,7 @@ for i, row in schedules_df.iterrows():
     cursor.execute(insert_query, data_to_insert)
     conn.commit()
 
-for i, row in known_munics.iterrows():
-    print(row)
+for i, row in tqdm.tqdm(known_munics.iterrows(), total=len(known_munics)):
     insert_query = """INSERT INTO municipalities (id, name, province, kind)
                     VALUES (%s, %s, %s, %s)"""
     data_to_insert = (
@@ -422,12 +433,16 @@ for i, row in known_munics.iterrows():
     cursor.execute(insert_query, data_to_insert)
     conn.commit()
 
-for i, row in places_df.iterrows():
-    print(row)
+for i, row in tqdm.tqdm(places_df.iterrows(), total=len(places_df)):
+    # print(f'{i}/{len(places_df)}: {row["display_name"]}')
     insert_query = """INSERT INTO places (id, schedule_id, display_name, munic_id, name_aliases_id)
                     VALUES (%s, %s, %s, %s, %s)"""
     data_to_insert = (
-        row['_id'], row['schedule_id'], row['display_name'], row['munic_id'], row['name_aliases_id'],
+        row['_id'],
+        row['schedule_id'],
+        row['display_name'].title(),
+        row['munic_id'],
+        row['name_aliases_id'],
     )
     cursor.execute(insert_query, data_to_insert)
     conn.commit()
