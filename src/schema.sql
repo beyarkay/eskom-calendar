@@ -36,12 +36,11 @@ CREATE TABLE
 CREATE TABLE
   loadshedding (
     id SERIAL PRIMARY KEY,
-    filename VARCHAR(255) REFERENCES schedules (filename),
+    schedule_id VARCHAR(7) REFERENCES schedules (id),
     stage INTEGER NOT NULL,
     start TIMESTAMP NOT NULL,
     finsh TIMESTAMP NOT NULL,
     last_updated TIMESTAMP NOT NULL,
-    -- TODO the source for the loadshedding needs to get inserted into the table
     sources_id INTEGER REFERENCES urls (id)
   );
 
