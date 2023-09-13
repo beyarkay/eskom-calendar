@@ -398,7 +398,6 @@ for i, row in tqdm.tqdm(urls_df.iterrows(), total=len(urls_df)):
 urls_df['db_id'] = db_ids
 
 for i, row in tqdm.tqdm(schedules_df.iterrows(), total=len(schedules_df)):
-    print(row)
     insert_query = """INSERT INTO schedules (id, filename, sources_id, info_id, last_updated, valid_from, valid_until)
                     VALUES (%s, %s, %s, %s, %s, %s, %s)"""
     info_id = urls_df.loc[
@@ -448,10 +447,12 @@ for i, row in tqdm.tqdm(places_df.iterrows(), total=len(places_df)):
     conn.commit()
 
 
-# To export from postgres into CSV files
-# \copy aliases        TO 'data/aliases.csv' WITH (FORMAT CSV, HEADER)
-# \copy geofences      TO 'data/geofences.csv' WITH (FORMAT CSV, HEADER)
-# \copy municipalities TO 'data/municipalities.csv' WITH (FORMAT CSV, HEADER)
-# \copy places         TO 'data/places.csv' WITH (FORMAT CSV, HEADER)
-# \copy schedules      TO 'data/schedules.csv' WITH (FORMAT CSV, HEADER)
-# \copy urls(url)      TO 'data/urls.csv' WITH (FORMAT CSV, HEADER)
+print(r"""
+-- To export from postgres into CSV files
+\copy aliases        TO 'data/aliases.csv' WITH (FORMAT CSV, HEADER)
+\copy geofences      TO 'data/geofences.csv' WITH (FORMAT CSV, HEADER)
+\copy municipalities TO 'data/municipalities.csv' WITH (FORMAT CSV, HEADER)
+\copy places         TO 'data/places.csv' WITH (FORMAT CSV, HEADER)
+\copy schedules      TO 'data/schedules.csv' WITH (FORMAT CSV, HEADER)
+\copy urls(url)      TO 'data/urls.csv' WITH (FORMAT CSV, HEADER)
+""")
