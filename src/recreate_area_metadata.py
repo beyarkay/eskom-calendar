@@ -454,4 +454,4 @@ for i, row in tqdm.tqdm(places_df.iterrows(), total=len(places_df)):
 # \copy municipalities TO 'data/municipalities.csv' WITH (FORMAT CSV, HEADER)
 # \copy places         TO 'data/places.csv' WITH (FORMAT CSV, HEADER)
 # \copy schedules      TO 'data/schedules.csv' WITH (FORMAT CSV, HEADER)
-# \copy urls           TO 'data/urls.csv' WITH (FORMAT CSV, HEADER)
+# \copy urls(url)      TO 'data/urls.csv' WITH (FORMAT CSV, HEADER)
