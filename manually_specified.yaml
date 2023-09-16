@@ -12,25 +12,15 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 2
-  start: 2023-09-16T05:00:00
-  finsh: 2023-09-16T11:00:00
+- stage: 3
+  start: 2023-09-16T16:00:00
+  finsh: 2023-09-16T22:00:00
   source: https://twitter.com/Eskom_SA/status/1702963432826273944
   exclude: coct
 - stage: 3
-  start: 2023-09-16T16:00:00
-  finsh: 2023-09-17T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1702963432826273944
-  exclude: coct
-- stage: 2
-  start: 2023-09-17T05:00:00
-  finsh: 2023-09-17T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1702963432826273944
-  exclude: coct
-- stage: 4
   start: 2023-09-17T16:00:00
   finsh: 2023-09-18T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1702963432826273944
+  source: https://twitter.com/Eskom_SA/status/1703094678805995653
   exclude: coct
 
 - stage: 2
