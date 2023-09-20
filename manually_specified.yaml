@@ -32,16 +32,20 @@ changes:
   start: 2023-09-20T16:00:00
   finsh: 2023-09-20T22:00:00
   source: "https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages"
+  include: coct
 - stage: 3
   start: 2023-09-20T22:00:00
   finsh: 2023-09-21T05:00:00
   source: "https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages"
+  include: coct
 - stage: 1
   start: 2023-09-21T16:00:00
   finsh: 2023-09-21T22:00:00
   source: "https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages"
+  include: coct
 - stage: 3
   start: 2023-09-21T22:00:00
   finsh: 2023-09-22T05:00:00
   source: "https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages"
+  include: coct
 historical_changes: []
