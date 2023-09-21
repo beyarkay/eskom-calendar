@@ -763,6 +763,7 @@ mod read {
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
                 .collect::<Vec<_>>();
         } else if headers.iter().any(|h| h == "day_of_week") {
+            // Monday is day 1
             raw = reader
                 .deserialize::<RawWeeklyShedding>()
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
@@ -1350,6 +1351,7 @@ mod tests {
 
         #[test]
         fn first_day_of_week() {
+            // Monday is 1
             let start_dt = rfc3339("2022-01-01T00:00:00+02:00");
             let finsh_dt = rfc3339("2022-02-01T00:00:00+02:00");
             let dor = 1; // Sunday
