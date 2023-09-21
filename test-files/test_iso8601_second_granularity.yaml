@@ -1,0 +1,60 @@
+# YAML Historical Loadshedding Test Document
+# ==========================================
+#
+# This is a YAML test file that contains multiple YAML documents. Each document
+# starts with `---`. This file is used to test that historical loadshedding
+# calculations are correct.
+#
+# If there are N documents, then the first N-1 each specify a historical state
+# of loadshedding, with the most recent documents towards the end of the list.
+# The last document is the result of the previous N-1 documents being combined
+# together.
+#
+# Test for down-to-the-second granularity
+# ---------------------------------------
+# There's nothing particularly weird about this test just that the ISO
+# timestamps go down to the second.
+
+---
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:00:01
+    source: https://example.com/1
+  - stage: 2
+    start: 2000-01-01T00:00:01
+    finsh: 2000-01-01T00:00:02
+    source: https://example.com/1
+historical_changes: []
+
+---
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:02
+    finsh: 2000-01-01T00:00:03
+    source: https://example.com/2
+  - stage: 2
+    start: 2000-01-01T00:00:03
+    finsh: 2000-01-01T00:00:04
+    source: https://example.com/2
+historical_changes: []
+
+---
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:00:01
+    source: https://example.com/1
+  - stage: 2
+    start: 2000-01-01T00:00:01
+    finsh: 2000-01-01T00:00:02
+    source: https://example.com/1
+  - stage: 1
+    start: 2000-01-01T00:00:02
+    finsh: 2000-01-01T00:00:03
+    source: https://example.com/2
+  - stage: 2
+    start: 2000-01-01T00:00:03
+    finsh: 2000-01-01T00:00:04
+    source: https://example.com/2
+historical_changes: []
