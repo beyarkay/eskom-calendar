@@ -26,11 +26,21 @@ changes:
 - stage: 1
   start: 2023-09-21T18:00:00
   finsh: 2023-09-21T20:00:00
-  source: https://twitter.com/CityofCT/status/1704789915249070510
+  source: https://twitter.com/CityofCT/status/1704864472077107238
   include: coct
 - stage: 3
   start: 2023-09-21T22:00:00
   finsh: 2023-09-22T05:00:00
-  source: https://twitter.com/CityofCT/status/1704789915249070510
+  source: https://twitter.com/CityofCT/status/1704864472077107238
+  include: coct
+- stage: 1
+  start: 2023-09-22T18:00:00
+  finsh: 2023-09-22T20:00:00
+  source: https://twitter.com/CityofCT/status/1704864475285766450
+  include: coct
+- stage: 3
+  start: 2023-09-22T22:00:00
+  finsh: 2023-09-23T05:00:00
+  source: https://twitter.com/CityofCT/status/1704864475285766450
   include: coct
 historical_changes: []
