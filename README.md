@@ -313,7 +313,7 @@ just the default).
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [Boyd Kane](https://github.com/beyarkay) is the creator and maintainer. Reach out
@@ -332,6 +332,7 @@ on [twitter](https://twitter.com/beyarkay) if you want to chat in private, other
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cliffbattco"><img src="https://avatars.githubusercontent.com/u/94678019?v=4?s=100" width="100px;" alt="cliffbattco"/><br /><sub><b>cliffbattco</b></sub></a><br /><a href="#maintenance-cliffbattco" title="Maintenance">🚧</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://carlcombrinck.com"><img src="https://avatars.githubusercontent.com/u/51913941?v=4?s=100" width="100px;" alt="Carl Combrinck"/><br /><sub><b>Carl Combrinck</b></sub></a><br /><a href="https://github.com/beyarkay/eskom-calendar/issues?q=author%3Acarl-combrinck" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/LucHayward"><img src="https://avatars.githubusercontent.com/u/20114222?v=4?s=100" width="100px;" alt="Luc Hayward"/><br /><sub><b>Luc Hayward</b></sub></a><br /><a href="https://github.com/beyarkay/eskom-calendar/issues?q=author%3ALucHayward" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.aidanhorn.co.za/"><img src="https://avatars.githubusercontent.com/u/55285591?v=4?s=100" width="100px;" alt="Aidan Horn"/><br /><sub><b>Aidan Horn</b></sub></a><br /><a href="#maintenance-aidanhorn" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
