@@ -54,6 +54,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "aidanhorn",
+      "name": "Aidan Horn",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55285591?v=4",
+      "profile": "https://www.aidanhorn.co.za/",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -61,5 +70,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "projectName": "eskom-calendar",
-  "projectOwner": "beyarkay"
+  "projectOwner": "beyarkay",
+  "commitType": "docs"
 }
