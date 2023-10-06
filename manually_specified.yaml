@@ -13,9 +13,19 @@
 ---
 changes:
 - stage: 2
-  start: 2023-10-05T16:00:00
-  finsh: 2023-10-12T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1709995243834073299
+  start: 2023-10-06T14:00:00
+  finsh: 2023-10-07T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1710276901703426169
+  exclude: coct
+- stage: 1
+  start: 2023-10-07T05:00:00
+  finsh: 2023-10-08T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1710276901703426169
+  exclude: coct
+- stage: 1
+  start: 2023-10-08T16:00:00
+  finsh: 2023-10-09T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1710276901703426169
   exclude: coct
 
 - stage: 2
