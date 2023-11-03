@@ -13,26 +13,6 @@
 ---
 changes:
 - stage: 2
-  start: 2023-11-01T05:00:00
-  finsh: 2023-11-01T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1718592249120866589
-  exclude: coct
-- stage: 3
-  start: 2023-11-01T16:00:00
-  finsh: 2023-11-02T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1718592249120866589
-  exclude: coct
-- stage: 2
-  start: 2023-11-02T05:00:00
-  finsh: 2023-11-02T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1718592249120866589
-  exclude: coct
-- stage: 3
-  start: 2023-11-02T16:00:00
-  finsh: 2023-11-03T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1718592249120866589
-  exclude: coct
-- stage: 2
   start: 2023-11-03T05:00:00
   finsh: 2023-11-03T16:00:00
   source: https://twitter.com/Eskom_SA/status/1718592249120866589
@@ -47,35 +27,90 @@ changes:
   finsh: 2023-11-04T16:00:00
   source: https://twitter.com/Eskom_SA/status/1718592249120866589
   exclude: coct
+- stage: 3
+  start: 2023-11-04T16:00:00
+  finsh: 2023-11-05T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 2
+  start: 2023-11-05T05:00:00
+  finsh: 2023-11-05T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 3
+  start: 2023-11-05T16:00:00
+  finsh: 2023-11-06T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 2
+  start: 2023-11-06T05:00:00
+  finsh: 2023-11-06T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 3
+  start: 2023-11-06T16:00:00
+  finsh: 2023-11-07T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 2
+  start: 2023-11-07T05:00:00
+  finsh: 2023-11-07T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 3
+  start: 2023-11-07T16:00:00
+  finsh: 2023-11-08T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 2
+  start: 2023-11-08T05:00:00
+  finsh: 2023-11-08T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 3
+  start: 2023-11-08T16:00:00
+  finsh: 2023-11-09T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 2
+  start: 2023-11-09T05:00:00
+  finsh: 2023-11-09T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
+- stage: 3
+  start: 2023-11-09T16:00:00
+  finsh: 2023-11-10T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1718592249120866589
+  exclude: coct
 
-- stage: 1
-  start: 2023-11-01T05:00:00
-  finsh: 2023-11-01T22:00:00
-  source: https://twitter.com/CityofCT/status/1719669518673252689
-  include: coct
-- stage: 3
-  start: 2023-11-01T22:00:00
-  finsh: 2023-11-02T05:00:00
-  source: https://twitter.com/CityofCT/status/1719669518673252689
-  include: coct
-- stage: 1
-  start: 2023-11-02T05:00:00
-  finsh: 2023-11-02T22:00:00
-  source: https://twitter.com/CityofCT/status/1719669518673252689
-  include: coct
-- stage: 3
-  start: 2023-11-02T22:00:00
-  finsh: 2023-11-03T05:00:00
-  source: https://twitter.com/CityofCT/status/1719669518673252689
-  include: coct
 - stage: 1
   start: 2023-11-03T05:00:00
   finsh: 2023-11-03T20:00:00
-  source: https://twitter.com/CityofCT/status/1719669518673252689
+  source: https://twitter.com/CityofCT/status/1720366192748065104
   include: coct
 - stage: 3
   start: 2023-11-03T20:00:00
   finsh: 2023-11-04T05:00:00
-  source: https://twitter.com/CityofCT/status/1719669518673252689
+  source: https://twitter.com/CityofCT/status/1720366192748065104
+  include: coct
+- stage: 2
+  start: 2023-11-04T05:00:00
+  finsh: 2023-11-04T16:00:00
+  source: https://twitter.com/CityofCT/status/1720366192748065104
+  include: coct
+- stage: 3
+  start: 2023-11-04T16:00:00
+  finsh: 2023-11-05T05:00:00
+  source: https://twitter.com/CityofCT/status/1720366192748065104
+  include: coct
+- stage: 2
+  start: 2023-11-05T05:00:00
+  finsh: 2023-11-05T16:00:00
+  source: https://twitter.com/CityofCT/status/1720366192748065104
+  include: coct
+- stage: 3
+  start: 2023-11-05T16:00:00
+  finsh: 2023-11-06T05:00:00
+  source: https://twitter.com/CityofCT/status/1720366192748065104
   include: coct
 historical_changes: []
