@@ -3792,599 +3792,176 @@ area_details:
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
-  - {name: "academic hospital"}
-  - {name: "berea"}
-  - {name: "braam park"}
-  - {name: "brenthurst clinic"}
-  - {name: "civic centre"}
-  - {name: "constitutional court"}
-  - {name: "dunkeld west"}
-  - {name: "dunkeld"}
-  - {name: "highpoint"}
-  - {name: "hillbrow"}
-  - {name: "holiday inn"}
-  - {name: "hospital hill 1"}
-  - {name: "hospital hill 2"}
-  - {name: "hyde park"}
-  - {name: "isle of houghton"}
-  - {name: "jhb central"}
-  - {name: "joubert park"}
-  - {name: "killarney mall"}
-  - {name: "killarney"}
-  - {name: "lehae ext"}
-  - {name: "lehae"}
-  - {name: "lenasia ext 24"}
-  - {name: "lenasia/corobric"}
-  - {name: "parklane clinic"}
-  - {name: "parktown east"}
-  - {name: "parktown north (east)"}
-  - {name: "parktown north"}
-  - {name: "parkwood east"}
-  - {name: "parkwood"}
-  - {name: "rand clinic"}
-  - {name: "rosebank mall"}
-  - {name: "rosebank"}
-  - {name: "saxonwold east"}
-  - {name: "upper houghton"}
-  - {name: "vlakfontein ext.1,2,3"}
-  - {name: "vlakfontein"}
-  - {name: "zakariya park ext 4,5,6,7,8"}
-  - {name: "zakariya park"}
-  - {name: city power 1}
-- calendar_name: city-power-10.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "bellairspark"}
-  - {name: "bellairspark,ext2,4,6,8,9"}
-  - {name: "bloubosrand"}
   - {name: "boundry park"}
-  - {name: "bromhof ext.66,67,68"}
-  - {name: "bromhof,ext 10,11,12,15,22,23,27,30,35,38,46,50,63,64"}
-  - {name: "brushwood haugh a.h"}
-  - {name: "bryanston  east"}
-  - {name: "bryanston ext.25,27,3,39,45"}
-  - {name: "bryanston north east"}
-  - {name: "bryanston north"}
-  - {name: "country-life park"}
-  - {name: "cramerview"}
-  - {name: "dainfern college"}
-  - {name: "dainfern ridge"}
-  - {name: "dainfern"}
-  - {name: "ferndale ext.15"}
-  - {name: "gleniffer"}
-  - {name: "golden harvest a.h"}
-  - {name: "hoogland"}
-  - {name: "hunters hill a.h"}
-  - {name: "hyperion"}
-  - {name: "johannesburg-north"}
-  - {name: "joubert park south"}
-  - {name: "jukskei park"}
-  - {name: "jukskei park, ext 1,2,3,6,9"}
-  - {name: "kya sand ext"}
-  - {name: "kya sands"}
-  - {name: "lenasia ext 1"}
-  - {name: "lenasia ext 2"}
-  - {name: "lenasia ext 4"}
-  - {name: "lenasia ext 6"}
-  - {name: "lyme park"}
-  - {name: "maroeladal"}
-  - {name: "meadowhurst a.h"}
-  - {name: "meadowhurst"}
-  - {name: "mill hill ext 2"}
-  - {name: "noordhang ext 20,23,25,26,29,3,33,36,4,42,44,45,46"}
-  - {name: "noordhang ext.49,50,51,54,58,67,7,8"}
-  - {name: "north riding a.h"}
-  - {name: "north riding ext.1,13,16,17,2,20,21,23,26,27,29,30"}
-  - {name: "north riding ext.38,4,42,43,46,5,51,53,54,55,59,6,60,61"}
-  - {name: "north riding ext.62,63,64,67,69,71,72,73,75,76,79,80,82"}
-  - {name: "north riding ext.84,86,91,92,93,94,"}
-  - {name: "olivedale"}
-  - {name: "parkmore ext.1"}
-  - {name: "parkmore"}
-  - {name: "petervale"}
-  - {name: "riverbend"}
-  - {name: "sol ridge"}
-  - {name: "sonneglans"}
-  - {name: "vandia grove"}
-  - {name: "weadhurst"}
-  - {name: "windsorway"}
-- calendar_name: city-power-11.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "allen'snek"}
-  - {name: "allen'snek"}
-  - {name: "amarosa"}
-  - {name: "amarosa"}
-  - {name: "boschkop"}
-  - {name: "boschkop"}
-  - {name: "boundary park ext"}
-  - {name: "boundary park ext"}
-  - {name: "boundary park"}
-  - {name: "boundary park"}
-  - {name: "breaunanda"}
-  - {name: "bush hill"}
-  - {name: "constantia kloof"}
-  - {name: "davidsonville"}
-  - {name: "devon valley"}
-  - {name: "dimension data"}
-  - {name: "douglasdale"}
-  - {name: "grobler park"}
-  - {name: "groblerpark ext"}
-  - {name: "harveston"}
-  - {name: "helderkruin"}
-  - {name: "honeydew ext"}
-  - {name: "honeydew"}
-  - {name: "horison park"}
-  - {name: "horison view"}
-  - {name: "horison"}
-  - {name: "kelly ridge"}
-  - {name: "kevin ridge ext 10"}
-  - {name: "kevin ridge"}
-  - {name: "klevehill park"}
-  - {name: "kloofendal"}
-  - {name: "laser park"}
-  - {name: "lewisham"}
-  - {name: "lindhaven"}
-  - {name: "littlefalls"}
-  - {name: "manufacta"}
-  - {name: "matholesville"}
-  - {name: "mtn campus"}
-  - {name: "ontdekkers park"}
-  - {name: "panorama"}
-  - {name: "poortview"}
-  - {name: "princess ah"}
-  - {name: "princess"}
-  - {name: "radiokop"}
-  - {name: "reefhaven"}
-  - {name: "roodekrans ext"}
-  - {name: "roodekrans"}
-  - {name: "roodepoort cbd"}
-  - {name: "roodepoort west"}
-  - {name: "roodepoort"}
-  - {name: "ruimsig"}
-  - {name: "selwyn"}
-  - {name: "silverfields"}
-  - {name: "spionekop"}
-  - {name: "strubens valley"}
-  - {name: "weltevreden park"}
-  - {name: "west gate"}
-  - {name: "wilgeheuwel"}
-  - {name: "wilropark"}
-  - {name: "witpoortjie"}
-- calendar_name: city-power-12.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "belgravia"}
-  - {name: "bellavista estate"}
-  - {name: "benrose ext"}
-  - {name: "benrose"}
-  - {name: "city deep ext"}
-  - {name: "city deep"}
-  - {name: "cleveland"}
-  - {name: "container depot"}
-  - {name: "crown"}
-  - {name: "denver ext"}
-  - {name: "denver"}
-  - {name: "eastcliff"}
-  - {name: "elands park"}
-  - {name: "elcedes"}
-  - {name: "electron"}
-  - {name: "elladoone"}
-  - {name: "forest hill"}
-  - {name: "frampton east"}
-  - {name: "fresh produce market"}
-  - {name: "gleneagles ext"}
-  - {name: "gleneagles"}
-  - {name: "glenesk"}
-  - {name: "haddon"}
-  - {name: "heriotdale ext"}
-  - {name: "heriotdale"}
-  - {name: "jeppe east"}
-  - {name: "kenilworth ext"}
-  - {name: "kenilworth"}
-  - {name: "kensington ext"}
-  - {name: "kensington south"}
-  - {name: "kensington"}
-  - {name: "klipriviersberg"}
-  - {name: "la rochelle"}
-  - {name: "lindberg park"}
-  - {name: "linmeyer"}
-  - {name: "malvern ext"}
-  - {name: "malvern"}
-  - {name: "moffatview"}
-  - {name: "oakdene"}
-  - {name: "oospoort ext 1"}
-  - {name: "pioneer"}
-  - {name: "regency"}
-  - {name: "regents park"}
-  - {name: "reuven"}
-  - {name: "rewlatch ext"}
-  - {name: "rewlatch"}
-  - {name: "ridgeway south"}
-  - {name: "ridgeway"}
-  - {name: "risana"}
-  - {name: "roseacre"}
-  - {name: "rosettenville & ext"}
-  - {name: "rosettenville"}
-  - {name: "rosherville"}
-  - {name: "soccer city"}
-  - {name: "south hills"}
-  - {name: "south kensington"}
-  - {name: "southcrest"}
-  - {name: "spes bona"}
-  - {name: "springfield"}
-  - {name: "stafford"}
-  - {name: "steeldale"}
-  - {name: "the gables ext"}
-  - {name: "the gables"}
-  - {name: "the hill ext"}
-  - {name: "the hill"}
-  - {name: "towerby"}
-  - {name: "townsview"}
-  - {name: "trojan"}
-  - {name: "tulisa park"}
-  - {name: "turf club"}
-  - {name: "turffontein"}
-  - {name: "unigrey"}
-  - {name: "wemmer"}
-  - {name: "west turffontein ext"}
-  - {name: "west turffontein"}
-  - {name: "winchester hills ext"}
-  - {name: "winchester hills"}
-  - {name: "wychwood ext"}
-  - {name: "wychwood"}
-- calendar_name: city-power-13.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "aeroton"}
-  - {name: "berea"}
-  - {name: "booysens reserve"}
-  - {name: "booysens"}
-  - {name: "carlton centre"}
-  - {name: "chrisville"}
-  - {name: "city and suburban"}
-  - {name: "crown gardens"}
-  - {name: "doornfontein"}
-  - {name: "droste park"}
-  - {name: "ellis park"}
-  - {name: "evans park"}
-  - {name: "fairview"}
-  - {name: "frampton"}
-  - {name: "gillview"}
-  - {name: "glenanda west of glen rd"}
-  - {name: "goldreef city"}
-  - {name: "jeppe west"}
-  - {name: "johannesburg cbd"}
-  - {name: "johannesburg city"}
-  - {name: "kazerne"}
-  - {name: "lakeview"}
-  - {name: "marshalls town"}
-  - {name: "marshalltown"}
-  - {name: "mondeor north"}
-  - {name: "nasrec ext"}
-  - {name: "nasrec"}
-  - {name: "new doornfontein"}
-  - {name: "ophirton ext"}
-  - {name: "ophirton"}
-  - {name: "ormonde ext"}
-  - {name: "ormonde"}
-  - {name: "production park"}
-  - {name: "prolecon"}
-  - {name: "ridgeway north"}
-  - {name: "robertsham ext"}
-  - {name: "robertsham"}
-  - {name: "salisbury claims ext 1"}
-  - {name: "salisbury claims ext"}
-  - {name: "salisbury claims"}
-  - {name: "selby ext"}
-  - {name: "selby south"}
-  - {name: "selby"}
-  - {name: "siemert"}
-  - {name: "southdale"}
-  - {name: "theta"}
-  - {name: "troyville"}
-  - {name: "village deep"}
-  - {name: "village main"}
-  - {name: "west turffontein"}
-  - {name: "winchester hills"}
-  - {name: "wolhuter"}
-
-- calendar_name: city-power-14.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "albertville ext 1"}
-  - {name: "albertville ext"}
-  - {name: "albertville"}
-  - {name: "alvida"}
-  - {name: "auckland park"}
-  - {name: "bank fdr"}
-  - {name: "beverley gardens"}
-  - {name: "blairgowrie north"}
-  - {name: "blairgowrie"}
-  - {name: "bordeaux"}
-  - {name: "boskruin ext"}
-  - {name: "boskruin"}
-  - {name: "bosmont"}
-  - {name: "brixton west (hursthill)"}
-  - {name: "bromhof"}
-  - {name: "bryanston"}
-  - {name: "bush hill estate"}
-  - {name: "claremont"}
-  - {name: "comptonville"}
-  - {name: "coronationville"}
-  - {name: "croesus"}
-  - {name: "daniel brink park"}
-  - {name: "eagles nest"}
-  - {name: "farm olifantsvlei"}
-  - {name: "ferndale"}
-  - {name: "fontainbleau"}
-  - {name: "grosvenor"}
-  - {name: "helen joseph hospital"}
-  - {name: "industria west"}
-  - {name: "industria"}
-  - {name: "kelland"}
-  - {name: "kibler park"}
-  - {name: "lenaron ah"}
-  - {name: "longdale"}
-  - {name: "lougherin"}
-  - {name: "malanshof"}
-  - {name: "martindale"}
-  - {name: "micor"}
-  - {name: "misgund"}
-  - {name: "montclare"}
-  - {name: "moret"}
-  - {name: "naturena"}
-  - {name: "new canada"}
-  - {name: "newclare"}
-  - {name: "northcliff"}
-  - {name: "oerder park"}
-  - {name: "patlynn"}
-  - {name: "president ridge"}
-  - {name: "rand park ridge"}
-  - {name: "randpark ridge"}
-  - {name: "randpark"}
-  - {name: "ris park"}
-  - {name: "riverlea"}
-  - {name: "rossmore"}
-  - {name: "ruiterhof"}
-  - {name: "rwb eikenhof"}
-  - {name: "sonneglans ext 17"}
-  - {name: "sonneglans ext"}
-  - {name: "sonneglans"}
-  - {name: "sophiatown"}
-  - {name: "southfork"}
-  - {name: "strydom park ext"}
-  - {name: "strydom park"}
-  - {name: "tokyo"}
-  - {name: "triomf"}
-  - {name: "westbury north"}
-  - {name: "westbury south"}
-  - {name: "westbury"}
-  - {name: "willowdene"}
-
-- calendar_name: city-power-15.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "11 shaft"}
-  - {name: "bantjies"}
-  - {name: "baragwaneth"}
-  - {name: "bergbron"}
-  - {name: "carenvale"}
-  - {name: "delarey"}
-  - {name: "discovery"}
-  - {name: "doornkop"}
-  - {name: "ellias motswaledi"}
-  - {name: "fleurhof"}
-  - {name: "florida cbd"}
-  - {name: "florida cliffe"}
-  - {name: "florida glen"}
-  - {name: "florida hills"}
-  - {name: "florida lake"}
-  - {name: "florida north"}
-  - {name: "florida park"}
-  - {name: "florida"}
-  - {name: "georginia"}
-  - {name: "glen lea"}
-  - {name: "hamberg"}
-  - {name: "high gate"}
-  - {name: "honey hills"}
-  - {name: "industria north"}
-  - {name: "lufhering"}
-  - {name: "maraisburg"}
-  - {name: "orlando ekhaya"}
-  - {name: "quellerina"}
-  - {name: "rand leases"}
-  - {name: "robertville"}
-  - {name: "roodepoort north"}
-  - {name: "santa"}
-  - {name: "sap 13"}
-  - {name: "stormill"}
-  - {name: "uj soweto"}
-  - {name: "west lake"}
-  - {name: "white ridge"}
-
-- calendar_name: city-power-16.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "andara park"}
-  - {name: "ballindean ah"}
-  - {name: "bryanbrink"}
-  - {name: "country view"}
-  - {name: "craighall park east of waterval"}
-  - {name: "cresta"}
-  - {name: "darrenwood"}
-  - {name: "driefontein"}
-  - {name: "east town"}
-  - {name: "erand gardens"}
-  - {name: "glen acres ext 15"}
-  - {name: "hyde park a settlement"}
-  - {name: "hyde park west"}
-  - {name: "jacanlee"}
-  - {name: "kensington b"}
-  - {name: "linden ext"}
-  - {name: "montroux"}
-  - {name: "noordwyk"}
-  - {name: "northcliff ext 7"}
-  - {name: "northcliff ext 8"}
-  - {name: "northcliff ext 9"}
-  - {name: "randjiespark"}
-  - {name: "randpark ridge"}
-  - {name: "randpark"}
-  - {name: "robin acres"}
-  - {name: "robindale"}
-  - {name: "sagewood ext.14"}
-  - {name: "sharonlea ext 17"}
-  - {name: "valeriedene"}
-  - {name: "victory park ext 4"}
-  - {name: "waterval estate ext 5"}
-  - {name: "west park"}
-  - {name: "windsor east"}
-  - {name: "windsor glen"}
-  - {name: "windsor hill"}
-  - {name: "windsor ridge"}
-  - {name: "windsor west"}
-  - {name: "windsor"}
+  - {name: "braam park"}
+  - {name: "civic centre"}
+  - {name: "civic theater"}
+  - {name: "constitutional court"}
+  - {name: "dunkeld"}
+  - {name: "dunkeld west"}
+  - {name: "dunkeld west ext 2"}
+  - {name: "glenadrienne"}
+  - {name: "hillbrow"}
+  - {name: "hyde park"}
+  - {name: "killarney"}
+  - {name: "killarney mall"}
+  - {name: "kya sand ext.101"}
+  - {name: "kya sand ext.102"}
+  - {name: "north riding estates"}
+  - {name: "north riding estates ext"}
+  - {name: "northgate"}
+  - {name: "northgate ext"}
+  - {name: "northgate ext 4"}
+  - {name: "northriding"}
+  - {name: "northriding ah"}
+  - {name: "northriding ext"}
+  - {name: "northumberland"}
+  - {name: "northwold"}
+  - {name: "northwold gardens"}
+  - {name: "northworld ext"}
+  - {name: "rosebank"}
+  - {name: "rosebank mall"}
+  - {name: "saps hillbrow"}
+  - {name: "saxonwold east"}
+  - {name: "sharonlea"}
+  - {name: "sundowner"}
+  - {name: "sundowner ext"}
+  - {name: "sundowner ext 10"}
+  - {name: "sundowner ext 6"}
+  - {name: "thuso house"}
+  - {name: "upper houghton"}
 
 - calendar_name: city-power-2.ics
   province: gauteng
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
+  - {name: "albertville ext"}
   - {name: "berario"}
+  - {name: "beverley gardens "}
   - {name: "blackheath"}
   - {name: "blairgowrie south"}
-  - {name: "craighall park"}
+  - {name: "bryanston"}
   - {name: "craighall"}
-  - {name: "dunkeld west ext 2"}
-  - {name: "emmarentia & ext"}
+  - {name: "craighall park"}
+  - {name: "crowthorne ah"}
+  - {name: "daniel brink park"}
+  - {name: "driefontein"}
   - {name: "emmarentia"}
+  - {name: "emmarentia & ext"}
   - {name: "emmerentia north"}
   - {name: "emmerentia south"}
-  - {name: "fairlands west"}
   - {name: "fairlands"}
+  - {name: "fairlands west"}
+  - {name: "ferndale ext.15"}
+  - {name: "ferndale ext.15"}
   - {name: "forest town"}
-  - {name: "franklin roosevelt park ext 1"}
   - {name: "franklin roosevelt park"}
-  - {name: "greenside east"}
-  - {name: "greenside south"}
-  - {name: "greenside west"}
+  - {name: "franklin roosevelt park ext 1"}
   - {name: "greenside"}
+  - {name: "greenside east"}
+  - {name: "greenside south "}
+  - {name: "greenside west"}
   - {name: "greymont"}
-  - {name: "hurlingham manor"}
   - {name: "hurlingham"}
+  - {name: "hurlingham manor"}
+  - {name: "hyde park"}
+  - {name: "hyde park"}
   - {name: "hyde park ext 1"}
   - {name: "hyde park ext 11"}
-  - {name: "hyde park"}
-  - {name: "linden east"}
-  - {name: "linden north"}
-  - {name: "linden south"}
+  - {name: "kensington b"}
   - {name: "linden"}
-  - {name: "mongomery park"}
+  - {name: "linden east"}
+  - {name: "linden north "}
+  - {name: "linden south"}
+  - {name: "montgomery park"}
+  - {name: "multi choice"}
+  - {name: "northcliff"}
+  - {name: "northcliff"}
   - {name: "northcliff & exts"}
   - {name: "northcliff ext 12"}
   - {name: "northcliff ext 22"}
   - {name: "northcliff ext 4"}
   - {name: "northcliff ext 6"}
   - {name: "northcliff south"}
-  - {name: "northcliff"}
   - {name: "parkhurst"}
   - {name: "parktown north (west)"}
   - {name: "parkview"}
   - {name: "parkwood west"}
-  - {name: "pierneef park"}
   - {name: "pine park"}
-  - {name: "residale ext 6"}
   - {name: "residale"}
+  - {name: "residale ext 6"}
   - {name: "rothesay ave"}
   - {name: "saxonwold west"}
-  - {name: "victory park & ext"}
+  - {name: "victory park"}
+  - {name: "victory park & ext "}
   - {name: "victory park 8 & 11"}
   - {name: "victory park ext 1"}
   - {name: "victory park ext 2"}
   - {name: "victory park north"}
   - {name: "victory park south"}
-  - {name: "victory park"}
   - {name: "waterval estate"}
   - {name: "westcliff ext"}
-  - {name: "willowild"}
 
 - calendar_name: city-power-3.ics
   province: gauteng
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
-  - {name: "alexandra"}
-  - {name: "allendale"}
+  - {name: "albertville"}
+  - {name: "albertville ext"}
+  - {name: "albertville ext 1"}
+  - {name: "auckland park"}
+  - {name: "auckland park"}
+  - {name: "auckland park"}
+  - {name: "auckland park"}
   - {name: "austin view"}
-  - {name: "commercia"}
+  - {name: "belgravia"}
+  - {name: "boulders"}
+  - {name: "claremont"}
+  - {name: "coronation hospital"}
+  - {name: "coronationville"}
+  - {name: "crosby"}
+  - {name: "gallagher estate"}
   - {name: "glen austin a h"}
   - {name: "glen austin a.h ext"}
-  - {name: "halfway gardens  ext"}
-  - {name: "halfway gardens"}
-  - {name: "halfwayhouse"}
-  - {name: "headway hill ext"}
-  - {name: "headway hill"}
-  - {name: "jukskei view ext.17"}
-  - {name: "jukskei view ext.18"}
-  - {name: "kaalfontein  ext"}
-  - {name: "kaalfontein"}
-  - {name: "klipfontein"}
-  - {name: "kyalami estates ext"}
-  - {name: "kyalami estates"}
-  - {name: "kyalami hills"}
-  - {name: "kyalami park"}
-  - {name: "marlboro gardens"}
-  - {name: "marlboro"}
-  - {name: "phomolong"}
-  - {name: "president park ext"}
+  - {name: "helen joseph hospital"}
+  - {name: "helen joseph hospital (jg strydom hospital)"}
+  - {name: "hurst hill"}
+  - {name: "martindale"}
+  - {name: "martindale"}
+  - {name: "melville"}
+  - {name: "melville"}
+  - {name: "melville"}
+  - {name: "montclare"}
+  - {name: "montclare"}
+  - {name: "newclare"}
+  - {name: "newclare"}
+  - {name: "newlands"}
+  - {name: "newlands"}
+  - {name: "newlands"}
+  - {name: "northcliff"}
   - {name: "president park"}
-  - {name: "rabie ridge"}
-  - {name: "vorna valley"}
-  - {name: "willaway"}
+  - {name: "president park ext"}
+  - {name: "rivasdale"}
+  - {name: "rivasdale"}
+  - {name: "sophiatown"}
+  - {name: "sophiatown"}
+  - {name: "triomf"}
+  - {name: "triomf"}
+  - {name: "university of johannesburg (rau)"}
+  - {name: "westbury"}
+  - {name: "westbury south"}
+  - {name: "westdene"}
   - {name: "zonkizizwe"}
 
 - calendar_name: city-power-4.ics
@@ -4392,183 +3969,164 @@ area_details:
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
-  - {name: "atholl gardens"}
-  - {name: "atholl"}
-  - {name: "bagleyston"}
+  - {name: "allen lakes"}
+  - {name: "allen manor"}
   - {name: "barrowdale"}
-  - {name: "bellevue east"}
-  - {name: "bellevue ext"}
-  - {name: "bellevue"}
-  - {name: "bertrams"}
-  - {name: "bezuidenhout valley"}
-  - {name: "birnam"}
-  - {name: "bramley park"}
-  - {name: "bramley view"}
-  - {name: "bruma"}
-  - {name: "bryanston"}
-  - {name: "corlett gardens"}
-  - {name: "crystal gardens"}
-  - {name: "cyrildene"}
-  - {name: "de wetshof"}
-  - {name: "dunsevern"}
-  - {name: "fairmount"}
-  - {name: "fairvale"}
-  - {name: "fairwood"}
-  - {name: "fellside"}
-  - {name: "forbesdale"}
-  - {name: "founders hill"}
-  - {name: "glen atholl"}
-  - {name: "glenhazel"}
-  - {name: "glenkay"}
-  - {name: "greenstone hill"}
-  - {name: "gresswold"}
-  - {name: "hawkins estate"}
-  - {name: "highlands north"}
-  - {name: "houghton"}
-  - {name: "judith paarl west"}
-  - {name: "kew"}
-  - {name: "linksfield ext"}
-  - {name: "linksfield north"}
-  - {name: "linksfield ridge"}
-  - {name: "linksfield"}
-  - {name: "lombardy east ( west side )"}
-  - {name: "lombardy west"}
-  - {name: "longmeadow business estate ext"}
-  - {name: "longmeadow business estate"}
-  - {name: "longmeadow"}
-  - {name: "lorentzville"}
-  - {name: "lyndhurst"}
-  - {name: "maryvale"}
-  - {name: "mill hill"}
-  - {name: "modderfontein ext"}
-  - {name: "modderfontein"}
-  - {name: "moodey hill"}
-  - {name: "morningside"}
+  - {name: "discovery"}
+  - {name: "fleurhof"}
+  - {name: "fleurhof"}
+  - {name: "florida"}
+  - {name: "florida cbd"}
+  - {name: "florida cliffe"}
+  - {name: "florida hills"}
+  - {name: "florida north"}
+  - {name: "florida park"}
+  - {name: "geluksdal"}
+  - {name: "hospital hill 1"}
+  - {name: "hospital hill 2"}
+  - {name: "industria north"}
+  - {name: "kibler heights"}
+  - {name: "lenasia ext 24"}
+  - {name: "lenasia south"}
+  - {name: "lenasia south ext 1"}
+  - {name: "lenasia south ext 2"}
+  - {name: "maraisburg"}
+  - {name: "meredale"}
+  - {name: "meredale ext"}
+  - {name: "mondeor"}
+  - {name: "mondeor ext"}
   - {name: "new brighton"}
-  - {name: "observatory"}
   - {name: "parkmore"}
-  - {name: "percelia estate"}
-  - {name: "percilia ext"}
-  - {name: "percilia"}
-  - {name: "raedene"}
-  - {name: "randview"}
-  - {name: "rembrandt park"}
-  - {name: "rembrandt ridge"}
-  - {name: "reynolds view"}
-  - {name: "river club ext"}
-  - {name: "river club"}
-  - {name: "rouxville ext"}
-  - {name: "rouxville"}
-  - {name: "sandhurst"}
-  - {name: "sandringham"}
-  - {name: "savoy estate"}
-  - {name: "savoy"}
-  - {name: "silvamont"}
-  - {name: "sydenham"}
-  - {name: "talboton"}
-  - {name: "the gardens"}
-  - {name: "thorn hill"}
-  - {name: "victoria"}
-  - {name: "view crest"}
-  - {name: "waverley"}
-  - {name: "westfield"}
-  - {name: "westlake view ext"}
-  - {name: "westlake view"}
-  - {name: "whitney gardens"}
-  - {name: "yeoville"}
+  - {name: "patlynn ah"}
+  - {name: "robertville"}
+  - {name: "robertville"}
+  - {name: "sandhurst "}
+  - {name: "selwyn"}
+  - {name: "south gate"}
+  - {name: "stormill"}
+  - {name: "stormill"}
+  - {name: "suideroord"}
+  - {name: "vlakfontein"}
+  - {name: "vlakfontein ext.1,2,3"}
 
 - calendar_name: city-power-5.ics
   province: gauteng
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
+  - {name: "11 shaft"}
   - {name: "allen lakes"}
-  - {name: "allen manor"}
-  - {name: "amalgam ext"}
   - {name: "amalgam"}
+  - {name: "amalgam ext"}
   - {name: "aspen hills"}
-  - {name: "auckland park"}
-  - {name: "bassonia rock"}
   - {name: "bassonia"}
+  - {name: "bassonia rock"}
+  - {name: "benrose"}
+  - {name: "benrose ext"}
   - {name: "braamfontein werf"}
-  - {name: "brixton east (mayfair)"}
-  - {name: "cottesloe"}
+  - {name: "breaunanda"}
+  - {name: "brixton east "}
+  - {name: "carenvale"}
+  - {name: "cleveland"}
+  - {name: "cottesloe "}
   - {name: "crosby"}
-  - {name: "crown gardens"}
-  - {name: "crown mines"}
-  - {name: "crown"}
-  - {name: "fleurhof"}
+  - {name: "crosby"}
+  - {name: "crown city"}
+  - {name: "crown city ext"}
+  - {name: "crown north ext 1"}
+  - {name: "crown north ext 3"}
+  - {name: "denver"}
+  - {name: "denver ext"}
+  - {name: "ferreirasdorp"}
+  - {name: "ferreirasdorp ext"}
   - {name: "garden city"}
-  - {name: "glenanda east of glen rd"}
-  - {name: "glenvista ext"}
+  - {name: "glenanda south "}
   - {name: "glenvista"}
+  - {name: "glenvista ext"}
+  - {name: "helderkruin"}
+  - {name: "heriotdale"}
+  - {name: "heriotdale ext"}
   - {name: "homestead park"}
+  - {name: "honey hills"}
+  - {name: "horizon"}
+  - {name: "horizon park"}
+  - {name: "horizon view"}
   - {name: "jan hofmeyer"}
-  - {name: "kibler heights"}
+  - {name: "jeppe east"}
+  - {name: "jeppe west"}
+  - {name: "kensington"}
+  - {name: "kensington ext"}
+  - {name: "kensington south"}
+  - {name: "kloofendal"}
   - {name: "langlaagte"}
+  - {name: "lewisham"}
   - {name: "liefde n vrede"}
+  - {name: "malvern"}
+  - {name: "malvern ext"}
+  - {name: "mayfair"}
   - {name: "mayfair north"}
   - {name: "mayfair west"}
-  - {name: "mayfair"}
   - {name: "mayfield park"}
-  - {name: "melville"}
-  - {name: "meredale ext"}
-  - {name: "meredale"}
   - {name: "micor industrial"}
   - {name: "milpark"}
-  - {name: "mondeor ext"}
-  - {name: "mondeor"}
+  - {name: "mtn campus"}
   - {name: "mulbarton"}
-  - {name: "noordgesig"}
-  - {name: "paarlshoop"}
+  - {name: "ontdekkers park"}
   - {name: "pageview"}
-  - {name: "patlynn ah"}
-  - {name: "pennyville"}
-  - {name: "richmond"}
-  - {name: "ris park ah"}
+  - {name: "rispark ah"}
+  - {name: "roodekrans"}
+  - {name: "roodekrans ext"}
+  - {name: "roodepoort north"}
   - {name: "rossmore"}
   - {name: "sabc"}
-  - {name: "south gate"}
-  - {name: "suideroord"}
+  - {name: "selwyn"}
+  - {name: "silverfields"}
+  - {name: "south kensington"}
   - {name: "sunnyside"}
-  - {name: "tshepisong ext"}
-  - {name: "tshepisong"}
+  - {name: "troyville"}
   - {name: "uitsaaisentrum"}
   - {name: "vrededorp"}
   - {name: "vredepark"}
+  - {name: "white ridge"}
+  - {name: "wilropark"}
 
 - calendar_name: city-power-6.ics
   province: gauteng
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
   - {name: "albertskroon"}
   - {name: "braamfontein"}
-  - {name: "burgersdorp"}
+  - {name: "bree taxi rank"}
   - {name: "city west"}
-  - {name: "crown city ext"}
-  - {name: "crown city"}
-  - {name: "crown north ext 1"}
-  - {name: "crown north ext 3"}
   - {name: "edgardale"}
-  - {name: "ferreirasdorp ext"}
-  - {name: "ferreirasdorp"}
   - {name: "fordsburg"}
-  - {name: "new centre"}
+  - {name: "founders hill"}
+  - {name: "greenstone hill"}
+  - {name: "longlake"}
+  - {name: "longlake ext"}
+  - {name: "longmeadow"}
+  - {name: "longmeadow business estate"}
+  - {name: "longmeadow business estate ext"}
+  - {name: "marshalltown"}
+  - {name: "modderfontein ext"}
   - {name: "newtown"}
-  - {name: "park central"}
   - {name: "parktown west"}
-  - {name: "westgate ext"}
+  - {name: "thorn hill"}
+  - {name: "westfield"}
   - {name: "westgate"}
+  - {name: "westgate ext"}
+  - {name: "westlake view"}
+  - {name: "westlake view ext"}
   - {name: "wits"}
 
 - calendar_name: city-power-7.ics
@@ -4576,27 +4134,21 @@ area_details:
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
-  - {name: "armadale ext"}
-  - {name: "armadale"}
-  - {name: "auckland park"}
   - {name: "bushkoppies"}
-  - {name: "campus square"}
-  - {name: "crosby"}
   - {name: "devland"}
   - {name: "eldorado estate"}
-  - {name: "eldorado park ext 1&3"}
-  - {name: "eldorado park ext"}
-  - {name: "eldorado park south"}
   - {name: "eldorado park"}
+  - {name: "eldorado park ext"}
+  - {name: "eldorado park ext 1&3"}
+  - {name: "eldorado park south"}
   - {name: "freedom park"}
   - {name: "goldev"}
   - {name: "goudkoppies"}
-  - {name: "hurst hill"}
-  - {name: "klipriviersoog estate"}
   - {name: "klipriviersoog"}
+  - {name: "klipriviersoog estate"}
   - {name: "klipspruit west"}
   - {name: "kliptown"}
   - {name: "lenasia ext 10"}
@@ -4607,88 +4159,54 @@ area_details:
   - {name: "lenasia ext 7"}
   - {name: "lenasia ext 8"}
   - {name: "lenasia ext 9"}
-  - {name: "melville"}
+  - {name: "nancefield"}
   - {name: "nancefield ext"}
   - {name: "nancefield industria"}
-  - {name: "nancefield"}
-  - {name: "newlands"}
-  - {name: "northcliff ext 19"}
-  - {name: "northcliff ext"}
-  - {name: "northcliff"}
   - {name: "oliefantsvlei"}
   - {name: "race course"}
   - {name: "rietfontein ah"}
-  - {name: "rivasdale"}
   - {name: "slovo park"}
-  - {name: "university of johannesburg (rau)"}
-  - {name: "westdene"}
 
 - calendar_name: city-power-8.ics
   province: gauteng
   municipality: city-of-johannesburg-metropolitan
   city: johannesburg
   provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
-  areas:
-  - {name: "glenadrienne"}
-  - {name: "kya sand ext.101"}
-  - {name: "kya sand ext.102"}
-  - {name: "north riding estates ext"}
-  - {name: "north riding estates"}
-  - {name: "northgate ext 4"}
-  - {name: "northgate ext"}
-  - {name: "northgate"}
-  - {name: "northriding ah"}
-  - {name: "northriding ext"}
-  - {name: "northriding"}
-  - {name: "northumberland"}
-  - {name: "northwold gardens"}
-  - {name: "northwold"}
-  - {name: "northworld ext"}
-  - {name: "sharonlea"}
-  - {name: "sundowner ext 10"}
-  - {name: "sundowner ext 6"}
-  - {name: "sundowner ext"}
-  - {name: "sundowner"}
-
-- calendar_name: city-power-9.ics
-  province: gauteng
-  municipality: city-of-johannesburg-metropolitan
-  city: johannesburg
-  provider: city-power
-  source: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
-  source_info: https://www.citypower.co.za/customers/Pages/Load_Shedding_Downloads.aspx
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
   areas:
   - {name: "abbotsford"}
-  - {name: "alexandra ext"}
-  - {name: "alexandra south"}
+  - {name: "atholl"}
+  - {name: "atholl"}
+  - {name: "atholl gardens"}
   - {name: "athollhurst ext"}
   - {name: "birdhaven"}
+  - {name: "birnam"}
   - {name: "bramely"}
-  - {name: "bramley gardens"}
+  - {name: "bramley gardens "}
   - {name: "bramley north"}
+  - {name: "bramley park"}
+  - {name: "bramley view"}
   - {name: "casey park"}
   - {name: "cheltondale"}
   - {name: "chislehurston"}
+  - {name: "corlett gardens "}
+  - {name: "crystal gardens "}
   - {name: "dunkeld"}
-  - {name: "east bank"}
+  - {name: "dunsevern"}
   - {name: "elton hill"}
-  - {name: "ennerdale ext 1"}
-  - {name: "ennerdale ext 2"}
-  - {name: "ennerdale ext 3"}
-  - {name: "ennerdale ext 4"}
-  - {name: "ennerdale ext 5 & 6"}
-  - {name: "ennerdale ext"}
-  - {name: "ennerdale south"}
-  - {name: "ennerdale"}
+  - {name: "fairmount"}
+  - {name: "fairvale"}
   - {name: "fairways"}
   - {name: "far east bank"}
-  - {name: "finetown"}
   - {name: "geluksdal"}
+  - {name: "glenhazel"}
+  - {name: "glenkay"}
   - {name: "glensan"}
   - {name: "grassmere"}
-  - {name: "hopefield"}
+  - {name: "gresswold"}
+  - {name: "hawkins estates"}
+  - {name: "highlands north"}
   - {name: "houghton estate"}
   - {name: "houghton south"}
   - {name: "hyde park east"}
@@ -4696,43 +4214,512 @@ area_details:
   - {name: "inanda"}
   - {name: "kent park"}
   - {name: "kent view"}
-  - {name: "kiasha park ext"}
+  - {name: "kew"}
   - {name: "kiasha park"}
-  - {name: "killarney mall"}
-  - {name: "lawley"}
-  - {name: "lenasia south ext 1"}
-  - {name: "lenasia south ext 2"}
-  - {name: "lenasia south ext 4"}
-  - {name: "lenasia south ext 7"}
-  - {name: "lenasia south"}
+  - {name: "kiasha park ext"}
   - {name: "lombardy east ( east side )"}
+  - {name: "lombardy east ( west side )"}
+  - {name: "lombardy west"}
+  - {name: "lyndhurst"}
+  - {name: "melrose"}
   - {name: "melrose arch"}
   - {name: "melrose estate"}
   - {name: "melrose ext 1"}
   - {name: "melrose ext 2"}
   - {name: "melrose north"}
-  - {name: "melrose"}
-  - {name: "mid ennerdale"}
   - {name: "migson manor"}
   - {name: "migson triangle"}
   - {name: "moodey hill"}
-  - {name: "morningside"}
   - {name: "mountainview"}
   - {name: "norwood"}
   - {name: "oaklands"}
-  - {name: "orange grove"}
-  - {name: "orchards"}
+  - {name: "percelia estate"}
+  - {name: "percilia"}
+  - {name: "percilia ext"}
+  - {name: "raedene"}
   - {name: "raumarais park"}
+  - {name: "rembrandt park"}
+  - {name: "rembrandt ridge"}
   - {name: "river park"}
   - {name: "riviera"}
   - {name: "rosebank east"}
   - {name: "sandhurst"}
-  - {name: "sunningdale ridge"}
+  - {name: "savoy"}
+  - {name: "savoy estate"}
+  - {name: "silvamont"}
   - {name: "sunningdale"}
+  - {name: "sunningdale ridge"}
+  - {name: "talboton"}
   - {name: "unaville"}
+  - {name: "view crest"}
+  - {name: "waverley"}
+  - {name: "whitney gardens "}
   - {name: "wierda valley"}
   - {name: "winston ridge"}
   - {name: "wynberg"}
+
+- calendar_name: city-power-9.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "alexandra ext"}
+  - {name: "alexandra mall"}
+  - {name: "alexandra south"}
+  - {name: "craighall park east of waterval"}
+  - {name: "east bank"}
+  - {name: "far east bank"}
+  - {name: "hyde park a settlement"}
+  - {name: "hyde park west"}
+  - {name: "jacanlee"}
+  - {name: "linden ext"}
+  - {name: "malrboro"}
+  - {name: "setswetla"}
+  - {name: "tsutsumani"}
+  - {name: "vasco da gama"}
+  - {name: "victory park ext 4"}
+
+- calendar_name: city-power-10.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "bellairspark"}
+  - {name: "bellairspark,ext2,4,6,8,9"}
+  - {name: "bezuidenhout valley"}
+  - {name: "bromhof ext.66,67,68"}
+  - {name: "bromhof,ext 10,11,12,15,22,23,27,30,35,38,46,50,63,64"}
+  - {name: "bruma"}
+  - {name: "cyrildene"}
+  - {name: "de wetshof"}
+  - {name: "doornfontein"}
+  - {name: "droste park"}
+  - {name: "ellis park"}
+  - {name: "fairview"}
+  - {name: "ferndale ext.15"}
+  - {name: "golden harvest a.h"}
+  - {name: "halfwayhouse"}
+  - {name: "hunters hill a.h"}
+  - {name: "hyperion"}
+  - {name: "jeppe west"}
+  - {name: "johannesburg cbd"}
+  - {name: "johannesburg high court"}
+  - {name: "johannesburg-north"}
+  - {name: "jukskei park"}
+  - {name: "jukskei park, ext 1,2,3,6,9"}
+  - {name: "kensington"}
+  - {name: "klipfontein view"}
+  - {name: "liquid telecommunications "}
+  - {name: "lorentzville"}
+  - {name: "malvern"}
+  - {name: "meadowhurst"}
+  - {name: "meadowhurst a.h"}
+  - {name: "mill hill ext 2"}
+  - {name: "new centre"}
+  - {name: "new doornfontein"}
+  - {name: "noordhang ext 20,23,25,26,29,3,33,36,4,42,44,45,46"}
+  - {name: "noordhang ext.49,50,51,54,58,67,7,8"}
+  - {name: "north riding a.h"}
+  - {name: "north riding ext.1,13,16,17,2,20,21,23,26,27,29,30"}
+  - {name: "north riding ext.38,4,42,43,46,5,51,53,54,55,59,6,60,61"}
+  - {name: "north riding ext.62,63,64,67,69,71,72,73,75,76,79,80,82"}
+  - {name: "north riding ext.84,86,91,92,93,94,"}
+  - {name: "observatory"}
+  - {name: "olivedale"}
+  - {name: "park central"}
+  - {name: "petervale"}
+  - {name: "reynolds view"}
+  - {name: "salisbury claims"}
+  - {name: "salisbury claims ext"}
+  - {name: "salisbury claims ext 1"}
+  - {name: "selby"}
+  - {name: "selby ext"}
+  - {name: "siemert"}
+  - {name: "sonneglans"}
+  - {name: "troyville"}
+  - {name: "troyville"}
+  - {name: "vandia grove"}
+  - {name: "village deep"}
+  - {name: "village main"}
+  - {name: "windsorway"}
+
+- calendar_name: city-power-11.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "allensnek"}
+  - {name: "alsef"}
+  - {name: "amarosa"}
+  - {name: "boundary park"}
+  - {name: "boundary park ext"}
+  - {name: "bryanston"}
+  - {name: "bryanston ext.25,27,3,39,45"}
+  - {name: "bryanston north"}
+  - {name: "bryanston north east"}
+  - {name: "bush hill"}
+  - {name: "clearwater"}
+  - {name: "constantia kloof"}
+  - {name: "douglasdale"}
+  - {name: "eagle canyon"}
+  - {name: "finetown"}
+  - {name: "harveston"}
+  - {name: "honeydew"}
+  - {name: "honeydew ext "}
+  - {name: "kelly ridge"}
+  - {name: "kiasha park"}
+  - {name: "kiasha park ext"}
+  - {name: "kimbult"}
+  - {name: "laser park"}
+  - {name: "lawley"}
+  - {name: "littlefalls"}
+  - {name: "migson manor"}
+  - {name: "migson triangle"}
+  - {name: "mill hill"}
+  - {name: "panorama"}
+  - {name: "poortview"}
+  - {name: "radiokop"}
+  - {name: "ruimsig"}
+  - {name: "strubens valley"}
+  - {name: "tresjolie"}
+  - {name: "unaville"}
+  - {name: "weltevreden park"}
+  - {name: "wilgeheuwel"}
+  - {name: "willowbrook"}
+  - {name: "zonnehoeve"}
+
+- calendar_name: city-power-12.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "banfield"}
+  - {name: "bellavista estate"}
+  - {name: "bellavista estate"}
+  - {name: "berea"}
+  - {name: "bergbron"}
+  - {name: "bosmont"}
+  - {name: "city deep"}
+  - {name: "city deep ext"}
+  - {name: "container depot"}
+  - {name: "croesus"}
+  - {name: "delarey"}
+  - {name: "devon valley"}
+  - {name: "droste park"}
+  - {name: "droste park"}
+  - {name: "eastcliff"}
+  - {name: "elands park"}
+  - {name: "elcedes"}
+  - {name: "electron"}
+  - {name: "elladoone"}
+  - {name: "fleurhof"}
+  - {name: "florida"}
+  - {name: "florida glen"}
+  - {name: "frampton east"}
+  - {name: "fresh produce market"}
+  - {name: "glen lea"}
+  - {name: "gleneagles "}
+  - {name: "gleneagles ext"}
+  - {name: "glenesk"}
+  - {name: "granville"}
+  - {name: "haddon"}
+  - {name: "industria"}
+  - {name: "industria west"}
+  - {name: "kazerne"}
+  - {name: "kenilworth"}
+  - {name: "kenilworth ext "}
+  - {name: "klipriviersberg"}
+  - {name: "la rochelle"}
+  - {name: "langlaagte"}
+  - {name: "lindberg park"}
+  - {name: "linmeyer"}
+  - {name: "longdale"}
+  - {name: "mechanical workshop"}
+  - {name: "moffatview"}
+  - {name: "northcliff ext 19"}
+  - {name: "oakdene"}
+  - {name: "oospoort ext 1"}
+  - {name: "paarlshoop"}
+  - {name: "pioneer"}
+  - {name: "production park"}
+  - {name: "prolecon"}
+  - {name: "quellerina"}
+  - {name: "regency"}
+  - {name: "regents park"}
+  - {name: "reuven"}
+  - {name: "rewlatch"}
+  - {name: "rewlatch ext"}
+  - {name: "ridgeway "}
+  - {name: "ridgeway south"}
+  - {name: "riverlea"}
+  - {name: "roseacre"}
+  - {name: "rosettenville"}
+  - {name: "rosettenville & ext "}
+  - {name: "rosherville"}
+  - {name: "rossmore"}
+  - {name: "south hills"}
+  - {name: "southcrest"}
+  - {name: "spes bona"}
+  - {name: "springfield"}
+  - {name: "stafford"}
+  - {name: "steeldale"}
+  - {name: "the gables"}
+  - {name: "the gables ext"}
+  - {name: "the hill"}
+  - {name: "the hill ext"}
+  - {name: "towerby"}
+  - {name: "townsview"}
+  - {name: "trojan"}
+  - {name: "tulisa park"}
+  - {name: "turf club"}
+  - {name: "turffontein"}
+  - {name: "unigrey"}
+  - {name: "wemmer"}
+  - {name: "west lake"}
+  - {name: "west turffontein"}
+  - {name: "west turffontein ext"}
+  - {name: "winchester hills ext"}
+  - {name: "wychwood"}
+  - {name: "wychwood ext"}
+
+- calendar_name: city-power-13.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "aeroton"}
+  - {name: "bellevue"}
+  - {name: "bellevue east"}
+  - {name: "bellevue ext"}
+  - {name: "booysens"}
+  - {name: "booysens reserve"}
+  - {name: "carlton centre"}
+  - {name: "chrisville"}
+  - {name: "city and suburban"}
+  - {name: "evans park"}
+  - {name: "frampton"}
+  - {name: "gillview"}
+  - {name: "glenanda north"}
+  - {name: "glenanda west of glen rd"}
+  - {name: "goldreef city"}
+  - {name: "houghton west"}
+  - {name: "johannesburg cbd"}
+  - {name: "johannesburg city"}
+  - {name: "kyalami hills"}
+  - {name: "kyalami park"}
+  - {name: "linksfield ridge"}
+  - {name: "marshalls town"}
+  - {name: "mondeor north"}
+  - {name: "ophirton"}
+  - {name: "ophirton ext"}
+  - {name: "ormonde"}
+  - {name: "ormonde ext"}
+  - {name: "ridgeway north"}
+  - {name: "robertsham"}
+  - {name: "robertsham ext"}
+  - {name: "southdale"}
+  - {name: "winchester hills"}
+  - {name: "wolhuter"}
+  - {name: "yeoville"}
+
+- calendar_name: city-power-14.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "allandale ext 11"}
+  - {name: "allandale ext 12"}
+  - {name: "allendale"}
+  - {name: "baragwanath academic hospital"}
+  - {name: "beverley gardens "}
+  - {name: "boskruin"}
+  - {name: "boskruin ext"}
+  - {name: "bromhof"}
+  - {name: "bush hill estate"}
+  - {name: "commercia"}
+  - {name: "daniel brink park"}
+  - {name: "ferndale"}
+  - {name: "fontainbleau"}
+  - {name: "grosvenor"}
+  - {name: "jukskei view ext.17"}
+  - {name: "jukskei view ext.18"}
+  - {name: "kaalfontein  "}
+  - {name: "kaalfontein  ext"}
+  - {name: "kelland"}
+  - {name: "kliptown rdp"}
+  - {name: "lehae"}
+  - {name: "lehae ext"}
+  - {name: "lenasia ext 1"}
+  - {name: "malanshof"}
+  - {name: "mayibuye park"}
+  - {name: "moret"}
+  - {name: "parklane clinic"}
+  - {name: "parktown east"}
+  - {name: "parktown north"}
+  - {name: "parktown north (east)"}
+  - {name: "parkwood"}
+  - {name: "parkwood east"}
+  - {name: "phomolong"}
+  - {name: "president ridge"}
+  - {name: "rabie ridge"}
+  - {name: "rabie ridge"}
+  - {name: "rand park ridge"}
+  - {name: "randpark"}
+  - {name: "randpark ridge"}
+  - {name: "ris park"}
+  - {name: "ruiterhof"}
+  - {name: "sonneglans"}
+  - {name: "sonneglans ext"}
+  - {name: "sonneglans ext 17"}
+  - {name: "soweto military base"}
+  - {name: "strydom park"}
+  - {name: "strydom park ext"}
+  - {name: "uj soweto campus"}
+  - {name: "zakariya park "}
+  - {name: "zakariya park ext "}
+  - {name: "zakariya park ext 4,5,6,7,8"}
+
+- calendar_name: city-power-15.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "alvida"}
+  - {name: "armadale"}
+  - {name: "bagleyston"}
+  - {name: "blairgowrie"}
+  - {name: "blairgowrie north"}
+  - {name: "bordeaux"}
+  - {name: "cheltondale"}
+  - {name: "comptonville"}
+  - {name: "crown"}
+  - {name: "crown gardens "}
+  - {name: "crown mines"}
+  - {name: "eagles nest"}
+  - {name: "ennerdale"}
+  - {name: "ennerdale ext "}
+  - {name: "ennerdale ext 1"}
+  - {name: "ennerdale ext 2"}
+  - {name: "ennerdale ext 3"}
+  - {name: "ennerdale ext 4"}
+  - {name: "ennerdale ext 5 & 6"}
+  - {name: "ennerdale south"}
+  - {name: "fairwood"}
+  - {name: "fellside"}
+  - {name: "forbesdale"}
+  - {name: "haggie steel wire rope"}
+  - {name: "hawkins estate"}
+  - {name: "hopefield"}
+  - {name: "houghton"}
+  - {name: "johannesburg expo centre"}
+  - {name: "kibler park"}
+  - {name: "lenaron ah"}
+  - {name: "linksfield"}
+  - {name: "linksfield ext"}
+  - {name: "linksfield north"}
+  - {name: "maryvale"}
+  - {name: "melrose estate"}
+  - {name: "melrose ext 1"}
+  - {name: "melrose ext 2"}
+  - {name: "melrose north"}
+  - {name: "misgund"}
+  - {name: "mountainview"}
+  - {name: "naturena"}
+  - {name: "oaklands"}
+  - {name: "oerder park"}
+  - {name: "orange grove"}
+  - {name: "orchards"}
+  - {name: "patlynn"}
+  - {name: "ppc cement jupiter"}
+  - {name: "rispark"}
+  - {name: "rouxville"}
+  - {name: "rouxville ext"}
+  - {name: "rwb eikenhof"}
+  - {name: "sandringham"}
+  - {name: "soccer city"}
+  - {name: "southfork"}
+  - {name: "sydenham"}
+  - {name: "the gardens "}
+  - {name: "theta"}
+  - {name: "victoria"}
+  - {name: "water park"}
+  - {name: "willowdene"}
+
+- calendar_name: city-power-16.ics
+  province: gauteng
+  municipality: city-of-johannesburg-metropolitan
+  city: johannesburg
+  provider: city-power
+  source: https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/Load%20Shedding%20Suburb%20Block%20Areas%2027%20October%202023.xls
+  source_info: https://www.citypower.co.za/customers/Pages/Load-Shedding-Information.aspx
+  areas:
+  - {name: "ballindean ah"}
+  - {name: "country view"}
+  - {name: "cresta"}
+  - {name: "darrenwood"}
+  - {name: "davidsonville"}
+  - {name: "east town"}
+  - {name: "erand gardens "}
+  - {name: "fleurhof"}
+  - {name: "glen acres ext 15"}
+  - {name: "grobler park"}
+  - {name: "groblerpark ext"}
+  - {name: "lindhaven"}
+  - {name: "manufacta"}
+  - {name: "matholesville"}
+  - {name: "montroux"}
+  - {name: "new canada"}
+  - {name: "noordgesig"}
+  - {name: "noordwyk"}
+  - {name: "northcliff ext 7"}
+  - {name: "northcliff ext 8"}
+  - {name: "northcliff ext 9"}
+  - {name: "pennyville"}
+  - {name: "princess    "}
+  - {name: "princess ah"}
+  - {name: "randjiespark"}
+  - {name: "randpark"}
+  - {name: "randpark ridge"}
+  - {name: "reefhaven"}
+  - {name: "robin acres"}
+  - {name: "robindale"}
+  - {name: "roodepoort"}
+  - {name: "roodepoort cbd"}
+  - {name: "roodepoort west"}
+  - {name: "sagewood ext.14"}
+  - {name: "sharonlea ext 17"}
+  - {name: "valeriedene"}
+  - {name: "waterval estate ext 5"}
+  - {name: "west gate"}
+  - {name: "west park"}
+  - {name: "windsor"}
+  - {name: "windsor"}
+  - {name: "windsor east & west"}
+  - {name: "windsor glen"}
+  - {name: "windsor hill"}
+  - {name: "windsor ridge"}
+  - {name: "witpoortjie"}
 
 - calendar_name: eastern-cape-adelaide.ics
   province: eastern-cape
