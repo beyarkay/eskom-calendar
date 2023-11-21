@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
 def main():
     # Get the path which the pdf should be saved to
     path = f"generated/citypower.pdf"
-    url = "https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/City%20Power%20New%20Load%20Shedding%20Monthly%20Schedule.pdf"
+    url = "https://www.citypower.co.za/customers/Load%20Shedding%20Related%20Documents/City%20Power%202%20hour%20Stage%208%20Load%20Shedding%20Schedule%20Rev%204%2015%20Nov%202023.pdf"
     if not os.path.exists(path):
         r = requests.get(url, stream=True)
         with open(path, "wb") as f:
@@ -22,7 +22,7 @@ def main():
     pdf = pd.concat(pdf_pages)
     # Drop unused columns
     pdf = pdf.drop(
-        ["City Power Schedule, Rev 0", "Unnamed: 0"], axis=1
+        ["City Power Schedule, Rev 2 11 November 2023", "Unnamed: 0"], axis=1
     )
     # Rename columns to be 'stage', 1, 2, 3,4 ...., 31
     pdf.columns = ["stage"] + list(range(1, 32))
