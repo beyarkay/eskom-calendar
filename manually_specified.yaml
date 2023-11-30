@@ -71,16 +71,56 @@ changes:
 - stage: 2
   start: 2023-11-30T10:00:00
   finsh: 2023-11-30T20:00:00
-  source: https://twitter.com/CityofCT/status/1730147242672046236
+  source: https://twitter.com/CityofCT/status/1730215730463887387
   include: coct
 - stage: 3
   start: 2023-11-30T20:00:00
   finsh: 2023-11-30T22:00:00
-  source: https://twitter.com/CityofCT/status/1730147242672046236
+  source: https://twitter.com/CityofCT/status/1730215730463887387
   include: coct
 - stage: 5
   start: 2023-11-30T22:00:00
   finsh: 2023-12-01T05:00:00
-  source: https://twitter.com/CityofCT/status/1730147242672046236
+  source: https://twitter.com/CityofCT/status/1730215730463887387
+  include: coct
+- stage: 2
+  start: 2023-12-01T05:00:00
+  finsh: 2023-12-01T20:00:00
+  source: https://twitter.com/CityofCT/status/1730215730463887387
+  include: coct
+- stage: 3
+  start: 2023-12-01T20:00:00
+  finsh: 2023-12-01T22:00:00
+  source: https://twitter.com/CityofCT/status/1730215730463887387
+  include: coct
+- stage: 5
+  start: 2023-12-01T22:00:00
+  finsh: 2023-12-02T05:00:00
+  source: https://twitter.com/CityofCT/status/1730215730463887387
+  include: coct
+- stage: 3
+  start: 2023-12-02T05:00:00
+  finsh: 2023-12-02T16:00:00
+  source: https://twitter.com/CityofCT/status/1730215736864338329
+  include: coct
+- stage: 4
+  start: 2023-12-02T16:00:00
+  finsh: 2023-12-02T20:00:00
+  source: https://twitter.com/CityofCT/status/1730215736864338329
+  include: coct
+- stage: 5
+  start: 2023-12-02T20:00:00
+  finsh: 2023-12-03T05:00:00
+  source: https://twitter.com/CityofCT/status/1730215736864338329
+  include: coct
+- stage: 2
+  start: 2023-12-03T16:00:00
+  finsh: 2023-12-03T20:00:00
+  source: https://twitter.com/CityofCT/status/1730215736864338329
+  include: coct
+- stage: 4
+  start: 2023-12-03T20:00:00
+  finsh: 2023-12-04T05:00:00
+  source: https://twitter.com/CityofCT/status/1730215736864338329
   include: coct
 historical_changes: []
