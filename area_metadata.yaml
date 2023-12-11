@@ -12633,3 +12633,152 @@ area_details:
   - {name: "southgate north"}
   - {name: "woodlands industrial"}
   - {name: "wentworth west"}
+
+- calendar_name: white-river-extension-1-block-1.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-1"}
+  - {name: "Yaverland"}
+  - {name: "Citrus"}
+  - {name: "WRAH"}
+
+- calendar_name: white-river-extension-1-block-2.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-2"}
+  - {name: "White River country estate"}
+  - {name: "Pamosana"}
+  - {name: "Sonyaka"}
+
+- calendar_name: white-river-extension-1-block-3.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-3"}
+  - {name: "Kingsview"}
+  - {name: "Kingsview 1"}
+  - {name: "Kingsview 2"}
+  - {name: "Kingsview 3"}
+
+- calendar_name: white-river-extension-1-block-4.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-4"}
+  - {name: "Katoen"}
+  - {name: "Werksaam"}
+  - {name: "Dip"}
+  - {name: "Touys hill"}
+  - {name: "Water berry estate"}
+
+- calendar_name: white-river-extension-1-block-5.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-5"}
+  - {name: "Khokomoya"}
+
+- calendar_name: white-river-extension-1-block-6.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-6"}
+  - {name: "Hopeville"}
+  - {name: "Phumlani"}
+  - {name: "Steiltes"}
+
+- calendar_name: white-river-extension-1-block-7.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-7"}
+  - {name: "White River Extension 1"}
+  - {name: "White River Extension 5"}
+  - {name: "White River Extension 35"}
+
+- calendar_name: white-river-extension-1-block-8.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-8"}
+  - {name: "White River Extension 6A"}
+  - {name: "White River Extension 6B"}
+  - {name: "Waterkant"}
+  - {name: "Coltshill"}
+
+- calendar_name: white-river-extension-1-block-9.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-9"}
+  - {name: "White River Extension 3"}
+  - {name: "White River Extension 4"}
+  - {name: "White River Extension 5"}
+  - {name: "White River Extension 6"}
+  - {name: "White River Extension 7"}
+  - {name: "White River Extension 8"}
+  - {name: "White River Extension 9"}
+
+- calendar_name: white-river-extension-1-block-10.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-10"}
+  - {name: "Hills View"}
+  - {name: "White River Extension 13"}
+  - {name: "WRAH Extension 1"}
+  - {name: "Karula"}
+
+- calendar_name: white-river-extension-1-block-11.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-11"}
+  - {name: "White River Extension 7"}
+  - {name: "White River Extension 8"}
+
+- calendar_name: white-river-extension-1-block-12.ics
+  province: mpumalanga
+  city: "White River"
+  provider: mbombela
+  source: https://klcbt.co.za/wp-content/uploads/2023/11/White-River-Loadshedding-Schedule-and-Blocks.pdf
+  source_info: https://klcbt.co.za/a-new-loadshedding-schedule-for-white-river-and-rocky-drift/
+  areas:
+  - {name: "white-river-extension-1-block-12"}
+  - {name: "Park Ville"}
+  - {name: "Kings View Extension 2"}
