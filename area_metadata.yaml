@@ -12633,3 +12633,295 @@ area_details:
   - {name: "southgate north"}
   - {name: "woodlands industrial"}
   - {name: "wentworth west"}
+
+
+- calendar_name: msunduzi-western-suburbs.ics
+  province: kwazulu-natal
+  municipality: msunduzi
+  city: pietermaritzburg
+  provider: msunduzi
+  source: http://www.msunduzi.gov.za/site/search/downloadencode/LOAD%20SHEDDING%20SCHEDULE%20WORD%20STAGE%201%20-%204%20%205%20-%208%20update.pdf
+  source_info: http://www.msunduzi.gov.za
+  areas:
+  - {name: "Abbott road"}
+  - {name: "Allexandra road & Ext up to 431"}
+  - {name: "Althone"}
+  - {name: "Bisset road"}
+  - {name: "Blackridge"}
+  - {name: "Boom street"}
+  - {name: "Boshoff street above Commercial road"}
+  - {name: "Boughton"}
+  - {name: "Burger street"}
+  - {name: "Carey road"}
+  - {name: "Chapel street"}
+  - {name: "Chatterton road"}
+  - {name: "Christie road"}
+  - {name: "City West"}
+  - {name: "Claredon"}
+  - {name: "Clough street"}
+  - {name: "Drek Hall"}
+  - {name: "Drury Lane"}
+  - {name: "Greyling street up to Commercial road"}
+  - {name: "Havelock road"}
+  - {name: "Howick road"}
+  - {name: "Kinoull road"}
+  - {name: "Longmarket street"}
+  - {name: "Loop street above Chapel street"}
+  - {name: "Loop street"}
+  - {name: "Lower Mount Michael"}
+  - {name: "Montrose"}
+  - {name: "Old Howick road"}
+  - {name: "Paypini"}
+  - {name: "Pelham road"}
+  - {name: "Pietermaritz street"}
+  - {name: "Pine street"}
+  - {name: "Prestbury"}
+  - {name: "Prince Alfred street above Commercial"}
+  - {name: "Princess street"}
+  - {name: "Printing Office street"}
+  - {name: "Quarry road"}
+  - {name: "Raven street to Commercial road between Prince Alfred to Pietermaritz st."}
+  - {name: "Ritchie road"}
+  - {name: "SABC Towers"}
+  - {name: "Showgrounds"}
+  - {name: "Standard Lane"}
+  - {name: "Steel road"}
+  - {name: "Thanet House"}
+  - {name: "Victoria road"}
+  - {name: "Waalhaven road"}
+  - {name: "Wembly"}
+  - {name: "West street"}
+
+- calendar_name: msunduzi-woodburb-hesketh-mkondeni.ics
+  province: kwazulu-natal
+  municipality: msunduzi
+  city: pietermaritzburg
+  provider: msunduzi
+  source: http://www.msunduzi.gov.za/site/search/downloadencode/LOAD%20SHEDDING%20SCHEDULE%20WORD%20STAGE%201%20-%204%20%205%20-%208%20update.pdf
+  source_info: http://www.msunduzi.gov.za
+  areas:
+  - {name: "50 Durban road"}
+  - {name: "Ascott Inn"}
+  - {name: "Beardmore road"}
+  - {name: "Belleview"}
+  - {name: "Bishopstowe"}
+  - {name: "Bisley Park"}
+  - {name: "Cleland"}
+  - {name: "Croft road"}
+  - {name: "Durban road"}
+  - {name: "Epworth road"}
+  - {name: "Fairfield avenue"}
+  - {name: "Globe road"}
+  - {name: "Harwin / St Charles College"}
+  - {name: "Hayfields"}
+  - {name: "Hesketh"}
+  - {name: "Hutchinson road"}
+  - {name: "Lincoln Meade"}
+  - {name: "Market road"}
+  - {name: "Mkondeni"}
+  - {name: "Natal University"}
+  - {name: "Nedbank Plaza"}
+  - {name: "Nile road"}
+  - {name: "Oribi Airport"}
+  - {name: "Oribi Ext"}
+  - {name: "Pelham"}
+  - {name: "Poly Shortts"}
+  - {name: "Primula Lane"}
+  - {name: "Ridge road"}
+  - {name: "Ruthland"}
+  - {name: "SPCA"}
+  - {name: "Scottville Race Course"}
+  - {name: "Scottville"}
+  - {name: "Shores road"}
+  - {name: "Wensleydale"}
+  - {name: "Woodburb"}
+  - {name: "Woodhouse road"}
+
+- calendar_name: msunduzi-riverside.ics
+  province: kwazulu-natal
+  municipality: msunduzi
+  city: pietermaritzburg
+  provider: msunduzi
+  source: http://www.msunduzi.gov.za/site/search/downloadencode/LOAD%20SHEDDING%20SCHEDULE%20WORD%20STAGE%201%20-%204%20%205%20-%208%20update.pdf
+  source_info: http://www.msunduzi.gov.za
+  areas:
+  - {name: "Abi"}
+  - {name: "Albany Bakery"}
+  - {name: "Arthur Thompson road"}
+  - {name: "Beacon Hill"}
+  - {name: "Bermingham road"}
+  - {name: "Between Bulwer st & Lonmarket st "}
+  - {name: "Between Retief st & East st"}
+  - {name: "Birmingham road"}
+  - {name: "Bishopstowe"}
+  - {name: "Burnside"}
+  - {name: "Capital Oil"}
+  - {name: "Cardiff road"}
+  - {name: "Cinderella Park"}
+  - {name: "City East"}
+  - {name: "Coventry Place"}
+  - {name: "Dartnell road"}
+  - {name: "Eastwood"}
+  - {name: "Echo road"}
+  - {name: "Epic Oil"}
+  - {name: "Epol Mills"}
+  - {name: "Filpro"}
+  - {name: "Glenwood"}
+  - {name: "Grix road"}
+  - {name: "KSM Milling"}
+  - {name: "Kennilworth"}
+  - {name: "Lenox road"}
+  - {name: "Lincoln Meade - Grimthorpe Ave"}
+  - {name: "ML Sultan School"}
+  - {name: "Manchester Textiles"}
+  - {name: "McPherson road"}
+  - {name: "Mountain Rise "}
+  - {name: "Mountain Rise"}
+  - {name: "Nampak"}
+  - {name: "New Horizon School"}
+  - {name: "Northdale Hospital"}
+  - {name: "Oaklands"}
+  - {name: "Orhtmann road Willowton road"}
+  - {name: "PG. Bison"}
+  - {name: "Panorama Gardens"}
+  - {name: "Promed road"}
+  - {name: "Promed road. Orhtmann road"}
+  - {name: "Msunduzi Riverside"}
+  - {name: "Ross road Spearhead Rice Mills"}
+  - {name: "Royston road towards Greytown road & Willowton road "}
+  - {name: "Royston road"}
+  - {name: "Sheffield road"}
+  - {name: "Sobantu"}
+  - {name: "TDM"}
+  - {name: "Tamboville"}
+  - {name: "Tembelihle"}
+  - {name: "Tucker road"}
+  - {name: "Wiganthorpe road"}
+  - {name: "Willowton road"}
+
+- calendar_name: msunduzi-northern-area-suburbs.ics
+  province: kwazulu-natal
+  municipality: msunduzi
+  city: pietermaritzburg
+  provider: msunduzi
+  source: http://www.msunduzi.gov.za/site/search/downloadencode/LOAD%20SHEDDING%20SCHEDULE%20WORD%20STAGE%201%20-%204%20%205%20-%208%20update.pdf
+  source_info: http://www.msunduzi.gov.za
+  areas:
+  - {name: "Msunduzi Northern Area"}
+  - {name: "Msunduzi Northerndale"}
+  - {name: "Raisethorpe"}
+  - {name: "Allandale"}
+  - {name: "Orient Height"}
+  - {name: "Darjeeling Height"}
+  - {name: "Newholmes"}
+  - {name: "Belfort"}
+  - {name: "Northdale"}
+  - {name: "Samanaville"}
+  - {name: "Ottosbluff road - Site"}
+  - {name: "Claridge"}
+  - {name: "Wartburg road"}
+  - {name: "Table Mountain road"}
+  - {name: "Haniville"}
+  - {name: "Woodlands"}
+  - {name: "Belgotex"}
+  - {name: "Prilla2000"}
+
+- calendar_name: msunduzi-north-western-suburbs-and-hilton.ics
+  province: kwazulu-natal
+  municipality: msunduzi
+  city: pietermaritzburg
+  provider: msunduzi
+  source: http://www.msunduzi.gov.za/site/search/downloadencode/LOAD%20SHEDDING%20SCHEDULE%20WORD%20STAGE%201%20-%204%20%205%20-%208%20update.pdf
+  source_info: http://www.msunduzi.gov.za
+  areas:
+  - {name: "AEL Centre"}
+  - {name: "Bateman street"}
+  - {name: "Boshoff street"}
+  - {name: "Capital Centre"}
+  - {name: "Cascades"}
+  - {name: "Cedara road"}
+  - {name: "Chase Valley"}
+  - {name: "Church street"}
+  - {name: "City East"}
+  - {name: "Crossways"}
+  - {name: "East street Medical Centre"}
+  - {name: "Ferncliff"}
+  - {name: "Greyling street up to Boshoff street"}
+  - {name: "Greys Hospital"}
+  - {name: "Hassum Centre"}
+  - {name: "Hilton Gardens"}
+  - {name: "Hilton"}
+  - {name: "Liberty Mall"}
+  - {name: "Longmarkrt street"}
+  - {name: "Murphy street"}
+  - {name: "North Western Suburbs"}
+  - {name: "Oak Park"}
+  - {name: "Pietermaritz street"}
+  - {name: "Retief"}
+  - {name: "Slatter street"}
+  - {name: "Sweetwaters"}
+  - {name: "Symonds Center"}
+  - {name: "Town Bush"}
+  - {name: "Upper Mount Michael"}
+  - {name: "Victoria Country Club"}
+  - {name: "Victoria road"}
+  - {name: "Wembly"}
+  - {name: "Winterkloof"}
+  - {name: "Worlds View"}
+
+- calendar_name: msunduzi-city-center.ics
+  province: kwazulu-natal
+  municipality: msunduzi
+  city: pietermaritzburg
+  provider: msunduzi
+  source: http://www.msunduzi.gov.za/site/search/downloadencode/LOAD%20SHEDDING%20SCHEDULE%20WORD%20STAGE%201%20-%204%20%205%20-%208%20update.pdf
+  source_info: http://www.msunduzi.gov.za
+  areas:
+  - {name: "Afrox"}
+  - {name: "Archbell"}
+  - {name: "Barnsley road"}
+  - {name: "Bisley"}
+  - {name: "Bulwer street"}
+  - {name: "Burger Medical Centre"}
+  - {name: "Burger street"}
+  - {name: "Campsdrift"}
+  - {name: "Church street"}
+  - {name: "City East"}
+  - {name: "College road"}
+  - {name: "Commercial road"}
+  - {name: "Donleo"}
+  - {name: "Foxhill"}
+  - {name: "Grange"}
+  - {name: "Harry Gwala Stadium"}
+  - {name: "Hessom street"}
+  - {name: "Larger Centre"}
+  - {name: "Longmarket street"}
+  - {name: "Loop street - Department of Labour"}
+  - {name: "Lower Greyling street"}
+  - {name: "Masons Mill"}
+  - {name: "Masons"}
+  - {name: "Merchiston"}
+  - {name: "Msunduzi City Center"}
+  - {name: "Municipal Offices"}
+  - {name: "Napierville"}
+  - {name: "Natalia"}
+  - {name: "Newport road"}
+  - {name: "Otto street"}
+  - {name: "Payne street"}
+  - {name: "Plessislaer"}
+  - {name: "Prince Alfred street"}
+  - {name: "Prince Edward street"}
+  - {name: "Prisons"}
+  - {name: "Provincial Building"}
+  - {name: "Ridgepark"}
+  - {name: "Slangspruit"}
+  - {name: "Strapp street"}
+  - {name: "Supreme Court"}
+  - {name: "Sutherlands"}
+  - {name: "Tatham Art Gallery"}
+  - {name: "Transit Area A&B"}
+  - {name: "Umngeni Water"}
+  - {name: "Victoria road"}
+  - {name: "West street"}
+  - {name: "Westgate"}
+  - {name: "Zeederberg street"}
