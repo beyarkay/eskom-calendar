@@ -315,15 +315,20 @@ pub enum Recurrence {
 
 #[derive(Deserialize, Debug)]
 pub struct RawPeriodicShedding {
-    /// The time when LoadShedding *should* start.
+    /// The time when LoadShedding *should* start. (timezone is always UTC+2)
     pub start_time: String,
-    /// The time when LoadShedding *should* finish (note the spelling).
+    /// The time when LoadShedding *should* finish (note the spelling, timezone is always UTC+2).
     pub finsh_time: String,
     /// The stage of loadshedding.
     pub stage: u8,
-    /// The day of the 20 day cycle, with the first day being 1, the second day being 2, etc
+    /// The day of the cycle, with the first day being 1, the second day being 2, etc
     pub day_of_cycle: u8,
+    /// The number of days in the cycle. A cycle with 42 days will have the last day being 42 and
+    /// the first day being 1
     pub period_of_cycle: u8,
+    /// The date of the "start" of the cycle, this date will have cycle number 1, the following day
+    /// will have cycle number 2, the previous day will have cycle number `period_of_cycle` In
+    /// engineering terms this would be the offset of the cycle.
     pub start_of_cycle: String,
 }
 
@@ -341,9 +346,11 @@ impl From<RawPeriodicShedding> for RecurringShedding {
         let start_t = NaiveTime::parse_from_str(&raw.start_time, "%H:%M").unwrap();
         let finsh_t = NaiveTime::parse_from_str(&raw.finsh_time, "%H:%M").unwrap();
 
+        // TODO this should be a NaiveTime
         let start_datetime = NaiveDate::from_ymd_opt(1970, 1, 1)
             .unwrap()
             .and_time(start_t);
+        // TODO this should be a NaiveTime
         let finsh_datetime = NaiveDate::from_ymd_opt(1970, 1, 1)
             .unwrap()
             .and_time(finsh_t);

@@ -461,9 +461,22 @@ fn gen_datetimes(
             Recurrence::Weekly => start.weekday().number_from_monday() == lcl_dor as u32,
             Recurrence::Monthly => start.day() == lcl_dor as u32,
             Recurrence::Periodic { offset, period } => {
+                // FIXME make this invalid state unrepresentable
                 assert!(lcl_dor <= period);
-                let duration = start.date_naive().sub(offset);
-                duration.num_days() % period as i64 == (lcl_dor - 1) as i64
+                // Figure out the cycle day, using the period of the recurrence and the difference
+                // between the loadsheddings start and the recurrence's offset
+                let mut cycle_day = start.date_naive().sub(offset).num_days() % period as i64;
+                // It's valid for the offset to be in the future, in which case the cycle day could
+                // be negative (`-6 % 5 == -1`). Take care of this by repeatedly adding the period
+                // until the cycle_day is non-negative
+                while cycle_day < 0 {
+                    cycle_day += period as i64;
+                }
+                // The cycle_day is actually one-indexed, so add 1 to compensate for this.
+                cycle_day += 1;
+                // If the calculated cycle day is the same as the recurrence cycle day, then emit
+                // the loadshedding event
+                cycle_day == lcl_dor as i64
             }
         })
         // Truncate each local range so that it's actually within the specified national range
