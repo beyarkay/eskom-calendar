@@ -355,11 +355,6 @@ impl From<RawPeriodicShedding> for RecurringShedding {
             finsh_time: DateTime::<FixedOffset>::from_local(finsh_datetime, timezone_sast),
             stage: raw.stage,
             recurrence: Recurrence::Periodic {
-                // As declared by
-                // https://nelsonmandelabay.gov.za/DataRepository/Documents/residentialfull18febtojun11-2023_oYkoI.pdf
-                // and also https://nelsonmandelabay.gov.za/documentslist?searchtext=&categoryid=58
-                // LoadShedding information is available here:
-                // https://nelsonmandelabay.gov.za/page/loadshedding
                 offset,
                 period: raw.period_of_cycle,
             },

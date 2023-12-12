@@ -222,6 +222,7 @@ fn calculate_power_outages(
     let mut outages = vec![];
 
     for (local, natnl) in combos {
+        // info!("\nCalculating loadshedding for recurring shedding \n{local:?}\nand national change\n{natnl:?}");
         let datetimes = gen_datetimes(
             natnl.start,
             natnl.finsh,
@@ -414,6 +415,7 @@ fn gen_datetimes(
     lcl_start_t: NaiveTime,
     lcl_finsh_t: NaiveTime,
 ) -> Vec<(DateTime<FixedOffset>, DateTime<FixedOffset>)> {
+    // info!("Checking LS from {nat_start_dt} to {nat_finsh_dt} where cycle day is {lcl_dor}");
     nat_start_dt
         // subtract a day to ensure we handle the midnight boundary condition properly
         .checked_sub_days(chrono::Days::new(1))
@@ -442,7 +444,7 @@ fn gen_datetimes(
                     lcl_finsh_t.second(),
                 )
                 .unwrap();
-            // its possible that finsh_t is 00:30 and start_t is 22:00, in which case make sure
+            // it's possible that finsh_t is 00:30 and start_t is 22:00, in which case make sure
             // finsh_dt is on the next day.
             if finsh_dt < start_dt {
                 finsh_dt = finsh_dt.checked_add_days(chrono::Days::new(1)).unwrap();
@@ -470,6 +472,7 @@ fn gen_datetimes(
         .filter(|(start, finsh)| finsh <= &nat_finsh_dt && start < &nat_finsh_dt)
         // Ensure each range is after the start
         .filter(|(start, finsh)| start >= &nat_start_dt && finsh > &nat_start_dt)
+        // .inspect(|(start, finsh)| info!("  Emitting event: {start} -> {finsh}"))
         .collect()
 }
 
@@ -717,6 +720,7 @@ mod read {
 
     extern crate pretty_env_logger;
 
+    use csv::{ReaderBuilder, Trim};
     use log::{info, trace};
 
     /// Get the paths of all CSVs in `dir`.
@@ -752,29 +756,38 @@ mod read {
     pub fn read_sheddings_from_csv_path(
         path: &PathBuf,
     ) -> Result<Vec<RecurringShedding>, BoxedError> {
-        let mut reader = csv::Reader::from_path(path)?;
+        let mut reader = ReaderBuilder::new()
+            .trim(Trim::All) // Remove leading/trailing whitespace
+            .comment(Some(b'#')) // Allow comment lines if they start with #
+            .from_path(path)?;
+
         let headers = reader.headers()?;
         let raw: Vec<RecurringShedding>;
 
         // Parse the CSV file in a manner that depends on the headers
         if headers.iter().any(|h| h == "date_of_month") {
+            info!("Parsing {path:?} as a Monthly recurrence");
             raw = reader
                 .deserialize::<RawMonthlyShedding>()
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
                 .collect::<Vec<_>>();
         } else if headers.iter().any(|h| h == "day_of_week") {
+            info!("Parsing {path:?} as a Weekly recurrence");
             // Monday is day 1
             raw = reader
                 .deserialize::<RawWeeklyShedding>()
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
                 .collect::<Vec<_>>();
-        } else if headers.iter().any(|h| h == "day_of_20_day_cycle") {
+        } else if headers.iter().any(|h| h == "day_of_cycle") {
+            info!("Parsing {path:?} as a Periodic recurrence");
             raw = reader
                 .deserialize::<RawPeriodicShedding>()
                 .map(|res| Into::<RecurringShedding>::into(res.unwrap()))
                 .collect::<Vec<_>>();
         } else {
-            return Err(Box::from(format!("Could not parse headers {:?}", headers)));
+            return Err(Box::from(format!(
+                "Could not parse headers from {path:?}: {headers:?}"
+            )));
         }
 
         let local_shedding = raw
@@ -1041,7 +1054,7 @@ mod tests {
     }
 
     mod write_sheddings_to_ics {
-        use chrono::Duration;
+        use chrono::{DateTime, Duration, Utc};
         use icalendar::{CalendarDateTime, Component, DatePerhapsTime};
 
         use crate::tests::rfc3339;
@@ -1118,6 +1131,7 @@ mod tests {
         #[test]
         fn removes_events_le_30_minutes() {
             let mut power_outages = vec![
+                // Should be removed (==30m)
                 PowerOutage {
                     area_name: "test_area".to_string(),
                     stage: 4,
@@ -1125,6 +1139,7 @@ mod tests {
                     finsh: rfc3339("2023-05-29T10:30:00+02:00"),
                     source: "test source".to_string(),
                 },
+                // Should be removed (<30m)
                 PowerOutage {
                     area_name: "test_area".to_string(),
                     stage: 4,
@@ -1132,6 +1147,7 @@ mod tests {
                     finsh: rfc3339("2023-05-29T18:10:00+02:00"),
                     source: "test source".to_string(),
                 },
+                // Should be kept (>30m)
                 PowerOutage {
                     area_name: "test_area".to_string(),
                     stage: 4,
@@ -1164,18 +1180,32 @@ mod tests {
 
             let min_duration = Duration::minutes(30);
 
-            assert!(events.iter().all(|e| {
-                if let DatePerhapsTime::DateTime(CalendarDateTime::Utc(start)) =
-                    e.get_start().unwrap()
+            for event in events {
+                // A 1-minute long pseudo-event gets inserted to indicate the end of the
+                // loadshedding schedule. That 1-minute event shouldn't be included in this test
+                if event
+                    .get_summary()
+                    .is_some_and(|summary| summary.contains("End of schedule"))
                 {
-                    if let DatePerhapsTime::DateTime(CalendarDateTime::Utc(finsh)) =
-                        e.get_end().unwrap()
+                    continue;
+                }
+                // Disgusting if-let to check 1. the event has a start and 2. the start can be
+                // coerced into a Chrono Datetime<UTC>
+                if let Some(DatePerhapsTime::DateTime(CalendarDateTime::Utc(start))) =
+                    event.get_start()
+                {
+                    // Disgusting if-let to check 1. the event has a finsh and 2. the finsh can be
+                    // coerced into a Chrono Datetime<UTC>
+                    if let Some(DatePerhapsTime::DateTime(CalendarDateTime::Utc(finsh))) =
+                        event.get_end()
                     {
-                        return finsh - start > min_duration;
+                        assert!(
+                            finsh - start > min_duration,
+                            "finsh:{finsh} - start:{start} should be greater than {min_duration:?}"
+                        );
                     }
                 }
-                false
-            }));
+            }
         }
     }
 
