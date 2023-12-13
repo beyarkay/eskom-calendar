@@ -12925,3 +12925,440 @@ area_details:
   - {name: "West street"}
   - {name: "Westgate"}
   - {name: "Zeederberg street"}
+
+- calendar_name: nelson-mandela-bay-group-1.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Motherwell NU1 -12"}
+  - {name: "Motherwell North of Addo Rd"}
+  - {name: "Motherwell North"}
+  - {name: "Tjoksville"}
+
+- calendar_name: nelson-mandela-bay-group-2.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "7de Laan"}
+  - {name: "Aspen Heights"}
+  - {name: "Booysens Park"}
+  - {name: "Chatty"}
+  - {name: "Despatch (Industrial)"}
+  - {name: "Despatch (section fed from San Soucci)"}
+  - {name: "Ext 21 -34"}
+  - {name: "Heath Park (Above Spar and including PE College)"}
+  - {name: "Jacksonville"}
+  - {name: "Khayamnandi"}
+  - {name: "Kleinskool"}
+  - {name: "Kwanoxolo"}
+  - {name: "Palm Ridge"}
+  - {name: "San Soucci"}
+
+- calendar_name: nelson-mandela-bay-group-3.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Arcadia"}
+  - {name: "Bethelsdorp Village"}
+  - {name: "Buffelsfontein Old Age Home"}
+  - {name: "Buffelsfontein Rd"}
+  - {name: "Charlo"}
+  - {name: "Chatty"}
+  - {name: "Circular Drive"}
+  - {name: "Cleary Estate"}
+  - {name: "Cleary Park"}
+  - {name: "Ext 28 (St. Elizabeth Street area)"}
+  - {name: "Fairview"}
+  - {name: "Greenshields Park"}
+  - {name: "Heath Park (Bethelsdorp Side and around PE College)"}
+  - {name: "Heugh Rd – 6th Ave to William Moffett"}
+  - {name: "Hillside"}
+  - {name: "Hillside"}
+  - {name: "Kleinskool"}
+  - {name: "Mangold Park (Section)"}
+  - {name: "Moffett"}
+  - {name: "Mount Pleasant"}
+  - {name: "NMMU (Vista)"}
+  - {name: "Overbaakens"}
+  - {name: "Salsoneville"}
+  - {name: "Salt Lake"}
+  - {name: "Sanctor"}
+  - {name: "Springfield"}
+  - {name: "Walmer 6th Ave to William"}
+  - {name: "Walmer Downs"}
+  - {name: "West End"}
+  - {name: "William Moffett"}
+  - {name: "Windvogel"}
+
+- calendar_name: nelson-mandela-bay-group-4.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Gerald Smith"}
+  - {name: "Kwanobuhle"}
+  - {name: "Rocklands lines S, SE, SW"}
+  - {name: "Rosedale"}
+  - {name: "Strelitzia Park Extention"}
+  - {name: "Tambo"}
+  - {name: "Thomas Gamble"}
+  - {name: "Van Estate (section)"}
+  - {name: "Winterhoek Park"}
+
+- calendar_name: nelson-mandela-bay-group-5.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "EP Command"}
+  - {name: "Forest Hill"}
+  - {name: "Humewood"}
+  - {name: "South End"}
+  - {name: "Southdene"}
+  - {name: "Summerstrand up to Marine Hotel"}
+
+- calendar_name: nelson-mandela-bay-group-6.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Albany Rd Area"}
+  - {name: "Central Area Russell Rd to Albany Rd"}
+  - {name: "City Centre Whites Rd to Russell Rd"}
+  - {name: "Gelvandale (closer to Gail Rd)"}
+  - {name: "Govan Mbeki to City to Albany"}
+  - {name: "Helenvale"}
+  - {name: "Malabar Ext 6"}
+  - {name: "Malabar"}
+  - {name: "Richmond Hill Area"}
+  - {name: "Russel Road Area"}
+
+- calendar_name: nelson-mandela-bay-group-7.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Kulati"}
+  - {name: "Kwazakhele"}
+  - {name: "Matomela"}
+  - {name: "New Brighton"}
+  - {name: "Zwide"}
+
+- calendar_name: nelson-mandela-bay-group-8.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Ben Kamma"}
+  - {name: "Beverley Grove"}
+  - {name: "Bramhope"}
+  - {name: "Brickmakerskloof"}
+  - {name: "Bridgemeade"}
+  - {name: "Brymore"}
+  - {name: "Central Brickmakerskloof to Russel Rd"}
+  - {name: "Francis Evatt Park"}
+  - {name: "Glenroy"}
+  - {name: "Hunters Retreat"}
+  - {name: "Kabega Park"}
+  - {name: "Kunene Park"}
+  - {name: "Morningside – Opal Rd towards Hunter’s Side"}
+  - {name: "Park Drive Area"}
+  - {name: "Rowallan Park"}
+  - {name: "Sherwood"}
+  - {name: "St Georges Park (exclude Hospitals)"}
+  - {name: "Van der Stel"}
+  - {name: "Vergelegen"}
+  - {name: "Walker Drive"}
+  - {name: "Westbourne Oval Area"}
+  - {name: "Willow Glen"}
+
+- calendar_name: nelson-mandela-bay-group-9.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Adcockvale Area"}
+  - {name: "Adcockvale Ext"}
+  - {name: "Burt Drive Area"}
+  - {name: "Cape Rd Area Greenacres"}
+  - {name: "Cotswold Area"}
+  - {name: "Fairbridge Heights"}
+  - {name: "Fernglen"}
+  - {name: "Framesby Ext"}
+  - {name: "Framesby"}
+  - {name: "Greenacres Area"}
+  - {name: "Holland Park"}
+  - {name: "Jansendal"}
+  - {name: "Kempston Rd Area"}
+  - {name: "Korsten"}
+  - {name: "Levyvale"}
+  - {name: "Lower Central"}
+  - {name: "Market Square"}
+  - {name: "Morningside from Opal Rd towards Makro"}
+  - {name: "Mosel"}
+  - {name: "Newton Park Area"}
+  - {name: "Parsonshill Area"}
+  - {name: "Penford"}
+  - {name: "Perridgevale (section)"}
+  - {name: "Schauder Area"}
+  - {name: "Schauderville Area"}
+  - {name: "Scheepershoogte"}
+  - {name: "Section of Kabega Park"}
+  - {name: "Section of Linton Grange"}
+  - {name: "Section of Westering"}
+  - {name: "Steytler Township"}
+  - {name: "Sunridge Park"}
+  - {name: "Taybank"}
+  - {name: "Uitenhage Central"}
+  - {name: "Van Riebeeck Hoogte"}
+  - {name: "Vikingvale"}
+  - {name: "West Hill"}
+  - {name: "Winterhoek Park"}
+
+- calendar_name: nelson-mandela-bay-group-10.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Edgar Street Area"}
+  - {name: "Glendenningvale"}
+  - {name: "Ibhayi"}
+  - {name: "Kensington Area"}
+  - {name: "Kensington Harrower Rd to Diaz Rd"}
+  - {name: "Kwaford"}
+  - {name: "Kwazakhele"}
+  - {name: "Masangwanaville"}
+  - {name: "Millard Grange"}
+  - {name: "Mount Croix Area (section)"}
+  - {name: "New Brighton"}
+  - {name: "North End Area"}
+  - {name: "Parsonshill Area"}
+  - {name: "Perridgevale (section)"}
+  - {name: "Red Location"}
+  - {name: "Sydenham Area"}
+  - {name: "York Road"}
+
+- calendar_name: nelson-mandela-bay-group-11.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Albany Rd Area"}
+  - {name: "Central Area from Albany Rd towards Mount Rd"}
+  - {name: "College Drive"}
+  - {name: "Eastborne Road"}
+  - {name: "Essexvale"}
+  - {name: "Fiveways"}
+  - {name: "Koyana Redhouse Area"}
+  - {name: "Kwadwesi"}
+  - {name: "Kwamagxaki"}
+  - {name: "Linkside"}
+  - {name: "Mgengo Street Area"}
+  - {name: "Mill Park"}
+  - {name: "Mount Croix Area (section)"}
+  - {name: "Park Drive"}
+  - {name: "Redhouse"}
+  - {name: "Richmond Hill Area"}
+  - {name: "Salisbury Park"}
+  - {name: "Soweto on Sea"}
+  - {name: "Stanley Street Area"}
+
+- calendar_name: nelson-mandela-bay-group-12.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Algoa Park"}
+  - {name: "Cradock Place"}
+  - {name: "Despatch (section fed from Kudu)"}
+  - {name: "Gelvan Park"}
+  - {name: "Glen Hurd"}
+  - {name: "Mowbray Street"}
+  - {name: "Newton Park 1st Ave to 5th Ave"}
+  - {name: "Parkside"}
+  - {name: "Pickering Park"}
+  - {name: "Section of Gelvandale (close to Gelvan Park)"}
+  - {name: "Springdale"}
+  - {name: "Young Park"}
+
+- calendar_name: nelson-mandela-bay-group-13.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Arlington"}
+  - {name: "Bushby Park"}
+  - {name: "Deer Park"}
+  - {name: "Fairview"}
+  - {name: "Kings Court Area"}
+  - {name: "Kragga Kamma"}
+  - {name: "Lorraine (Section)"}
+  - {name: "Seaview"}
+  - {name: "Section of Mangold"}
+  - {name: "Section of Overbaakens"}
+  - {name: "Springfield (Section)"}
+  - {name: "Theescombe"}
+  - {name: "Walmer Heights (Section)"}
+
+- calendar_name: nelson-mandela-bay-group-14.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Blue Horizon Bay – FBH"}
+  - {name: "Boxes & Shooks – TBS"}
+  - {name: "Coega Village"}
+  - {name: "Gamtoos Hotel - GHL"}
+  - {name: "Gamtoos Pumps - SGP"}
+  - {name: "Gamtoos"}
+  - {name: "Gedultsriver – FGR"}
+  - {name: "Loerie Pumps – SLL"}
+  - {name: "Matjiesfontein - TFM"}
+  - {name: "Nokton Farm – NFL"}
+  - {name: "Rocklands – FCR"}
+  - {name: "Section of Humewood"}
+  - {name: "Section of South End"}
+  - {name: "St Albans – SAL"}
+  - {name: "Thornhill (TFM)"}
+  - {name: "Thornhill Farmers – TFM"}
+  - {name: "Thornhill"}
+  - {name: "Vaalkrans – GVK"}
+  - {name: "Van Stadens Gorge – VMW"}
+  - {name: "Van Stadens Gorge"}
+  - {name: "Walmer 1st Ave Area Area to 6th Ave"}
+  - {name: "Walmer Boulevard"}
+  - {name: "Weetwood Road Area"}
+  - {name: "Wells Estate (Bluewater Bay)"}
+  - {name: "Witteklip – FCW"}
+  - {name: "Woodridge – FCW"}
+
+- calendar_name: nelson-mandela-bay-group-15.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Arlington - ADS"}
+  - {name: "Baywest Mall"}
+  - {name: "Beachview – SPL"}
+  - {name: "Butterfield - TBU"}
+  - {name: "Chelsea - GLC"}
+  - {name: "Chinchilla Farm - SCF"}
+  - {name: "Colleen Glen"}
+  - {name: "Cows Corner - CCR"}
+  - {name: "Crockarts Hope - TCR"}
+  - {name: "De Stades - TDS"}
+  - {name: "Greenbushes Draaifontein - GBD"}
+  - {name: "Greenbushes Seaview - GBS"}
+  - {name: "Hilltops - SHT"}
+  - {name: "Kinibay - SPL"}
+  - {name: "Lakefarm – TLF"}
+  - {name: "Lovemore Park - DLP"}
+  - {name: "Miramar"}
+  - {name: "Murray Park - MPK"}
+  - {name: "Pari Park"}
+  - {name: "Providentia"}
+  - {name: "Schoenmakerskop - DSK"}
+  - {name: "Schoenmakerskop Village"}
+  - {name: "Seaview Pumps - SPL"}
+  - {name: "Seaview Village"}
+  - {name: "Walmer 9th Ave Area"}
+  - {name: "Walmer Dunes"}
+  - {name: "Walmer Heights (Section)"}
+  - {name: "Walmer Industrial"}
+  - {name: "Walmer Location"}
+  - {name: "Waterkloof - WKK"}
+  - {name: "Willow Area - DSK"}
+
+- calendar_name: nelson-mandela-bay-group-16.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Broadwood"}
+  - {name: "Lorraine"}
+  - {name: "Lovemore Heights"}
+  - {name: "Providentia"}
+  - {name: "Section of Fairview"}
+  - {name: "Section of Mount Pleasant (Upper)"}
+  - {name: "Section of Overbaakens"}
+  - {name: "Weybridge Park"}
+  - {name: "Woodlands"}
+
+- calendar_name: nelson-mandela-bay-group-17.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Fernglen"}
+  - {name: "Framesby Ext"}
+  - {name: "Framesby"}
+  - {name: "Kabega Park"}
+  - {name: "Linton Grange"}
+  - {name: "Morningside from Opal Rd towards Makro"}
+  - {name: "Sunridge Park"}
+  - {name: "Taybank"}
+  - {name: "Westering"}
+
+- calendar_name: nelson-mandela-bay-group-18.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Central / Lower Central / Town"}
+  - {name: "Fairbridge Heights"}
+  - {name: "Greenacres Ring Rd"}
+  - {name: "Scheepers Hoogte"}
+  - {name: "Strelitzia Park"}
+  - {name: "Strelitzia Park"}
+  - {name: "Valleisig"}
+  - {name: "Van Riebeeck Hoogte"}
+  - {name: "Vanes Estate"}
+  - {name: "Winterhoek - Molopo"}
+
+- calendar_name: nelson-mandela-bay-group-19.ics
+  province: eastern-cape
+  municipality: nelson-mandela-bay
+  provider: nelson-mandela-bay
+  source: https://www.nelsonmandelabay.gov.za/DataRepository/Documents/loadshedding-schedule-residential-full-4-december-2023-to-3-march-2024_iPXI9.pdf
+  source_info: https://www.nelsonmandelabay.gov.za/page/loadshedding
+  areas:
+  - {name: "Geysers"}
