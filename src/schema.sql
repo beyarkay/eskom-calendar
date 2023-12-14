@@ -23,7 +23,7 @@ CREATE TABLE
 -- sources_id and info_id.
 CREATE TABLE
   schedules (
-    id VARCHAR(7) PRIMARY KEY,
+    id VARCHAR(256) PRIMARY KEY,
     filename VARCHAR(255) NOT NULL UNIQUE,
     sources_id INTEGER REFERENCES urls (id),
     info_id INTEGER REFERENCES urls (id),
@@ -36,7 +36,7 @@ CREATE TABLE
 CREATE TABLE
   loadshedding (
     id SERIAL PRIMARY KEY,
-    schedule_id VARCHAR(7) REFERENCES schedules (id),
+    schedule_id VARCHAR(256) REFERENCES schedules (id),
     stage INTEGER NOT NULL,
     start TIMESTAMP NOT NULL,
     finsh TIMESTAMP NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE
 -- Every municipality in South Africa, as defined by Wikipedia
 CREATE TABLE
   municipalities (
-    id VARCHAR(7) PRIMARY KEY,
+    id VARCHAR(256) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     province VARCHAR(255) CHECK (
       province IN (
@@ -71,7 +71,7 @@ CREATE TABLE
 -- multiple aliases
 CREATE TABLE
   aliases (
-    id VARCHAR(7) PRIMARY KEY,
+    id VARCHAR(256) PRIMARY KEY,
     alias VARCHAR(255) NOT NULL
   );
 
@@ -81,11 +81,11 @@ CREATE TABLE
 -- a geofence, and a municipality
 CREATE TABLE
   places (
-    id VARCHAR(7) PRIMARY KEY,
-    schedule_id VARCHAR(7) REFERENCES schedules (id),
+    id VARCHAR(256) PRIMARY KEY,
+    schedule_id VARCHAR(256) REFERENCES schedules (id),
     display_name TEXT NOT NULL,
-    munic_id VARCHAR(7) REFERENCES municipalities (id),
-    name_aliases_id VARCHAR(7) REFERENCES aliases (id)
+    munic_id VARCHAR(256) REFERENCES municipalities (id),
+    name_aliases_id VARCHAR(256) REFERENCES aliases (id)
   );
 
 -- Store geofences for different places. A geofence has one "id", and is made
@@ -93,10 +93,10 @@ CREATE TABLE
 -- "points".
 CREATE TABLE
   geofences (
-    id VARCHAR(7),
+    id VARCHAR(256),
     lat NUMERIC(10, 6) NOT NULL,
     lng NUMERIC(10, 6) NOT NULL,
     path_index INTEGER NOT NULL,
     point_index INTEGER NOT NULL,
-    place_id VARCHAR(7) REFERENCES places (id)
+    place_id VARCHAR(256) REFERENCES places (id)
   );

@@ -22,25 +22,28 @@ MunicName = NewType("MunicName", str)
 ids = set()
 
 
-def gen_id(hint=None) -> Id:
+def gen_id(hint=None, prefix=None) -> Id:
     alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
+    prefix = prefix + '_' if prefix is not None else ''
     if hint is None:
-        choices = random.choices(alphabet, k=6)
-        _id = Id(''.join(choices[:3]) + '-' + ''.join(choices[3:]))
+        _id = Id(''.join(random.choices(alphabet, k=7)))
     else:
         _id = ''.join(c for c in hint.lower() if (c.isascii() and c.isalnum()))
         if len(_id) > 7:
             _id = (
                 _id
-                .replace("cityofcapetownarea", 'cpt')
-                .replace("cityofcapetown", 'cpt')
-                .replace("gautengekurhuleniblock", 'ekurhuleni')
-                .replace("kwazulunatalethekwiniblock", 'ethekwini')
-                .replace("gautengemfuleniarea", 'emfuleni')
-                .replace("gautengtshwanegroup", 'tshwane')
-                .replace("citypower", 'cp')
-                .replace("buffalocityblock19", 'buffalocity')
+                .replace("cityofcapetownarea", "cpt")
+                .replace("cityofcapetown", "cpt")
+                .replace("gautengekurhuleniblock", "ekur")
+                .replace("kwazulunatalethekwiniblock", "ethek")
+                .replace("gautengemfuleniarea", "emfuleni")
+                .replace("gautengtshwanegroup", "tshwane")
+                .replace("citypower", "cp")
+                .replace("buffalocityblock19", "buffalocity")
                 .replace("eskomdirect", "eskm")
+                .replace("nelsonmandelabaygroup", "nmb")
+                .replace("ennerdaleext", "enner")
+                .replace("msunduzi", "msun")
                 .replace("even", "e")
                 .replace("odd", "o")
                 .replace("cityof", "")
@@ -62,12 +65,14 @@ def gen_id(hint=None) -> Id:
             _id = _id[:7]
         _id = Id(_id)
 
-    while _id in ids:
+    prefixed_id = Id(prefix + _id)
+    # if hint is not None and 'cape' in hint.lower() and 'town' in hint.lower():
+    #     print("!!!", hint, prefix, prefixed_id)
+    while prefixed_id in ids:
         print(f"{_id} in ids, hint was {hint}")
-        choices = random.choices(alphabet, k=6)
-        _id = Id(''.join(choices[:3]) + '-' + ''.join(choices[3:]))
-    ids.add(_id)
-    return _id
+        prefixed_id = Id(prefix + ''.join(random.choices(alphabet, k=7)))
+    ids.add(prefixed_id)
+    return prefixed_id
 
 
 UrlId = NewType("UrlId", Id)
@@ -218,7 +223,7 @@ known_munics: pd.DataFrame = cast(
     pd.DataFrame, pd.read_csv("municipalities.csv"))
 # Assign all municipalities an approximately mnemonic ID
 known_munics['_id'] = known_munics['name'].apply(
-    lambda name: gen_id(hint=name))
+    lambda name: gen_id(hint=name, prefix='m'))
 
 for i, d in tqdm.tqdm(enumerate(data), total=len(data)):
     # print(f'{i}/{len(data)}')
@@ -230,8 +235,8 @@ for i, d in tqdm.tqdm(enumerate(data), total=len(data)):
         **({'province': None, 'municipality': None} | a)) for a in area_detail.areas
     ]
 
-    info_id = UrlId(gen_id())
-    recsched_id = _RecurringScheduleId(gen_id())
+    info_id = UrlId(gen_id(prefix='i'))
+    recsched_id = _RecurringScheduleId(gen_id(prefix='r'))
 
     # Get all URLs which have already been seen and are equal to the source of
     # the current area_detail
@@ -239,7 +244,7 @@ for i, d in tqdm.tqdm(enumerate(data), total=len(data)):
     # If this URL hasn't been seen before, add it to the list of unique URLs
     # and assign it as the source_id
     if len(u) == 0:
-        sources_id = UrlId(gen_id())
+        sources_id = UrlId(gen_id(prefix='u'))
         urls.append(Url(sources_id, area_detail.source))
     elif len(u) == 1:
         sources_id = u[0]._id
@@ -249,7 +254,7 @@ for i, d in tqdm.tqdm(enumerate(data), total=len(data)):
     # repeat the same as above, but for the info
     u = [url for url in urls if url.url == area_detail.source_info]
     if len(u) == 0:
-        info_id = UrlId(gen_id())
+        info_id = UrlId(gen_id(prefix='u'))
         urls.append(Url(info_id, area_detail.source_info))
     elif len(u) == 1:
         info_id = u[0]._id
@@ -290,7 +295,7 @@ for i, d in tqdm.tqdm(enumerate(data), total=len(data)):
         last_updated_log,  "%a %b %d %H:%M:%S %Y %z")
 
     filename = area_detail.calendar_name.replace(".ics", "")
-    schedule_id = ScheduleId(gen_id(hint=filename))
+    schedule_id = ScheduleId(gen_id(hint=filename, prefix='s'))
     schedules.append(Schedule(
         _id=schedule_id,
         filename=filename,
@@ -349,7 +354,7 @@ for i, d in tqdm.tqdm(enumerate(data), total=len(data)):
 
         elif type(area.name) is list:
             # Handle lists of names / lists of objects
-            alias_id = AliasId(gen_id())
+            alias_id = AliasId(gen_id(prefix='a'))
             for item in area.name:
                 assert type(item) is str, f"{item} isn't a string ):"
                 places.append(Place(
@@ -387,18 +392,30 @@ def conn_to_db():
 conn = conn_to_db()
 cursor = conn.cursor()
 
+truncate_query = """
+TRUNCATE loadshedding CASCADE;
+TRUNCATE geofences CASCADE;
+TRUNCATE aliases CASCADE;
+TRUNCATE municipalities CASCADE;
+TRUNCATE schedules CASCADE;
+TRUNCATE urls CASCADE;
+TRUNCATE places CASCADE;
+"""
+cursor.execute(truncate_query)
+
+
 db_ids = []
 for i, row in tqdm.tqdm(urls_df.iterrows(), total=len(urls_df)):
-    insert_query = """INSERT INTO urls (url) VALUES (%s) RETURNING id"""
+    truncate_query = """INSERT INTO urls (url) VALUES (%s) RETURNING id"""
     data_to_insert = (row['url'],)
-    cursor.execute(insert_query, data_to_insert)
+    cursor.execute(truncate_query, data_to_insert)
     inserted_id = cursor.fetchone()[0]
     db_ids.append(inserted_id)
     conn.commit()
 urls_df['db_id'] = db_ids
 
 for i, row in tqdm.tqdm(schedules_df.iterrows(), total=len(schedules_df)):
-    insert_query = """INSERT INTO schedules (id, filename, sources_id, info_id, last_updated, valid_from, valid_until)
+    truncate_query = """INSERT INTO schedules (id, filename, sources_id, info_id, last_updated, valid_from, valid_until)
                     VALUES (%s, %s, %s, %s, %s, %s, %s)"""
     info_id = urls_df.loc[
         urls_df['_id'] == row['info_id'],
@@ -417,11 +434,11 @@ for i, row in tqdm.tqdm(schedules_df.iterrows(), total=len(schedules_df)):
         row['valid_from'],
         row['valid_until'],
     )
-    cursor.execute(insert_query, data_to_insert)
+    cursor.execute(truncate_query, data_to_insert)
     conn.commit()
 
 for i, row in tqdm.tqdm(known_munics.iterrows(), total=len(known_munics)):
-    insert_query = """INSERT INTO municipalities (id, name, province, kind)
+    truncate_query = """INSERT INTO municipalities (id, name, province, kind)
                     VALUES (%s, %s, %s, %s)"""
     data_to_insert = (
         row['_id'],
@@ -429,12 +446,12 @@ for i, row in tqdm.tqdm(known_munics.iterrows(), total=len(known_munics)):
         row['province'],
         row['kind'],
     )
-    cursor.execute(insert_query, data_to_insert)
+    cursor.execute(truncate_query, data_to_insert)
     conn.commit()
 
 for i, row in tqdm.tqdm(places_df.iterrows(), total=len(places_df)):
     # print(f'{i}/{len(places_df)}: {row["display_name"]}')
-    insert_query = """INSERT INTO places (id, schedule_id, display_name, munic_id, name_aliases_id)
+    truncate_query = """INSERT INTO places (id, schedule_id, display_name, munic_id, name_aliases_id)
                     VALUES (%s, %s, %s, %s, %s)"""
     data_to_insert = (
         row['_id'],
@@ -443,16 +460,15 @@ for i, row in tqdm.tqdm(places_df.iterrows(), total=len(places_df)):
         row['munic_id'],
         row['name_aliases_id'],
     )
-    cursor.execute(insert_query, data_to_insert)
+    cursor.execute(truncate_query, data_to_insert)
     conn.commit()
 
-
-print(r"""
--- To export from postgres into CSV files
-\copy aliases        TO 'data/aliases.csv' WITH (FORMAT CSV, HEADER)
-\copy geofences      TO 'data/geofences.csv' WITH (FORMAT CSV, HEADER)
-\copy municipalities TO 'data/municipalities.csv' WITH (FORMAT CSV, HEADER)
-\copy places         TO 'data/places.csv' WITH (FORMAT CSV, HEADER)
-\copy schedules      TO 'data/schedules.csv' WITH (FORMAT CSV, HEADER)
-\copy urls(url)      TO 'data/urls.csv' WITH (FORMAT CSV, HEADER)
+# To export from postgres into CSV files
+cursor.execute(r"""
+\copy aliases        TO 'data/aliases.csv' WITH (FORMAT CSV, HEADER);
+\copy geofences      TO 'data/geofences.csv' WITH (FORMAT CSV, HEADER);
+\copy municipalities TO 'data/municipalities.csv' WITH (FORMAT CSV, HEADER);
+\copy places         TO 'data/places.csv' WITH (FORMAT CSV, HEADER);
+\copy schedules      TO 'data/schedules.csv' WITH (FORMAT CSV, HEADER);
+\copy urls(url)      TO 'data/urls.csv' WITH (FORMAT CSV, HEADER);
 """)
