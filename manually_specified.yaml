@@ -13,29 +13,9 @@
 ---
 changes:
 - stage: 2
-  start: 2023-12-13T16:00:00
-  finsh: 2023-12-14T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1734919488514957751
-  exclude: coct
-- stage: 2
-  start: 2023-12-14T16:00:00
-  finsh: 2023-12-15T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1734919488514957751
-  exclude: coct
-- stage: 2
-  start: 2023-12-15T16:00:00
-  finsh: 2023-12-16T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1734919488514957751
-  exclude: coct
-- stage: 2
-  start: 2023-12-16T16:00:00
-  finsh: 2023-12-17T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1734919488514957751
-  exclude: coct
-- stage: 2
-  start: 2023-12-17T16:00:00
-  finsh: 2023-12-18T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1734919488514957751
+  start: 2023-12-18T00:00:00
+  finsh: 2023-12-19T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1735242542319301087
   exclude: coct
 
 - stage: 2
