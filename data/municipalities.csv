@@ -1,258 +1,258 @@
 id,name,province,kind
-bqls,Abaqulusi,kwazulu-natal,local
-lbrtlth,Albert Luthuli,mpumalanga,local
-lfrddm,Alfred Duma,kwazulu-natal,local
-mhlth,Amahlathi,eastern_cape,local
-bphlbrw,Ba-Phalaborwa,limpopo,local
-bfrtwst,Beaufort West,western_cape,local
-blbl,Bela-Bela,limpopo,local
-brgrvr,Bergrivier,western_cape,local
-bgfvhlb,Big Five Hlabisa,kwazulu-natal,local
-bitou,Bitou,western_cape,local
-blbrg,Blouberg,limpopo,local
-blcrnrt,Blue Crane Route,eastern_cape,local
-brdvlly,Breede Valley,western_cape,local
-bfflcty,Buffalo City,eastern_cape,metropolitan
-bshbckr,Bushbuckridge,mpumalanga,local
-cpglhs,Cape Agulhas,western_cape,local
-cdrbrg,Cederberg,western_cape,local
-cpt,City of Cape Town,western_cape,metropolitan
-krhln,City of Ekurhuleni,gauteng,metropolitan
-jhnnsbr,City of Johannesburg,gauteng,metropolitan
-mtlsn,City of Matlosana,north_west,local
-tshwane,City of Tshwane,gauteng,metropolitan
-cllnsch,Collins Chabane,limpopo,local
-dnnhsr,Dannhauser,kwazulu-natal,local
-dwdkrpr,Dawid Kruiper,northern_cape,local
-dhlbng,Dihlabeng,free_state,local
-dkgtlng,Dikgatlong,northern_cape,local
-dplsng,Dipaleseng,mpumalanga,local
-dtsbtl,Ditsobotla,north_west,local
-drbyrsn,Dr Beyers Naudé,eastern_cape,local
-drjsmrk,Dr JS Moroka,mpumalanga,local
-drnkszn,Dr Nkosazana Dlamini Zuma,kwazulu-natal,local
-drknstn,Drakenstein,western_cape,local
-edumbe,eDumbe,kwazulu-natal,local
-lsmtsld,Elias Motsoaledi,limpopo,local
-lndn,Elundini,eastern_cape,local
-mdlngn,eMadlangeni,kwazulu-natal,local
-mkhzn,Emakhazeni,mpumalanga,local
-mlhln,Emalahleni,eastern_cape,local
-kft-on1,Emalahleni,mpumalanga,local
-mfln,Emfuleni,gauteng,local
-mthnjn,Emthanjeni,northern_cape,local
-ndmn,Endumeni,kwazulu-natal,local
-engcobo,Engcobo,eastern_cape,local
-nchmgjm,Enoch Mgijima,eastern_cape,local
-phrmmgl,Ephraim Mogale,limpopo,local
-thkwn,eThekwini,kwazulu-natal,metropolitan
-ftkgmtb,Fetakgomo Tubatse,limpopo,local
-gsgnyn,Ga-Segonyana,northern_cape,local
-gmgr,Gamagara,northern_cape,local
-george,George,western_cape,local
-gvnmbk,Govan Mbeki,mpumalanga,local
-grtk,Great Kei,eastern_cape,local
-grtrgyn,Greater Giyani,limpopo,local
-grtrkks,Greater Kokstad,kwazulu-natal,local
-grtrltb,Greater Letaba,limpopo,local
-grtrtng,Greater Taung,north_west,local
-grtrtzn,Greater Tzaneen,limpopo,local
-hantam,Hantam,northern_cape,local
-hssq,Hessequa,western_cape,local
-mpndl,Impendle,kwazulu-natal,local
-ngqzhll,Ingquza Hill,eastern_cape,local
-nkslngl,Inkosi Langalibalele,kwazulu-natal,local
-ntskyth,Intsika Yethu,eastern_cape,local
-nxbythm,Inxuba Yethemba,eastern_cape,local
-jbmarks,JB Marks,north_west,local
-jmrlng,Joe Morolong,northern_cape,local
-jozini,Jozini,kwazulu-natal,local
-kgsnmlp,Kagisano-Molopo,north_west,local
-kgrb,Kai !Garib,northern_cape,local
-kmsbrg,Kamiesberg,northern_cape,local
-knnlnd,Kannaland,western_cape,local
-krbrg,Kareeberg,northern_cape,local
-krhglnd,Karoo Hoogland,northern_cape,local
-kgtlpl,Kgatelopele,northern_cape,local
-kgtlngr,Kgetlengrivier,north_west,local
-khima,Khâi-Ma,northern_cape,local
-kheis,!Kheis,northern_cape,local
-kngsbtd,King Sabata Dalindyebo,eastern_cape,local
-knysna,Knysna,western_cape,local
-kpnng,Kopanong,free_state,local
-kkmm,Kou-Kamma,eastern_cape,local
-kouga,Kouga,eastern_cape,local
-kwdkz,KwaDukuza,kwazulu-natal,local
-lngsbrg,Laingsburg,western_cape,local
-lngbrg,Langeberg,western_cape,local
-lekwa,Lekwa,mpumalanga,local
-lkwtmn,Lekwa-Teemane,north_west,local
-lpllnkm,Lepelle-Nkumpi,limpopo,local
-lphll,Lephalale,limpopo,local
-lesedi,Lesedi,gauteng,local
-ltsmng,Letsemeng,free_state,local
-mdbng,Madibeng,north_west,local
-mafube,Mafube,free_state,local
-mgrng,Magareng,northern_cape,local
-mhkng,Mahikeng,north_west,local
-makana,Makana,eastern_cape,local
-makhado,Makhado,limpopo,local
-mkhdthm,Makhuduthamaga,limpopo,local
-mltphfn,Maluti-a-Phofung,free_state,local
-mamusa,Mamusa,north_west,local
-mandeni,Mandeni,kwazulu-natal,local
-mngng,Mangaung,free_state,metropolitan
-mntsp,Mantsopa,free_state,local
-mphml,Maphumulo,kwazulu-natal,local
-mqsshll,Maquassi Hills,north_west,local
-mrlng,Maruleng,limpopo,local
-mslnyn,Masilonyana,free_state,local
-mttl,Matatiele,eastern_cape,local
-mtjhbng,Matjhabeng,free_state,local
-mtzkm,Matzikama,western_cape,local
-mbhashe,Mbhashe,eastern_cape,local
-mbmbl,Mbombela,mpumalanga,local
-mrfngct,Merafong City,gauteng,local
-mtsmhl,Metsimaholo,free_state,local
-mhlntl,Mhlontlo,eastern_cape,local
-midvaal,Midvaal,gauteng,local
-mkhmbth,Mkhambathini,kwazulu-natal,local
-mkhondo,Mkhondo,mpumalanga,local
-mnquma,Mnquma,eastern_cape,local
-mdmllmk,Modimolle–Mookgophong,limpopo,local
-mglkwn,Mogalakwena,limpopo,local
-mglcty,Mogale City,gauteng,local
-mhkr,Mohokare,free_state,local
-mlml,Molemole,limpopo,local
-moqhaka,Moqhaka,free_state,local
-mrtl,Moretele,north_west,local
-mssktn,Moses Kotane,north_west,local
-msslby,Mossel Bay,western_cape,local
-mpofana,Mpofana,kwazulu-natal,local
-msinga,Msinga,kwazulu-natal,local
-msklgw,Msukaligwa,mpumalanga,local
-msndz,Msunduzi,kwazulu-natal,local
-mthnjnn,Mthonjaneni,kwazulu-natal,local
-mtbtb,Mtubatuba,kwazulu-natal,local
-musina,Musina,limpopo,local
-nala,Nala,free_state,local
-naledi,Naledi,north_west,local
-nmkh,Nama Khoi,northern_cape,local
-ndlambe,Ndlambe,eastern_cape,local
-ndwedwe,Ndwedwe,kwazulu-natal,local
-nlsnmnd,Nelson Mandela Bay,eastern_cape,metropolitan
-nwcstl,Newcastle,kwazulu-natal,local
-ngqshw,Ngqushwa,eastern_cape,local
-ngwathe,Ngwathe,free_state,local
-nkandla,Nkandla,kwazulu-natal,local
-nktn,Nketoana,free_state,local
-nkomazi,Nkomazi,mpumalanga,local
-nongoma,Nongoma,kwazulu-natal,local
-nqutu,Nqutu,kwazulu-natal,local
-ntbnkl,Ntabankulu,eastern_cape,local
-nyndn,Nyandeni,eastern_cape,local
-khhlmb,Okhahlamba,kwazulu-natal,local
-dtshrn,Oudtshoorn,western_cape,local
-vrstrnd,Overstrand,western_cape,local
-phkwn,Phokwane,northern_cape,local
-phmll,Phumelela,free_state,local
-pxlyksm,Pixley ka Seme,mpumalanga,local
-plkwn,Polokwane,limpopo,local
-prtstjh,Port St Johns,eastern_cape,local
-prnclbr,Prince Albert,western_cape,local
-rmtshrm,Ramotshere Moiloa,north_west,local
-rndwstc,Rand West City,gauteng,local
-ratlou,Ratlou,north_west,local
-rynknyn,Ray Nkonyeni,kwazulu-natal,local
-rymndmh,Raymond Mhlaba,eastern_cape,local
-rnstrbr,Renosterberg,northern_cape,local
-rchmnd,Richmond,kwazulu-natal,local
-rchtrsv,Richtersveld,northern_cape,local
-rstnbrg,Rustenburg,north_west,local
-skhszw,Sakhisizwe,eastern_cape,local
-sldnhby,Saldanha Bay,western_cape,local
-senqu,Senqu,eastern_cape,local
-setsoto,Setsoto,free_state,local
-syncm,Siyancuma,northern_cape,local
-sythmb,Siyathemba,northern_cape,local
-slpltj,Sol Plaatje,northern_cape,local
-stllnbs,Stellenbosch,western_cape,local
-stvtshw,Steve Tshwete,mpumalanga,local
-sndysrv,Sundays River Valley,eastern_cape,local
-swrtlnd,Swartland,western_cape,local
-swllndm,Swellendam,western_cape,local
-thbchw,Thaba Chweu,mpumalanga,local
-thbzmb,Thabazimbi,limpopo,local
-thwtrsk,Theewaterskloof,western_cape,local
-thmblhl,Thembelihle,northern_cape,local
-thmbslh,Thembisile Hani,mpumalanga,local
-thlml,Thulamela,limpopo,local
-tklg,Tokologo,free_state,local
-tsntsbn,Tsantsabane,northern_cape,local
-tswaing,Tswaing,north_west,local
-tswlpl,Tswelopele,free_state,local
-bhlbzw,Ubuhlebezwe,kwazulu-natal,local
-ubuntu,Ubuntu,northern_cape,local
-ulundi,Ulundi,kwazulu-natal,local
-umdoni,Umdoni,kwazulu-natal,local
-mflz,uMfolozi,kwazulu-natal,local
-mhlbyln,uMhlabuyalingana,kwazulu-natal,local
-mhlthz,uMhlathuze,kwazulu-natal,local
-mllz,uMlalazi,kwazulu-natal,local
-umngeni,uMngeni,kwazulu-natal,local
-mshwth,uMshwathi,kwazulu-natal,local
-msbmv,Umsobomvu,northern_cape,local
-mzwbnt,uMuziwabantu,kwazulu-natal,local
-umvoti,Umvoti,kwazulu-natal,local
-mzmkhl,Umzimkhulu,kwazulu-natal,local
-mzmvb,Umzimvubu,eastern_cape,local
-umzumbe,Umzumbe,kwazulu-natal,local
-phngl,uPhongolo,kwazulu-natal,local
-vctrkhn,Victor Khanye,mpumalanga,local
-wltrssl,Walter Sisulu,eastern_cape,local
-wnnmdkz,Winnie Madikizela-Mandela,eastern_cape,local
-wtznbrg,Witzenberg,western_cape,local
-lfrdnz,Alfred Nzo,eastern_cape,district
-amajuba,Amajuba,kwazulu-natal,district
-mthl,Amathole,eastern_cape,district
-bjnl,Bojanala,north_west,district
-cpwnlnd,Cape Winelands,western_cape,district
-cprcrn,Capricorn,limpopo,district
-cntrlkr,Central Karoo,western_cape,district
-chrshn,Chris Hani,eastern_cape,district
-drknnth,Dr Kenneth Kaunda,north_west,district
-drrthsg,Dr Ruth Segomotsi Mompati,north_west,district
-hlnzn,Ehlanzeni,mpumalanga,district
-fzldb,Fezile Dabi,free_state,district
-frncsbr,Frances Baard,northern_cape,district
-grdnrt,Garden Route,western_cape,district
-grtsbnd,Gert Sibande,mpumalanga,district
-hrrygwl,Harry Gwala,kwazulu-natal,district
-ilembe,iLembe,kwazulu-natal,district
-jgqb,Joe Gqabi,eastern_cape,district
-jhntlgt,John Taolo Gaetsewe,northern_cape,district
-kngctsh,King Cetshwayo,kwazulu-natal,district
-ljwlpts,Lejweleputswa,free_state,district
-mopani,Mopani,limpopo,district
-namakwa,Namakwa,northern_cape,district
-ngkmdrm,Ngaka Modiri Molema,north_west,district
-nkngl,Nkangala,mpumalanga,district
-ortambo,OR Tambo,eastern_cape,district
-vrbrg,Overberg,western_cape,district
-hw5-51p,Pixley ka Seme,northern_cape,district
-srhbrtm,Sarah Baartman,eastern_cape,district
-sdbng,Sedibeng,gauteng,district
-skhkhn,Sekhukhune,limpopo,district
-thbmfts,Thabo Mofutsanyana,free_state,district
-ugu,Ugu,kwazulu-natal,district
-mgngndl,uMgungundlovu,kwazulu-natal,district
-mkhnykd,uMkhanyakude,kwazulu-natal,district
-mznyth,uMzinyathi,kwazulu-natal,district
-thkl,uThukela,kwazulu-natal,district
-vhembe,Vhembe,limpopo,district
-wtrbrg,Waterberg,limpopo,district
-wstcst,West Coast,western_cape,district
-wstrnd,West Rand,gauteng,district
-xhariep,Xhariep,free_state,district
-zfmgcw,ZF Mgcawu,northern_cape,district
-zllnd,Zululand,kwazulu-natal,district
+m_bqls,Abaqulusi,kwazulu-natal,local
+m_lbrtlth,Albert Luthuli,mpumalanga,local
+m_lfrddm,Alfred Duma,kwazulu-natal,local
+m_mhlth,Amahlathi,eastern_cape,local
+m_bphlbrw,Ba-Phalaborwa,limpopo,local
+m_bfrtwst,Beaufort West,western_cape,local
+m_blbl,Bela-Bela,limpopo,local
+m_brgrvr,Bergrivier,western_cape,local
+m_bgfvhlb,Big Five Hlabisa,kwazulu-natal,local
+m_bitou,Bitou,western_cape,local
+m_blbrg,Blouberg,limpopo,local
+m_blcrnrt,Blue Crane Route,eastern_cape,local
+m_brdvlly,Breede Valley,western_cape,local
+m_bfflcty,Buffalo City,eastern_cape,metropolitan
+m_bshbckr,Bushbuckridge,mpumalanga,local
+m_cpglhs,Cape Agulhas,western_cape,local
+m_cdrbrg,Cederberg,western_cape,local
+m_cpt,City of Cape Town,western_cape,metropolitan
+m_krhln,City of Ekurhuleni,gauteng,metropolitan
+m_jhnnsbr,City of Johannesburg,gauteng,metropolitan
+m_mtlsn,City of Matlosana,north_west,local
+m_tshwane,City of Tshwane,gauteng,metropolitan
+m_cllnsch,Collins Chabane,limpopo,local
+m_dnnhsr,Dannhauser,kwazulu-natal,local
+m_dwdkrpr,Dawid Kruiper,northern_cape,local
+m_dhlbng,Dihlabeng,free_state,local
+m_dkgtlng,Dikgatlong,northern_cape,local
+m_dplsng,Dipaleseng,mpumalanga,local
+m_dtsbtl,Ditsobotla,north_west,local
+m_drbyrsn,Dr Beyers Naudé,eastern_cape,local
+m_drjsmrk,Dr JS Moroka,mpumalanga,local
+m_drnkszn,Dr Nkosazana Dlamini Zuma,kwazulu-natal,local
+m_drknstn,Drakenstein,western_cape,local
+m_edumbe,eDumbe,kwazulu-natal,local
+m_lsmtsld,Elias Motsoaledi,limpopo,local
+m_lndn,Elundini,eastern_cape,local
+m_mdlngn,eMadlangeni,kwazulu-natal,local
+m_mkhzn,Emakhazeni,mpumalanga,local
+m_mlhln,Emalahleni,eastern_cape,local
+m_fioax3e,Emalahleni,mpumalanga,local
+m_mfln,Emfuleni,gauteng,local
+m_mthnjn,Emthanjeni,northern_cape,local
+m_ndmn,Endumeni,kwazulu-natal,local
+m_engcobo,Engcobo,eastern_cape,local
+m_nchmgjm,Enoch Mgijima,eastern_cape,local
+m_phrmmgl,Ephraim Mogale,limpopo,local
+m_thkwn,eThekwini,kwazulu-natal,metropolitan
+m_ftkgmtb,Fetakgomo Tubatse,limpopo,local
+m_gsgnyn,Ga-Segonyana,northern_cape,local
+m_gmgr,Gamagara,northern_cape,local
+m_george,George,western_cape,local
+m_gvnmbk,Govan Mbeki,mpumalanga,local
+m_grtk,Great Kei,eastern_cape,local
+m_grtrgyn,Greater Giyani,limpopo,local
+m_grtrkks,Greater Kokstad,kwazulu-natal,local
+m_grtrltb,Greater Letaba,limpopo,local
+m_grtrtng,Greater Taung,north_west,local
+m_grtrtzn,Greater Tzaneen,limpopo,local
+m_hantam,Hantam,northern_cape,local
+m_hssq,Hessequa,western_cape,local
+m_mpndl,Impendle,kwazulu-natal,local
+m_ngqzhll,Ingquza Hill,eastern_cape,local
+m_nkslngl,Inkosi Langalibalele,kwazulu-natal,local
+m_ntskyth,Intsika Yethu,eastern_cape,local
+m_nxbythm,Inxuba Yethemba,eastern_cape,local
+m_jbmarks,JB Marks,north_west,local
+m_jmrlng,Joe Morolong,northern_cape,local
+m_jozini,Jozini,kwazulu-natal,local
+m_kgsnmlp,Kagisano-Molopo,north_west,local
+m_kgrb,Kai !Garib,northern_cape,local
+m_kmsbrg,Kamiesberg,northern_cape,local
+m_knnlnd,Kannaland,western_cape,local
+m_krbrg,Kareeberg,northern_cape,local
+m_krhglnd,Karoo Hoogland,northern_cape,local
+m_kgtlpl,Kgatelopele,northern_cape,local
+m_kgtlngr,Kgetlengrivier,north_west,local
+m_khima,Khâi-Ma,northern_cape,local
+m_kheis,!Kheis,northern_cape,local
+m_kngsbtd,King Sabata Dalindyebo,eastern_cape,local
+m_knysna,Knysna,western_cape,local
+m_kpnng,Kopanong,free_state,local
+m_kkmm,Kou-Kamma,eastern_cape,local
+m_kouga,Kouga,eastern_cape,local
+m_kwdkz,KwaDukuza,kwazulu-natal,local
+m_lngsbrg,Laingsburg,western_cape,local
+m_lngbrg,Langeberg,western_cape,local
+m_lekwa,Lekwa,mpumalanga,local
+m_lkwtmn,Lekwa-Teemane,north_west,local
+m_lpllnkm,Lepelle-Nkumpi,limpopo,local
+m_lphll,Lephalale,limpopo,local
+m_lesedi,Lesedi,gauteng,local
+m_ltsmng,Letsemeng,free_state,local
+m_mdbng,Madibeng,north_west,local
+m_mafube,Mafube,free_state,local
+m_mgrng,Magareng,northern_cape,local
+m_mhkng,Mahikeng,north_west,local
+m_makana,Makana,eastern_cape,local
+m_makhado,Makhado,limpopo,local
+m_mkhdthm,Makhuduthamaga,limpopo,local
+m_mltphfn,Maluti-a-Phofung,free_state,local
+m_mamusa,Mamusa,north_west,local
+m_mandeni,Mandeni,kwazulu-natal,local
+m_mngng,Mangaung,free_state,metropolitan
+m_mntsp,Mantsopa,free_state,local
+m_mphml,Maphumulo,kwazulu-natal,local
+m_mqsshll,Maquassi Hills,north_west,local
+m_mrlng,Maruleng,limpopo,local
+m_mslnyn,Masilonyana,free_state,local
+m_mttl,Matatiele,eastern_cape,local
+m_mtjhbng,Matjhabeng,free_state,local
+m_mtzkm,Matzikama,western_cape,local
+m_mbhashe,Mbhashe,eastern_cape,local
+m_mbmbl,Mbombela,mpumalanga,local
+m_mrfngct,Merafong City,gauteng,local
+m_mtsmhl,Metsimaholo,free_state,local
+m_mhlntl,Mhlontlo,eastern_cape,local
+m_midvaal,Midvaal,gauteng,local
+m_mkhmbth,Mkhambathini,kwazulu-natal,local
+m_mkhondo,Mkhondo,mpumalanga,local
+m_mnquma,Mnquma,eastern_cape,local
+m_mdmllmk,Modimolle–Mookgophong,limpopo,local
+m_mglkwn,Mogalakwena,limpopo,local
+m_mglcty,Mogale City,gauteng,local
+m_mhkr,Mohokare,free_state,local
+m_mlml,Molemole,limpopo,local
+m_moqhaka,Moqhaka,free_state,local
+m_mrtl,Moretele,north_west,local
+m_mssktn,Moses Kotane,north_west,local
+m_msslby,Mossel Bay,western_cape,local
+m_mpofana,Mpofana,kwazulu-natal,local
+m_msinga,Msinga,kwazulu-natal,local
+m_msklgw,Msukaligwa,mpumalanga,local
+m_msun,Msunduzi,kwazulu-natal,local
+m_mthnjnn,Mthonjaneni,kwazulu-natal,local
+m_mtbtb,Mtubatuba,kwazulu-natal,local
+m_musina,Musina,limpopo,local
+m_nala,Nala,free_state,local
+m_naledi,Naledi,north_west,local
+m_nmkh,Nama Khoi,northern_cape,local
+m_ndlambe,Ndlambe,eastern_cape,local
+m_ndwedwe,Ndwedwe,kwazulu-natal,local
+m_nlsnmnd,Nelson Mandela Bay,eastern_cape,metropolitan
+m_nwcstl,Newcastle,kwazulu-natal,local
+m_ngqshw,Ngqushwa,eastern_cape,local
+m_ngwathe,Ngwathe,free_state,local
+m_nkandla,Nkandla,kwazulu-natal,local
+m_nktn,Nketoana,free_state,local
+m_nkomazi,Nkomazi,mpumalanga,local
+m_nongoma,Nongoma,kwazulu-natal,local
+m_nqutu,Nqutu,kwazulu-natal,local
+m_ntbnkl,Ntabankulu,eastern_cape,local
+m_nyndn,Nyandeni,eastern_cape,local
+m_khhlmb,Okhahlamba,kwazulu-natal,local
+m_dtshrn,Oudtshoorn,western_cape,local
+m_vrstrnd,Overstrand,western_cape,local
+m_phkwn,Phokwane,northern_cape,local
+m_phmll,Phumelela,free_state,local
+m_pxlyksm,Pixley ka Seme,mpumalanga,local
+m_plkwn,Polokwane,limpopo,local
+m_prtstjh,Port St Johns,eastern_cape,local
+m_prnclbr,Prince Albert,western_cape,local
+m_rmtshrm,Ramotshere Moiloa,north_west,local
+m_rndwstc,Rand West City,gauteng,local
+m_ratlou,Ratlou,north_west,local
+m_rynknyn,Ray Nkonyeni,kwazulu-natal,local
+m_rymndmh,Raymond Mhlaba,eastern_cape,local
+m_rnstrbr,Renosterberg,northern_cape,local
+m_rchmnd,Richmond,kwazulu-natal,local
+m_rchtrsv,Richtersveld,northern_cape,local
+m_rstnbrg,Rustenburg,north_west,local
+m_skhszw,Sakhisizwe,eastern_cape,local
+m_sldnhby,Saldanha Bay,western_cape,local
+m_senqu,Senqu,eastern_cape,local
+m_setsoto,Setsoto,free_state,local
+m_syncm,Siyancuma,northern_cape,local
+m_sythmb,Siyathemba,northern_cape,local
+m_slpltj,Sol Plaatje,northern_cape,local
+m_stllnbs,Stellenbosch,western_cape,local
+m_stvtshw,Steve Tshwete,mpumalanga,local
+m_sndysrv,Sundays River Valley,eastern_cape,local
+m_swrtlnd,Swartland,western_cape,local
+m_swllndm,Swellendam,western_cape,local
+m_thbchw,Thaba Chweu,mpumalanga,local
+m_thbzmb,Thabazimbi,limpopo,local
+m_thwtrsk,Theewaterskloof,western_cape,local
+m_thmblhl,Thembelihle,northern_cape,local
+m_thmbslh,Thembisile Hani,mpumalanga,local
+m_thlml,Thulamela,limpopo,local
+m_tklg,Tokologo,free_state,local
+m_tsntsbn,Tsantsabane,northern_cape,local
+m_tswaing,Tswaing,north_west,local
+m_tswlpl,Tswelopele,free_state,local
+m_bhlbzw,Ubuhlebezwe,kwazulu-natal,local
+m_ubuntu,Ubuntu,northern_cape,local
+m_ulundi,Ulundi,kwazulu-natal,local
+m_umdoni,Umdoni,kwazulu-natal,local
+m_mflz,uMfolozi,kwazulu-natal,local
+m_mhlbyln,uMhlabuyalingana,kwazulu-natal,local
+m_mhlthz,uMhlathuze,kwazulu-natal,local
+m_mllz,uMlalazi,kwazulu-natal,local
+m_umngeni,uMngeni,kwazulu-natal,local
+m_mshwth,uMshwathi,kwazulu-natal,local
+m_msbmv,Umsobomvu,northern_cape,local
+m_mzwbnt,uMuziwabantu,kwazulu-natal,local
+m_umvoti,Umvoti,kwazulu-natal,local
+m_mzmkhl,Umzimkhulu,kwazulu-natal,local
+m_mzmvb,Umzimvubu,eastern_cape,local
+m_umzumbe,Umzumbe,kwazulu-natal,local
+m_phngl,uPhongolo,kwazulu-natal,local
+m_vctrkhn,Victor Khanye,mpumalanga,local
+m_wltrssl,Walter Sisulu,eastern_cape,local
+m_wnnmdkz,Winnie Madikizela-Mandela,eastern_cape,local
+m_wtznbrg,Witzenberg,western_cape,local
+m_lfrdnz,Alfred Nzo,eastern_cape,district
+m_amajuba,Amajuba,kwazulu-natal,district
+m_mthl,Amathole,eastern_cape,district
+m_bjnl,Bojanala,north_west,district
+m_cpwnlnd,Cape Winelands,western_cape,district
+m_cprcrn,Capricorn,limpopo,district
+m_cntrlkr,Central Karoo,western_cape,district
+m_chrshn,Chris Hani,eastern_cape,district
+m_drknnth,Dr Kenneth Kaunda,north_west,district
+m_drrthsg,Dr Ruth Segomotsi Mompati,north_west,district
+m_hlnzn,Ehlanzeni,mpumalanga,district
+m_fzldb,Fezile Dabi,free_state,district
+m_frncsbr,Frances Baard,northern_cape,district
+m_grdnrt,Garden Route,western_cape,district
+m_grtsbnd,Gert Sibande,mpumalanga,district
+m_hrrygwl,Harry Gwala,kwazulu-natal,district
+m_ilembe,iLembe,kwazulu-natal,district
+m_jgqb,Joe Gqabi,eastern_cape,district
+m_jhntlgt,John Taolo Gaetsewe,northern_cape,district
+m_kngctsh,King Cetshwayo,kwazulu-natal,district
+m_ljwlpts,Lejweleputswa,free_state,district
+m_mopani,Mopani,limpopo,district
+m_namakwa,Namakwa,northern_cape,district
+m_ngkmdrm,Ngaka Modiri Molema,north_west,district
+m_nkngl,Nkangala,mpumalanga,district
+m_ortambo,OR Tambo,eastern_cape,district
+m_vrbrg,Overberg,western_cape,district
+m_798b37v,Pixley ka Seme,northern_cape,district
+m_srhbrtm,Sarah Baartman,eastern_cape,district
+m_sdbng,Sedibeng,gauteng,district
+m_skhkhn,Sekhukhune,limpopo,district
+m_thbmfts,Thabo Mofutsanyana,free_state,district
+m_ugu,Ugu,kwazulu-natal,district
+m_mgngndl,uMgungundlovu,kwazulu-natal,district
+m_mkhnykd,uMkhanyakude,kwazulu-natal,district
+m_mznyth,uMzinyathi,kwazulu-natal,district
+m_thkl,uThukela,kwazulu-natal,district
+m_vhembe,Vhembe,limpopo,district
+m_wtrbrg,Waterberg,limpopo,district
+m_wstcst,West Coast,western_cape,district
+m_wstrnd,West Rand,gauteng,district
+m_xhariep,Xhariep,free_state,district
+m_zfmgcw,ZF Mgcawu,northern_cape,district
+m_zllnd,Zululand,kwazulu-natal,district
