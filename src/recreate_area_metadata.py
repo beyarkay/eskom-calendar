@@ -1,4 +1,5 @@
 from typing_extensions import deprecated
+import os
 import tqdm
 import yaml
 import psycopg2
@@ -392,31 +393,22 @@ def conn_to_db():
 conn = conn_to_db()
 cursor = conn.cursor()
 
-truncate_query = """
-TRUNCATE loadshedding CASCADE;
-TRUNCATE geofences CASCADE;
-TRUNCATE aliases CASCADE;
-TRUNCATE municipalities CASCADE;
-TRUNCATE schedules CASCADE;
-TRUNCATE urls CASCADE;
-TRUNCATE places CASCADE;
-"""
-cursor.execute(truncate_query)
-
+# Reset the DB
+cursor.execute(open('src/schema.sql', 'r').read())
 
 db_ids = []
 for i, row in tqdm.tqdm(urls_df.iterrows(), total=len(urls_df)):
-    truncate_query = """INSERT INTO urls (url) VALUES (%s) RETURNING id"""
+    insert_query = """INSERT INTO urls (url) VALUES (%s) RETURNING id"""
     data_to_insert = (row['url'],)
-    cursor.execute(truncate_query, data_to_insert)
+    cursor.execute(insert_query, data_to_insert)
     inserted_id = cursor.fetchone()[0]
     db_ids.append(inserted_id)
     conn.commit()
 urls_df['db_id'] = db_ids
 
 for i, row in tqdm.tqdm(schedules_df.iterrows(), total=len(schedules_df)):
-    truncate_query = """INSERT INTO schedules (id, filename, sources_id, info_id, last_updated, valid_from, valid_until)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+    insert_query = """INSERT INTO schedules(id, filename, sources_id, info_id, last_updated, valid_from, valid_until)
+                    VALUES ( %s, %s, %s, %s, %s, %s, %s)"""
     info_id = urls_df.loc[
         urls_df['_id'] == row['info_id'],
         'db_id'
@@ -434,11 +426,11 @@ for i, row in tqdm.tqdm(schedules_df.iterrows(), total=len(schedules_df)):
         row['valid_from'],
         row['valid_until'],
     )
-    cursor.execute(truncate_query, data_to_insert)
+    cursor.execute(insert_query, data_to_insert)
     conn.commit()
 
 for i, row in tqdm.tqdm(known_munics.iterrows(), total=len(known_munics)):
-    truncate_query = """INSERT INTO municipalities (id, name, province, kind)
+    insert_query = """INSERT INTO municipalities(id, name, province, kind)
                     VALUES (%s, %s, %s, %s)"""
     data_to_insert = (
         row['_id'],
@@ -446,13 +438,13 @@ for i, row in tqdm.tqdm(known_munics.iterrows(), total=len(known_munics)):
         row['province'],
         row['kind'],
     )
-    cursor.execute(truncate_query, data_to_insert)
+    cursor.execute(insert_query, data_to_insert)
     conn.commit()
 
 for i, row in tqdm.tqdm(places_df.iterrows(), total=len(places_df)):
     # print(f'{i}/{len(places_df)}: {row["display_name"]}')
-    truncate_query = """INSERT INTO places (id, schedule_id, display_name, munic_id, name_aliases_id)
-                    VALUES (%s, %s, %s, %s, %s)"""
+    insert_query = """INSERT INTO places(id, schedule_id, display_name, munic_id, name_aliases_id)
+                    VALUES ( %s, %s, %s, %s, %s)"""
     data_to_insert = (
         row['_id'],
         row['schedule_id'],
@@ -460,15 +452,22 @@ for i, row in tqdm.tqdm(places_df.iterrows(), total=len(places_df)):
         row['munic_id'],
         row['name_aliases_id'],
     )
-    cursor.execute(truncate_query, data_to_insert)
+    cursor.execute(insert_query, data_to_insert)
     conn.commit()
 
-# To export from postgres into CSV files
-cursor.execute(r"""
-\copy aliases        TO 'data/aliases.csv' WITH (FORMAT CSV, HEADER);
-\copy geofences      TO 'data/geofences.csv' WITH (FORMAT CSV, HEADER);
-\copy municipalities TO 'data/municipalities.csv' WITH (FORMAT CSV, HEADER);
-\copy places         TO 'data/places.csv' WITH (FORMAT CSV, HEADER);
-\copy schedules      TO 'data/schedules.csv' WITH (FORMAT CSV, HEADER);
-\copy urls(url)      TO 'data/urls.csv' WITH (FORMAT CSV, HEADER);
-""")
+files = [
+    'aliases',
+    'geofences',
+    'municipalities',
+    'places',
+    'schedules',
+    'urls',
+]
+
+curr_dir = os.getcwd()
+for file in files:
+    with open(f'data/{file}.csv', 'r') as f:
+        cursor.copy_expert(
+            f"COPY {file} TO '{curr_dir}/data/{file}.csv' WITH(FORMAT CSV, HEADER)",
+            f
+        )
