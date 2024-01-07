@@ -12,15 +12,15 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 1
-  start: 2024-01-07T16:00:00
-  finsh: 2024-01-09T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1743607847403872739
+- stage: 2
+  start: 2024-01-13T16:00:00
+  finsh: 2024-01-14T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1743992452560613821
   exclude: coct
 
-- stage: 1
-  start: 2024-01-07T16:00:00
-  finsh: 2024-01-08T05:00:00
-  source: https://twitter.com/CityofCT/status/1743618080255746335
+- stage: 2
+  start: 2024-01-13T16:00:00
+  finsh: 2024-01-14T00:00:00
+  source: https://twitter.com/CityofCT/status/1743994951480774827
   include: coct
 historical_changes: []
