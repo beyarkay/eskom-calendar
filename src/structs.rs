@@ -1,4 +1,5 @@
 use clap::Parser;
+use log::info;
 use regex::Regex;
 use std::fmt::{Debug, Display};
 
@@ -432,8 +433,11 @@ impl From<RawMonthlyShedding> for RecurringShedding {
         );
         let timezone_sast = FixedOffset::east_opt(2 * 60 * 60).unwrap();
 
-        let start_t = NaiveTime::parse_from_str(&raw.start_time, "%H:%M").unwrap();
-        let finsh_t = NaiveTime::parse_from_str(&raw.finsh_time, "%H:%M").unwrap();
+        // We panic here because if the datetimes are poorly formatted, there's no way to recover.
+        let start_t = NaiveTime::parse_from_str(&raw.start_time, "%H:%M")
+            .unwrap_or_else(|_| panic!("Couldn't parse start time: {}", raw.start_time));
+        let finsh_t = NaiveTime::parse_from_str(&raw.finsh_time, "%H:%M")
+            .unwrap_or_else(|_| panic!("Couldn't parse finsh time: {}", raw.finsh_time));
 
         let start_datetime = NaiveDate::from_ymd_opt(1970, 1, 1)
             .unwrap()

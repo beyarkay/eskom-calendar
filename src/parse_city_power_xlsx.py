@@ -9,6 +9,7 @@ pd.set_option("display.max_columns", 34)
 pd.set_option("display.max_rows", 20)
 pd.set_option("display.width", 100)
 
+
 def download_excel(url):
     print(f"Downloading excel file {url}")
     storage_options = {"User-Agent": "Mozilla/5.0"}
@@ -17,7 +18,8 @@ def download_excel(url):
 
 def excel_to_schedule(sheets):
     print("Converting excel to schedules")
-    sched = sheets["Schedule"].copy()  # Extract the schedule from the spreadsheet
+    # Extract the schedule from the spreadsheet
+    sched = sheets["Schedule"].copy()
 
     sched = sched.iloc[2:110, :]  # Only get info we care about
     # Rename the columns to something reasonable
@@ -90,21 +92,33 @@ def filter_duplicates(df):
             starts_before_finish = prev["start_time"] <= curr["finsh_time"]
             finishes_after_start = prev["finsh_time"] >= curr["start_time"]
 
-
             if starts_before_finish and finishes_after_start:
                 # print(f"Combining `{prev.values}` and `{curr.values}`")
                 prev["finsh_time"] = curr["finsh_time"]
             else:
                 df2 = pd.concat((df2, curr.to_frame().T), ignore_index=True)
-        areas[area_idx] = df2.sort_values(["date_of_month", "start_time", "stage"])
+        areas[area_idx] = df2.sort_values(
+            ["date_of_month", "start_time", "stage"])
     return areas
 
 
 def save_areas(areas):
     for idx, area_df in areas.items():
-        area_df[["date_of_month", "start_time", "finsh_time", "stage"]].sort_values(
+        # For some reason, using to_csv's date_format method doesn't seem to
+        # work. Here's a work-around: convert the timestamps to strings which
+        # area already formatted properly
+
+        def fmt_time(timestamp):
+            return timestamp.strftime('%H:%M')
+
+        area_df['start_time'] = area_df['start_time'].apply(fmt_time)
+        area_df['finsh_time'] = area_df['finsh_time'].apply(fmt_time)
+
+        area_df[[
+            "date_of_month", "start_time", "finsh_time", "stage"
+        ]].sort_values(
             ["date_of_month", "stage", "start_time"]
-        ).to_csv(f"generated/city-power-{idx}.csv", index=False)
+        ).to_csv(f"generated/city-power-{idx}.csv", index=False, date_format="%H:%M")
 
 
 def main():
@@ -115,6 +129,7 @@ def main():
     df = subset_stages(df)
     areas = filter_duplicates(df)
     save_areas(areas)
+
 
 if __name__ == "__main__":
     main()
