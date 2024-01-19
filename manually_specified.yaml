@@ -13,34 +13,14 @@
 ---
 changes:
 - stage: 2
-  start: 2024-01-15T12:00:00
-  finsh: 2024-01-17T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1746834709630357930
+  start: 2024-01-19T15:00:00
+  finsh: 2024-01-21T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1748333937938588033
   exclude: coct
-- stage: 3
-  start: 2024-01-17T16:00:00
-  finsh: 2024-01-18T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1747610269990199601
-  exclude: coct
-- stage: 2
-  start: 2024-01-18T05:00:00
-  finsh: 2024-01-18T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1747610269990199601
-  exclude: coct
-- stage: 3
-  start: 2024-01-18T16:00:00
-  finsh: 2024-01-19T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1747610269990199601
-  exclude: coct
-- stage: 2
-  start: 2024-01-19T05:00:00
-  finsh: 2024-01-19T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1747610269990199601
-  exclude: coct
-- stage: 3
-  start: 2024-01-19T16:00:00
-  finsh: 2024-01-20T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1747610269990199601
+- stage: 1
+  start: 2024-01-21T05:00:00
+  finsh: 2024-01-21T16:00:00
+  source: https://twitter.com/Eskom_SA/status/1748333937938588033
   exclude: coct
 
 - stage: 1
