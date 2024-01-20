@@ -28,19 +28,14 @@ changes:
   source: https://twitter.com/Eskom_SA/status/1748660623716630578
   exclude: coct
 
-- stage: 1
-  start: 2024-01-19T05:00:00
-  finsh: 2024-01-19T16:00:00
-  source: https://twitter.com/CityofCT/status/1748340090529591739
-  include: coct
 - stage: 2
   start: 2024-01-19T22:00:00
-  finsh: 2024-01-21T05:00:00
+  finsh: 2024-01-20T13:17:00
   source: https://twitter.com/CityofCT/status/1748340090529591739
   include: coct
 - stage: 1
-  start: 2024-01-21T05:00:00
+  start: 2024-01-20T13:17:00
   finsh: 2024-01-21T16:00:00
-  source: https://twitter.com/CityofCT/status/1748340090529591739
+  source: https://twitter.com/CityofCT/status/1748666023471886668
   include: coct
 historical_changes: []
