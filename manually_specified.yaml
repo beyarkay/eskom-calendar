@@ -20,7 +20,27 @@ changes:
 
 - stage: 2
   start: 2024-01-21T16:00:00
-  finsh: 2024-01-28T00:00:00
-  source: https://twitter.com/CityofCT/status/1749024154915917909
+  finsh: 2024-01-22T06:00:00
+  source: https://twitter.com/CityofCT/status/1749033790519775459
+  include: coct
+- stage: 1
+  start: 2024-01-22T06:00:00
+  finsh: 2024-01-22T16:00:00
+  source: https://twitter.com/CityofCT/status/1749033790519775459
+  include: coct
+- stage: 2
+  start: 2024-01-22T16:00:00
+  finsh: 2024-01-23T06:00:00
+  source: https://twitter.com/CityofCT/status/1749033790519775459
+  include: coct
+- stage: 1
+  start: 2024-01-23T06:00:00
+  finsh: 2024-01-23T16:00:00
+  source: https://twitter.com/CityofCT/status/1749033793099342217
+  include: coct
+- stage: 2
+  start: 2024-01-23T16:00:00
+  finsh: 2024-01-24T06:00:00
+  source: https://twitter.com/CityofCT/status/1749033793099342217
   include: coct
 historical_changes: []
