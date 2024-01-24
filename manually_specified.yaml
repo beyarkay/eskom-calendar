@@ -12,65 +12,20 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 2
-  start: 2024-01-23T16:00:00
-  finsh: 2024-01-24T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
 - stage: 1
   start: 2024-01-24T05:00:00
-  finsh: 2024-01-24T16:00:00
+  finsh: 2024-01-24T11:00:00
   source: https://twitter.com/Eskom_SA/status/1749801059869233327
   exclude: coct
 - stage: 2
   start: 2024-01-24T16:00:00
   finsh: 2024-01-25T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
+  source: https://twitter.com/Eskom_SA/status/1750073064715346166
   exclude: coct
 - stage: 1
   start: 2024-01-25T05:00:00
   finsh: 2024-01-25T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 2
-  start: 2024-01-25T16:00:00
-  finsh: 2024-01-26T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 1
-  start: 2024-01-26T05:00:00
-  finsh: 2024-01-26T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 2
-  start: 2024-01-26T16:00:00
-  finsh: 2024-01-27T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 1
-  start: 2024-01-27T05:00:00
-  finsh: 2024-01-27T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 2
-  start: 2024-01-27T16:00:00
-  finsh: 2024-01-28T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 1
-  start: 2024-01-28T05:00:00
-  finsh: 2024-01-28T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 2
-  start: 2024-01-28T16:00:00
-  finsh: 2024-01-29T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
-- stage: 1
-  start: 2024-01-29T05:00:00
-  finsh: 2024-01-29T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
+  source: https://twitter.com/Eskom_SA/status/1750073064715346166
   exclude: coct
 
 - stage: 2
