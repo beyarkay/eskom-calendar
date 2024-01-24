@@ -12,20 +12,30 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 1
-  start: 2024-01-24T05:00:00
-  finsh: 2024-01-24T11:00:00
-  source: https://twitter.com/Eskom_SA/status/1749801059869233327
-  exclude: coct
 - stage: 2
   start: 2024-01-24T16:00:00
   finsh: 2024-01-25T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1750073064715346166
+  source: https://twitter.com/Eskom_SA/status/1750161239358001579
   exclude: coct
 - stage: 1
   start: 2024-01-25T05:00:00
-  finsh: 2024-01-25T16:00:00
-  source: https://twitter.com/Eskom_SA/status/1750073064715346166
+  finsh: 2024-01-25T10:00:00
+  source: https://twitter.com/Eskom_SA/status/1750161239358001579
+  exclude: coct
+- stage: 2
+  start: 2024-01-25T16:00:00
+  finsh: 2024-01-26T05:00:00
+  source: https://twitter.com/Eskom_SA/status/1750161239358001579
+  exclude: coct
+- stage: 1
+  start: 2024-01-26T05:00:00
+  finsh: 2024-01-26T10:00:00
+  source: https://twitter.com/Eskom_SA/status/1750161239358001579
+  exclude: coct
+- stage: 1
+  start: 2024-01-26T16:00:00
+  finsh: 2024-01-27T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1750161239358001579
   exclude: coct
 
 - stage: 2
