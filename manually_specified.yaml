@@ -68,40 +68,34 @@ changes:
   source: https://twitter.com/Eskom_SA/status/1751952204632608933
   exclude: coct
 
-
-- stage: 2
-  start: 2024-01-28T16:00:00
-  finsh: 2024-01-29T06:00:00
-  source: https://twitter.com/CityofCT/status/1751618700182987066
-  include: coct
 - stage: 1
   start: 2024-01-29T06:00:00
-  finsh: 2024-01-29T16:00:00
-  source: https://twitter.com/CityofCT/status/1751618700182987066
+  finsh: 2024-01-29T22:00:00
+  source: https://twitter.com/CityofCT/status/1751956823236649040
   include: coct
-- stage: 2
+- stage: 3
   start: 2024-01-29T22:00:00
-  finsh: 2024-01-30T06:00:00
-  source: https://twitter.com/CityofCT/status/1751618700182987066
+  finsh: 2024-01-30T05:00:00
+  source: https://twitter.com/CityofCT/status/1751956823236649040
   include: coct
 - stage: 1
-  start: 2024-01-30T06:00:00
+  start: 2024-01-30T05:00:00
   finsh: 2024-01-30T16:00:00
-  source: https://twitter.com/CityofCT/status/1751618700182987066
+  source: https://twitter.com/CityofCT/status/1751956823236649040
   include: coct
 - stage: 2
   start: 2024-01-30T22:00:00
-  finsh: 2024-01-31T06:00:00
-  source: https://twitter.com/CityofCT/status/1751618700182987066
+  finsh: 2024-01-31T05:00:00
+  source: https://twitter.com/CityofCT/status/1751956823236649040
   include: coct
 - stage: 1
-  start: 2024-01-31T06:00:00
+  start: 2024-01-31T05:00:00
   finsh: 2024-01-31T16:00:00
-  source: https://twitter.com/CityofCT/status/1751619622527185226
+  source: https://twitter.com/CityofCT/status/1751956827934245123
   include: coct
 - stage: 2
   start: 2024-01-31T22:00:00
-  finsh: 2024-02-01T06:00:00
-  source: https://twitter.com/CityofCT/status/1751619622527185226
+  finsh: 2024-02-01T05:00:00
+  source: https://twitter.com/CityofCT/status/1751956827934245123
   include: coct
 historical_changes: []
