@@ -71,31 +71,31 @@ changes:
 - stage: 1
   start: 2024-01-29T06:00:00
   finsh: 2024-01-29T22:00:00
-  source: https://twitter.com/CityofCT/status/1751956823236649040
+  source: https://twitter.com/CityofCT/status/1751959608623562806
   include: coct
 - stage: 3
   start: 2024-01-29T22:00:00
-  finsh: 2024-01-30T05:00:00
-  source: https://twitter.com/CityofCT/status/1751956823236649040
+  finsh: 2024-01-30T06:00:00
+  source: https://twitter.com/CityofCT/status/1751959608623562806
   include: coct
 - stage: 1
-  start: 2024-01-30T05:00:00
-  finsh: 2024-01-30T16:00:00
-  source: https://twitter.com/CityofCT/status/1751956823236649040
+  start: 2024-01-30T06:00:00
+  finsh: 2024-01-30T22:00:00
+  source: https://twitter.com/CityofCT/status/1751959608623562806
   include: coct
-- stage: 2
+- stage: 3
   start: 2024-01-30T22:00:00
-  finsh: 2024-01-31T05:00:00
-  source: https://twitter.com/CityofCT/status/1751956823236649040
+  finsh: 2024-01-31T06:00:00
+  source: https://twitter.com/CityofCT/status/1751959608623562806
   include: coct
 - stage: 1
-  start: 2024-01-31T05:00:00
-  finsh: 2024-01-31T16:00:00
-  source: https://twitter.com/CityofCT/status/1751956827934245123
+  start: 2024-01-31T06:00:00
+  finsh: 2024-01-31T22:00:00
+  source: https://twitter.com/CityofCT/status/1751959608623562806
   include: coct
-- stage: 2
+- stage: 3
   start: 2024-01-31T22:00:00
-  finsh: 2024-02-01T05:00:00
-  source: https://twitter.com/CityofCT/status/1751956827934245123
+  finsh: 2024-02-01T06:00:00
+  source: https://twitter.com/CityofCT/status/1751959608623562806
   include: coct
 historical_changes: []
