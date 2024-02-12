@@ -1,4 +1,7 @@
 <div align="center">
+  Hi! The creator of eskom-calendar just finished his Master's in CS and is looking for an in-office machine learning/robotics job, preferably based in ZA or the UK. Please reach out on <a href="https://twitter.com/beyarkay">Twitter/X</a> or <a href="https://www.linkedin.com/in/boydrkane/">LinkedIn</a> if you're hiring or if you know of someone who is hiring! <3
+</div>
+<div align="center">
   <h1 alt="Eskom-calendar: loadshedding in your calendar">
     <a  href="https://github.com/beyarkay/eskom-calendar/releases/tag/latest">
       <img src="imgs/header.png" alt="eskom-calendar: loadshedding in your calendar">
