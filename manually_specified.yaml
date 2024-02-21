@@ -39,11 +39,6 @@ changes:
   exclude: coct
 
 - stage: 2
-  start: 2024-02-23T16:00:00
-  finsh: 2024-02-24T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1759175737628569880
-  exclude: coct
-- stage: 2
   start: 2024-02-22T00:00:00
   finsh: 2024-02-22T05:00:00
   source: https://twitter.com/CityofCT/status/1760306510448443728
