@@ -8,6 +8,7 @@ on:
       - 'src/*.rs'
       - 'generated/*.csv'
       - 'src/parse_*.py'
+      - '.github/workflows/publish-calendars.yaml'
   workflow_dispatch:
 
 env:
@@ -67,7 +68,6 @@ jobs:
     #   id: PASTEBIN
     - name: Output dummy pastebin link for now
       run: |
-        cat pastebin.txt
         echo "pastebin=https://dpaste.org/asdf/raw" >> $GITHUB_OUTPUT
       id: PASTEBIN
 
