@@ -54,16 +54,21 @@ jobs:
       run: echo "LS_CALENDARS=$(ls calendars/* | xargs echo | sed 's/ /,/g')" >> $GITHUB_OUTPUT
       id: LS-CALENDARS
 
-    - name: POST machine_friendly.csv to dpaste.org
-      run: |
-        head calendars/machine_friendly.csv
-        cat calendars/machine_friendly.csv | curl -X POST -F "expires=31536000" -F 'format=url' -F 'content=<-' https://dpaste.org/api/ > pastebin.txt
-        cat pastebin.txt
+    # - name: POST machine_friendly.csv to dpaste.org
+    #   run: |
+    #     head calendars/machine_friendly.csv
+    #     cat calendars/machine_friendly.csv | curl -X POST -F "expires=31536000" -F 'format=url' -F 'content=<-' https://dpaste.org/api/ > pastebin.txt
+    #     cat pastebin.txt
 
-    - name: Write pastebin link to GH variable
+    # - name: Write pastebin link to GH variable
+    #   run: |
+    #     cat pastebin.txt
+    #     echo "pastebin=$(cat pastebin.txt)/raw" >> $GITHUB_OUTPUT
+    #   id: PASTEBIN
+    - name: Output dummy pastebin link for now
       run: |
         cat pastebin.txt
-        echo "pastebin=$(cat pastebin.txt)/raw" >> $GITHUB_OUTPUT
+        echo "pastebin=https://dpaste.org/asdf/raw" >> $GITHUB_OUTPUT
       id: PASTEBIN
 
     - name: Update latest release with new calendars
