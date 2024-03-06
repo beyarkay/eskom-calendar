@@ -13,64 +13,54 @@
 ---
 changes:
 - stage: 2
-  start: 2024-03-04T16:00:00
-  finsh: 2024-03-05T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1764269951055954173
-  exclude: coct
-- stage: 2
-  start: 2024-03-05T16:00:00
-  finsh: 2024-03-06T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1764269951055954173
-  exclude: coct
-- stage: 2
   start: 2024-03-06T16:00:00
+  finsh: 2024-03-06T20:00:00
+  source: https://twitter.com/Eskom_SA/status/1765365800251125890
+  exclude: coct
+- stage: 4
+  start: 2024-03-06T20:00:00
   finsh: 2024-03-07T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1764269951055954173
+  source: https://twitter.com/Eskom_SA/status/1765365800251125890
   exclude: coct
 - stage: 2
-  start: 2024-03-07T16:00:00
+  start: 2024-03-07T05:00:00
+  finsh: 2024-03-07T20:00:00
+  source: https://twitter.com/Eskom_SA/status/1765365800251125890
+  exclude: coct
+- stage: 4
+  start: 2024-03-07T20:00:00
   finsh: 2024-03-08T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1764269951055954173
+  source: https://twitter.com/Eskom_SA/status/1765365800251125890
   exclude: coct
 - stage: 2
-  start: 2024-03-08T16:00:00
+  start: 2024-03-08T05:00:00
+  finsh: 2024-03-08T20:00:00
+  source: https://twitter.com/Eskom_SA/status/1765365800251125890
+  exclude: coct
+- stage: 4
+  start: 2024-03-08T20:00:00
   finsh: 2024-03-09T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1764269951055954173
-  exclude: coct
-- stage: 2
-  start: 2024-03-09T16:00:00
-  finsh: 2024-03-10T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1764269951055954173
+  source: https://twitter.com/Eskom_SA/status/1765365800251125890
   exclude: coct
 
 - stage: 2
-  start: 2024-03-04T22:00:00
-  finsh: 2024-03-05T05:00:00
-  source: https://twitter.com/CityofCT/status/1764281111486632403
+  start: 2024-03-06T20:00:00
+  finsh: 2024-03-06T22:00:00
+  source: https://twitter.com/CityofCT/status/1765384275673624808
   include: coct
-- stage: 2
-  start: 2024-03-05T22:00:00
-  finsh: 2024-03-06T05:00:00
-  source: https://twitter.com/CityofCT/status/1764281111486632403
-  include: coct
-- stage: 2
+- stage: 4
   start: 2024-03-06T22:00:00
   finsh: 2024-03-07T05:00:00
-  source: https://twitter.com/CityofCT/status/1764281111486632403
+  source: https://twitter.com/CityofCT/status/1765384275673624808
   include: coct
 - stage: 2
+  start: 2024-03-07T20:00:00
+  finsh: 2024-03-07T22:00:00
+  source: https://twitter.com/CityofCT/status/1765384275673624808
+  include: coct
+- stage: 4
   start: 2024-03-07T22:00:00
   finsh: 2024-03-08T05:00:00
-  source: https://twitter.com/CityofCT/status/1764281111486632403
-  include: coct
-- stage: 2
-  start: 2024-03-08T22:00:00
-  finsh: 2024-03-09T05:00:00
-  source: https://twitter.com/CityofCT/status/1764281111486632403
-  include: coct
-- stage: 2
-  start: 2024-03-09T22:00:00
-  finsh: 2024-03-10T00:00:00
-  source: https://twitter.com/CityofCT/status/1764281111486632403
+  source: https://twitter.com/CityofCT/status/1765384275673624808
   include: coct
 historical_changes: []
