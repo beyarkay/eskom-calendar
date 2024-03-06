@@ -2,13 +2,13 @@ name: Build and Publish Calendars
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
-      - 'manually_specified.yaml'
-      - 'src/*.rs'
-      - 'generated/*.csv'
-      - 'src/parse_*.py'
-      - '.github/workflows/publish-calendars.yaml'
+      - "manually_specified.yaml"
+      - "src/*.rs"
+      - "generated/*.csv"
+      - "src/parse_*.py"
+      - ".github/workflows/publish-calendars.yaml"
   workflow_dispatch:
 
 env:
@@ -20,79 +20,74 @@ jobs:
   build-and-publish-calendars:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.cargo
-          target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Cargo build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
 
-    - name: Cargo build
-      uses: actions-rs/cargo@v1
-      with:
-        command: build
-        args: --release
+      - name: export the github run ID
+        run: export GITHUB_RUN_ID="${{github.run_id}}"
 
-    - name: export the github run ID
-      run: export GITHUB_RUN_ID="${{github.run_id}}"
+      - name: Cargo run
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --release
 
-    - name: Cargo run
-      uses: actions-rs/cargo@v1
-      with:
-        command: run
-        args: --release
+      - name: Write current time stamp to GH variable
+        id: date
+        run: echo "datetime=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
 
-    - name: Write current time stamp to GH variable
-      id: date
-      run: echo "datetime=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
+      - name: List all calendars to GH variable
+        run: echo "LS_CALENDARS=$(ls calendars/* | xargs echo | sed 's/ /,/g')" >> $GITHUB_OUTPUT
+        id: LS-CALENDARS
 
-    - name: List all calendars to GH variable
-      run: echo "LS_CALENDARS=$(ls calendars/* | xargs echo | sed 's/ /,/g')" >> $GITHUB_OUTPUT
-      id: LS-CALENDARS
+      - name: POST machine_friendly.csv to dpaste.org
+        run: |
+          head calendars/machine_friendly.csv
+          cat calendars/machine_friendly.csv | curl -X POST -F "expires=31536000" -F 'format=url' -F 'content=<-' https://dpaste.org/api/ > pastebin.txt
+          cat pastebin.txt
 
-    # - name: POST machine_friendly.csv to dpaste.org
-    #   run: |
-    #     head calendars/machine_friendly.csv
-    #     cat calendars/machine_friendly.csv | curl -X POST -F "expires=31536000" -F 'format=url' -F 'content=<-' https://dpaste.org/api/ > pastebin.txt
-    #     cat pastebin.txt
+      - name: Write pastebin link to GH variable
+        run: |
+          cat pastebin.txt
+          echo "pastebin=$(cat pastebin.txt)/raw" >> $GITHUB_OUTPUT
+        id: PASTEBIN
 
-    # - name: Write pastebin link to GH variable
-    #   run: |
-    #     cat pastebin.txt
-    #     echo "pastebin=$(cat pastebin.txt)/raw" >> $GITHUB_OUTPUT
-    #   id: PASTEBIN
-    - name: Output dummy pastebin link for now
-      run: |
-        echo "pastebin=https://dpaste.org/asdf/raw" >> $GITHUB_OUTPUT
-      id: PASTEBIN
+      - name: Update latest release with new calendars
+        uses: beyarkay/update-existing-release@503cb30cc6578aa8f24b6cfa1cd85afc9a50351a
+        with:
+          token: ${{ secrets.GH_ACTIONS_PAT }}
+          release: Latest Eskom Loadshedding Calendars
+          updateTag: true
+          tag: latest
+          replace: true
+          files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
+          body: "# How to get the latest loadshedding schedules
 
-    - name: Update latest release with new calendars
-      uses: beyarkay/update-existing-release@503cb30cc6578aa8f24b6cfa1cd85afc9a50351a
-      with:
-        token: ${{ secrets.GH_ACTIONS_PAT }}
-        release: Latest Eskom Loadshedding Calendars
-        updateTag: true
-        tag: latest
-        replace: true
-        files: ${{ steps.LS-CALENDARS.outputs.LS_CALENDARS }}
-        body: "# How to get the latest loadshedding schedules
+            Go to [eskomcalendar.co.za](https://eskomcalendar.co.za) and type in
+            the name of your suburb. Then select your loadshedding area and you
+            can copy the calendar link from there.
 
-          Go to [eskomcalendar.co.za](https://eskomcalendar.co.za) and type in
-          the name of your suburb. Then select your loadshedding area and you
-          can copy the calendar link from there.
+            ### Developers
 
-          ### Developers
+            There's also a file (called `machine_friendly.csv`) that contains the
+            same loadshedding information, but it's a lot easier to parse than
+            all the ICS calendar files. Have a look at the
+            [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest)
+            for ideas! If you encounter CORS issues, you'll need to use this
+            [pastebin link](${{ steps.PASTEBIN.outputs.pastebin }}) instead.
 
-          There's also a file (called `machine_friendly.csv`) that contains the
-          same loadshedding information, but it's a lot easier to parse than
-          all the ICS calendar files. Have a look at the
-          [`README.md`](https://github.com/beyarkay/eskom-calendar/tree/latest)
-          for ideas! If you encounter CORS issues, you'll need to use this
-          [pastebin link](${{ steps.PASTEBIN.outputs.pastebin }}) instead.
-
-          Last updated: ${{ steps.date.outputs.datetime }} UTC"
+            Last updated: ${{ steps.date.outputs.datetime }} UTC"
