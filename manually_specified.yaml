@@ -43,14 +43,34 @@ changes:
   source: https://twitter.com/Eskom_SA/status/1766765898906448325
   exclude: coct
 
-- stage: 1
-  start: 2024-03-10T16:00:00
-  finsh: 2024-03-11T05:00:00
-  source: https://twitter.com/CityofCT/status/1766772996323070198
-  include: coct
 - stage: 2
   start: 2024-03-11T22:00:00
   finsh: 2024-03-12T05:00:00
-  source: https://twitter.com/CityofCT/status/1766772996323070198
+  source: https://twitter.com/CityofCT/status/1767164696086405468
+  include: coct
+- stage: 2
+  start: 2024-03-12T22:00:00
+  finsh: 2024-03-13T05:00:00
+  source: https://twitter.com/CityofCT/status/1767164696086405468
+  include: coct
+- stage: 2
+  start: 2024-03-13T22:00:00
+  finsh: 2024-03-14T05:00:00
+  source: https://twitter.com/CityofCT/status/1767164696086405468
+  include: coct
+- stage: 2
+  start: 2024-03-14T22:00:00
+  finsh: 2024-03-15T05:00:00
+  source: https://twitter.com/CityofCT/status/1767164696086405468
+  include: coct
+- stage: 2
+  start: 2024-03-15T22:00:00
+  finsh: 2024-03-16T05:00:00
+  source: https://twitter.com/CityofCT/status/1767164696086405468
+  include: coct
+- stage: 2
+  start: 2024-03-16T22:00:00
+  finsh: 2024-03-17T05:00:00
+  source: https://twitter.com/CityofCT/status/1767164696086405468
   include: coct
 historical_changes: []
