@@ -12,20 +12,15 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 3
-  start: 2024-03-15T16:00:00
-  finsh: 2024-03-16T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1768630258788413694
-  exclude: coct
-- stage: 1
-  start: 2024-03-16T16:00:00
-  finsh: 2024-03-17T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1768630258788413694
-  exclude: coct
 - stage: 1
   start: 2024-03-17T16:00:00
   finsh: 2024-03-18T05:00:00
   source: https://twitter.com/Eskom_SA/status/1768630258788413694
+  exclude: coct
+- stage: 2
+  start: 2024-03-18T05:00:00
+  finsh: 2024-03-24T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1769378448764473837
   exclude: coct
 
 - stage: 1
