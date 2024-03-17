@@ -1,0 +1,182 @@
+# YAML Historical Loadshedding Test Document
+# ==========================================
+#
+# This is a YAML test file that contains multiple YAML documents. Each document
+# starts with `---`. This file is used to test that historical loadshedding
+# calculations are correct.
+#
+# If there are N documents, then the first N-1 each specify a historical state
+# of loadshedding, with the most recent documents towards the end of the list.
+# The last document is the result of the previous N-1 documents being combined
+# together.
+#
+# Test for malformed schema
+# -------------------------
+#
+# Unfortunately, sometimes a malformed YAML doc slips through into the main
+# branch. If the document isn't valid YAML, then that should still be caught,
+# but this file just checks for documents that are valid YAML but don't obey
+# the correct schema, which is:
+#
+# Document:
+#   changes: list of `change` objects
+#   historical_changes: list of `change` objects
+#
+# change object:
+#   stage: integer
+#   start: ISO8601 timestamp
+#   finsh: ISO8601 timestamp
+#   source: string
+#   include: optional string
+#   exclude: optional string
+#   include_regex: optional string
+#   exclude_regex: optional string
+
+---
+# Correctly formatted. Every other document besides this one should be excluded
+# from the final file
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/1
+  - stage: 2
+    start: 2000-01-01T01:00:00
+    finsh: 2000-01-01T01:59:00
+    source: https://example.com/1
+historical_changes: []
+
+---
+# historical_changes is missing
+changes:
+  - stage: 6
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+  - stage: 6
+    start: 2000-01-01T01:00:00
+    finsh: 2000-01-01T01:59:00
+    source: https://example.com/2
+
+---
+# changes is missing
+historical_changes:
+  - stage: 6
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+  - stage: 6
+    start: 2000-01-01T01:00:00
+    finsh: 2000-01-01T01:59:00
+    source: https://example.com/2
+
+---
+# change objects don't have the required fields
+changes:
+  - start: 2000-01-01T00:00:00
+    # stage: 6
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+# change objects don't have the required fields
+changes:
+  - stage: 6
+    # start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+# change objects don't have the required fields
+changes:
+  - stage: 6
+    start: 2000-01-01T00:00:00
+    # finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+# change objects don't have the required fields
+changes:
+  - stage: 6
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    # source: https://example.com/2
+historical_changes: []
+
+---
+# change objects have extra field `finish`
+changes:
+  - stage: 6
+    start: 2000-01-01T00:00:00
+    finish: 2000-01-01T00:59:00 # `finsh`, not `finish`!
+    source: https://example.com/2
+historical_changes: []
+
+---
+# change objects have extra field `src`
+changes:
+  - stage: 6
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    src: https://example.com/2
+historical_changes: []
+
+---
+# change objects have extra field `start_time`
+changes:
+  - stage: 6
+    start_time: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+# change objects have extra field `ls_stage`
+changes:
+  - ls_stage: 6
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+# change objects datetime is missing the time
+changes:
+  - stage: 6
+    start: 2000-01-01 # T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+# change objects datetime is missing the time
+changes:
+  - stage: 6
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01 # T00:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+# The entire document is just malformed
+foo:
+  - bar: 6
+    baz: "abc"
+  - car: 2
+    caz: "123"
+joo: []
+
+---
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/1
+  - stage: 2
+    start: 2000-01-01T01:00:00
+    finsh: 2000-01-01T01:59:00
+    source: https://example.com/1
+historical_changes: []
