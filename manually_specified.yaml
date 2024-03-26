@@ -13,64 +13,14 @@
 ---
 changes:
 - stage: 2
-  start: 2024-03-24T16:00:00
-  finsh: 2024-03-25T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1771826346840264736
-  exclude: coct
-- stage: 2
-  start: 2024-03-25T16:00:00
-  finsh: 2024-03-26T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1771826346840264736
-  exclude: coct
-- stage: 2
-  start: 2024-03-26T16:00:00
-  finsh: 2024-03-27T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1771826346840264736
-  exclude: coct
-- stage: 2
   start: 2024-03-27T16:00:00
-  finsh: 2024-03-28T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1771826346840264736
-  exclude: coct
-- stage: 2
-  start: 2024-03-28T16:00:00
-  finsh: 2024-03-29T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1771826346840264736
-  exclude: coct
-- stage: 2
-  start: 2024-03-29T16:00:00
-  finsh: 2024-03-30T05:00:00
-  source: https://twitter.com/Eskom_SA/status/1771826346840264736
+  finsh: 2024-03-28T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1772578208136810793
   exclude: coct
 
-- stage: 1
-  start: 2024-03-24T05:00:00
-  finsh: 2024-03-24T16:00:00
-  source: https://twitter.com/CityofCT/status/1771837610425549310
-  include: coct
 - stage: 2
-  start: 2024-03-24T16:00:00
-  finsh: 2024-03-25T05:00:00
-  source: https://twitter.com/CityofCT/status/1771837610425549310
-  include: coct
-- stage: 2
-  start: 2024-03-25T22:00:00
-  finsh: 2024-03-26T05:00:00
-  source: https://twitter.com/CityofCT/status/1771837610425549310
-  include: coct
-- stage: 2
-  start: 2024-03-26T22:00:00
-  finsh: 2024-03-27T05:00:00
-  source: https://twitter.com/CityofCT/status/1771837610425549310
-  include: coct
-- stage: 2
-  start: 2024-03-27T22:00:00
-  finsh: 2024-03-28T05:00:00
-  source: https://twitter.com/CityofCT/status/1771837675936375124
-  include: coct
-- stage: 2
-  start: 2024-03-28T22:00:00
-  finsh: 2024-03-29T05:00:00
-  source: https://twitter.com/CityofCT/status/1771837675936375124
+  start: 2024-03-27T16:00:00
+  finsh: 2024-03-28T00:00:00
+  source: https://twitter.com/CityofCT/status/1772590114914312448
   include: coct
 historical_changes: []
