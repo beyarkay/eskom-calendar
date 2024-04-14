@@ -13,14 +13,14 @@
 ---
 changes:
 - stage: 1
-  start: 2024-04-14T16:00:00
-  finsh: 2024-04-15T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1778099378814627939
+  start: 2024-04-20T00:00:00
+  finsh: 2024-04-21T00:00:00
+  source: https://twitter.com/Eskom_SA/status/1779481994868490682
   exclude: coct
 
 - stage: 1
-  start: 2024-04-14T16:00:00
-  finsh: 2024-04-15T00:00:00
+  start: 2024-04-20T00:00:00
+  finsh: 2024-04-21T00:00:00
   source: https://twitter.com/CityofCT/status/1776998497784385699
   include: coct
 historical_changes: []
