@@ -11,6 +11,8 @@ cssselect2==0.7.0
 defusedxml==0.7.1
 distro==1.7.0
 et-xmlfile==1.1.0
+gitdb==4.0.10
+GitPython==3.1.34
 html5lib==1.1
 ics==0.7.2
 idna==3.3
@@ -29,12 +31,14 @@ PyYAML==6.0
 reportlab==3.6.11
 requests==2.28.1
 six==1.16.0
+smmap==5.0.0
 soupsieve==2.3.2.post1
 svglib==1.4.1
 tabula-py==2.4.0
 TatSu==5.8.3
 tinycss2==1.2.1
 tomli==2.0.1
+typing_extensions==4.7.1
 urllib3==1.26.9
 webencodings==0.5.1
 yamllint==1.27.1
