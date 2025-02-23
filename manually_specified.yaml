@@ -12,15 +12,15 @@
 # See the README.md for more details
 ---
 changes:
-- stage: 1
-  start: 2024-05-15T00:00:00
-  finsh: 2024-05-16T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1784572494172639720
+- stage: 6
+  start: 2025-02-23T02:00:00
+  finsh: 2024-02-25T06:00:00
+  source: https://businesstech.co.za/news/energy/813720/load-shedding-pushed-to-stage-6/
   exclude: coct
 
-- stage: 1
-  start: 2024-05-15T00:00:00
-  finsh: 2024-05-16T00:00:00
-  source: https://twitter.com/CityofCT/status/1776998497784385699
+- stage: 6
+  start: 2025-02-23T02:00:00
+  finsh: 2025-02-25T06:00:00
+  source: https://www.capetown.gov.za/Family%20and%20home/Residential-utility-services/Residential-electricity-services/Load-shedding-and-outages
   include: coct
 historical_changes: []
