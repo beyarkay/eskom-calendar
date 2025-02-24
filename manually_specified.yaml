@@ -1,26 +1,5 @@
-# How to edit this file:
-# You should add items to `changes`. For example, here's a template that you
-# can copy and paste just below the line `changes:`:
-# ```
-#  - stage: <STAGE NUMBER HERE>
-#    start: <START TIME HERE>
-#    finsh: <FINISH TIME HERE>
-#    source: <URL TO INFORMATION SOURCE HERE>
-#    exclude: <coct if this schedule doesn't apply to cape town>
-#    include: <coct if this schedule only applies to cape town>
-# ```
-# See the README.md for more details
----
-changes:
-- stage: 1
-  start: 2024-05-15T00:00:00
-  finsh: 2024-05-16T00:00:00
-  source: https://twitter.com/Eskom_SA/status/1784572494172639720
+- stage: 4
+  start: 2025-02-24T01:00:00
+  finsh: 2025-02-25T00:00:00
+  source: https://x.com/Eskom_SA/status/1893941755273159098
   exclude: coct
-
-- stage: 1
-  start: 2024-05-15T00:00:00
-  finsh: 2024-05-16T00:00:00
-  source: https://twitter.com/CityofCT/status/1776998497784385699
-  include: coct
-historical_changes: []
