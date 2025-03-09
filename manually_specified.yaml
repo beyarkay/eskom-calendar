@@ -14,7 +14,7 @@
 changes:
 - stage: 3
   start: 2025-03-07T14:00:00
-  finsh: 2025-03-09T00:00:00
+  finsh: 2025-03-11T00:00:00
   source: https://x.com/Eskom_SA/status/1897974816155582916
   exclude: coct
 historical_changes: []
