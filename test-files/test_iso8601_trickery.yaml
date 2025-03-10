@@ -1,0 +1,58 @@
+# YAML Historical Loadshedding Test Document
+# ==========================================
+#
+# This is a YAML test file that contains multiple YAML documents. Each document
+# starts with `---`. This file is used to test that historical loadshedding
+# calculations are correct.
+#
+# If there are N documents, then the first N-1 each specify a historical state
+# of loadshedding, with the most recent documents towards the end of the list.
+# The last document is the result of the previous N-1 documents being combined
+# together.
+#
+# Test for ISO8601 trickery
+# -------------------------
+#
+# In an old version of eskom-calendar, the start datetime for event `N+1` had
+# to be strictly greater than the finsh datetime for event `N`, so this test
+# checks that these are handled properly.
+
+---
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/1
+  - stage: 2
+    start: 2000-01-01T01:00:00
+    finsh: 2000-01-01T01:59:00
+    source: https://example.com/1
+historical_changes: []
+
+---
+changes:
+  - stage: 3
+    start: 2000-01-01T01:00:00
+    finsh: 2000-01-01T02:59:00
+    source: https://example.com/2
+  - stage: 5
+    start: 2000-01-01T03:00:00
+    finsh: 2000-01-01T03:59:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:59:00
+    source: https://example.com/1
+  - stage: 3
+    start: 2000-01-01T01:00:00
+    finsh: 2000-01-01T02:59:00
+    source: https://example.com/2
+  - stage: 5
+    start: 2000-01-01T03:00:00
+    finsh: 2000-01-01T03:59:00
+    source: https://example.com/2
+historical_changes: []
