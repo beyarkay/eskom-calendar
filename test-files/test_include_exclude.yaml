@@ -1,0 +1,86 @@
+# YAML Historical Loadshedding Test Document
+# ==========================================
+#
+# This is a YAML test file that contains multiple YAML documents. Each document
+# starts with `---`. This file is used to test that historical loadshedding
+# calculations are correct.
+#
+# If there are N documents, then the first N-1 each specify a historical state
+# of loadshedding, with the most recent documents towards the end of the list.
+# The last document is the result of the previous N-1 documents being combined
+# together.
+#
+# Test edge cases with `include` and `exclude`
+# --------------------------------------------
+# `include` and `exclude` can be used to specify that a certain change only
+# affects a certain area. Two changes should never overlap, *unless* they're
+# affecting different areas.
+
+---
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T01:00:00
+    source: https://example.com/1
+    exclude: coct
+
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T01:30:00
+    source: https://example.com/1
+    include: coct
+
+historical_changes: []
+
+---
+changes:
+  - stage: 4
+    start: 2000-01-01T00:30:00
+    finsh: 2000-01-01T02:00:00
+    source: https://example.com/2
+    exclude: coct
+
+  - stage: 4
+    start: 2000-01-01T00:30:00
+    finsh: 2000-01-01T02:30:00
+    source: https://example.com/2
+    include: coct
+
+historical_changes: []
+
+---
+# Note that there is technically duplicate information here: both `include:
+# coct` and `exclude: coct` have stage 1 scheduled from 00:00 to 00:30. These
+# _could_ be combined together (since the include and exclude are mutually
+# exclusive and exhaustive).
+#
+# However, it's probably not a good idea since `include` and `exclude` are
+# converted to regex behind the scenes, and there's not an easy intepretation
+# for what it means for a regex to be mutually exclusive and exhaustive.
+#
+# So it's best to treat changes containing different `include` and `exclude` as
+# completely separate items. This is what is done here.
+changes:
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:30:00
+    source: https://example.com/1
+    exclude: coct
+  - stage: 4
+    start: 2000-01-01T00:30:00
+    finsh: 2000-01-01T02:00:00
+    source: https://example.com/2
+    exclude: coct
+
+  - stage: 1
+    start: 2000-01-01T00:00:00
+    finsh: 2000-01-01T00:30:00
+    source: https://example.com/1
+    include: coct
+  - stage: 4
+    start: 2000-01-01T00:30:00
+    finsh: 2000-01-01T02:30:00
+    source: https://example.com/2
+    include: coct
+
+historical_changes: []
