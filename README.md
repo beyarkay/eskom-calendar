@@ -39,11 +39,9 @@
   <a href="https://stats.uptimerobot.com/l9gAnCO16z">Website & API uptime</a><br>
 </div>
 
-## How to Get It
+## Status
 
-Go to <a href="https://eskomcalendar.co.za" target="_blank">eskomcalendar.co.za</a>
-and just type in your area! No apps, no adverts, no nonsense. If you want more
-information, keep reading.
+Eskom-calendar is now archived. Loadshedding seems to have stopped. I might revive the project if needs arise in the future, and leave this here for curious minds.
 
 ## Testimonials
 
