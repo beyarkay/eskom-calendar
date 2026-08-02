@@ -1,0 +1,86 @@
+# YAML Historical Loadshedding Test Document
+# ==========================================
+#
+# This is a YAML test file that contains multiple YAML documents. Each document
+# starts with `---`. This file is used to test that historical loadshedding
+# calculations are correct.
+#
+# If there are N documents, then the first N-1 each specify a historical state
+# of loadshedding, with the most recent documents towards the end of the list.
+# The last document is the result of the previous N-1 documents being combined
+# together.
+#
+# Dates are weird, make sure they're okay
+# ---------------------------------------
+
+---
+changes:
+  # over midnight
+  - stage: 1
+    start: 2000-01-01T22:00:00
+    finsh: 2000-01-02T01:00:00
+    source: https://example.com/1
+  # over a month boundary
+  - stage: 1
+    start: 2000-01-31T22:00:00
+    finsh: 2000-02-01T01:00:00
+    source: https://example.com/1
+  # over a year boundary
+  - stage: 1
+    start: 2000-12-31T22:00:00
+    finsh: 2001-01-01T01:00:00
+    source: https://example.com/1
+historical_changes: []
+
+---
+changes:
+  # over midnight
+  - stage: 1
+    start: 2000-01-01T23:00:00
+    finsh: 2000-01-02T02:00:00
+    source: https://example.com/2
+  # over a month boundary
+  - stage: 1
+    start: 2000-01-31T23:00:00
+    finsh: 2000-02-01T02:00:00
+    source: https://example.com/2
+  # over a year boundary
+  - stage: 1
+    start: 2000-12-31T23:00:00
+    finsh: 2001-01-01T02:00:00
+    source: https://example.com/2
+historical_changes: []
+
+---
+changes:
+  # over midnight
+  - stage: 1
+    start: 2000-01-01T22:00:00
+    finsh: 2000-01-01T23:00:00
+    source: https://example.com/1
+  - stage: 1
+    start: 2000-01-01T23:00:00
+    finsh: 2000-01-02T02:00:00
+    source: https://example.com/2
+
+  # over a month boundary
+  - stage: 1
+    start: 2000-01-31T22:00:00
+    finsh: 2000-01-31T23:00:00
+    source: https://example.com/1
+  - stage: 1
+    start: 2000-01-31T23:00:00
+    finsh: 2000-02-01T02:00:00
+    source: https://example.com/2
+
+  # over a year boundary
+  - stage: 1
+    start: 2000-12-31T22:00:00
+    finsh: 2000-12-31T23:00:00
+    source: https://example.com/1
+  - stage: 1
+    start: 2000-12-31T23:00:00
+    finsh: 2001-01-01T02:00:00
+    source: https://example.com/2
+
+historical_changes: []
