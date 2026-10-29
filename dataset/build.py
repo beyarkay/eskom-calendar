@@ -5,6 +5,7 @@
 """Build the historical eskom-calendar dataset (July 2022 to March 2024) from git history.
 
     uv run dataset/build.py
+    uv run dataset/build.py --areas 'city-of-cape-town-area-1$|city-power-1$'  # quick sample
 
 Every version of `manually_specified.yaml` is replayed into one stage timeline, which is
 then joined onto the area schedules (as they were at the time) by the same Rust code that
@@ -12,8 +13,10 @@ generated the published calendars. Output goes to `dataset/out/`, ready to uploa
 Hugging Face. See `dataset/README.md` for the method and its caveats.
 """
 
+import argparse
 import bisect
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -189,13 +192,26 @@ class ScheduleVersion:
 
 
 def first_added() -> dict[str, datetime]:
-    log = git("log", "--diff-filter=A", "--format=>%cI", "--name-only", FINAL_COMMIT, "--", "generated/")
+    log = git(
+        "log",
+        "--reverse",
+        "-M",
+        "--diff-filter=AR",
+        "--format=>%cI",
+        "--name-status",
+        FINAL_COMMIT,
+        "--",
+        "generated/",
+    )
     added = {}
     for line in log.splitlines():
         if line.startswith(">"):
             when = sast(line[1:])
         elif line.endswith(".csv"):
-            added[Path(line).stem] = when
+            status, *paths = line.split("\t")
+            old, new = Path(paths[0]).stem, Path(paths[-1]).stem
+            # A renamed file keeps the date it was first added under its old name
+            added.setdefault(new, added.get(old, when) if status.startswith("R") else when)
     return added
 
 
@@ -423,6 +439,14 @@ def area_frames(added: dict) -> tuple[pl.DataFrame, pl.DataFrame]:
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument(
+        "--areas", help="only build outages for areas matching this regex, to check a change quickly"
+    )
+    args = parser.parse_args()
+
     subprocess.run(["cargo", "build", "--release"], cwd=REPO, check=True)
     shutil.rmtree(OUT, ignore_errors=True)
     (OUT / "data").mkdir(parents=True)
@@ -432,6 +456,8 @@ def main():
     realtime = resolve(commits, "realtime")
     added = first_added()
     versions = schedule_versions()
+    if args.areas:
+        versions = [v for v in versions if re.search(args.areas, v.area)]
 
     areas, suburbs = area_frames(added)
     tables = {
