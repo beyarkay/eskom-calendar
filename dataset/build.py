@@ -14,10 +14,12 @@ Hugging Face. See `dataset/README.md` for the method and its caveats.
 
 import bisect
 import json
+import os
 import shutil
 import subprocess
 import tempfile
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -31,6 +33,7 @@ OUT = REPO / "dataset" / "out"
 BINARY = REPO / "target" / "release" / "eskom-calendar"
 SAST = timezone(timedelta(hours=2))
 TZ = "Africa/Johannesburg"
+CHUNK_SIZE = 40
 
 # Last commit on main before the project went dormant (6 March 2024)
 FINAL_COMMIT = "f9a3e54bd21e99eaf3d3937a4d331c4aa63236fb"
@@ -223,13 +226,38 @@ def schedule_versions() -> list[ScheduleVersion]:
     return versions
 
 
+def run_calendar_code(group: list[ScheduleVersion], manually_specified: str, added: dict) -> pl.DataFrame:
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        (tmp / "generated").mkdir()
+        (tmp / "calendars").mkdir()
+        for v in group:
+            (tmp / "generated" / f"{v.area}.csv").write_text(v.csv_text)
+        (tmp / "manually_specified.yaml").write_text(manually_specified)
+        result = subprocess.run([BINARY, "--output-ics-files=false"], cwd=tmp, capture_output=True, text=True)
+        if result.returncode != 0:
+            raise RuntimeError(
+                f"eskom-calendar failed for {[v.area for v in group]}:\n{result.stderr[-3000:]}"
+            )
+        df = pl.read_csv(tmp / "calendars" / "machine_friendly.csv", schema_overrides={"source": pl.String})
+    versions = pl.DataFrame(
+        {
+            "area_name": [v.area for v in group],
+            "schedule_commit": [v.commit for v in group],
+            "first_era": [v.valid_from is None for v in group],
+            "area_added_at": [added[v.area] for v in group],
+        }
+    )
+    return df.join(versions, on="area_name", how="left")
+
+
 def join(versions: list[ScheduleVersion], timeline: dict[str, list[tuple]], added: dict) -> pl.DataFrame:
     groups = defaultdict(list)
     for v in versions:
         groups[(v.valid_from, v.valid_to)].append(v)
 
-    frames = []
-    for (lo, hi), group in tqdm(groups.items(), desc="joining stages onto area schedules"):
+    jobs = []
+    for (lo, hi), group in groups.items():
         changes = []
         for scope, segs in timeline.items():
             for a, b, stage, source, _ in segs:
@@ -239,25 +267,18 @@ def join(versions: list[ScheduleVersion], timeline: dict[str, list[tuple]], adde
                         {"stage": stage, "start": a.isoformat(), "finsh": b.isoformat(), "source": source}
                         | SCOPES[scope]
                     )
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp = Path(tmp)
-            (tmp / "generated").mkdir()
-            for v in group:
-                (tmp / "generated" / f"{v.area}.csv").write_text(v.csv_text)
-            (tmp / "manually_specified.yaml").write_text(
-                yaml.safe_dump({"changes": changes, "historical_changes": []}, sort_keys=False)
+        manually_specified = yaml.safe_dump({"changes": changes, "historical_changes": []}, sort_keys=False)
+        for i in range(0, len(group), CHUNK_SIZE):
+            jobs.append((group[i : i + CHUNK_SIZE], manually_specified))
+
+    with ThreadPoolExecutor(max_workers=max(1, (os.cpu_count() or 2) // 2)) as pool:
+        futures = [pool.submit(run_calendar_code, g, m, added) for g, m in jobs]
+        frames = [
+            f.result()
+            for f in tqdm(
+                as_completed(futures), total=len(futures), desc="joining stages onto area schedules"
             )
-            subprocess.run([BINARY, "--output-ics-files=false"], cwd=tmp, check=True, capture_output=True)
-            df = pl.read_csv(tmp / "machine_friendly.csv", schema_overrides={"source": pl.String})
-        commits = pl.DataFrame(
-            {
-                "area_name": [v.area for v in group],
-                "schedule_commit": [v.commit for v in group],
-                "first_era": [lo is None] * len(group),
-                "area_added_at": [added[v.area] for v in group],
-            }
-        )
-        frames.append(df.join(commits, on="area_name", how="left"))
+        ]
 
     df = pl.concat(frames)
     ts = lambda c: pl.col(c).str.to_datetime("%Y-%m-%dT%H:%M:%S%z").dt.convert_time_zone(TZ)
@@ -290,8 +311,16 @@ def history_frame(commits: list[Commit]) -> pl.DataFrame:
             "commit_used": c.entries is not None,
             "commit_skip_reason": c.skip_reason,
         }
-        empty = {"list": None, "position": None, "stage": None, "start": None, "end": None,
-                 "source": None, "include": None, "exclude": None}
+        empty = {
+            "list": None,
+            "position": None,
+            "stage": None,
+            "start": None,
+            "end": None,
+            "source": None,
+            "include": None,
+            "exclude": None,
+        }
         if not c.raw:
             rows.append(base | empty)
         for list_name, i, e in c.raw:
@@ -327,8 +356,16 @@ def schedules_frame(versions: list[ScheduleVersion], added: dict) -> pl.DataFram
                 pl.lit(v.area).alias("area_name"),
                 pl.lit(day_columns[day_col]).alias("recurrence"),
                 pl.col(day_col).str.strip_chars().cast(pl.Int16).alias("day"),
-                (pl.col("period_of_cycle").str.strip_chars().cast(pl.Int16) if "period_of_cycle" in df.columns else pl.lit(None, pl.Int16)).alias("period_of_cycle"),
-                (pl.col("start_of_cycle").str.strip_chars() if "start_of_cycle" in df.columns else pl.lit(None, pl.String)).alias("start_of_cycle"),
+                (
+                    pl.col("period_of_cycle").str.strip_chars().cast(pl.Int16)
+                    if "period_of_cycle" in df.columns
+                    else pl.lit(None, pl.Int16)
+                ).alias("period_of_cycle"),
+                (
+                    pl.col("start_of_cycle").str.strip_chars()
+                    if "start_of_cycle" in df.columns
+                    else pl.lit(None, pl.String)
+                ).alias("start_of_cycle"),
                 pl.col("start_time").str.strip_chars().str.slice(0, 5).alias("start_time"),
                 pl.col("finsh_time").str.strip_chars().str.slice(0, 5).alias("end_time"),
                 pl.col("stage").str.strip_chars().cast(pl.Int8),
@@ -415,7 +452,9 @@ def main():
     summary = {
         "rows": {name: df.height for name, df in tables.items()},
         "commits": len(commits),
-        "commits_skipped": [(c.committed_at.isoformat(), c.skip_reason) for c in commits if c.entries is None],
+        "commits_skipped": [
+            (c.committed_at.isoformat(), c.skip_reason) for c in commits if c.entries is None
+        ],
         "timeline_range": [str(timeline["start"].min()), str(timeline["end"].max())],
         "stage_hours_by_year": timeline.group_by("applies_to", pl.col("start").dt.year().alias("year"))
         .agg(pl.col("hours").sum().round(1))
