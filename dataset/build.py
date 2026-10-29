@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["polars>=1.0", "pyyaml>=6.0", "tqdm>=4.66"]
 # ///
-"""Build the historical eskom-calendar dataset (July 2022 to March 2024) from git history.
+"""Build the historical eskom-calendar dataset (July 2022 to May 2025) from git history.
 
     uv run dataset/build.py
     uv run dataset/build.py --areas 'city-of-cape-town-area-1$|city-power-1$'  # quick sample
@@ -37,8 +37,8 @@ TZ = "Africa/Johannesburg"
 AREA_CHUNK = 300
 CHANGE_CHUNK = 300
 
-# Last commit on main before the project went dormant (6 March 2024)
-FINAL_COMMIT = "f9a3e54bd21e99eaf3d3937a4d331c4aa63236fb"
+# Last update to the announced stages (14 May 2025)
+FINAL_COMMIT = "fdfbad73e3d7f6e361ca791c7cf00067b289be6e"
 
 # Commits where City Power published a new schedule, as opposed to parser bug fixes, which
 # are applied to the whole history
