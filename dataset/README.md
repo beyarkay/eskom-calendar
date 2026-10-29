@@ -32,8 +32,8 @@ configs:
 
 # Eskom Calendar: scheduled loadshedding by area in South Africa, 2022-2025
 
-This dataset lists every scheduled loadshedding power cut for __AREAS__ South African
-loadshedding areas between __START__ and __END__. Each row of the main table gives an area,
+This dataset lists every scheduled loadshedding power cut for 645 South African
+loadshedding areas between 7 July 2022 and 15 May 2025. Each row of the main table gives an area,
 the start and end of a power cut, the loadshedding stage, and a link to the announcement
 that set that stage.
 
@@ -41,7 +41,7 @@ It was rebuilt from the git history of
 [eskom-calendar](https://github.com/beyarkay/eskom-calendar), an open-source project that
 published loadshedding schedules as calendar files and a CSV from July 2022 to May 2025. The published CSV only ever held upcoming power cuts, and each update replaced the
 previous one, so no single file ever held the history. The history survives because every
-change to the announced stages was a git commit. This dataset replays all __COMMITS__
+change to the announced stages was a git commit. This dataset replays all 778
 of those commits.
 
 ## Quick start
@@ -49,7 +49,7 @@ of those commits.
 ```python
 import pandas as pd
 
-base = "hf://datasets/__REPO_ID__/data"
+base = "hf://datasets/beyarkay/eskom-calendar-loadshedding/data"
 outages = pd.read_parquet(f"{base}/outages.parquet")
 
 # Hours each Cape Town area was scheduled to be without power in October 2023
@@ -57,7 +57,7 @@ cpt = outages[outages.area_name.str.startswith("city-of-cape-town-area-")]
 oct23 = cpt[(cpt.start >= "2023-10-01") & (cpt.start < "2023-11-01")]
 ```
 
-With the `datasets` library, `load_dataset("__REPO_ID__", "outages")` works, and each
+With the `datasets` library, `load_dataset("beyarkay/eskom-calendar-loadshedding", "outages")` works, and each
 table below is a separate config. Any table converts to CSV with
 `pd.read_parquet(...).to_csv("outages.csv", index=False)`.
 
@@ -102,6 +102,12 @@ so one area's consecutive slots overlap by 30 minutes. A slot that spans a stage
 split into two rows, one per stage. To get the time an area spent without power, merge each
 area's intervals before summing, rather than adding up row durations.
 
+**Some blocks never appear.** City Power blocks 17 and 18 and eThekwini blocks 17 to 20 were
+only scheduled for power cuts at stages 7 and 8, which were never reached, so they have no rows
+in `outages`. The project also had two whole-day calendars, `eskom` and `city-of-cape-town`,
+that showed whether there was any loadshedding at all. They are not areas and are left out;
+`stage_timeline` holds the same information.
+
 **Short slots are kept.** The calendars hid power cuts of 30 minutes or less, which
 municipalities usually did not carry out. This dataset keeps them, so filter on duration if
 you want to match the calendars.
@@ -110,7 +116,7 @@ you want to match the calendars.
 
 ### `outages` (default)
 
-One row per scheduled power cut per area. __OUTAGE_ROWS__ rows.
+One row per scheduled power cut per area. 722,132 rows.
 
 | column | type | description |
 |---|---|---|
@@ -125,7 +131,7 @@ One row per scheduled power cut per area. __OUTAGE_ROWS__ rows.
 ### `stage_timeline`
 
 The resolved stage at every moment, separately for Cape Town and for everywhere else. Gaps
-mean no loadshedding. __TIMELINE_ROWS__ rows.
+mean no loadshedding. 1,845 rows.
 
 | column | type | description |
 |---|---|---|
@@ -137,7 +143,7 @@ mean no loadshedding. __TIMELINE_ROWS__ rows.
 
 ### `areas`
 
-One row per loadshedding area. __AREA_ROWS__ rows.
+One row per loadshedding area. 645 rows.
 
 | column | type | description |
 |---|---|---|
@@ -152,7 +158,7 @@ One row per loadshedding area. __AREA_ROWS__ rows.
 
 Suburbs, towns and farms each area covers, as written in the source schedules. Spelling is
 inconsistent and some names repeat, so expect to fuzzy-match. There are no boundaries or
-coordinates. __SUBURB_ROWS__ rows.
+coordinates. 38,751 rows.
 
 | column | type | description |
 |---|---|---|
@@ -163,7 +169,7 @@ coordinates. __SUBURB_ROWS__ rows.
 ### `area_schedules`
 
 The recurring schedule behind each area: for each day and stage, the time slots when the
-power is off. __SCHEDULE_ROWS__ rows.
+power is off. 392,252 rows.
 
 | column | type | description |
 |---|---|---|
@@ -182,7 +188,7 @@ power is off. __SCHEDULE_ROWS__ rows.
 The raw material: every entry of every version of the project's
 [`manually_specified.yaml`](https://github.com/beyarkay/eskom-calendar/blob/main/manually_specified.yaml),
 the hand-maintained file of announced stages. Use it to rebuild the timeline with different
-rules. __HISTORY_ROWS__ rows.
+rules. 7,673 rows.
 
 | column | type | description |
 |---|---|---|
@@ -206,14 +212,14 @@ It runs in three steps.
 
 Volunteers kept `manually_specified.yaml` up to date by hand, adding a stage, a start and
 end time, and a source link each time Eskom or the City of Cape Town announced a change.
-Entries were revised constantly: __REVISED__ entries were edited or deleted before they
+Entries were revised constantly: 1,861 entries were edited or deleted before they
 ended, mostly because Eskom changed its plans. Finished entries were also pruned to keep the
 file short.
 
 The build replays every commit in order. Each commit overrides the timeline from its
 earliest entry onward, so a later correction replaces whatever came before it, and pruned
-entries, which were removed oldest first in __PRUNED_OLDEST_FIRST__ of __PRUNED_TOTAL__
-cases, are kept. __SKIPPED__ commits could not have built the calendars (the YAML did not
+entries, which were removed oldest first in 1,657 of 1,677
+cases, are kept. 21 commits could not have built the calendars (the YAML did not
 parse, an entry had an impossible date, or entries overlapped) and are skipped, as they were
 at the time. Early entries ended at `hh:59` to avoid tripping an overlap check; these are
 read as ending on the hour.
@@ -226,8 +232,8 @@ placeholders as loadshedding. The build drops everything between 27 March and 31
 
 A stricter rule, under which each commit only counts from the moment it was made, gives the
 schedule as it was known in real time. It differs from the published timeline for
-__DISAGREE_COCT__ hours in Cape Town and __DISAGREE_REST__ hours elsewhere, out of
-__HOURS_COCT__ and __HOURS_REST__ hours of loadshedding. Most of the difference is the
+491 hours in Cape Town and 543 hours elsewhere, out of
+10,381 and 11,428 hours of loadshedding. Most of the difference is the
 delay between an announcement and the commit recording it.
 
 ### 2. Area schedules
@@ -244,8 +250,13 @@ during the period, and these use the version in force at the time:
 
 ### 3. Join
 
-The stage timeline and the area schedules are joined by the same Rust code that generated
-the published calendars, so each row matches what the calendars showed, or would have shown.
+Each stage in the timeline is matched to every area schedule slot at that stage, on each day
+the slot recurs, and the slot is clipped to the period the stage applied. This reimplements
+the Rust code that generated the published calendars, which was too slow for three years of
+data. Two checks tie the result to that code. For 13 areas covering every special case above,
+the build's `--verify` option reproduces the Rust code's output exactly (13,307 power cuts).
+And the last CSV the project published, covering 13 to 15 May 2025, matches this dataset
+exactly for all 571 areas in it (829 power cuts).
 
 ## Licence and attribution
 
@@ -263,7 +274,7 @@ commercial use, get in touch.
   title        = {Eskom Calendar: scheduled loadshedding by area in South Africa, 2022--2025},
   year         = {2026},
   publisher    = {Hugging Face},
-  howpublished = {\url{https://huggingface.co/datasets/__REPO_ID__}}
+  howpublished = {\url{https://huggingface.co/datasets/beyarkay/eskom-calendar-loadshedding}}
 }
 ```
 

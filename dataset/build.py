@@ -34,7 +34,6 @@ OUT = REPO / "dataset" / "out"
 BINARY = REPO / "target" / "release" / "eskom-calendar"
 SAST = timezone(timedelta(hours=2))
 TZ = "Africa/Johannesburg"
-AREA_CHUNK = 300
 CHANGE_CHUNK = 300
 
 # Last update to the announced stages (14 May 2025)
@@ -57,6 +56,10 @@ ETHEKWINI_OLD_BLOCKS = {f"kwazulu-natal-ethekwini-block-{i}" for i in range(1, 1
 # passed; the last one (15 May) was never removed. None of these were real loadshedding.
 SUSPENDED = (datetime(2024, 3, 27), datetime(2024, 6, 1))
 
+# Whole-day calendars showing whether there is any loadshedding; stage_timeline holds the same
+STAGE_CALENDARS = {"eskom", "city-of-cape-town"}
+
+COCT_REGEX = r"city-of-cape-town(-area-\d{1,2})?"  # the `coct` shorthand in src/structs.rs
 SCOPES = {"city_of_cape_town": {"include": "coct"}, "all_other_areas": {"exclude": "coct"}}
 
 
@@ -230,7 +233,7 @@ def schedule_versions() -> list[ScheduleVersion]:
     versions = []
     for path in tqdm(paths, desc="reading area schedules"):
         area = Path(path).stem
-        if area.startswith("city-power-"):
+        if area.startswith("city-power-") or area in STAGE_CALENDARS:
             continue
         text = git("show", f"{FINAL_COMMIT}:{path}")
         lo, hi = None, None
@@ -250,7 +253,51 @@ def schedule_versions() -> list[ScheduleVersion]:
     return versions
 
 
-def run_calendar_code(group: list[ScheduleVersion], manually_specified: str, added: dict) -> pl.DataFrame:
+def clipped_changes(
+    timeline: dict[str, list[tuple]], lo: datetime | None, hi: datetime | None
+) -> list[tuple]:
+    out = []
+    for scope, segs in timeline.items():
+        for a, b, stage, source, _ in segs:
+            a, b = max(a, lo or a), min(b, hi or b)
+            if a < b:
+                out.append((scope, a, b, stage, source))
+    return out
+
+
+def rust_join(versions: list[ScheduleVersion], timeline: dict[str, list[tuple]]) -> pl.DataFrame:
+    """Outages from the Rust calendar code itself. Slow, so only used by --verify on a few areas."""
+    groups = defaultdict(list)
+    for v in versions:
+        groups[(v.valid_from, v.valid_to)].append(v)
+    frames = []
+    for (lo, hi), group in groups.items():
+        changes = [
+            {"stage": stage, "start": a.isoformat(), "finsh": b.isoformat(), "source": source} | SCOPES[scope]
+            for scope, a, b, stage, source in clipped_changes(timeline, lo, hi)
+        ]
+        # Run time grows faster than linearly with the number of changes, whose outages are
+        # independent of each other
+        for j in tqdm(range(0, len(changes), CHANGE_CHUNK), desc="running the Rust calendar code"):
+            manually_specified = yaml.safe_dump(
+                {"changes": changes[j : j + CHANGE_CHUNK], "historical_changes": []}, sort_keys=False
+            )
+            commits = pl.DataFrame(
+                {"area_name": [v.area for v in group], "schedule_commit": [v.commit for v in group]}
+            )
+            frames.append(run_calendar_code(group, manually_specified).join(commits, on="area_name"))
+    ts = lambda c: pl.col(c).str.to_datetime("%Y-%m-%dT%H:%M:%S%z").dt.convert_time_zone(TZ)
+    return pl.concat(frames).select(
+        "area_name",
+        "source",
+        "schedule_commit",
+        start=ts("start"),
+        end=ts("finsh"),
+        stage=pl.col("stage").cast(pl.Int8),
+    )
+
+
+def run_calendar_code(group: list[ScheduleVersion], manually_specified: str) -> pl.DataFrame:
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
         (tmp / "generated").mkdir()
@@ -263,56 +310,125 @@ def run_calendar_code(group: list[ScheduleVersion], manually_specified: str, add
             raise RuntimeError(
                 f"eskom-calendar failed for {[v.area for v in group]}:\n{result.stderr[-3000:]}"
             )
-        df = pl.read_csv(tmp / "calendars" / "machine_friendly.csv", schema_overrides={"source": pl.String})
-    versions = pl.DataFrame(
-        {
-            "area_name": [v.area for v in group],
-            "schedule_commit": [v.commit for v in group],
-            "first_era": [v.valid_from is None for v in group],
-            "area_added_at": [added[v.area] for v in group],
-        }
+        return pl.read_csv(
+            tmp / "calendars" / "machine_friendly.csv",
+            schema={
+                "area_name": pl.String,
+                "start": pl.String,
+                "finsh": pl.String,
+                "stage": pl.Int64,
+                "source": pl.String,
+            },
+        )
+
+
+def join(schedules: pl.DataFrame, timeline: dict[str, list[tuple]]) -> pl.DataFrame:
+    """Vectorised gen_datetimes() from src/main.rs, which is too slow for three years of changes.
+
+    For every change, each date from the day before it starts to the day it ends is matched to
+    the schedule rows of the same stage that recur on that date. Each matching slot is clipped
+    to the change and kept if anything is left. --verify checks this against the Rust code.
+    """
+    sch = schedules.with_row_index("version_row").with_columns(
+        pl.col("valid_from", "valid_to").dt.replace_time_zone(None),
+        pl.col("start_time", "end_time").str.to_time("%H:%M"),
+        pl.col("start_of_cycle").str.to_date(),
+        is_coct=pl.col("area_name").str.contains(COCT_REGEX),
     )
-    return df.join(versions, on="area_name", how="left")
-
-
-def join(versions: list[ScheduleVersion], timeline: dict[str, list[tuple]], added: dict) -> pl.DataFrame:
-    groups = defaultdict(list)
-    for v in versions:
-        groups[(v.valid_from, v.valid_to)].append(v)
-
-    jobs = []
-    for (lo, hi), group in groups.items():
-        changes = []
-        for scope, segs in timeline.items():
-            for a, b, stage, source, _ in segs:
-                a, b = max(a, lo or a), min(b, hi or b)
-                if a < b:
-                    changes.append(
-                        {"stage": stage, "start": a.isoformat(), "finsh": b.isoformat(), "source": source}
-                        | SCOPES[scope]
-                    )
-        # Each change's outages are independent of the others, so the calendar code can be run
-        # on slices of the changes; its run time grows faster than linearly with their number
-        for j in range(0, len(changes), CHANGE_CHUNK):
-            manually_specified = yaml.safe_dump(
-                {"changes": changes[j : j + CHANGE_CHUNK], "historical_changes": []}, sort_keys=False
+    frames = []
+    for (lo, hi), group in tqdm(sch.group_by("valid_from", "valid_to"), desc="joining stages onto schedules"):
+        changes = pl.DataFrame(
+            [
+                {
+                    "is_coct": scope == "city_of_cape_town",
+                    "cstart": a,
+                    "cend": b,
+                    "stage": stage,
+                    "source": src,
+                }
+                for scope, a, b, stage, src in clipped_changes(timeline, lo, hi)
+            ],
+            schema_overrides={"stage": pl.Int8, "cstart": pl.Datetime("us"), "cend": pl.Datetime("us")},
+        ).with_row_index("change")
+        dates = (
+            changes.select(
+                "change",
+                "is_coct",
+                "stage",
+                date=pl.date_ranges(
+                    pl.col("cstart").dt.date() - pl.duration(days=1), pl.col("cend").dt.date()
+                ),
             )
-            for i in range(0, len(group), AREA_CHUNK):
-                jobs.append((group[i : i + AREA_CHUNK], manually_specified))
+            .explode("date")
+            .with_columns(
+                dom=pl.col("date").dt.day().cast(pl.Int16), dow=pl.col("date").dt.weekday().cast(pl.Int16)
+            )
+        )
+        keys = ["is_coct", "stage"]
+        cols = ["change", "date", "version_row", "start_time", "end_time"]
+        period = pl.col("period_of_cycle").cast(pl.Int64)
+        cycle_day = (
+            (pl.col("date") - pl.col("start_of_cycle")).dt.total_days() % period + period
+        ) % period + 1
+        matched = pl.concat(
+            [
+                dates.join(
+                    group.filter(pl.col("recurrence") == "monthly"),
+                    left_on=[*keys, "dom"],
+                    right_on=[*keys, "day"],
+                ).select(cols),
+                dates.join(
+                    group.filter(pl.col("recurrence") == "weekly"),
+                    left_on=[*keys, "dow"],
+                    right_on=[*keys, "day"],
+                ).select(cols),
+                dates.join(group.filter(pl.col("recurrence") == "periodic"), on=keys)
+                .filter(cycle_day == pl.col("day"))
+                .select(cols),
+            ]
+        )
+        slot_start = pl.col("date").dt.combine(pl.col("start_time"))
+        slot_end = pl.col("date").dt.combine(pl.col("end_time"))
+        frames.append(
+            matched.join(changes, on="change")
+            .with_columns(
+                slot_start=slot_start,
+                slot_end=pl.when(slot_end < slot_start)
+                .then(slot_end + pl.duration(days=1))
+                .otherwise(slot_end),
+            )
+            .with_columns(
+                start=pl.max_horizontal("cstart", "slot_start"), end=pl.min_horizontal("cend", "slot_end")
+            )
+            .filter(pl.col("start") < pl.col("cend"), pl.col("end") > pl.col("cstart"))
+            .join(group.select("version_row", "area_name", "schedule_commit"), on="version_row")
+            .select("area_name", "start", "end", "stage", "source", "schedule_commit")
+        )
+    return pl.concat(frames).with_columns(pl.col("start", "end").dt.replace_time_zone(TZ))
 
-    # One run at a time: each run of the calendar code peaks at about 4 GB regardless of its size
-    shards = OUT / "shards"
-    shards.mkdir(exist_ok=True)
-    for i, (group, manually_specified) in enumerate(tqdm(jobs, desc="joining stages onto area schedules")):
-        run_calendar_code(group, manually_specified, added).write_parquet(shards / f"{i:04}.parquet")
-    df = pl.read_parquet(shards / "*.parquet")
-    shutil.rmtree(shards)
-    ts = lambda c: pl.col(c).str.to_datetime("%Y-%m-%dT%H:%M:%S%z").dt.convert_time_zone(TZ)
-    added_tz = pl.col("area_added_at").dt.replace_time_zone(TZ)
+
+def verify(ours: pl.DataFrame, rust: pl.DataFrame):
+    key = ["area_name", "start", "end", "stage", "source", "schedule_commit"]
+    a, b = ours.group_by(key).len(), rust.group_by(key).len()
+    diff = a.join(b, on=key, how="full", coalesce=True, suffix="_rust").filter(
+        pl.col("len").fill_null(0) != pl.col("len_rust").fill_null(0)
+    )
+    print(f"verify: {ours.height} rows from the vectorised join, {rust.height} from the Rust code")
+    if diff.height:
+        print(diff.sort(key).head(20))
+        raise SystemExit(f"{diff.height} outages differ from the Rust calendar code")
+    print("verify: identical")
+
+
+def finish_outages(df: pl.DataFrame, schedules: pl.DataFrame) -> pl.DataFrame:
+    versions = schedules.select(
+        "area_name", "schedule_commit", "area_added_at", first_era=pl.col("valid_from").is_null()
+    ).unique()
     return (
-        df.with_columns(start=ts("start"), end=ts("finsh"), stage=pl.col("stage").cast(pl.Int8))
-        .with_columns(schedule_backfilled=pl.col("first_era") & (pl.col("start") < added_tz))
+        df.join(versions, on=["area_name", "schedule_commit"], how="left")
+        .with_columns(schedule_backfilled=pl.col("first_era") & (pl.col("start") < pl.col("area_added_at")))
         .select("area_name", "start", "end", "stage", "source", "schedule_commit", "schedule_backfilled")
+        .unique()
         .sort("area_name", "start", "stage")
     )
 
@@ -414,6 +530,8 @@ def area_frames(added: dict) -> tuple[pl.DataFrame, pl.DataFrame]:
     areas, suburbs = {}, []
     for entry in meta:
         name = entry["calendar_name"].removesuffix(".ics")
+        if name in STAGE_CALENDARS:
+            continue
         areas.setdefault(
             name,
             {
@@ -454,6 +572,9 @@ def main():
     parser.add_argument(
         "--areas", help="only build outages for areas matching this regex, to check a change quickly"
     )
+    parser.add_argument(
+        "--verify", action="store_true", help="check the outages against the Rust calendar code (slow)"
+    )
     args = parser.parse_args()
 
     subprocess.run(["cargo", "build", "--release"], cwd=REPO, check=True)
@@ -468,13 +589,18 @@ def main():
     if args.areas:
         versions = [v for v in versions if re.search(args.areas, v.area)]
 
+    schedules = schedules_frame(versions, added)
+    outages = join(schedules, final)
+    if args.verify:
+        verify(outages, rust_join(versions, final))
+
     areas, suburbs = area_frames(added)
     tables = {
-        "outages": join(versions, final, added),
+        "outages": finish_outages(outages, schedules),
         "stage_timeline": timeline_frame(final),
         "areas": areas,
         "suburbs": suburbs,
-        "area_schedules": schedules_frame(versions, added),
+        "area_schedules": schedules,
         "stage_file_history": history_frame(commits),
     }
     for name, df in tables.items():
