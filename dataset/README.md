@@ -49,7 +49,7 @@ of those commits.
 ```python
 import pandas as pd
 
-base = "hf://datasets/beyarkay/eskom-calendar-loadshedding/data"
+base = "hf://datasets/beyarkay/south-africa-loadshedding/data"
 outages = pd.read_parquet(f"{base}/outages.parquet")
 
 # Hours each Cape Town area was scheduled to be without power in October 2023
@@ -57,7 +57,7 @@ cpt = outages[outages.area_name.str.startswith("city-of-cape-town-area-")]
 oct23 = cpt[(cpt.start >= "2023-10-01") & (cpt.start < "2023-11-01")]
 ```
 
-With the `datasets` library, `load_dataset("beyarkay/eskom-calendar-loadshedding", "outages")` works, and each
+With the `datasets` library, `load_dataset("beyarkay/south-africa-loadshedding", "outages")` works, and each
 table below is a separate config. Any table converts to CSV with
 `pd.read_parquet(...).to_csv("outages.csv", index=False)`.
 
@@ -274,7 +274,7 @@ commercial use, get in touch.
   title        = {Eskom Calendar: scheduled loadshedding by area in South Africa, 2022--2025},
   year         = {2026},
   publisher    = {Hugging Face},
-  howpublished = {\url{https://huggingface.co/datasets/beyarkay/eskom-calendar-loadshedding}}
+  howpublished = {\url{https://huggingface.co/datasets/beyarkay/south-africa-loadshedding}}
 }
 ```
 
