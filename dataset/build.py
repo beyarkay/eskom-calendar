@@ -14,12 +14,10 @@ Hugging Face. See `dataset/README.md` for the method and its caveats.
 
 import bisect
 import json
-import os
 import shutil
 import subprocess
 import tempfile
 from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -33,7 +31,8 @@ OUT = REPO / "dataset" / "out"
 BINARY = REPO / "target" / "release" / "eskom-calendar"
 SAST = timezone(timedelta(hours=2))
 TZ = "Africa/Johannesburg"
-CHUNK_SIZE = 40
+AREA_CHUNK = 300
+CHANGE_CHUNK = 300
 
 # Last commit on main before the project went dormant (6 March 2024)
 FINAL_COMMIT = "f9a3e54bd21e99eaf3d3937a4d331c4aa63236fb"
@@ -267,20 +266,22 @@ def join(versions: list[ScheduleVersion], timeline: dict[str, list[tuple]], adde
                         {"stage": stage, "start": a.isoformat(), "finsh": b.isoformat(), "source": source}
                         | SCOPES[scope]
                     )
-        manually_specified = yaml.safe_dump({"changes": changes, "historical_changes": []}, sort_keys=False)
-        for i in range(0, len(group), CHUNK_SIZE):
-            jobs.append((group[i : i + CHUNK_SIZE], manually_specified))
-
-    with ThreadPoolExecutor(max_workers=max(1, (os.cpu_count() or 2) // 2)) as pool:
-        futures = [pool.submit(run_calendar_code, g, m, added) for g, m in jobs]
-        frames = [
-            f.result()
-            for f in tqdm(
-                as_completed(futures), total=len(futures), desc="joining stages onto area schedules"
+        # Each change's outages are independent of the others, so the calendar code can be run
+        # on slices of the changes; its run time grows faster than linearly with their number
+        for j in range(0, len(changes), CHANGE_CHUNK):
+            manually_specified = yaml.safe_dump(
+                {"changes": changes[j : j + CHANGE_CHUNK], "historical_changes": []}, sort_keys=False
             )
-        ]
+            for i in range(0, len(group), AREA_CHUNK):
+                jobs.append((group[i : i + AREA_CHUNK], manually_specified))
 
-    df = pl.concat(frames)
+    # One run at a time: each run of the calendar code peaks at about 4 GB regardless of its size
+    shards = OUT / "shards"
+    shards.mkdir(exist_ok=True)
+    for i, (group, manually_specified) in enumerate(tqdm(jobs, desc="joining stages onto area schedules")):
+        run_calendar_code(group, manually_specified, added).write_parquet(shards / f"{i:04}.parquet")
+    df = pl.read_parquet(shards / "*.parquet")
+    shutil.rmtree(shards)
     ts = lambda c: pl.col(c).str.to_datetime("%Y-%m-%dT%H:%M:%S%z").dt.convert_time_zone(TZ)
     added_tz = pl.col("area_added_at").dt.replace_time_zone(TZ)
     return (
