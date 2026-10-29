@@ -52,6 +52,11 @@ CITY_POWER_UPDATES = [
 ETHEKWINI_SWITCH = datetime(2023, 5, 25)
 ETHEKWINI_OLD_BLOCKS = {f"kwazulu-natal-ethekwini-block-{i}" for i in range(1, 17)}
 
+# Eskom suspended loadshedding on 27 March 2024. Until May, contributors kept a short stage 1 entry a
+# few days ahead and moved it each time the suspension was extended, sometimes only after it had
+# passed; the last one (15 May) was never removed. None of these were real loadshedding.
+SUSPENDED = (datetime(2024, 3, 27), datetime(2024, 6, 1))
+
 SCOPES = {"city_of_cape_town": {"include": "coct"}, "all_other_areas": {"exclude": "coct"}}
 
 
@@ -158,6 +163,10 @@ def resolve(commits: list[Commit], rule: str) -> dict[str, list[tuple]]:
         first = False
 
     for s, segs in timeline.items():
+        lo, hi = SUSPENDED
+        segs = [(a, min(b, lo), *rest) for a, b, *rest in segs if a < lo] + [
+            (max(a, hi), b, *rest) for a, b, *rest in segs if b > hi
+        ]
         merged = []
         for seg in segs:
             if merged and merged[-1][1] == seg[0] and merged[-1][2:4] == seg[2:4]:

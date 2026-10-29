@@ -2,7 +2,7 @@
 license: cc-by-nc-sa-4.0
 language:
 - en
-pretty_name: "Eskom Calendar: scheduled loadshedding by area in South Africa, 2022-2024"
+pretty_name: "Eskom Calendar: scheduled loadshedding by area in South Africa, 2022-2025"
 tags:
 - load-shedding
 - loadshedding
@@ -30,7 +30,7 @@ configs:
   data_files: data/stage_file_history.parquet
 ---
 
-# Eskom Calendar: scheduled loadshedding by area in South Africa, 2022-2024
+# Eskom Calendar: scheduled loadshedding by area in South Africa, 2022-2025
 
 This dataset lists every scheduled loadshedding power cut for __AREAS__ South African
 loadshedding areas between __START__ and __END__. Each row of the main table gives an area,
@@ -39,8 +39,7 @@ that set that stage.
 
 It was rebuilt from the git history of
 [eskom-calendar](https://github.com/beyarkay/eskom-calendar), an open-source project that
-published loadshedding schedules as calendar files and a CSV between July 2022 and March
-2024. The published CSV only ever held upcoming power cuts, and each update replaced the
+published loadshedding schedules as calendar files and a CSV from July 2022 to May 2025. The published CSV only ever held upcoming power cuts, and each update replaced the
 previous one, so no single file ever held the history. The history survives because every
 change to the announced stages was a git commit. This dataset replays all __COMMITS__
 of those commits.
@@ -72,9 +71,10 @@ announced at the time, the area's published schedule called for the power to be 
 one checked whether it went off. Municipalities sometimes ran late, skipped slots, or had
 unrelated faults, and some customers were exempt.
 
-**Coverage is 13 July 2022 to 9 March 2024.** The project did not exist before July 2022
-and stopped updating in March 2024. Loadshedding before then, which goes back to 2007, and
-any after March 2024 are missing.
+**Coverage is 7 July 2022 to 15 May 2025.** Almost all of it falls between July 2022 and
+26 March 2024, when loadshedding was nearly continuous. After that there is none until short
+bouts in February, March and May 2025. Loadshedding before July 2022, which goes back to
+2007, is missing, as is anything after May 2025.
 
 **Only the City of Cape Town has its own stages.** Cape Town used its own Steenbras
 hydro-electric scheme to run a lower stage than the rest of the country much of the time. From 23 September
@@ -83,6 +83,14 @@ Town areas use the national stage, which will overstate Cape Town's power cuts w
 City ran a lower stage. Every other municipality, including the other metros (City Power,
 Tshwane, Ekurhuleni, eThekwini, Nelson Mandela Bay and others), uses the national stage
 announced by Eskom.
+
+**In 2025, Cape Town has no data.** The 2025 announcements were recorded for everywhere
+except Cape Town, and nobody recorded the City's own stages, so Cape Town areas show no
+loadshedding in 2025. Treat that as missing, not as zero.
+
+**Schedules were last updated in January 2024.** Power cuts in 2024 and 2025 use the area
+schedules as they stood then. A municipality that changed its schedule later is not
+reflected.
 
 **Some area schedules are backfilled.** The project added municipalities over time. An
 area's schedule is applied to dates before it was added to the project, and those rows have
@@ -210,6 +218,12 @@ parse, an entry had an impossible date, or entries overlapped) and are skipped, 
 at the time. Early entries ended at `hh:59` to avoid tripping an overlap check; these are
 read as ending on the hour.
 
+One period is overridden by hand. Eskom suspended loadshedding on 27 March 2024, and until
+May contributors kept a short stage 1 entry a few days ahead, moving it each time Eskom
+extended the suspension. Some moves came only after the entry's time had passed, and the
+last entry (15 May 2024) was never removed, so replaying the commits would count these
+placeholders as loadshedding. The build drops everything between 27 March and 31 May 2024.
+
 A stricter rule, under which each commit only counts from the moment it was made, gives the
 schedule as it was known in real time. It differs from the published timeline for
 __DISAGREE_COCT__ hours in Cape Town and __DISAGREE_REST__ hours elsewhere, out of
@@ -246,7 +260,7 @@ commercial use, get in touch.
 ```bibtex
 @misc{kane_eskom_calendar_2026,
   author       = {Kane, Boyd and {eskom-calendar contributors}},
-  title        = {Eskom Calendar: scheduled loadshedding by area in South Africa, 2022--2024},
+  title        = {Eskom Calendar: scheduled loadshedding by area in South Africa, 2022--2025},
   year         = {2026},
   publisher    = {Hugging Face},
   howpublished = {\url{https://huggingface.co/datasets/__REPO_ID__}}
@@ -265,5 +279,6 @@ cd eskom-calendar
 uv run dataset/build.py  # needs git, uv and a Rust toolchain; writes dataset/out/
 ```
 
-The build reads only git history up to commit `f9a3e54` (6 March 2024), so it gives the
-same output on any later checkout.
+The build reads only git history up to commit `fdfbad7` (14 May 2025, the last change to
+the announced stages), so it gives the same output on any later checkout. To check a change
+quickly, `uv run dataset/build.py --areas 'city-of-cape-town-area-1$'` builds one area.
