@@ -43,6 +43,12 @@
 
 Eskom-calendar is now archived. Loadshedding seems to have stopped. I might revive the project if needs arise in the future, and leave this here for curious minds.
 
+**Looking for historical data?** Every scheduled power cut the project tracked, for 645 areas
+from July 2022 to May 2025, is on Hugging Face at
+[beyarkay/south-africa-loadshedding](https://huggingface.co/datasets/beyarkay/south-africa-loadshedding).
+The dataset page explains how it was built and where it falls short, and
+[`dataset/build.py`](dataset/build.py) rebuilds it from this repository's history.
+
 ## Testimonials
 
 <table align="center">
